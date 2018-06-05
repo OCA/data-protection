@@ -17,7 +17,7 @@
 
         <record id="group_data_protection_manager" model="res.groups">
             <field name="name">Data Protection Manager</field>
-            <field name="implied_ids" eval="[(4, ref('data_protection_base.group_data_protection_user'))]"/>
+            <field name="implied_ids" eval="[(4, ref('privacy.group_data_protection_user'))]"/>
             <field name="category_id" ref="module_category_data_protection"/>
         </record>
 

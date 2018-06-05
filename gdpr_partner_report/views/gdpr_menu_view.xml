@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Copyright 2018 Eficent Business and IT Consulting Services S.L.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<openerp>
+    <data>
+
+        <menuitem id="menu_data_protection_report_gdpr_report"
+                  name="Partner Report"
+                  parent="gdpr_base.menu_data_protection_report_gdpr"
+                  groups="data_protection_base.group_data_protection_user,data_protection_base.group_data_protection_manager"
+                  sequence="10"
+                  action="gdpr_partner_report.action_gdpr_partner_menu"
+        />
+
+    </data>
+</openerp>

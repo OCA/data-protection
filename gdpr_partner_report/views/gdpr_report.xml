@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <report
+        id="action_report_partner_data"
+        model="gdpr.partner.report"
+        string="GDPR Partner Data"
+        report_type="qweb-pdf"
+        name="gdpr.report_partner"
+        file="gdpr.report_partner"
+    />
+
+    <record id="action_report_partner_data_xlsx" model="ir.actions.report.xml">
+      <field name="name">GDPR Partner Data to Excel</field>
+      <field name="model">gdpr.partner.report</field>
+      <field name="type">ir.actions.report.xml</field>
+      <field name="report_name">gdpr.report_partner_xlsx</field>
+      <field name="report_type">xlsx</field>
+      <field name="auto" eval="False"/>
+    </record>
+</data>
+</openerp>

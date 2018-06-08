@@ -23,31 +23,31 @@
               name="Master Data"
               parent="parent_menu_data_protection"
               groups="group_data_protection_user"
-              sequence="2"
+              sequence="10"
     />
     <menuitem id="menu_data_protection_partner"
               name="Partners"
               parent="menu_data_protection_master_data"
               action="action_data_protection_partner_form"
-              sequence="10"
+              sequence="1010"
     />
     <menuitem id="menu_data_protection_transaction"
               name="Transactions"
               parent="parent_menu_data_protection"
               groups="group_data_protection_user"
-              sequence="3"
+              sequence="20"
     />
     <menuitem id="menu_data_protection_report"
               name="Reports"
               parent="parent_menu_data_protection"
               groups="group_data_protection_user"
-              sequence="4"
+              sequence="30"
     />
     <menuitem id="menu_data_protection_setting"
               name="Settings"
               parent="parent_menu_data_protection"
               groups="group_data_protection_manager"
-              sequence="15"
+              sequence="90"
     />
 
 </data>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Eficent Business and IT Consulting Services S.L.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo>
+
+    <record id="privacy_partner_report_wizard" model="ir.ui.view">
+        <field name="name">Partner Report</field>
+        <field name="model">privacy.partner.report</field>
+        <field name="arch" type="xml">
+        <form string="Report Options">
+            <group groups="base.group_multi_company">
+                <group>
+                    <span >Select a company</span><br/>
+                    <field name="company_id" options="{'no_create': True}" nolabel="1" />
+                </group>
+            </group>
+            <group>
+                <group>
+                    <span>Select a partner</span><br/>
+                    <field name="partner_id" options="{'no_create': True}" nolabel="1" domain="[('company_id', 'in', [False, company_id])]"/>
+                </group>
+            </group>
+            <group attrs="{'invisible': [('partner_id', '=', False)]}" col="1">
+                <field name="table_ids" options="{'no_create': True}" editable="bottom">
+                    <tree>
+                        <field name="model_id"/>
+                        <field name="count_rows" text-align="right"/>
+                    </tree>
+                </field>
+            </group>
+            <footer>
+                <button name="button_export_xlsx" string="Export XLSX" type="object" default_focus="1" class="oe_highlight"/>
+                or
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+    <record id="action_privacy_partner_menu" model="ir.actions.act_window">
+        <field name="name">Partner Report</field>
+        <field name="res_model">privacy.partner.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="privacy_partner_report_wizard"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

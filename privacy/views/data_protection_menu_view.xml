@@ -17,6 +17,7 @@
     <menuitem id="parent_menu_data_protection"
               name="Privacy"
               groups="group_data_protection_user"
+              web_icon="privacy,static/description/icon.png"
     />
 
     <menuitem id="menu_data_protection_master_data"

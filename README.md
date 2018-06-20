@@ -6,6 +6,13 @@
 Odoo modules for data protection (like GDPR).
 
 [//]: # (addons)
+
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[privacy](privacy/) | 9.0.1.0.0 | Provides data privacy and protection features to comply to regulations, such as GDPR.
+
 [//]: # (end addons)
 
 ----

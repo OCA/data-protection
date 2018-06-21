@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* privacy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: privacy
+#: model:ir.module.category,name:privacy.module_category_data_protection
+msgid "Data Protection"
+msgstr ""
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_manager
+msgid "Data Protection Manager"
+msgstr ""
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_user
+msgid "Data Protection User"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
+msgid "Master Data"
+msgstr ""
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
+#: model:ir.ui.menu,name:privacy.menu_data_protection_partner
+msgid "Partners"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.parent_menu_data_protection
+msgid "Privacy"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_report
+msgid "Reports"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_setting
+msgid "Settings"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
+msgid "Transactions"
+msgstr ""
+

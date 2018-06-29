@@ -21,5 +21,9 @@
             <field name="category_id" ref="module_category_data_protection"/>
         </record>
 
+        <record id="base.user_root" model="res.users">
+            <field name="groups_id" eval="[(4, ref('group_data_protection_manager'))]"/>
+        </record>
+
     </data>
 </odoo>

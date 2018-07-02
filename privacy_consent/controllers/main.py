@@ -6,7 +6,6 @@ from datetime import datetime
 
 from werkzeug.exceptions import NotFound
 
-from odoo import SUPERUSER_ID
 from odoo.http import Controller, request, route
 
 from odoo.addons.web.controllers.main import ensure_db

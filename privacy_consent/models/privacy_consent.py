@@ -87,7 +87,7 @@ class PrivacyConsent(models.Model):
         ).hexdigest()
 
     def _url(self, accept):
-        """Tokenized absolute URL to let subject decide consent.
+        """Tokenized URL to let subject decide consent.
 
         :param bool accept:
             Indicates if you want the acceptance URL, or the rejection one.

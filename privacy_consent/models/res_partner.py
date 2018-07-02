@@ -13,14 +13,14 @@ class ResPartner(models.Model):
         "partner_id",
         "Privacy consents",
     )
-    privacy_consent_ids_count = fields.Integer(
+    privacy_consent_count = fields.Integer(
         "Consents",
-        compute="_compute_privacy_consent_ids_count",
+        compute="_compute_privacy_consent_count",
         help="Privacy consent requests amount",
     )
 
     @api.depends("privacy_consent_ids")
-    def _compute_privacy_consent_ids_count(self):
+    def _compute_privacy_consent_count(self):
         """Count consent requests."""
         groups = self.env["privacy.consent"].read_group(
             [("partner_id", "in", self.ids)],
@@ -29,4 +29,4 @@ class ResPartner(models.Model):
         )
         for group in groups:
             self.browse(group["partner_id"][0], self._prefetch) \
-                .privacy_consent_ids_count = group["partner_id_count"]
+                .privacy_consent_count = group["partner_id_count"]

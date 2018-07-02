@@ -19,7 +19,7 @@
                     type="action"
                 >
                     <field
-                        name="consent_ids_count"
+                        name="consent_count"
                         widget="statinfo"
                     />
                 </button>

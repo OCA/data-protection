@@ -24,9 +24,9 @@ class PrivacyActivity(models.Model):
         "activity_id",
         "Consents",
     )
-    consent_ids_count = fields.Integer(
+    consent_count = fields.Integer(
         "Consents",
-        compute="_compute_consent_ids_count",
+        compute="_compute_consent_count",
     )
     consent_required = fields.Selection(
         [("auto", "Automatically"), ("manual", "Manually")],
@@ -65,9 +65,15 @@ class PrivacyActivity(models.Model):
         return self.env.ref("privacy_consent.template_consent", False)
 
     @api.depends("consent_ids")
-    def _compute_consent_ids_count(self):
-        for one in self:
-            one.consent_ids_count = len(one.consent_ids)
+    def _compute_consent_count(self):
+        groups = self.env["privacy.consent"].read_group(
+            [("activity_id", "in", self.ids)],
+            ["activity_id"],
+            ["activity_id"],
+        )
+        for group in groups:
+            self.browse(group["activity_id"][0], self._prefetch) \
+                .consent_count = group["activity_id_count"]
 
     def _compute_consent_template_defaults(self):
         """Used in context values, to help users design new templates."""
@@ -87,10 +93,10 @@ class PrivacyActivity(models.Model):
                     "Specify a mail template to ask automated consent."
                 ))
 
-    @api.constrains("consent_required", "subjects_find")
-    def _check_consent_required_subjects_find(self):
+    @api.constrains("consent_required", "subject_find")
+    def _check_consent_required_subject_find(self):
         for one in self:
-            if one.consent_required and not one.subjects_find:
+            if one.consent_required and not one.subject_find:
                 raise ValidationError(_(
                     "Require consent is available only for subjects "
                     "in current database."
@@ -103,10 +109,10 @@ class PrivacyActivity(models.Model):
         automatic.action_new_consents()
 
     @api.onchange("consent_required")
-    def _onchange_consent_required_subjects_find(self):
+    def _onchange_consent_required_subject_find(self):
         """Find subjects automatically if we require their consent."""
         if self.consent_required:
-            self.subjects_find = True
+            self.subject_find = True
 
     def action_new_consents(self):
         """Generate new consent requests."""
@@ -114,7 +120,7 @@ class PrivacyActivity(models.Model):
         # Skip activitys where consent is not required
         for one in self.with_context(active_test=False) \
                 .filtered("consent_required"):
-            domain = safe_eval(one.subjects_domain)
+            domain = safe_eval(one.subject_domain)
             domain += [
                 ("id", "not in", one.mapped("consent_ids.partner_id").ids),
                 ("email", "!=", False),

@@ -59,8 +59,8 @@ class ActivityCase(HttpCase):
         self.activity_auto = self.env["privacy.activity"].create({
             "name": "activity_auto",
             "description": "I'm activity auto",
-            "subjects_find": True,
-            "subjects_domain": repr([("id", "in", self.partners.ids)]),
+            "subject_find": True,
+            "subject_domain": repr([("id", "in", self.partners.ids)]),
             "consent_required": "auto",
             "default_consent": True,
             "server_action_id": self.update_opt_out.id,
@@ -69,8 +69,8 @@ class ActivityCase(HttpCase):
         self.activity_manual = self.env["privacy.activity"].create({
             "name": "activity_manual",
             "description": "I'm activity 3",
-            "subjects_find": True,
-            "subjects_domain": repr([("id", "in", self.partners[1:].ids)]),
+            "subject_find": True,
+            "subject_domain": repr([("id", "in", self.partners[1:].ids)]),
             "consent_required": "manual",
             "default_consent": False,
             "server_action_id": self.update_opt_out.id,
@@ -141,17 +141,17 @@ class ActivityCase(HttpCase):
         # Test the onchange helper
         onchange_activity1 = self.env["privacy.activity"].new(
             self.activity_noconsent.copy_data()[0])
-        self.assertFalse(onchange_activity1.subjects_find)
+        self.assertFalse(onchange_activity1.subject_find)
         onchange_activity1.consent_required = "auto"
-        onchange_activity1._onchange_consent_required_subjects_find()
-        self.assertTrue(onchange_activity1.subjects_find)
+        onchange_activity1._onchange_consent_required_subject_find()
+        self.assertTrue(onchange_activity1.subject_find)
         # Test very dumb user that forces an error
         with self.assertRaises(ValidationError):
             self.activity_noconsent.consent_required = "manual"
 
     def test_template_required_auto(self):
         """Automatic consent activities need a template."""
-        self.activity_noconsent.subjects_find = True
+        self.activity_noconsent.subject_find = True
         self.activity_noconsent.consent_template_id = False
         self.activity_noconsent.consent_required = "manual"
         with self.assertRaises(ValidationError):

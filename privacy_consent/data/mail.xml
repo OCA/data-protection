@@ -129,6 +129,7 @@
         <field name="hidden" eval="False"/>
         <field name="internal" eval="True"/>
         <field name="parent_id" ref="mt_consent_consent_new"/>
+        <field name="relation_field">activity_id</field>
     </record>
     <record id="mt_activity_acceptance_changed" model="mail.message.subtype">
         <field name="name">Acceptance Changed</field>
@@ -138,6 +139,7 @@
         <field name="hidden" eval="False"/>
         <field name="internal" eval="True"/>
         <field name="parent_id" ref="mt_consent_acceptance_changed"/>
+        <field name="relation_field">activity_id</field>
     </record>
     <record id="mt_activity_state_changed" model="mail.message.subtype">
         <field name="name">State Changed</field>
@@ -147,6 +149,7 @@
         <field name="hidden" eval="False"/>
         <field name="internal" eval="True"/>
         <field name="parent_id" ref="mt_consent_state_changed"/>
+        <field name="relation_field">activity_id</field>
     </record>
 
 </data>

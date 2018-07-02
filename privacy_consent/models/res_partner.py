@@ -28,5 +28,5 @@ class ResPartner(models.Model):
             ["partner_id"],
         )
         for group in groups:
-            self.browse(group["partner_id"], self._prefetch) \
-                .privacy_consent_ids_count = group["__count"]
+            self.browse(group["partner_id"][0], self._prefetch) \
+                .privacy_consent_ids_count = group["partner_id_count"]

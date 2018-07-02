@@ -8,28 +8,6 @@ from odoo.exceptions import ValidationError
 from psycopg2 import IntegrityError
 import base64
 
-class CrmLead(models.Model):
-    _inherit = "crm.lead"
-
-    email_link = fields.Char("Email verification link")
-
-class ResContacts(models.Model):
-    _inherit = "res.partner"
-
-
-    contact_type = fields.Selection(
-        [('no_contact', 'I do not want to be contacted.'),
-         ('email_contact', 'I only want to be contacted by Email.'),
-         ('phone_contact', 'I only want to be contacted by Phone.'),
-         ('email_phone_contact', 'You can contact me by Email or Phone.')
-        ], string='Contact Type',
-        default='email_contact',
-        help="Which way user want to be contacted.")
-    letter_contact = fields.Boolean("Letter Contact")
-    phone_contact = fields.Boolean("Phone Contact")
-    email_contact = fields.Boolean("Email Contact")
-    is_verified = fields.Boolean("Verified Email")
-    last_updated = fields.Datetime("Letzte Aktualisierung")
 
 class VerifyController(http.Controller):
     @http.route('/verify_email', type='http', auth="public", methods=['GET'], website=True)
@@ -48,7 +26,7 @@ class VerifyController(http.Controller):
             link = datetime.datetime.strptime(link_date,"%Y%m%d").date()
             diff = today - link
             if diff.days > 5 or diff.days < 0:
-                return "<center style='color:red'>Der link ist leider nicht gültig.<br/>Der von Ihnen eingegebene Link ist nicht gültig, oder ist abgelaufen.<br/>Bitte fordern Sie einen neuen Link an.</center>"
+                return "<center style='color:red'>Not valid!<br/>The link you entered is either not valid or expired.<br/>Please request a new link.</center>"
             partner = request.env['res.partner'].sudo().search([('email','=',email),('name','=',contact_name)])
             if partner:
                 for part in partner:
@@ -66,10 +44,10 @@ class VerifyController(http.Controller):
                         part.letter_contact = True
                     else:
                         part.letter_contact = False
-                    template = request.env.ref('itis_gdpr_extension.confirmation_email_template').sudo().send_mail(part.id)
-                return "<center style='color:green'>Vielen Dank! Ihre E-Mail-Adresse wurde verifiziert!</center>"
+                    template = request.env.ref('website_contact_extend.confirmation_email_template').sudo().send_mail(part.id)
+                return "<center style='color:green'>Thank You! Your email address has been verified!</center>"
             else:
-                return "<center style='color:red'>Der link ist leider nicht gültig.<br/>Der von Ihnen eingegebene Link ist nicht gültig, oder ist abgelaufen.<br/>Bitte fordern Sie einen neuen Link an.</center>"
+                return "<center style='color:red'>Not valid!<br/>The link you entered is either not valid or expired.<br/>Please request a new link.</center>"
 
 
 
@@ -135,7 +113,7 @@ class MyFilter(parent_controller.WebsiteForm):
                 )
                 if crm_lead_obj:
                     crm_lead_obj.email_link = action_url
-                template = request.env.ref('itis_gdpr_extension.verification_email_template').send_mail(id_record)
+                template = request.env.ref('website_contact_extend.verification_email_template').send_mail(id_record)
         # Some fields have additional SQL constraints that we can't check generically
         # Ex: crm.lead.probability which is a float between 0 and 1
         # TODO: How to get the name of the erroneous field ?

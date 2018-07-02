@@ -20,42 +20,38 @@
 ##############################################################################
 
 {
-    'name': "IT IS GDPR Extension",
+    'name': "Contact Search Form",
 
     'summary': """
-        Extended Website Contact View to give Customer the option on how to be contacted.
-        View for DPO to look up Customer Data.
-        Newletter Double Opt-In and -Out extending the Odoo mass_mailing module.
+
+        View for Data Protection Officer (DPO) to look up Customer Data. Odoo models can be searched for specified string.
+
         """,
 
     'description': """
-        Extended Website Contact View to give Customer the option on how to be contacted.
-        View for DPO to look up Customer Data.
-        Newletter Double Opt-In and -Out extending the Odoo mass_mailing module.
+
+        View for Data Protection Officer (DPO) to look up Customer Data. Odoo models can be searched for specified string.
+        To access contact search in contacts view, user must activate 'Data Protection Officer' checkbox in Technical Settings.
+
     """,
 
-    'author': "IT IS AG",
-    'website': "http://www.itis-odoo.de",
+    'author': "IT IS AG, Odoo Community Association (OCA)",
+    'website': "https://github.com/OCA/data-protection",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
-    'version': '0.1',
-    'category': 'Website',
+    'version': '11.0.1.0.0',
+    'category': 'Contacts',
     'depends': ['base',
-                'website',
-                'mass_mailing',
                 'contacts',
-                'website_crm',
+                #'website_crm',
                 ],
 
     'data': [
-        'views/contact_view.xml',
         'security/gdpr_security.xml',
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/contact_report.xml',
+        'views/contact_search.xml',
     ],
-    'icon': "/itis_gdpr_extension/static/src/img/itisag.png",
 
 }

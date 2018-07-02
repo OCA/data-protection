@@ -6,14 +6,14 @@
             string="Contact Report"
             model="res.partner"
             report_type="qweb-pdf"
-            file="itis_gdpr_extension.contact_report"
-            name="itis_gdpr_extension.contact_report"
+            file="website_contact_extend.contact_report"
+            name="website_contact_extend.contact_report"
         />
 
         <template id="contact_report">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="doc">
-                    <t t-call="itis_gdpr_extension.report_contact_document" t-lang="doc.lang"/>
+                    <t t-call="website_contact_extend.report_contact_document" t-lang="doc.lang"/>
                 </t>
             </t>
         </template>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <odoo>
     <template id="contactus_form_inherited" name="Contact Form" inherit_id="website_crm.contactus_form" customize_show="True">
         <xpath expr="//div[@class='form-group form-field o_website_form_required_custom'][last()]" position="after">
@@ -24,22 +25,5 @@
             </div>
         </xpath>
     </template>
-    <record id="view_partner_form_dsgvo_inherit" model="ir.ui.view">
-        <field name="name">res.partner.form</field>
-        <field name="model">res.partner</field>
-        <field eval="1" name="priority"/>
-        <field name="inherit_id" ref="base.view_partner_form"/>
-        <field name="arch" type="xml">
-            <field name="website"  position="after">
-                <!--<field name="contact_type" />-->
-                <field name="phone_contact" readonly="True" />
-                <field name="email_contact" readonly="True" />
-                <field name="letter_contact" readonly="True" />
-                <field name="is_verified" readonly="True" />
-                <field name="last_updated" readonly="True" />
-            </field>
-        </field>
-    </record>
-
 
 </odoo>

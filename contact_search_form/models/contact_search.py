@@ -78,9 +78,9 @@ class ItisDpoView(models.Model):
             raise UserError(_("No record found with "+self.name+"."))
 
 
-    def _search_tables(self):
-        user_id = self.env['res.users'].browse('email', '=', self.email)
-        # field user_info could be an array containg the fields we want to display...
-        partner_id = self.env['res.partner'].browse('email', '=', self.email)
-        crm_id = self.env['crm.lead'].browse('email', '=', self.email)
-        mm_id = self.env['mail.mass_mailing'].browse('email', '=', self.email)
+    # def _search_tables(self):
+    #     user_id = self.env['res.users'].browse('email', '=', self.email)
+    #     # field user_info could be an array containg the fields we want to display...
+    #     partner_id = self.env['res.partner'].browse('email', '=', self.email)
+    #     crm_id = self.env['crm.lead'].browse('email', '=', self.email)
+    #     mm_id = self.env['mail.mass_mailing'].browse('email', '=', self.email)

@@ -1,23 +1,23 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* itis_gdpr_extension
+# 	* website_contact_extend
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-22 12:53+0000\n"
-"PO-Revision-Date: 2018-06-22 15:22+0100\n"
+"POT-Creation-Date: 2018-07-02 12:18+0000\n"
+"PO-Revision-Date: 2018-07-02 14:26+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_US\n"
 "X-Generator: Poedit 1.5.4\n"
+"Language: en_US\n"
 
-#. module: itis_gdpr_extension
-#: model:mail.template,body_html:itis_gdpr_extension.verification_email_template
+#. module: website_contact_extend
+#: model:mail.template,body_html:website_contact_extend.verification_email_template
 msgid ""
 "\n"
 "            <p>\n"
@@ -53,8 +53,8 @@ msgstr ""
 "        \n"
 "        "
 
-#. module: itis_gdpr_extension
-#: model:mail.template,body_html:itis_gdpr_extension.confirmation_email_template
+#. module: website_contact_extend
+#: model:mail.template,body_html:website_contact_extend.confirmation_email_template
 msgid ""
 "\n"
 "            <p>\n"
@@ -80,8 +80,8 @@ msgstr ""
 "        \n"
 "        "
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "(2)    <span class=\"T2\">□ </span><span class=\"T7\">Die </"
 "span>personenbezogene Daten <span class=\"T7\">werden nicht </span>an ein "
@@ -90,8 +90,8 @@ msgstr ""
 "(2) <span class=\"T2\">□ </span>The personal data will not be transmitted to "
 "a third country or an international organization"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "(3)    Der Verantwortliche stellt eine Kopie der personenbezogenen Daten, "
 "die Gegenstand der Verarbeitung sind, zur Verfügung:"
@@ -99,8 +99,8 @@ msgstr ""
 "(3) The responsible person provides a copy of the personal data that is the "
 "subject of the processing:"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "(4)    Das Recht auf Erhalt einer Kopie gemäß Absatz 3 darf die Rechte und "
 "Freiheiten anderer<br/>Personen nicht beeinträchtigen."
@@ -108,8 +108,8 @@ msgstr ""
 "(4) The right to receive a copy under paragraph 3 must not affect the rights "
 "and freedoms of other persons."
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "<span class=\"T2\">        □ </span><span class=\"T1\">bis zum __. __. ____</"
 "span> <span> <span class=\"T1\"> </span><span class=\"T2\">□ Bis zu ____ "
@@ -121,16 +121,16 @@ msgstr ""
 "____ years        □ </span><span class=\"T3\">Storage period by law</span></"
 "span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "<span class=\"T2\">oder        □ </span>Widerspruchsrecht gegen diese "
 "Verarbeitung <span class=\"T1\">besteht</span>;"
 msgstr ""
 "<span class=\"T2\">or        □ </span>Right to object to this processing,"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "<span class=\"T2\">□  </span><span class=\"T4\">Wenn doch: Die Daten werden</"
 "span><span class=\"T7\"> nach folgender Art ausgewertet und gruppiert "
@@ -139,97 +139,69 @@ msgstr ""
 "<span class=\"T2\">□  </span>If so: The data is evaluated and grouped in the "
 "following way_______________ "
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "<span class=\"T6\">Grund</span><span> <span class=\"T2\">□ Kontakt ____ mal "
 "nicht erreicht         □ Systemwechsel        </span></span>"
 msgstr ""
-"<span class=\"T6\">Reason:</span> □ Contact ____ not reached    □ "
-"Systemchange </span>"
+"<span class=\"T6\">Reason:</span> □ Contact ____ not reached    □ System "
+"change </span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Adresse:"
 msgstr "Address:"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Auskunft für:"
 msgstr "Information for:"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Auskunft n<span class=\"T1\">ach Artikel 15 DS-GVO</span>"
 msgstr ""
 "Information <span class=\"T1\">according to Article 15 of the GDPR</span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Auskunftsgeber:"
 msgstr "Information giver:"
 
-#. module: itis_gdpr_extension
-#: model:ir.model,name:itis_gdpr_extension.model_res_partner
+#. module: website_contact_extend
+#: model:ir.model,name:website_contact_extend.model_res_partner
 msgid "Contact"
 msgstr "Contact"
 
-#. module: itis_gdpr_extension
-#: model:ir.actions.report,name:itis_gdpr_extension.report_contact
+#. module: website_contact_extend
+#: model:ir.actions.report,name:website_contact_extend.report_contact
 msgid "Contact Report"
 msgstr "Contact Report"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.menu,name:itis_gdpr_extension.menu_customer_info
-msgid "Contact Search"
-msgstr "Contact Search"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_partner_contact_type
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_users_contact_type
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_contact_type
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_contact_type
 msgid "Contact Type"
 msgstr "Contact Type"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.contactus_form_inherited
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Contact by E-Mail"
 msgstr "Contact by E-Mail"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.contactus_form_inherited
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Contact by Letter"
 msgstr "Contact by Letter"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.contactus_form_inherited
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Contact by Phone"
 msgstr "Contact by Phone"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_create_uid
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_create_uid
-msgid "Created by"
-msgstr "Created by"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_create_date
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_create_date
-msgid "Created on"
-msgstr "Created on"
-
-#. module: itis_gdpr_extension
-#: model:ir.actions.act_window,name:itis_gdpr_extension.action_dpo_view_itis
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.view_dpo_form_view_itis
-msgid "Customer Info"
-msgstr "Customer Info"
-
-#. module: itis_gdpr_extension
-#: model:res.groups,name:itis_gdpr_extension.group_dpo
-msgid "Data Protection Officers"
-msgstr "Data Protection Officers"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "Die betroffene Person hat das Recht, von dem Verantwortlichen eine "
 "Bestätigung darüber zu verlangen, ob sie betreffende personenbezogene Daten "
@@ -241,201 +213,99 @@ msgstr ""
 "the case, it has a right to information about such personal data and to the "
 "following information:"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_display_name
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_display_name
-msgid "Display Name"
-msgstr "Display Name"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_partner_email_contact
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_users_email_contact
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_email_contact
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_email_contact
 msgid "Email Contact"
 msgstr "Email Contact"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_crm_lead_email_link
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_crm_lead_email_link
 msgid "Email verification link"
 msgstr "Email verification link"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Email:"
 msgstr "Email:"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_field_list
-msgid "Fields Name"
-msgstr "Fields Name"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_model_id
-msgid "Found in Model"
-msgstr "Found in Model"
-
-#. module: itis_gdpr_extension
-#: code:addons/itis_gdpr_extension/models/models.py:19
-#, python-format
-msgid "Found record"
-msgstr "Found record"
-
-#. module: itis_gdpr_extension
+#. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I do not want to be contacted."
 msgstr "I do not want to be contacted."
 
-#. module: itis_gdpr_extension
+#. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I only want to be contacted by Email."
 msgstr "I only want to be contacted by Email."
 
-#. module: itis_gdpr_extension
+#. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I only want to be contacted by Phone."
 msgstr "I only want to be contacted by Phone."
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_id
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_id
-msgid "ID"
-msgstr "ID"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.contactus_form_inherited
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "In the future I want to be contacted by"
 msgstr "In the future I want to be contacted by"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.contactus_form_inherited
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Information request concerning data about the personally"
-msgstr "Information request concerning data about the personally"
+msgstr "Information request concerning data about personal Information"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view___last_update
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line___last_update
-msgid "Last Modified on"
-msgstr "Last Modified on"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_write_uid
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_write_uid
-msgid "Last Updated by"
-msgstr "Last Updated by"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_write_date
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_write_date
-msgid "Last Updated on"
-msgstr "Last Updated on"
-
-#. module: itis_gdpr_extension
-#: model:ir.model,name:itis_gdpr_extension.model_crm_lead
+#. module: website_contact_extend
+#: model:ir.model,name:website_contact_extend.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "Lead/Opportunity"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_partner_letter_contact
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_users_letter_contact
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_letter_contact
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_letter_contact
 msgid "Letter Contact"
 msgstr "Letter Contact"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_name
-msgid "Model Name"
-msgstr "Model Name"
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_last_updated
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_last_updated
+msgid "Letzte Aktualisierung"
+msgstr "Last Updated on"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Name:"
 msgstr "Name:"
 
-#. module: itis_gdpr_extension
-#: code:addons/itis_gdpr_extension/models/models.py:78
-#, python-format
-msgid "No record found with ."
-msgstr "No record found with ."
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_partner_phone_contact
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_users_phone_contact
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_phone_contact
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_phone_contact
 msgid "Phone Contact"
 msgstr "Phone Contact"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Phone:"
 msgstr "Phone:"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_record_id
-msgid "Record ID"
-msgstr "Record ID"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_record_name
-msgid "Record Name"
-msgstr "Record Name"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.view_dpo_form_view_itis
-msgid "SEARCH"
-msgstr "SEARCH"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.dpo_view_tree
-msgid "Search Contact"
-msgstr "Search Contact"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_search_lines
-msgid "Search Result"
-msgstr "Search Result"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.search_line_tree_view_itis
-msgid "Search Results"
-msgstr "Search Results"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_name
-msgid "Search Term"
-msgstr "Search Term"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_search_line_search_id
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.view_dpo_form_view_itis
-msgid "Search Terms"
-msgstr "Search Terms"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_dpo_view_model_ids
-msgid "Search in Model"
-msgstr "Search in Model"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.search_line_tree_view_itis
-msgid "VIEW RECORD"
-msgstr "VIEW RECORD"
-
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,field_description:itis_gdpr_extension.field_res_partner_is_verified
-#: model:mail.template,subject:itis_gdpr_extension.confirmation_email_template
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_is_verified
+#: model:mail.template,subject:website_contact_extend.confirmation_email_template
 msgid "Verified Email"
 msgstr "Verified Email"
 
-#. module: itis_gdpr_extension
-#: model:ir.model.fields,help:itis_gdpr_extension.field_res_partner_contact_type
-#: model:ir.model.fields,help:itis_gdpr_extension.field_res_users_contact_type
+#. module: website_contact_extend
+#: model:ir.model.fields,help:website_contact_extend.field_res_partner_contact_type
+#: model:ir.model.fields,help:website_contact_extend.field_res_users_contact_type
 msgid "Which way user want to be contacted."
 msgstr "Which way user want to be contacted."
 
-#. module: itis_gdpr_extension
+#. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "You can contact me by Email or Phone."
 msgstr "You can contact me by Email or Phone."
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "a)  <span class=\"T1\">d</span>ie Verarbeitungszwecke:<span class=\"T1\"> </"
 "span><span class=\"T2\">□ </span><span class=\"T1\">Kontaktaufnahme; </"
@@ -448,8 +318,8 @@ msgstr ""
 "class=\"T3\">Transactions</span><span class=\"T1\">, </span><span class="
 "\"T2\">□ </span><span class=\"T1\">Other </span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "b) die Kategorien personenbezogener Daten, die verarbeitet werden: <span "
 "class=\"T1\"> <br/></span><span class=\"T2\">□ </span><span class="
@@ -464,8 +334,8 @@ msgstr ""
 "span><span class=\"T2\">□ </span><span class=\"T1\">Prospect data,  </"
 "span><span class=\"T2\">□ </span><span class=\"T1\">Personal data</span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "c)    die Empfänger oder Kategorien von Empfängern, gegenüber denen die "
 "personenbezogenen Daten offengelegt worden sind oder noch offengelegt "
@@ -486,8 +356,8 @@ msgstr ""
 "parties, </span><span class=\"T2\">□ </span><span class=\"T1\">Not known</"
 "span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "d)    geplante Dauer, für die die personenbezogenen Daten gespeichert "
 "werden:  <span class=\"T1\"> </span>"
@@ -495,13 +365,8 @@ msgstr ""
 "d) Planned duration for which the personal data is stored: <span class="
 "\"T1\"> </span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.model,name:itis_gdpr_extension.model_dpo_view
-msgid "dpo.view"
-msgstr "dpo.view"
-
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "e)  <span> <span class=\"T2\">□ </span>Recht auf Berichtigung oder Löschung "
 "der betreffenden personenbezogenen Daten <span class=\"T1\">besteht "
@@ -512,8 +377,8 @@ msgstr ""
 "personal data concerned, or <span class=\"T2\">□ </span>Restriction of "
 "processing by the controller , or </span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "f) <span> <span class=\"T2\">□ </span>das Bestehen eines Beschwerderechts "
 "bei einer Aufsichtsbehörde <span class=\"T5\">besteht</span></span>"
@@ -521,8 +386,8 @@ msgstr ""
 "f)<span> <span class=\"T2\">□ </span>The existence of a right to complain to "
 "a supervisory authority</span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "g)     die Herkunft der Daten <span class=\"T7\">ist von </span><span class="
 "\"T2\">□ </span><span class=\"T4\">eigener Recherche, </span><span class="
@@ -532,8 +397,8 @@ msgstr ""
 "\"T4\">Own research, </span><span class=\"T2\">□ </span><span class="
 "\"T4\">Credit reference agency</span>"
 
-#. module: itis_gdpr_extension
-#: model:ir.ui.view,arch_db:itis_gdpr_extension.report_contact_document
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid ""
 "h)    <span class=\"T2\">□ </span>eine automatisierte Entscheidungsfindung "
 "<span class=\"T7\">mit diesen Daten findet nicht statt.         </span>"
@@ -541,12 +406,7 @@ msgstr ""
 "h) <span class=\"T2\">□ </span>An automated decision-making with this data "
 "does not take place."
 
-#. module: itis_gdpr_extension
-#: model:mail.template,subject:itis_gdpr_extension.verification_email_template
+#. module: website_contact_extend
+#: model:mail.template,subject:website_contact_extend.verification_email_template
 msgid "mail verification link"
 msgstr "mail verification link"
-
-#. module: itis_gdpr_extension
-#: model:ir.model,name:itis_gdpr_extension.model_search_line
-msgid "search.line"
-msgstr "search.line"

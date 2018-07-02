@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="itis_gdpr_extension.group_dpo" model="res.groups">
-        <field name="name">Data Protection Officers</field>
+    <record id="contact_search_form.group_dpo" model="res.groups">
+        <field name="name">Data Protection Officer</field>
         <field name="category_id" ref="base.module_category_hidden"/>
     </record>
 </odoo>

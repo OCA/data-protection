@@ -45,7 +45,6 @@
     'category': 'Contacts',
     'depends': ['base',
                 'contacts',
-                #'website_crm',
                 ],
 
     'data': [

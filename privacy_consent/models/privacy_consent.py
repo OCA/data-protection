@@ -143,15 +143,8 @@ class PrivacyConsent(models.Model):
 
     def write(self, vals):
         """Run server action on update."""
-        # We will check if all draft consents change
-        changed = self.filtered(lambda one: one.state == "draft")
-        if "accepted" in vals:
-            # Also check those whose acceptance is going to change
-            changed |= self.filtered(
-                lambda one: one.accepted != vals["accepted"]
-            )
         result = super(PrivacyConsent, self).write(vals)
-        changed._run_action()
+        self._run_action()
         return result
 
     def message_get_suggested_recipients(self):

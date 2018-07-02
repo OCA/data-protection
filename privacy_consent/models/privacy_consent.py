@@ -128,6 +128,7 @@ class PrivacyConsent(models.Model):
                 continue
             action = one.activity_id.server_action_id.with_context(
                 active_id=one.id,
+                active_ids=one.ids,
                 active_model=one._name,
             )
             action.run()

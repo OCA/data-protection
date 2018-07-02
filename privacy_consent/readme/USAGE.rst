@@ -4,7 +4,7 @@ New options for data processing activities:
 
 #. Give it a name, such as *Sending mass mailings to customers*.
 
-#. Choose one option in *Ask subjects for consent*:
+#. Go to tab *Consent* and choose one option in *Ask subjects for consent*:
 
    * *Manual* tells the activity that you will want to create and send the
      consent requests manually, and only provides some helpers for you to
@@ -39,7 +39,7 @@ New options for data processing activities:
      *Update partner's opt out*, that syncs the acceptance status with the
      partner's *Elegible for mass mailings* option.
 
-#. Hit the button to create new consent requests.
+#. Click on *Generate consent requests* link to create new consent requests.
 
    * If you chose *Manual* mode, all missing consent request are created as
      drafts, and nothing else is done now.

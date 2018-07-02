@@ -18,7 +18,6 @@ class ConsentController(Controller):
     def consent(self, choice, consent_id, token, *args, **kwargs):
         """Process user's consent acceptance or rejection."""
         ensure_db()
-        request.httprequest.environ
         consent = request.env["privacy.consent"] \
             .with_context(subject_answering=True) \
             .sudo().browse(consent_id)

@@ -39,13 +39,13 @@
                             />
                         </group>
                         <group name="subjects">
-                            <field name="subjects_find"/>
+                            <field name="subject_find"/>
                             <field
-                                name="subjects_domain"
+                                name="subject_domain"
                                 widget="char_domain"
                                 options='{"model": "res.partner"}'
-                                attrs='{"required": [("subjects_find", "=", True)],
-                                        "invisible": [("subjects_find", "=", False)]}'
+                                attrs='{"required": [("subject_find", "=", True)],
+                                        "invisible": [("subject_find", "=", False)]}'
                             />
                         </group>
                     </group>

@@ -37,11 +37,11 @@ class PrivacyActivity(models.Model):
         string="Processors",
         help="Whoever processes personal data on behalf of the controller.",
     )
-    subjects_find = fields.Boolean(
+    subject_find = fields.Boolean(
         "Define subjects",
         help="Are affected subjects present in this database?",
     )
-    subjects_domain = fields.Char(
+    subject_domain = fields.Char(
         "Subjects filter",
         default="[]",
         help="Selection filter to find specific subjects included.",

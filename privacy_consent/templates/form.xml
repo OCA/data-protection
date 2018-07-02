@@ -26,6 +26,9 @@
                     You have <b class="text-danger">rejected</b> such processing.
                 </p>
                 <p>
+                    We have recorded this action on your side.
+                </p>
+                <p>
                     If it was a mistake, you can undo it here:
                     <div class="text-center">
                         <a
@@ -46,9 +49,6 @@
                 </p>
                 <p>
                     Thanks for your response.
-                </p>
-                <p>
-                    <b>You have a new email</b> about this, and we have recorded this action on your side.
                 </p>
                 <p class="text-muted">
                     Sincerely,<br/>

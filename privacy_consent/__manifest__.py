@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Privacy - Consent",
-    "summary": "Allow people to accept inclusion in some activity",
+    "summary": "Allow people to explicitly accept or reject inclusion "
+               "in some activity, GDPR compliant",
     "version": "10.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Privacy",

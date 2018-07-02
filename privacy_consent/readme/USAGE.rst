@@ -1,6 +1,6 @@
 New options for data processing activities:
 
-#. Go to *Privacy > Configuration > Activitys* and create one.
+#. Go to *Privacy > Master Data > Activities* and create one.
 
 #. Give it a name, such as *Sending mass mailings to customers*.
 

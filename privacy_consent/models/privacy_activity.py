@@ -117,6 +117,7 @@ class PrivacyActivity(models.Model):
             domain = safe_eval(one.subjects_domain)
             domain += [
                 ("id", "not in", one.mapped("consent_ids.partner_id").ids),
+                ("email", "!=", False),
             ]
             # Create missing consent requests
             for missing in self.env["res.partner"].search(domain):

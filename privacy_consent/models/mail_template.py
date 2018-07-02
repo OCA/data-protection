@@ -25,6 +25,9 @@ class MailTemplate(models.Model):
                     raise ValidationError(_(
                         "Missing privacy consent link placeholders. "
                         "You need at least these two links:\n"
-                        '<a href="/privacy/consent/accept/">Accept</a> \n'
-                        '<a href="/privacy/consent/reject/">Reject</a>'
+                        '<a href="%s">Accept</a>\n'
+                        '<a href="%s">Reject</a>'
+                    ) % (
+                        "/privacy/consent/accept/",
+                        "/privacy/consent/reject/",
                     ))

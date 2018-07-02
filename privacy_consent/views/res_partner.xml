@@ -14,7 +14,7 @@
                     attrs='{"invisible": [("privacy_consent_count", "=", 0)]}'
                     class="oe_stat_button"
                     context='{"search_default_partner_id": active_id}'
-                    icon="fa-envelope"
+                    icon="fa-handshake-o"
                     name="%(consent_action)d"
                     type="action"
                 >

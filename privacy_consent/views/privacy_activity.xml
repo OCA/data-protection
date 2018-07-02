@@ -14,7 +14,7 @@
                     attrs='{"invisible": [("consent_required", "=", False)]}'
                     class="oe_stat_button"
                     context='{"search_default_activity_id": active_id}'
-                    icon="fa-users"
+                    icon="fa-handshake-o"
                     name="%(consent_action)d"
                     type="action"
                 >

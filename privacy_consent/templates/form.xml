@@ -4,7 +4,7 @@
 
 <data>
 
-    <template id="form">
+    <template id="form" name="Consent response processed">
         <!-- Use web.login_layout because it gets automatically wrapped
              by website layout if website is installed, and otherwise includes
              all possibly needed assets -->

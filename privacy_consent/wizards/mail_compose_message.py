@@ -10,16 +10,7 @@ class MailComposeMessage(models.TransientModel):
 
     @api.multi
     def send_mail(self, auto_commit=False):
-        """Update consent state if needed."""
-        result = super(MailComposeMessage, self).send_mail(
-            auto_commit=auto_commit)
-        if (self.env.context.get('active_model') == 'privacy.consent' and
-                self.env.context.get('active_ids') and
-                self.env.context.get('mark_consent_sent')):
-            consents = self.env['privacy.consent'].browse(
-                self.env.context['active_ids'],
-                self._prefetch,
-            )
-            consents.filtered(lambda one: one.state == "draft") \
-                .write({"state": "sent"})
-        return result
+        """Force auto commit when sending consent emails."""
+        if self.env.context.get('mark_consent_sent'):
+            auto_commit = True
+        return super(MailComposeMessage, self).send_mail(auto_commit)

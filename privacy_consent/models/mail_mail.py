@@ -8,6 +8,24 @@ from odoo import models
 class MailMail(models.Model):
     _inherit = "mail.mail"
 
+    def _postprocess_sent_message(self, mail_sent=True):
+        """Write consent status after sending message."""
+        if mail_sent and self.env.context.get('mark_consent_sent'):
+            # Get all mails sent to consents
+            consent_mails = self.filtered(
+                lambda one: one.mail_message_id.model == "privacy.consent"
+            )
+            # Get related draft consents
+            consents = self.env["privacy.consent"].browse(
+                consent_mails.mapped("mail_message_id.res_id"),
+                self._prefetch
+            ).filtered(lambda one: one.state == "draft")
+            # Set as sent
+            consents.write({
+                "state": "sent",
+            })
+        return super(MailMail, self)._postprocess_sent_message(mail_sent)
+
     def send_get_mail_body(self, partner=None):
         """Replace privacy consent magic links.
 

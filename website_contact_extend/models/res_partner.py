@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _
+from odoo import fields, models
 
 
 class ResContacts(models.Model):
     _inherit = "res.partner"
 
-
-    contact_type = fields.Selection(
-        [('no_contact', 'I do not want to be contacted.'),
-         ('email_contact', 'I only want to be contacted by Email.'),
-         ('phone_contact', 'I only want to be contacted by Phone.'),
-         ('email_phone_contact', 'You can contact me by Email or Phone.')
-        ], string='Contact Type',
+    contact_type = fields.Selection([
+        ('no_contact', 'I do not want to be contacted.'),
+        ('email_contact', 'I only want to be contacted by Email.'),
+        ('phone_contact', 'I only want to be contacted by Phone.'),
+        ('email_phone_contact', 'You can contact me by Email or Phone.')
+    ],
+        string='Contact Type',
         default='email_contact',
         help="Which way user want to be contacted.")
     letter_contact = fields.Boolean("Letter Contact")

@@ -3,8 +3,8 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import logging
-from openerp.report import report_sxw
-from openerp.tools.translate import _
+from odoo.report import report_sxw
+from odoo.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <odoo>
 
-    <record id="contact_search_form.group_dpo" model="res.groups">
+    <record id="group_dpo" model="res.groups">
         <field name="name">Data Protection Officer</field>
         <field name="category_id" ref="base.module_category_hidden"/>
     </record>

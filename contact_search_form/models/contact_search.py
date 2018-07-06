@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+
 
 class SearchLine(models.Model):
     _name = "search.line"
@@ -31,6 +30,7 @@ class SearchLine(models.Model):
             record_object = self.env[self.model_id.model].search([('id', '=', int(self.record_id))])
             record.record_name = record_object.name
 
+
 class ItisDpoView(models.Model):
     _name = "dpo.view"
 
@@ -45,14 +45,21 @@ class ItisDpoView(models.Model):
         found = False
         for model in self.model_ids:
             table_name = model.model.replace(".", "_")
-            query = '''select * from ''' + table_name + ''' where '''
+            query = '''select * from {} where '''
+            params = (table_name,)
             field_list = self.env['ir.model.fields'].search([('model_id.id', '=', model.id),
                                                              ('ttype', 'in', ['char', 'html', 'text']),
                                                              ('store', '=', True)])
             for field in field_list:
-                query = query + table_name + '''."''' + field.name + '''" like '%''' + self.name + '''%' or '''
+                query = query + '''{}.{} like '%{}%' or '''
+                temp = list(params)
+                temp.append(table_name)
+                temp.append(field.name)
+                temp.append(self.name)
+                params = tuple(temp)
             query = query[:-3]
             query += ''';'''
+            query = query.format(*params)
 
             self._cr.execute(query)
             colnames = [desc[0] for desc in self._cr.description]

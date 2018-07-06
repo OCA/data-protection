@@ -58,9 +58,11 @@
     </record>
 
     <menuitem id="menu_customer_info"
-              action="action_dpo_view_itis"
               name="Contact Search"
-              parent="contacts.res_partner_menu_config" sequence="3" groups="contact_search_form.group_dpo"/>
+              action="action_dpo_view_itis"
+              parent="contacts.res_partner_menu_config"
+              sequence="20"
+              groups="contact_search_form.group_dpo"/>
 
     <record id="search_line_tree_view_itis" model="ir.ui.view">
          <field name="name">search.line.tree.view.itis</field>

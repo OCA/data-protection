@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from openerp import api, fields, models, _
-from openerp.osv import fields as old_fields
-from openerp.exceptions import UserError
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class PrivacyPartnerReport(models.TransientModel):
@@ -122,17 +121,6 @@ class PrivacyPartnerReport(models.TransientModel):
         return data
 
     def _exclude_column(self, model, column):
-
-        # To remove in v10:
-        # (non-stored function fields should have _fnct_search)
-        column_info = self.env[model]._columns.get(column)
-        next_model = self.env[model]
-        while not column_info and column in next_model._inherit_fields:
-            next_model = self.env[next_model._inherit_fields[column][0]]
-            column_info = next_model._columns.get(column)
-        if isinstance(column_info, old_fields.function) \
-                and not column_info.store and not column_info._fnct_search:
-            return True
 
         # https://github.com/odoo/odoo/issues/24927
         if model in ('mail.compose.message', 'survey.mail.compose.message'):

@@ -9,7 +9,8 @@ class SearchLine(models.Model):
     model_id = fields.Many2one('ir.model', string="Found in Model")
     record_id = fields.Integer(string="Record ID")
     search_id = fields.Many2one("dpo.view", string="Search Terms")
-    record_name = fields.Char(string="Record Name", compute="_compute_record_name")
+    record_name = fields.Char(string="Record Name",
+                              compute="_compute_record_name")
 
     @api.multi
     def open_record(self):
@@ -26,7 +27,8 @@ class SearchLine(models.Model):
     @api.one
     def _compute_record_name(self):
         for record in self:
-            record_object = self.env[self.model_id.model].search([('id', '=', int(self.record_id))])
+            record_object = self.env[self.model_id.model].\
+                search([('id', '=', int(self.record_id))])
             try:
                 record.record_name = record_object.name
             except:
@@ -36,22 +38,34 @@ class ItisDpoView(models.Model):
     _name = "dpo.view"
 
     name = fields.Char(string="Search Term")
-    model_ids = fields.Many2many('ir.model', 'dpo_view_ir_model_rel', string="Search in Model")
-    search_lines = fields.One2many('search.line', 'search_id', string='Search Result')
+    model_ids = fields.Many2many('ir.model',
+                                 'dpo_view_ir_model_rel',
+                                 string="Search in Model")
+    search_lines = fields.One2many('search.line',
+                                   'search_id',
+                                   string='Search Result')
 
     @api.multi
     def search_string(self):
-        search_line_ids = self.env['search.line'].search([('search_id', '=', self.id)])
+        search_line_ids = self.env['search.line'].search([('search_id',
+                                                           '=',
+                                                           self.id)])
         search_line_ids.unlink()
         final_list = []
         for model_id in self.model_ids:
             field_list = []
             found_match = {}
             for field_id in model_id.field_id:
-                if field_id.ttype in ['char', 'html', 'text'] and field_id.store:
+                if field_id.ttype in ['char', 'html', 'text'] \
+                        and field_id.store:
                     field_list.append(field_id.name)
             for field in field_list:
-                records = self.env[model_id.model].search([(field, 'ilike', self.name), (field, '!=', '')])
+                records = self.env[model_id.model].search([(field,
+                                                            'ilike',
+                                                            self.name),
+                                                           (field,
+                                                            '!=',
+                                                            '')])
                 for rec in records:
                     temp_list = found_match.get(rec.id, False)
                     if temp_list:

@@ -57,11 +57,17 @@
          <!--</field>-->
     </record>
 
+    <menuitem id="menu_customer_info_base"
+              name="Contact Search"
+              parent="contacts.menu_contacts"
+              sequence="20"
+              groups="contact_search_form.group_dpo"/>
+
     <menuitem id="menu_customer_info"
               name="Contact Search"
               action="action_dpo_view_itis"
-              parent="contacts.res_partner_menu_config"
-              sequence="20"
+              parent="menu_customer_info_base"
+              sequence="21"
               groups="contact_search_form.group_dpo"/>
 
     <record id="search_line_tree_view_itis" model="ir.ui.view">

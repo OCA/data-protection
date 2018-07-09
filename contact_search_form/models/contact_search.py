@@ -1,7 +1,6 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
-
 class SearchLine(models.Model):
     _name = "search.line"
 
@@ -28,8 +27,10 @@ class SearchLine(models.Model):
     def _compute_record_name(self):
         for record in self:
             record_object = self.env[self.model_id.model].search([('id', '=', int(self.record_id))])
-            record.record_name = record_object.name
-
+            try:
+                record.record_name = record_object.name
+            except:
+                record.record_name = "Name"
 
 class ItisDpoView(models.Model):
     _name = "dpo.view"
@@ -42,50 +43,30 @@ class ItisDpoView(models.Model):
     def search_string(self):
         search_line_ids = self.env['search.line'].search([('search_id', '=', self.id)])
         search_line_ids.unlink()
-        found = False
-        for model in self.model_ids:
-            table_name = model.model.replace(".", "_")
-            query = '''select * from {} where '''
-            params = (table_name,)
-            field_list = self.env['ir.model.fields'].search([('model_id.id', '=', model.id),
-                                                             ('ttype', 'in', ['char', 'html', 'text']),
-                                                             ('store', '=', True)])
+        final_list = []
+        for model_id in self.model_ids:
+            field_list = []
+            found_match = {}
+            for field_id in model_id.field_id:
+                if field_id.ttype in ['char', 'html', 'text'] and field_id.store:
+                    field_list.append(field_id.name)
             for field in field_list:
-                query = query + '''{}.{} like '%{}%' or '''
-                temp = list(params)
-                temp.append(table_name)
-                temp.append(field.name)
-                temp.append(self.name)
-                params = tuple(temp)
-            query = query[:-3]
-            query += ''';'''
-            query = query.format(*params)
-
-            self._cr.execute(query)
-            colnames = [desc[0] for desc in self._cr.description]
-            id_index = colnames.index("id")
-            rec_id = 0
-            rows = self._cr.fetchall()
-
-            if rows:
-                for rec in rows:
-                    ind = 0
-                    rec_id = rec[id_index]
-                    founded_col = []
-                    for row in rec:
-                        if str(row).find(self.name) >= 0:
-                            founded_col.append(colnames[ind])
-                        found = True
-                        ind += 1
-                    fields_data = self.env['ir.model.fields'].search([('name', 'in', founded_col),
-                                                                      ('model_id', '=', model.id)])
-                    field_desc = []
-                    for field in fields_data:
-                        field_desc.append(field.field_description)
-                    create_id = self.env['search.line'].create({"field_list": str(field_desc),
-                                                                "name": model.name,
-                                                                "model_id": int(model.id),
-                                                                "search_id": int(self.id),
-                                                                "record_id": int(rec_id)})
-        if not found:
-            raise UserError(_("No record found with "+self.name+"."))
+                records = self.env[model_id.model].search([(field, 'ilike', self.name), (field, '!=', '')])
+                for rec in records:
+                    temp_list = found_match.get(rec.id, False)
+                    if temp_list:
+                        temp_list.append(field)
+                        found_match[rec.id] = temp_list
+                    else:
+                        found_match[rec.id] = [field]
+            for key, value in found_match.items():
+                founded_json = {}
+                founded_json["field_list"] = str(list(set(value)))
+                founded_json["name"] = str(model_id.name)
+                founded_json["model_id"] = model_id.id
+                founded_json["search_id"] = self.id
+                founded_json["record_id"] = key
+                final_list.append(founded_json)
+        if final_list:
+            for vals in final_list:
+                create_id = self.env['search.line'].create(vals)

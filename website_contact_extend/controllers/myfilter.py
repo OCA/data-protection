@@ -32,8 +32,9 @@ class VerifyController(http.Controller):
                 return "<center style='color:red'>Not valid!<br/>" \
                        "The link you entered is either not valid or expired."\
                        "<br/>Please request a new link.</center>"
-            partner = request.env['res.partner'].sudo().search\
-                ([('email', '=', email), ('name', '=', contact_name)])
+            partner = request.env['res.partner'].sudo()\
+                .search([('email', '=', email),
+                         ('name', '=', contact_name)])
             if partner:
                 for part in partner:
                     part.is_verified = True
@@ -50,9 +51,9 @@ class VerifyController(http.Controller):
                         part.letter_contact = True
                     else:
                         part.letter_contact = False
-                    template = request.env.ref('website_contact_extend.'
-                                               'confirmation_email_template')\
-                                               .sudo().send_mail(part.id)
+                    request.env.ref('website_contact_extend.'
+                                    'confirmation_email_template')\
+                        .sudo().send_mail(part.id)
                 return "<center style='color:green'>" \
                        "Thank You! Your email address has been verified!" \
                        "</center>"
@@ -78,15 +79,15 @@ class MyFilter(parent_controller.WebsiteForm):
         # need_send_email = False
         try:
             data = self.extract_data(model_record, request.params)
-            contact_type=False
+            # contact_type = False
             phone_contact = False
             letter_contact = False
             email_contact = False
             send_mail = True
             index = 0
             for field_name, field_value in request.params.items():
-                if field_name == "contact_type":
-                    contact_type = field_value
+                # if field_name == "contact_type":
+                    # contact_type = field_value
                 if field_name == "send_mail" and field_value == "send_mail":
                     send_mail = True
                 if field_name == "phone_contact" \
@@ -98,10 +99,9 @@ class MyFilter(parent_controller.WebsiteForm):
                 if field_name == "email_contact" \
                         and field_value == "email_contact":
                     email_contact = True
-                 
                 index += 1
-            contact_name = data.get("record").get("contact_name")
-            email_from = data.get("record").get("email_from")
+            # contact_name = data.get("record").get("contact_name")
+            # email_from = data.get("record").get("email_from")
 
         # If we encounter an issue while extracting data
         except ValidationError as e:
@@ -136,9 +136,9 @@ class MyFilter(parent_controller.WebsiteForm):
                 )
                 if crm_lead_obj:
                     crm_lead_obj.email_link = action_url
-                template = request.env.ref('website_contact_extend.'
-                                           'verification_email_template')\
-                                           .send_mail(id_record)
+                request.env.ref('website_contact_extend.'
+                                'verification_email_template')\
+                    .send_mail(id_record)
         # Some fields have additional SQL constraints
         #  that we can't check generically
         # Ex: crm.lead.probability which is a float between 0 and 1

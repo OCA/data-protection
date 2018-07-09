@@ -1,5 +1,5 @@
 from odoo import api, fields, models, _
-#from odoo.exceptions import UserError
+# from odoo.exceptions import UserError
 
 
 class SearchLine(models.Model):
@@ -34,6 +34,7 @@ class SearchLine(models.Model):
                 record.record_name = record_object.name
             except:
                 record.record_name = "Name"
+
 
 class ItisDpoView(models.Model):
     _name = "dpo.view"
@@ -84,4 +85,4 @@ class ItisDpoView(models.Model):
                 final_list.append(founded_json)
         if final_list:
             for vals in final_list:
-                create_id = self.env['search.line'].create(vals)
+                self.env['search.line'].create(vals)

@@ -28,8 +28,9 @@ class SearchLine(models.Model):
     @api.one
     def _compute_record_name(self):
         for record in self:
-            record_object = self.env[self.model_id.model].\
-                search([('id', '=', int(self.record_id))])
+            record_object = self.env[self.model_id.model].search([
+                ('id', '=', int(self.record_id))
+            ])
             try:
                 record.record_name = record_object.name
             except:
@@ -42,16 +43,18 @@ class ItisDpoView(models.Model):
     name = fields.Char(string="Search Term")
     model_ids = fields.Many2many('ir.model',
                                  'dpo_view_ir_model_rel',
-                                 string="Search in Model")
+                                 string='Search in Model'
+    )
     search_lines = fields.One2many('search.line',
                                    'search_id',
-                                   string='Search Result')
+                                   string='Search Result'
+    )
 
     @api.multi
     def search_string(self):
-        search_line_ids = self.env['search.line'].search([('search_id',
-                                                           '=',
-                                                           self.id)])
+        search_line_ids = self.env['search.line'].search([
+            ('search_id', '=', self.id)
+        ])
         search_line_ids.unlink()
         final_list = []
         for model_id in self.model_ids:
@@ -62,12 +65,10 @@ class ItisDpoView(models.Model):
                         and field_id.store:
                     field_list.append(field_id.name)
             for field in field_list:
-                records = self.env[model_id.model].search([(field,
-                                                            'ilike',
-                                                            self.name),
-                                                           (field,
-                                                            '!=',
-                                                            '')])
+                records = self.env[model_id.model].search([
+                    (field, 'ilike', self.name),
+                    (field, '!=', '')
+                ])
                 for rec in records:
                     temp_list = found_match.get(rec.id, False)
                     if temp_list:

@@ -23,7 +23,7 @@ class SearchLine(models.Model):
             'type': 'ir.actions.act_window',
             'res_id': self.record_id,
             'target': 'new'
-            }
+        }
 
     @api.one
     def _compute_record_name(self):
@@ -43,12 +43,10 @@ class ItisDpoView(models.Model):
     name = fields.Char(string="Search Term")
     model_ids = fields.Many2many('ir.model',
                                  'dpo_view_ir_model_rel',
-                                 string='Search in Model'
-    )
+                                 string='Search in Model')
     search_lines = fields.One2many('search.line',
                                    'search_id',
-                                   string='Search Result'
-    )
+                                   string='Search Result')
 
     @api.multi
     def search_string(self):

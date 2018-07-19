@@ -8,14 +8,8 @@
     'name': "Website Contact Form Extend",
 
     'summary': """
-
         Extended Website Contact View to give Customer the option
         on how to be contacted.
-
-        Customer can verifiy his email address with a verification link.
-        Following that the mode of future contact can be chosen and
-        a GDPR information request can be submitted.
-
         """,
 
     'author': "IT IS AG, Odoo Community Association (OCA)",

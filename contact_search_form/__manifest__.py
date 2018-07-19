@@ -8,12 +8,8 @@
     'name': "Contact Search Form",
 
     'summary': """
-
         View for Data Protection Officer (DPO) to look up Customer Data.
         Odoo models can be searched for specified string.
-        To access contact search in contacts view, user must activate
-         'Data Protection Officer' checkbox
-        in Technical Settings.
         """,
 
     'author': "IT IS AG, Odoo Community Association (OCA)",

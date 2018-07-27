@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo9-addon-privacy',
+        'odoo9-addon-privacy_partner_report',
     ],
     classifiers=[
         'Programming Language :: Python',

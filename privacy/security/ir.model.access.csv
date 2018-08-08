@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+read,Permission to read activities,model_privacy_activity,group_data_protection_user,1,0,0,0
+write,Permission to write activities,model_privacy_activity,group_data_protection_manager,1,1,1,1

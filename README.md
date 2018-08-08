@@ -1,5 +1,5 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/263/11.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-data-protection-263)
-[![Build Status](https://travis-ci.org/OCA/data-protection.svg?branch=11.0)](https://travis-ci.org/OCA/data-protection)
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/263/10.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-data-protection-263)
+[![Build Status](https://travis-ci.org/OCA/data-protection.svg?branch=10.0)](https://travis-ci.org/OCA/data-protection)
 
 # Data Protection
 

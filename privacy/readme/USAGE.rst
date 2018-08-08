@@ -1,3 +1,6 @@
-  #. Go to "Data Protection" Application
-  #. Go to Configuration > "Settings" menu
-  #. Enable the main features available.
+To define data processing activities:
+
+#. Go to *Privacy > Master Data > Activities* and create one.
+#. Define the data processing activity using the provided tools.
+
+Consult your lawyer!

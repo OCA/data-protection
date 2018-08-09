@@ -36,8 +36,12 @@ to comply with regulations such as GDPR.
 Usage
 =====
 
-In the "Data Protection", open the "Settings" menu to find and enable 
-the main features available.
+To define data processing activities:
+
+#. Go to *Privacy > Master Data > Activities* and create one.
+#. Define the data processing activity using the provided tools.
+
+Consult your lawyer!
 
 Bug Tracker
 ===========
@@ -56,6 +60,7 @@ Authors
 ~~~~~~~
 
 * Eficent
+* Tecnativa
 
 Contributors
 ~~~~~~~~~~~~

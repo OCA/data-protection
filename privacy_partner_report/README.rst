@@ -48,6 +48,7 @@ Contributors
 ------------
 
 * Miquel Raïch <miquel.raich@eficent.com>
+* George Daramouskas <gdaramouskas@therp.nl>
 
 Do not contact contributors directly about support or help with technical issues.
 

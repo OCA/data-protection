@@ -3,7 +3,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from openerp import api, fields, models, _
 from openerp.osv import fields as old_fields
-from openerp.exceptions import UserError
+from openerp.exceptions import MissingError
 
 
 class PrivacyPartnerReport(models.TransientModel):
@@ -23,6 +23,7 @@ class PrivacyPartnerReport(models.TransientModel):
     )
     table_ids = fields.Many2many(
         comodel_name='privacy.partner.data',
+        relation='privacy_parter_report_data_rel',
         string='Models with related partner data',
     )
 
@@ -107,11 +108,11 @@ class PrivacyPartnerReport(models.TransientModel):
     @api.multi
     def compute_data_for_report(self, data):
         if not data.get('form'):
-            raise UserError(
+            raise MissingError(
                 _("Form content is missing, this report cannot be printed."))
         partner = data['form'].get('partner_id', False)
         if not partner:
-            raise UserError(
+            raise MissingError(
                 _("No provided partner."))
         partner = self.env['res.partner'].sudo().browse(partner[0])
         tables = data['form'].get('table_ids', False)

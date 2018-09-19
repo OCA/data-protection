@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+
+        <act_window id="gdpr_action"
+            name="GDPR Cleanup"
+            res_model="res.partner.gdpr"
+            src_model="res.partner"
+            view_mode="form"
+            view_id="res_partner_gdpr_form"
+            target="new"
+            context="{'default_partner_ids': active_ids}"
+            multi="True"
+            key2="client_action_multi" />
+
+    </data>
+</openerp>

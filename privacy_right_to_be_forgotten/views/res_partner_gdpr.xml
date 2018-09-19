@@ -1,0 +1,32 @@
+<openerp>
+    <data>
+
+        <record id="res_partner_gdpr_form" model="ir.ui.view">
+            <field name="name">res.partner.gdpr.form</field>
+            <field name="model">res.partner.gdpr</field>
+            <field name="arch" type="xml">
+                <form string="GDPR Cleanup">
+                    <group col="4" colspan="4">
+                        <field name="fields" colspan="2">
+                            <field name="name" />
+                            <field name="model" />
+                        </field>
+                    </group>
+                    <footer>
+                        <button
+                            class="oe_highlight"
+                            icon="gtk-execute"
+                            name="action_gdpr_res_partner_cleanup"
+                            string="Cleanup"
+                            type="object"/>
+                        <button
+                            icon="gtk-close"
+                            special="cancel"
+                            string="Close"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portuguese (data-protection-10.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-09-21 09:15+0000\n"
+"PO-Revision-Date: 2018-09-22 09:44+0000\n"
 "Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: Portuguese <https://translation.odoo-community.org/projects/"
 "data-protection-10-0/data-protection-10-0-privacy_consent/pt/>\n"
@@ -209,12 +209,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_acceptance_changed
 msgid "Acceptance Changed"
-msgstr "Aceitação alterada"
+msgstr "Aceitação Alterada"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_consent_acceptance_changed
 msgid "Acceptance Changed by Subject"
-msgstr "Aceitação alterada por Titular"
+msgstr "Aceitação Alterada por Titular"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_consent_acceptance_changed
@@ -261,7 +261,7 @@ msgstr "Pedir consentimento"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_required
 msgid "Ask subjects for consent"
-msgstr "Questionar titulares sobre o consentimento"
+msgstr "Solicitar consentimento aos titulares"
 
 #. module: privacy_consent
 #: selection:privacy.activity,consent_required:0
@@ -271,7 +271,7 @@ msgstr "Automaticamente"
 #. module: privacy_consent
 #: selection:privacy.consent,state:0
 msgid "Awaiting response"
-msgstr "Esperando Resposta"
+msgstr "À espera de resposta"
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
@@ -291,7 +291,7 @@ msgstr "Corpo predefinido HTML do modelo de consentimento"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_default_subject
 msgid "Consent template default subject"
-msgstr "Modelo pré-definido de consentimento do titular"
+msgstr "Modelo predefinido de consentimento do titular"
 
 #. module: privacy_consent
 #: model:ir.actions.act_window,name:privacy_consent.consent_action
@@ -404,12 +404,12 @@ msgstr "Eu <b>aceito</b> este processamento dos meus dados"
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.form
 msgid "I <b>reject</b> this processing of my data"
-msgstr "Eu <b>rejeitto</b> este processamento dos meus dados"
+msgstr "Eu <b>rejeito</b> este processamento dos meus dados"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.form
@@ -421,7 +421,7 @@ msgstr "Se foi um lapso, pode revertê-lo aqui:"
 msgid "Indicates current acceptance status, which can come from subject's last answer, or from the default specified in the related data processing activity."
 msgstr ""
 "Indica o estado atual da aceitação, que pode derivar da última resposta do "
-"titular, ou estar pré-definida nos dados relacionados contidos na atividade "
+"titular, ou estar predefinida nos dados relacionados contidos na atividade "
 "em processamento."
 
 #. module: privacy_consent
@@ -475,7 +475,7 @@ msgstr "Novo Consentimento"
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
-msgstr "Mensagens a sair"
+msgstr "Mensagens a Enviar"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_res_partner
@@ -558,7 +558,7 @@ msgstr "Estado"
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_state_changed
 #: model:mail.message.subtype,name:privacy_consent.mt_consent_state_changed
 msgid "State Changed"
-msgstr "Estado alterado"
+msgstr "Estado Alterado"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_partner_id

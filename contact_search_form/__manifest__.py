@@ -5,15 +5,12 @@
 #
 #####################################################################
 {
-    'name': "Contact Search Form",
+    'name': 'Contact Search Form',
 
-    'summary': """
-        View for Data Protection Officer (DPO) to look up Customer Data.
-        Odoo models can be searched for specified string.
-        """,
+    'summary': "Multiple models can be searched for specified string by Data Protection Officer.",
 
-    'author': "IT IS AG, Odoo Community Association (OCA)",
-    'website': "https://github.com/OCA/data-protection",
+    'author': 'IT IS AG, Odoo Community Association (OCA)',
+    'website': 'https://github.com/OCA/data-protection',
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/

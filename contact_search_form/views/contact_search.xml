@@ -22,9 +22,7 @@
                     <button name="search_string" type="object" string="SEARCH" class="btn-primary"/>
                 </center>
                 <br/>
-                <!--<group>-->
-                    <field name="search_lines"/>
-                <!--</group>-->
+                <field name="search_lines"/>
             </form>
 
         </field>
@@ -49,12 +47,7 @@
          <field name="res_model">dpo.view</field>
          <field name="view_mode">tree,form</field>
          <field name="view_id" ref="dpo_view_tree"/>
-         <!--<field name="target">new</field>-->
          <field name="view_type">form</field>
-         <!--<field name="help" type="html">-->
-             <!--<p class="oe_view_nocontent_create">No Content yet!-->
-             <!--</p>-->
-         <!--</field>-->
     </record>
 
     <menuitem id="menu_customer_info_base"

@@ -1,5 +1,4 @@
 from odoo import api, fields, models, _
-# from odoo.exceptions import UserError
 
 
 class SearchLine(models.Model):
@@ -23,30 +22,29 @@ class SearchLine(models.Model):
             'type': 'ir.actions.act_window',
             'res_id': self.record_id,
             'target': 'new'
-        }
+            }
 
     @api.one
     def _compute_record_name(self):
         for record in self:
-            record_object = self.env[self.model_id.model].search([
-                ('id', '=', int(self.record_id))
+            record_object = self.env[self.model_id.model].browse([
+                self.record_id
             ])
-            try:
-                record.record_name = record_object.name
-            except:
-                record.record_name = "Name"
+            record.record_name = record_object.name_get()[0][1]
 
 
-class ItisDpoView(models.Model):
+class DpoView(models.Model):
     _name = "dpo.view"
 
     name = fields.Char(string="Search Term")
     model_ids = fields.Many2many('ir.model',
                                  'dpo_view_ir_model_rel',
-                                 string='Search in Model')
+                                 string='Search in Model'
+    )
     search_lines = fields.One2many('search.line',
                                    'search_id',
-                                   string='Search Result')
+                                   string='Search Result'
+    )
 
     @api.multi
     def search_string(self):

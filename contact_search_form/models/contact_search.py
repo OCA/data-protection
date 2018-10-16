@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from odoo import api, fields, models, _
 
 
@@ -24,7 +26,6 @@ class SearchLine(models.Model):
             'target': 'new'
             }
 
-    @api.one
     def _compute_record_name(self):
         for record in self:
             record_object = self.env[self.model_id.model].browse([
@@ -39,12 +40,10 @@ class DpoView(models.Model):
     name = fields.Char(string="Search Term")
     model_ids = fields.Many2many('ir.model',
                                  'dpo_view_ir_model_rel',
-                                 string='Search in Model'
-    )
+                                 string='Search in Model')
     search_lines = fields.One2many('search.line',
                                    'search_id',
-                                   string='Search Result'
-    )
+                                   string='Search Result')
 
     @api.multi
     def search_string(self):

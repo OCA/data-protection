@@ -24,7 +24,6 @@
                 <br/>
                 <field name="search_lines"/>
             </form>
-
         </field>
     </record>
 

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #####################################################################
 #
 #    IT IS AG, software solutions: http://www.itis.de
@@ -7,7 +9,7 @@
 {
     'name': 'Contact Search Form',
 
-    'summary': "Multiple models can be searched for specified string by Data Protection Officer.",
+    'summary': "Multiple models can be searched for specified string by DPO",
 
     'author': 'IT IS AG, Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/data-protection',

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 ###################################################################
 #
 #    IT IS AG, software solutions: http://www.itis.de
@@ -7,10 +9,7 @@
 {
     'name': "Website Contact Form Extend",
 
-    'summary': """
-        Extended Website Contact View to give Customer the option
-        on how to be contacted.
-        """,
+    'summary': "Extended Website Contact View",
 
     'author': "IT IS AG, Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/data-protection",
@@ -33,5 +32,4 @@
         'views/contact_report.xml',
         'data/email_templates.xml',
     ],
-
 }

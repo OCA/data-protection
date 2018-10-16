@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from odoo.addons.website_form.controllers import main as parent_controller
 from odoo import http
 from odoo.http import request

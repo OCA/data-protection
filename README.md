@@ -13,6 +13,7 @@ addon | version | summary
 --- | --- | ---
 [privacy](privacy/) | 10.0.2.0.0 | Provides data privacy and protection features to comply to regulations, such as GDPR.
 [privacy_consent](privacy_consent/) | 10.0.1.0.0 | Allow people to explicitly accept or reject inclusion in some activity, GDPR compliant
+[privacy_partner_report](privacy_partner_report/) | 10.0.1.0.0 | Show the transactions that a specific partner is involved in.
 
 [//]: # (end addons)
 

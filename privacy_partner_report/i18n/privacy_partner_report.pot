@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* privacy_partner_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: privacy_partner_report
+#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+msgid "<span>Select a company</span><br/>"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+msgid "<span>Select a partner</span><br/>"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_company_id
+msgid "Company"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_create_uid
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_create_date
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_name
+msgid "Database Table"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_display_name
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+msgid "Export XLSX"
+msgstr ""
+
+#. module: privacy_partner_report
+#: code:addons/privacy_partner_report/wizard/privacy_report_partner.py:110
+#, python-format
+msgid "Form content is missing, this report cannot be printed."
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_id
+msgid "ID"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data___last_update
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_write_uid
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_write_date
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_model_id
+msgid "Models"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_table_ids
+msgid "Models with related partner data"
+msgstr ""
+
+#. module: privacy_partner_report
+#: code:addons/privacy_partner_report/wizard/privacy_report_partner.py:114
+#, python-format
+msgid "No provided partner."
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_count_rows
+msgid "Number of lines"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: privacy_partner_report
+#: code:addons/privacy_partner_report/report/privacy_partner_xlsx.py:37
+#, python-format
+msgid "Partner Data"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.actions.act_window,name:privacy_partner_report.action_privacy_partner_menu
+#: model:ir.ui.menu,name:privacy_partner_report.menu_privacy_report_privacy_report
+msgid "Partner Report"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.actions.report.xml,name:privacy_partner_report.action_report_partner_data_xlsx
+#: model:ir.model,name:privacy_partner_report.model_privacy_partner_data
+msgid "Privacy Partner Data"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model,name:privacy_partner_report.model_privacy_partner_report
+msgid "Privacy Partner Report"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+msgid "Report Options"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_type
+msgid "Type"
+msgstr ""
+
+#. module: privacy_partner_report
+#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+msgid "or"
+msgstr ""
+

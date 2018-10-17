@@ -44,9 +44,19 @@
               groups="group_data_protection_user"
               sequence="30"
     />
+
+    <record id="action_data_protection_config" model="ir.actions.act_window">
+        <field name="name">Data Protection Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'data_protection'}</field>
+    </record>
     <menuitem id="menu_data_protection_setting"
               name="Settings"
               parent="parent_menu_data_protection"
+              action="action_data_protection_config"
               groups="group_data_protection_manager"
               sequence="90"
     />

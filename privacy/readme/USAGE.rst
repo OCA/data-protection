@@ -1,2 +1,3 @@
-In the "Data Protection", open the "Settings" menu to find and enable 
-the main features available.
+  #. Go to "Data Protection" Application
+  #. Go to Configuration > "Settings" menu
+  #. Enable the main features available.

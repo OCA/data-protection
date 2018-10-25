@@ -6,6 +6,14 @@
 Odoo modules for data protection (like GDPR).
 
 [//]: # (addons)
+
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[contact_search_form](contact_search_form/) | 11.0.1.0.0 | Multiple models can be searched for specified string by DPO
+[website_contact_extend](website_contact_extend/) | 11.0.1.0.0 | Extended Website Contact View
+
 [//]: # (end addons)
 
 ----

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <report
+                id="report_contact"
+                string="Contact Report"
+                model="res.partner"
+                report_type="qweb-pdf"
+                file="website_contact_extend.contact_report"
+                name="website_contact_extend.contact_report"
+                />
+
+        <template id="contact_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="website_contact_extend.report_contact_document" t-lang="doc.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_contact_document">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2 class="P8">
+                        <a id="a__Auskunft_nach_Artikel_15_DS-GVO">
+                            <span/>
+                        </a>
+                        Auskunft n
+                        <span class="T1">ach Artikel 15 DS-GVO</span>
+                    </h2>
+                    <p class="Text_20_body"/>
+                    <p class="P1">Auskunft für:
+                        <span class="T8">
+                            <span t-field="doc.name"/>
+                        </span>
+                    </p>
+                    <p class="Text_20_body">Die betroffene Person hat das Recht, von dem Verantwortlichen eine
+                        Bestätigung darüber zu verlangen, ob sie betreffende personenbezogene Daten verarbeitet werden;
+                        ist dies der Fall, so hat sie ein Recht auf Auskunft über diese personenbezogenen Daten und auf
+                        folgende Informationen:
+                    </p>
+                    <p class="P4">a) die Verarbeitungszwecke:
+                        <span class="T1"></span>
+                        <span class="T2">□</span>
+                        <span class="T1">Kontaktaufnahme;</span>
+                        <span class="T2">□</span>
+                        <span class="T3">Geschäftsvorgänge;</span>
+                        <span class="T2">□</span>
+                        <span class="T3">Sonstiges;</span>
+                    </p>
+                    <p class="P2">b) die Kategorien personenbezogener Daten, die verarbeitet werden:
+                        <span class="T1">
+                            <br/>
+                        </span>
+                        <span class="T2">□</span>
+                        <span class="T1">Kundendaten,</span>
+                        <span class="T2">□</span>
+                        <span class="T1">Lieferantendaten,</span>
+                        <span class="T2">□</span>
+                        <span class="T1">Interessentendaten,</span>
+                        <span class="T2">□</span>
+                        <span class="T1">Personaldaten</span>
+                    </p>
+                    <p class="P2">c) die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen
+                        Daten offengelegt worden sind oder noch offengelegt werden, insbesondere bei Empfängern in
+                        Drittländern oder bei internationalen Organisationen:
+                        <span class="T2">□</span>_______________________________
+                        <br/>
+                        <span class="T6">oder</span>
+                        <span class="T2">□</span>
+                        <span class="T3">keine Offenlegung gegenüber Dritten beabsichtigt,</span>
+                        <span class="T2">□</span>
+                        <span class="T1">Nicht bekannt</span>
+                    </p>
+                    <p class="P2">d) geplante Dauer, für die die personenbezogenen Daten gespeichert werden:
+                    </p>
+                    <p class="P4">
+                        <span class="T2">□ bis zum __. __. ____</span>
+                        <span class="T2">□ Bis zu ____ Jahre</span>
+                        <span class="T3">□ Gesetzl. Aufbewahrungfrist</span>
+                    </p>
+                    <p class="P2">
+                        <span class="T6">Grund</span>
+                        <span class="T2">□ Kontakt ____ mal nicht erreicht □ Systemwechsel</span>
+                    </p>
+                    <p class="P2">e)
+                        <span>□ Recht auf Berichtigung oder Löschung der betreffenden
+                            personenbezogenen Daten besteht oder
+                        </span>
+                        <span>□ Einschränkung der Verarbeitung durch den Verantwortlichen
+                        </span>
+                    </p>
+                    <p class="P2"><span>oder □ Widerspruchsrecht gegen diese Verarbeitung besteht;</span>
+                    </p>
+                    <p class="P3">f)
+                        <span>□ das Bestehen eines Beschwerderechts bei einer Aufsichtsbehörde besteht
+                        </span>
+                    </p>
+                    <p class="P5">g) die Herkunft der Daten
+                        <span class="T7">ist von</span>
+                        <span class="T2">□</span>
+                        <span class="T4">eigener Recherche,</span>
+                        <span class="T2">□</span>
+                        <span class="T4">Auskunftei</span>
+                    </p>
+                    <p class="P5">h)<span class="T2">□</span>eine automatisierte Entscheidungsfindung
+                        <span class="T7">mit diesen Daten findet nicht statt.</span>
+                    </p>
+                    <p class="P5">
+                        <span class="T2">□</span>
+                        <span class="T4">Wenn doch: Die Daten werden</span>
+                        <span class="T7">nach folgender Art ausgewertet und gruppiert _______________</span>
+                    </p>
+                    <p class="P5">(2)
+                        <span class="T2">□</span>
+                        <span class="T7">Die</span>personenbezogene Daten<span class="T7">werden nicht</span>an ein
+                        Drittland oder an eine internationale Organisation übermittelt
+                    </p>
+                    <p class="Text_20_body">(3) Der Verantwortliche stellt eine Kopie der personenbezogenen Daten, die
+                        Gegenstand der Verarbeitung sind, zur Verfügung:
+                    </p>
+                    <p class="P6">
+                        <p t-if="doc.name">
+                            Name:
+                            <span t-field="doc.name"/>
+                        </p>
+                        <p t-if="doc.email">
+                            Email:
+                            <span t-field="doc.email"/>
+                        </p>
+                        <p t-if="doc.phone">
+                            Phone:
+                            <span t-field="doc.phone"/>
+                        </p>
+                    </p>
+                    <p class="P6">
+                        Adresse:
+                        <span t-field="doc.street"/>
+                        <span t-field="doc.zip"/>
+                        <span t-field="doc.city"/>
+                        <span t-field="doc.country_id.name"/>
+                    </p>
+                    <p class="Text_20_body">(4) Das Recht auf Erhalt einer Kopie gemäß Absatz 3 darf die Rechte und
+                        Freiheiten anderer<br/>Personen nicht beeinträchtigen.
+                    </p>
+                    <p class="Text_20_body"></p>
+                    <p class="P7">Auskunftsgeber:
+                        <span class="T8">
+                            <span t-field="doc.user_id.name"/>,
+                            <span t-field="doc.user_id.company_id.name"/>,
+                            <span t-field="doc.user_id.company_id.street"/>,
+                            <span t-field="doc.user_id.company_id.zip"/>
+                            <span t-field="doc.user_id.company_id.city"/>
+                        </span>
+                    </p>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

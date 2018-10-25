@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* contact_search_form
+# 	* contact_search_form
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2018-07-02 12:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -17,8 +18,21 @@ msgstr ""
 
 #. module: contact_search_form
 #: model:ir.ui.menu,name:contact_search_form.menu_customer_info
+#: model:ir.ui.menu,name:contact_search_form.menu_customer_info_base
 msgid "Contact Search"
 msgstr "Contact Search"
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_create_uid
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_create_date
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_create_date
+msgid "Created on"
+msgstr ""
 
 #. module: contact_search_form
 #: model:ir.actions.act_window,name:contact_search_form.action_dpo_view_itis
@@ -32,6 +46,67 @@ msgid "Data Protection Officer"
 msgstr "Data Protection Officer"
 
 #. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_display_name
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_field_list
+msgid "Fields Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_model_id
+msgid "Found in Model"
+msgstr ""
+
+#. module: contact_search_form
+#: code:addons/contact_search_form/models/contact_search.py:20
+#, python-format
+msgid "Found record"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_id
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_id
+msgid "ID"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view___last_update
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_write_uid
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_write_date
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_name
+msgid "Model Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_record_id
+msgid "Record ID"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_record_name
+msgid "Record Name"
+msgstr ""
+
+#. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
 msgid "SEARCH"
 msgstr "SEARCH"
@@ -42,14 +117,33 @@ msgid "Search Contact"
 msgstr "Search Contact"
 
 #. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_search_lines
+#, fuzzy
+msgid "Search Result"
+msgstr "Search Results"
+
+#. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.search_line_tree_view_itis
 msgid "Search Results"
 msgstr "Search Results"
 
 #. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_name
+#, fuzzy
+msgid "Search Term"
+msgstr "Search Terms"
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_search_id
 #: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
 msgid "Search Terms"
 msgstr "Search Terms"
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_model_ids
+#, fuzzy
+msgid "Search in Model"
+msgstr "Search Results"
 
 #. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.search_line_tree_view_itis
@@ -65,4 +159,3 @@ msgstr "dpo.view"
 #: model:ir.model,name:contact_search_form.model_search_line
 msgid "search.line"
 msgstr "search.line"
-

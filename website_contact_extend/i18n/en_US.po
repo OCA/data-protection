@@ -10,11 +10,11 @@ msgstr ""
 "PO-Revision-Date: 2018-07-02 14:26+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-"Language: en_US\n"
 
 #. module: website_contact_extend
 #: model:mail.template,body_html:website_contact_extend.verification_email_template
@@ -82,38 +82,46 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"(2)    <span class=\"T2\">□ </span><span class=\"T7\">Die </"
-"span>personenbezogene Daten <span class=\"T7\">werden nicht </span>an ein "
-"Drittland oder an eine internationale Organisation übermittelt"
+"(2)\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T7\">Die</span>personenbezogene "
+"Daten<span class=\"T7\">werden nicht</span>an ein\n"
+"                        Drittland oder an eine internationale Organisation "
+"übermittelt"
 msgstr ""
 "(2) <span class=\"T2\">□ </span>The personal data will not be transmitted to "
 "a third country or an international organization"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"(3)    Der Verantwortliche stellt eine Kopie der personenbezogenen Daten, "
-"die Gegenstand der Verarbeitung sind, zur Verfügung:"
+"(3) Der Verantwortliche stellt eine Kopie der personenbezogenen Daten, die\n"
+"                        Gegenstand der Verarbeitung sind, zur Verfügung:"
 msgstr ""
 "(3) The responsible person provides a copy of the personal data that is the "
 "subject of the processing:"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"(4)    Das Recht auf Erhalt einer Kopie gemäß Absatz 3 darf die Rechte und "
-"Freiheiten anderer<br/>Personen nicht beeinträchtigen."
+"(4) Das Recht auf Erhalt einer Kopie gemäß Absatz 3 darf die Rechte und\n"
+"                        Freiheiten anderer<br/>Personen nicht "
+"beeinträchtigen."
 msgstr ""
 "(4) The right to receive a copy under paragraph 3 must not affect the rights "
 "and freedoms of other persons."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"<span class=\"T2\">        □ </span><span class=\"T1\">bis zum __. __. ____</"
-"span> <span> <span class=\"T1\"> </span><span class=\"T2\">□ Bis zu ____ "
-"Jahre        □ </span><span class=\"T3\">Gesetzl. Aufbewahrungfrist</span></"
+"<span class=\"T2\">□ bis zum __. __. ____</span>\n"
+"                        <span class=\"T2\">□ Bis zu ____ Jahre</span>\n"
+"                        <span class=\"T3\">□ Gesetzl. Aufbewahrungfrist</"
 "span>"
 msgstr ""
 "<span class=\"T2\">        □ </span><span class=\"T1\">Until the __. __. "
@@ -123,30 +131,34 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"<span class=\"T2\">oder        □ </span>Widerspruchsrecht gegen diese "
-"Verarbeitung <span class=\"T1\">besteht</span>;"
-msgstr ""
-"<span class=\"T2\">or        □ </span>Right to object to this processing,"
-
-#. module: website_contact_extend
-#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
-msgid ""
-"<span class=\"T2\">□  </span><span class=\"T4\">Wenn doch: Die Daten werden</"
-"span><span class=\"T7\"> nach folgender Art ausgewertet und gruppiert "
-"_______________ </span>"
+"<span class=\"T2\">□</span>\n"
+"                        <span class=\"T4\">Wenn doch: Die Daten werden</"
+"span>\n"
+"                        <span class=\"T7\">nach folgender Art ausgewertet "
+"und gruppiert _______________</span>"
 msgstr ""
 "<span class=\"T2\">□  </span>If so: The data is evaluated and grouped in the "
 "following way_______________ "
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"<span class=\"T6\">Grund</span><span> <span class=\"T2\">□ Kontakt ____ mal "
-"nicht erreicht         □ Systemwechsel        </span></span>"
+"<span class=\"T6\">Grund</span>\n"
+"                        <span class=\"T2\">□ Kontakt ____ mal nicht erreicht "
+"□ Systemwechsel</span>"
 msgstr ""
 "<span class=\"T6\">Reason:</span> □ Contact ____ not reached    □ System "
 "change </span>"
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
+msgid "<span>oder □ Widerspruchsrecht gegen diese Verarbeitung besteht;</span>"
+msgstr ""
+"<span class=\"T2\">or        □ </span>Right to object to this processing,"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
@@ -160,7 +172,10 @@ msgstr "Information for:"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
-msgid "Auskunft n<span class=\"T1\">ach Artikel 15 DS-GVO</span>"
+#, fuzzy
+msgid ""
+"Auskunft n\n"
+"                        <span class=\"T1\">ach Artikel 15 DS-GVO</span>"
 msgstr ""
 "Information <span class=\"T1\">according to Article 15 of the GDPR</span>"
 
@@ -202,11 +217,14 @@ msgstr "Contact by Phone"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"Die betroffene Person hat das Recht, von dem Verantwortlichen eine "
-"Bestätigung darüber zu verlangen, ob sie betreffende personenbezogene Daten "
-"verarbeitet werden; ist dies der Fall, so hat sie ein Recht auf Auskunft "
-"über diese personenbezogenen Daten und auf folgende Informationen:"
+"Die betroffene Person hat das Recht, von dem Verantwortlichen eine\n"
+"                        Bestätigung darüber zu verlangen, ob sie betreffende "
+"personenbezogene Daten verarbeitet werden;\n"
+"                        ist dies der Fall, so hat sie ein Recht auf Auskunft "
+"über diese personenbezogenen Daten und auf\n"
+"                        folgende Informationen:"
 msgstr ""
 "The data subject has the right to ask the person responsible for "
 "confirmation of the processing of the personal data concerned; if this is "
@@ -289,6 +307,7 @@ msgstr "Phone:"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_is_verified
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_is_verified
 #: model:mail.template,subject:website_contact_extend.confirmation_email_template
 msgid "Verified Email"
 msgstr "Verified Email"
@@ -306,12 +325,16 @@ msgstr "You can contact me by Email or Phone."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"a)  <span class=\"T1\">d</span>ie Verarbeitungszwecke:<span class=\"T1\"> </"
-"span><span class=\"T2\">□ </span><span class=\"T1\">Kontaktaufnahme; </"
-"span><span class=\"T2\">□ </span><span class=\"T3\">Geschäftsvorgänge</"
-"span><span class=\"T1\">; </span><span class=\"T2\">□ </span><span class="
-"\"T3\">S</span><span class=\"T1\">onstiges; </span>"
+"a) die Verarbeitungszwecke:\n"
+"                        <span class=\"T1\"/>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Kontaktaufnahme;</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T3\">Geschäftsvorgänge;</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T3\">Sonstiges;</span>"
 msgstr ""
 "a)  The processing purposes:<span class=\"T1\"> </span><span class=\"T2\">□ "
 "</span><span class=\"T1\">Contact, </span><span class=\"T2\">□ </span><span "
@@ -320,13 +343,20 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"b) die Kategorien personenbezogener Daten, die verarbeitet werden: <span "
-"class=\"T1\"> <br/></span><span class=\"T2\">□ </span><span class="
-"\"T1\">Kundendaten,  </span><span class=\"T2\">□ </span><span class="
-"\"T1\">Lieferantendaten,  </span><span class=\"T2\">□ </span><span class="
-"\"T1\">Interessentendaten,  </span><span class=\"T2\">□ </span><span class="
-"\"T1\">Personaldaten</span>"
+"b) die Kategorien personenbezogener Daten, die verarbeitet werden:\n"
+"                        <span class=\"T1\">\n"
+"                            <br/>\n"
+"                        </span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Kundendaten,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Lieferantendaten,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Interessentendaten,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Personaldaten</span>"
 msgstr ""
 "b) The categories of personal data being processed: <span class=\"T1\"> <br/"
 "></span><span class=\"T2\">□ </span><span class=\"T1\">Customer data,  </"
@@ -336,16 +366,23 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"c)    die Empfänger oder Kategorien von Empfängern, gegenüber denen die "
-"personenbezogenen Daten offengelegt worden sind oder noch offengelegt "
-"werden, insbesondere bei Empfängern in Drittländern oder bei internationalen "
-"Organisationen: <span class=\"T1\"> </span><span class=\"T2\">□ </"
-"span>_______________________________<br/> <span class=\"T6\">oder</span> "
-"<span class=\"T1\"> </span><span class=\"T2\">□ </span><span class="
-"\"T3\">keine</span><span class=\"T1\"> Offenlegung gegenüber Dritten "
-"beabsichtigt, </span><span class=\"T2\">□ </span><span class=\"T1\">Nicht "
-"bekannt</span>"
+"c) die Empfänger oder Kategorien von Empfängern, gegenüber denen die "
+"personenbezogenen\n"
+"                        Daten offengelegt worden sind oder noch offengelegt "
+"werden, insbesondere bei Empfängern in\n"
+"                        Drittländern oder bei internationalen "
+"Organisationen:\n"
+"                        <span class=\"T2\">□</"
+"span>_______________________________\n"
+"                        <br/>\n"
+"                        <span class=\"T6\">oder</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T3\">keine Offenlegung gegenüber "
+"Dritten beabsichtigt,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Nicht bekannt</span>"
 msgstr ""
 "c) The recipients or categories of recipients to whom the personal data have "
 "been disclosed or are yet to be disclosed, in particular to recipients in "
@@ -358,20 +395,25 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"d)    geplante Dauer, für die die personenbezogenen Daten gespeichert "
-"werden:  <span class=\"T1\"> </span>"
+"d) geplante Dauer, für die die personenbezogenen Daten gespeichert werden:"
 msgstr ""
 "d) Planned duration for which the personal data is stored: <span class="
 "\"T1\"> </span>"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"e)  <span> <span class=\"T2\">□ </span>Recht auf Berichtigung oder Löschung "
-"der betreffenden personenbezogenen Daten <span class=\"T1\">besteht "
-"oder        </span><span class=\"T2\">□ </span>Einschränkung der "
-"Verarbeitung durch den Verantwortlichen </span>"
+"e)\n"
+"                        <span>□ Recht auf Berichtigung oder Löschung der "
+"betreffenden\n"
+"                            personenbezogenen Daten besteht oder\n"
+"                        </span>\n"
+"                        <span>□ Einschränkung der Verarbeitung durch den "
+"Verantwortlichen\n"
+"                        </span>"
 msgstr ""
 "e)<span> <span class=\"T2\">□ </span>Right to rectification or deletion of "
 "personal data concerned, or <span class=\"T2\">□ </span>Restriction of "
@@ -379,19 +421,26 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"f) <span> <span class=\"T2\">□ </span>das Bestehen eines Beschwerderechts "
-"bei einer Aufsichtsbehörde <span class=\"T5\">besteht</span></span>"
+"f)\n"
+"                        <span>□ das Bestehen eines Beschwerderechts bei "
+"einer Aufsichtsbehörde besteht\n"
+"                        </span>"
 msgstr ""
 "f)<span> <span class=\"T2\">□ </span>The existence of a right to complain to "
 "a supervisory authority</span>"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"g)     die Herkunft der Daten <span class=\"T7\">ist von </span><span class="
-"\"T2\">□ </span><span class=\"T4\">eigener Recherche, </span><span class="
-"\"T2\">□ </span><span class=\"T4\">Auskunftei</span>"
+"g) die Herkunft der Daten\n"
+"                        <span class=\"T7\">ist von</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T4\">eigener Recherche,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T4\">Auskunftei</span>"
 msgstr ""
 "g) The origin of the data is from <span class=\"T2\">□ </span><span class="
 "\"T4\">Own research, </span><span class=\"T2\">□ </span><span class="
@@ -399,9 +448,11 @@ msgstr ""
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+#, fuzzy
 msgid ""
-"h)    <span class=\"T2\">□ </span>eine automatisierte Entscheidungsfindung "
-"<span class=\"T7\">mit diesen Daten findet nicht statt.         </span>"
+"h)<span class=\"T2\">□</span>eine automatisierte Entscheidungsfindung\n"
+"                        <span class=\"T7\">mit diesen Daten findet nicht "
+"statt.</span>"
 msgstr ""
 "h) <span class=\"T2\">□ </span>An automated decision-making with this data "
 "does not take place."

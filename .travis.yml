@@ -29,7 +29,7 @@ addons:
 
 env:
   global:
-  - VERSION="10.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
+  - VERSION="11.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
   # Set this variable to some version existing as linux-generic build on
   # https://github.com/wkhtmltopdf/wkhtmltopdf/releases
   # if you need to install wkhtmltopdf

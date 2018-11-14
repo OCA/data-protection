@@ -2,7 +2,7 @@
 
 <odoo>
     <template id="contactus_form_inherited" name="Contact Form" inherit_id="website_crm.contactus_form" customize_show="True">
-        <xpath expr="//div[@class='form-group form-field o_website_form_required_custom'][last()]" position="after">
+        <xpath expr="//div[hasclass('form-group', 'form-field', 'o_website_form_required_custom')][last()]" position="after">
             <div class="form-group form-field o_website_form_required_custom">
                 <label class="col-md-3 col-sm-4 control-label" for="contact_type">In the future I want to be contacted by</label>
                 <div class="col-md-7 col-sm-8">

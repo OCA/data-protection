@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo11-addon-contact_search_form',
+        'odoo11-addon-privacy',
         'odoo11-addon-website_contact_extend',
     ],
     classifiers=[

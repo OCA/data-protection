@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* privacy_right_to_be_forgotten
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: privacy_right_to_be_forgotten
+#: code:addons/privacy_right_to_be_forgotten/wizards/res_partner_gdpr.py:44
+#, python-format
+msgid "*** GDPR removed ***"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: view:res.partner.gdpr:privacy_right_to_be_forgotten.res_partner_gdpr_form
+msgid "Cleanup"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: view:res.partner.gdpr:privacy_right_to_be_forgotten.res_partner_gdpr_form
+msgid "Close"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,fields:0
+msgid "Fields"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: help:res.partner.gdpr,fields:0
+msgid "Fields to delete data from."
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: model:ir.actions.act_window,name:privacy_right_to_be_forgotten.gdpr_action
+#: view:res.partner.gdpr:privacy_right_to_be_forgotten.res_partner_gdpr_form
+msgid "GDPR Cleanup"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,id:0
+msgid "ID"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: privacy_right_to_be_forgotten
+#: field:res.partner.gdpr,partner_ids:0
+msgid "Partner ids"
+msgstr ""
+

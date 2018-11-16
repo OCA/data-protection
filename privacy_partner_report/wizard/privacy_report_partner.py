@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from odoo import api, fields, models, _
@@ -132,7 +131,7 @@ class PrivacyPartnerReport(models.TransientModel):
 
     def _get_default_table(self, name, data):
         if data:
-            data_type = data[0][4]
+            field_type = data[0][4]
             res = self.env[data[0][1]]
             for t in data:
                 res |= self.env[t[1]].sudo().browse(t[3])
@@ -142,7 +141,7 @@ class PrivacyPartnerReport(models.TransientModel):
                     'model_id': self.env['ir.model'].sudo().search(
                         [('model', '=', res._name)]).id,
                     'count_rows': len(res.ids),
-                    'type': data_type,
+                    'field_type': field_type,
                 }
                 return values
         return {}
@@ -200,9 +199,9 @@ class PrivacyPartnerReport(models.TransientModel):
         records = self.env[data['model']].sudo().browse(data.get('ids', []))
         processed_data = self.compute_data_for_report(data)
         if xlsx_report:
-            return self.env['report'].with_context(landscape=True).get_action(
-                records=records, report_name='privacy.report_partner_xlsx',
-                data=processed_data)
+            return self.env.ref('privacy_partner_report.report_partner_xlsx').\
+                with_context(landscape=True).report_action(
+                records, data=processed_data)
 
 
 class PrivacyPartnerData(models.TransientModel):
@@ -217,8 +216,8 @@ class PrivacyPartnerData(models.TransientModel):
         ondelete='cascade',
         string='Models',
     )
-    type = fields.Char(
-        string="Type",
+    field_type = fields.Char(
+        string="Type", oldname='type',
     )
     count_rows = fields.Integer(
         default=0,

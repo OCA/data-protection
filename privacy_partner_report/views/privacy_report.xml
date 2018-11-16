@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="action_report_partner_data_xlsx" model="ir.actions.report.xml">
-      <field name="name">Privacy Partner Data</field>
-      <field name="model">privacy.partner.report</field>
-      <field name="type">ir.actions.report.xml</field>
-      <field name="report_name">privacy.report_partner_xlsx</field>
-      <field name="report_type">xlsx</field>
-      <field name="auto" eval="False"/>
-    </record>
+    <report
+        id="report_partner_xlsx"
+        model="privacy.partner.report"
+        string="Privacy Partner Data"
+        report_type="xlsx"
+        name="privacy_partner_report.report_partner_xlsx"
+        file="privacy_partner_report"
+        attachment_use="False"
+    />
 </odoo>

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     'name': 'Privacy Partner Report',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'GDPR',
     'summary': 'Show the transactions that a specific partner is involved in.',
     'author': "Eficent, "

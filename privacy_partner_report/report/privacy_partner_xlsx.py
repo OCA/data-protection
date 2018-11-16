@@ -1,24 +1,16 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import logging
-from odoo.report import report_sxw
+from odoo import models
 from odoo.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 
-try:
-    from openerp.addons.report_xlsx.report.report_xlsx import ReportXlsx
-except ImportError:
-    _logger.debug("report_xlsx not installed, Excel export non functional")
 
-    class ReportXlsx(object):
-        def __init__(self, *args, **kwargs):
-            pass
-
-
-class ReportPartnerXlsx(ReportXlsx):
+class ReportPartnerXlsx(models.AbstractModel):
+    _name = 'report.privacy_partner_report.report_partner_xlsx'
+    _inherit = 'report.report_xlsx.abstract'
 
     def _search_longest_row(self, tables):
         res = 0
@@ -85,10 +77,3 @@ class ReportPartnerXlsx(ReportXlsx):
                             j += 1
                 i += 2
                 first_row = i+2
-
-
-ReportPartnerXlsx(
-    'report.privacy.report_partner_xlsx',
-    'privacy.partner.report',
-    parser=report_sxw.rml_parse
-)

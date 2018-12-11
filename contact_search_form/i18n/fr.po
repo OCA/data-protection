@@ -1,0 +1,156 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* contact_search_form
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: contact_search_form
+#: model:ir.ui.menu,name:contact_search_form.menu_customer_info
+#: model:ir.ui.menu,name:contact_search_form.menu_customer_info_base
+msgid "Contact Search"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_create_uid
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_create_date
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.actions.act_window,name:contact_search_form.action_dpo_view_itis
+#: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
+msgid "Customer Info"
+msgstr ""
+
+#. module: contact_search_form
+#: model:res.groups,name:contact_search_form.group_dpo
+msgid "Data Protection Officer"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_display_name
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_field_list
+msgid "Fields Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_model_id
+msgid "Found in Model"
+msgstr ""
+
+#. module: contact_search_form
+#: code:addons/contact_search_form/models/contact_search.py:20
+#, python-format
+msgid "Found record"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_id
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_id
+msgid "ID"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view___last_update
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_write_uid
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_write_date
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_name
+msgid "Model Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_record_id
+msgid "Record ID"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_record_name
+msgid "Record Name"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
+msgid "SEARCH"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.ui.view,arch_db:contact_search_form.dpo_view_tree
+msgid "Search Contact"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_search_lines
+msgid "Search Result"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.ui.view,arch_db:contact_search_form.search_line_tree_view_itis
+msgid "Search Results"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_name
+msgid "Search Term"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_search_line_search_id
+#: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
+msgid "Search Terms"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_model_ids
+msgid "Search in Model"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.ui.view,arch_db:contact_search_form.search_line_tree_view_itis
+msgid "VIEW RECORD"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model,name:contact_search_form.model_dpo_view
+msgid "dpo.view"
+msgstr ""
+
+#. module: contact_search_form
+#: model:ir.model,name:contact_search_form.model_search_line
+msgid "search.line"
+msgstr ""

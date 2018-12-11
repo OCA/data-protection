@@ -66,6 +66,12 @@ msgid "Data Protection Manager"
 msgstr "Gestor de Proteção de Dados"
 
 #. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_config
+#, fuzzy
+msgid "Data Protection Settings"
+msgstr "Utilizador de Proteção de Dados"
+
+#. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_user
 msgid "Data Protection User"
 msgstr "Utilizador de Proteção de Dados"
@@ -77,7 +83,8 @@ msgstr "Atividades de processamento de dados"
 
 #. module: privacy
 #: model:ir.actions.act_window,help:privacy.activity_action
-msgid "Data processing activities define why, how and what you do\n"
+msgid ""
+"Data processing activities define why, how and what you do\n"
 "                with subjects' personal data."
 msgstr ""
 "As atividades de processamento de dados definem porquê, como e o que faz com "
@@ -187,7 +194,8 @@ msgstr "Transações"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_controller_id
-msgid "Whoever determines the purposes and means of the processing of personal data."
+msgid ""
+"Whoever determines the purposes and means of the processing of personal data."
 msgstr "Quem determina os fins e meios do processamento de dados pessoais."
 
 #. module: privacy

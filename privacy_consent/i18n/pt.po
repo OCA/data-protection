@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portuguese (data-protection-10.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-09-22 09:44+0000\n"
-"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
+"PO-Revision-Date: 2018-12-15 21:58+0000\n"
+"Last-Translator: alvarorib <alvaro.ribeiro@exo.pt>\n"
 "Language-Team: Portuguese <https://translation.odoo-community.org/projects/"
 "data-protection-10-0/data-protection-10-0-privacy_consent/pt/>\n"
 "Language: pt\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.3\n"
 
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
@@ -409,7 +409,7 @@ msgstr "Eu <b>rejeito</b> este processamento dos meus dados"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.form

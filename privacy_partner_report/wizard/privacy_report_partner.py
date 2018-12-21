@@ -72,6 +72,11 @@ class PrivacyPartnerReport(models.TransientModel):
                               data['form']['table_ids'] or False
         return result
 
+    @staticmethod
+    def _transform_binary(binary):
+        # TODO: Implement if needed
+        return False
+
     def _clean_data(self, model, rows):
         cleaned_rows = []
         for i, row in enumerate(rows):
@@ -87,6 +92,10 @@ class PrivacyPartnerReport(models.TransientModel):
                                 record.display_name.encode('utf8')
                         else:
                             cleaned_rows[i][label] = rows[i][key]
+                    elif 'binary' == self.env[model]._fields[key].type:
+                        binary = self._transform_binary(rows[i][key])
+                        if binary:
+                            cleaned_rows[i][label] = binary
                     elif '2many' not in self.env[model]._fields[key].type:
                         cleaned_rows[i][label] = rows[i][key]
         return cleaned_rows
@@ -99,6 +108,7 @@ class PrivacyPartnerReport(models.TransientModel):
         data['model'] = self.env.context.get('active_model', 'ir.ui.menu')
         data['form'] = self.read(['partner_id', 'company_id', 'table_ids'])[0]
         used_context = self._build_contexts(data)
+        data['form']['id'] = str(data['form']['id'])
         data['form']['used_context'] = dict(
             used_context, lang=self.env.context.get('lang', 'en_US'))
         return self._print_report(data=data, xlsx_report=xlsx_report)
@@ -152,7 +162,7 @@ class PrivacyPartnerReport(models.TransientModel):
         new_tables = {}
         for model in table.model_id:
             rows = self._get_rows_from_model(model, partner)
-            new_tables[model.display_name.encode('utf8')] = rows
+            new_tables[model.display_name] = rows
         return new_tables
 
     def _get_rows_from_model(self, model, partner):
@@ -241,4 +251,3 @@ class PrivacyPartnerData(models.TransientModel):
             'context': {'delete': True},
         }
         return response
-

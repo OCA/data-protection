@@ -2,6 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+import ast
 
 
 class PrivacyPartnerReport(models.TransientModel):
@@ -142,6 +143,7 @@ class PrivacyPartnerReport(models.TransientModel):
                         [('model', '=', res._name)]).id,
                     'count_rows': len(res.ids),
                     'field_type': field_type,
+                    'res_ids': res.ids,
                 }
                 return values
         return {}
@@ -223,3 +225,20 @@ class PrivacyPartnerData(models.TransientModel):
         default=0,
         string='Number of lines',
     )
+    res_ids = fields.Char('Related Document IDs', index=True,
+                          help='List of Related Document IDs')
+
+    @api.multi
+    def action_view_records(self):
+        self.ensure_one()
+        response = {
+            'name': self.model_id.display_name,
+            'type': 'ir.actions.act_window',
+            'res_model': self.model_id.model,
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', ast.literal_eval(self.res_ids))],
+            'target': 'current',
+            'context': {'delete': True},
+        }
+        return response
+

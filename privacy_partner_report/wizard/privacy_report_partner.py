@@ -62,6 +62,8 @@ class PrivacyPartnerReport(models.TransientModel):
     @api.multi
     def button_export_xlsx(self):
         self.ensure_one()
+        if not self.table_ids:
+            raise UserError(_('No data for this partner.'))
         return self.check_report(xlsx_report=True)
 
     def _build_contexts(self, data):
@@ -88,8 +90,7 @@ class PrivacyPartnerReport(models.TransientModel):
                         comodel = self.env[model]._fields[key].comodel_name
                         if value:
                             record = self.env[comodel].sudo().browse(value)
-                            cleaned_rows[i][label] = \
-                                record.display_name.encode('utf8')
+                            cleaned_rows[i][label] = record.display_name
                         else:
                             cleaned_rows[i][label] = rows[i][key]
                     elif 'binary' == self.env[model]._fields[key].type:
@@ -209,11 +210,10 @@ class PrivacyPartnerReport(models.TransientModel):
 
     def _print_report(self, data, xlsx_report=False):
         records = self.env[data['model']].sudo().browse(data.get('ids', []))
-        processed_data = self.compute_data_for_report(data)
         if xlsx_report:
             return self.env.ref('privacy_partner_report.report_partner_xlsx').\
                 with_context(landscape=True).report_action(
-                records, data=processed_data)
+                records, data=data)
 
 
 class PrivacyPartnerData(models.TransientModel):

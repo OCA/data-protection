@@ -5,11 +5,9 @@
 from contextlib import contextmanager
 
 from odoo.exceptions import ValidationError
-from odoo.tests.common import at_install, post_install, HttpCase
+from odoo.tests.common import HttpCase
 
 
-@at_install(False)
-@post_install(True)
 class ActivityCase(HttpCase):
     def setUp(self):
         super(ActivityCase, self).setUp()

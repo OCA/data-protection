@@ -33,21 +33,36 @@
                     <group name="basic">
                         <group name="owners">
                             <field name="controller_id"/>
-                            <field
-                                name="processor_ids"
-                                widget="many2many_tags"
-                            />
                         </group>
-                        <group name="subjects">
-                            <field name="subject_find"/>
-                            <field
-                                name="subject_domain"
-                                widget="char_domain"
-                                options='{"model": "res.partner"}'
-                                attrs='{"required": [("subject_find", "=", True)],
-                                        "invisible": [("subject_find", "=", False)]}'
-                            />
+                        <group name="dates">
+                            <field name="create_date" readonly="1"/>
+                            <field name="write_date" readonly="1"/>
+                            <field name="write_uid" readonly="1"/>
                         </group>
+                    </group>
+                    <separator name="subjects" string="Subjects details"/>
+                    <group name="subjects">
+                      <field name="subject_find"/>
+                      <field
+                          name="subject_domain"
+                          widget="domain"
+                          options='{"model": "res.partner"}'
+                          attrs='{"required": [("subject_find", "=", True)],
+                                  "invisible": [("subject_find", "=", False)]}'
+                      />
+                    </group>
+                    <separator name="processors" string="Processors"/>
+                    <group name="processors">
+                      <field
+                          name="processor_ids"
+                          widget="many2many"
+                      >
+                      <tree string="processors">
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="country_id"/>
+                      </tree>
+                    </field>
                     </group>
                     <notebook string="Details" name="advanced">
                         <page string="Description">

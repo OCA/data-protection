@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-01-27 16:03+0000\n"
+"Last-Translator: Nicolas JEUDY <njeudy@panda-chi.io>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: website_contact_extend
 #: model:mail.template,body_html:website_contact_extend.verification_email_template
@@ -32,6 +34,22 @@ msgid "\n"
 "        \n"
 "        "
 msgstr ""
+"\n"
+"            <p>\n"
+"            % if object.partner_id\n"
+"            Cher<strong>${object.partner_id.name}</strong>,<br/>\n"
+"            % endif\n"
+"            % if not object.partner_id\n"
+"            Cher <strong>${object.email_from}</strong>,<br/>\n"
+"            % endif\n"
+"\n"
+"            Veuillez confirmer votre adresse email en cliquant sur le lien "
+"suivant:  <strong>${object.email_link}</strong>.<br/>\n"
+"\n"
+"           Merci.\n"
+"            </p>\n"
+"        \n"
+"        "
 
 #. module: website_contact_extend
 #: model:mail.template,body_html:website_contact_extend.confirmation_email_template
@@ -46,6 +64,17 @@ msgid "\n"
 "        \n"
 "        "
 msgstr ""
+"\n"
+"            <p>\n"
+"            Cher <strong>${user.partner_id.name}</strong>,<br/>\n"
+"\n"
+"            L'adresse email <strong> ${object.email}</strong> à été "
+"confirmée par l'utilisateur.<br/>\n"
+"\n"
+"            Merci.\n"
+"            </p>\n"
+"        \n"
+"        "
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
@@ -54,18 +83,28 @@ msgid "(2)\n"
 "                        <span class=\"T7\">Die</span>personenbezogene Daten<span class=\"T7\">werden nicht</span>an ein\n"
 "                        Drittland oder an eine internationale Organisation übermittelt"
 msgstr ""
+"(2)\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T7\">Les données personnelles ne "
+"seront pas transmises </span> à des tiers , pays tiers ou à une organisation "
+"internationale."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "(3) Der Verantwortliche stellt eine Kopie der personenbezogenen Daten, die\n"
 "                        Gegenstand der Verarbeitung sind, zur Verfügung:"
 msgstr ""
+"(3) Le responsable du traitement fournit une copie des données à caractère "
+"personnel\n"
+" faisant l'objet du traitement :"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "(4) Das Recht auf Erhalt einer Kopie gemäß Absatz 3 darf die Rechte und\n"
 "                        Freiheiten anderer<br/>Personen nicht beeinträchtigen."
 msgstr ""
+"Le droit de recevoir une copie conformément au paragraphe 3 n'affecte pas<br/"
+"> les droits et libertés d'autrui."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
@@ -73,6 +112,8 @@ msgid "<span class=\"T2\">□ bis zum __. __. ____</span>\n"
 "                        <span class=\"T2\">□ Bis zu ____ Jahre</span>\n"
 "                        <span class=\"T3\">□ Gesetzl. Aufbewahrungfrist</span>"
 msgstr ""
+"<span class=\"T1\">Jusqu'au __. __. ____</span> <span class=\"T2\"> Délai de "
+"conservation légal  ____ ans au maximum </span>"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
@@ -95,7 +136,7 @@ msgstr ""
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Adresse:"
-msgstr ""
+msgstr "Adresse:"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
@@ -116,33 +157,33 @@ msgstr ""
 #. module: website_contact_extend
 #: model:ir.model,name:website_contact_extend.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #. module: website_contact_extend
 #: model:ir.actions.report,name:website_contact_extend.report_contact
 msgid "Contact Report"
-msgstr ""
+msgstr "Rapport sur les contacts"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_contact_type
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_contact_type
 msgid "Contact Type"
-msgstr ""
+msgstr "Type de contact"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Contact by E-Mail"
-msgstr ""
+msgstr "Contacter par Email"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Contact by Letter"
-msgstr ""
+msgstr "Contacter par courrier"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Contact by Phone"
-msgstr ""
+msgstr "Contacter par téléphone"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
@@ -151,98 +192,102 @@ msgid "Die betroffene Person hat das Recht, von dem Verantwortlichen eine\n"
 "                        ist dies der Fall, so hat sie ein Recht auf Auskunft über diese personenbezogenen Daten und auf\n"
 "                        folgende Informationen:"
 msgstr ""
+"La personne concernée a le droit d'obtenir du responsable du traitement la "
+"confirmation que des données à caractère personnel la concernant font "
+"l'objet d'un traitement ; si tel est le cas, elle a le droit d'accéder à ces "
+"données personnelles et aux informations suivantes :"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_email_contact
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_email_contact
 msgid "Email Contact"
-msgstr ""
+msgstr "Email de contact"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_crm_lead_email_link
 msgid "Email verification link"
-msgstr ""
+msgstr "Lien de vérification de l'email"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Email:"
-msgstr ""
+msgstr "Email:"
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I do not want to be contacted."
-msgstr ""
+msgstr "Je ne souhaite pas être contacté."
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I only want to be contacted by Email."
-msgstr ""
+msgstr "Je souhaite être contacté seulement par Email."
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I only want to be contacted by Phone."
-msgstr ""
+msgstr "Je souhaite être contacté seulement par téléphone."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "In the future I want to be contacted by"
-msgstr ""
+msgstr "A l'avenir, je souhaite être contacté par"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "Information request concerning data about the personally"
-msgstr ""
+msgstr "Demande d'informations concernant les données personnelles"
 
 #. module: website_contact_extend
 #: model:ir.model,name:website_contact_extend.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Opportunité"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_letter_contact
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_letter_contact
 msgid "Letter Contact"
-msgstr ""
+msgstr "Adresse de contact"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_last_updated
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_last_updated
 msgid "Letzte Aktualisierung"
-msgstr ""
+msgstr "Mis à jour le"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Name:"
-msgstr ""
+msgstr "Nom:"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_phone_contact
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_phone_contact
 msgid "Phone Contact"
-msgstr ""
+msgstr "Numéro de contact"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Phone:"
-msgstr ""
+msgstr "Téléphone:"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_is_verified
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_is_verified
 #: model:mail.template,subject:website_contact_extend.confirmation_email_template
 msgid "Verified Email"
-msgstr ""
+msgstr "Email vérifié"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,help:website_contact_extend.field_res_partner_contact_type
 #: model:ir.model.fields,help:website_contact_extend.field_res_users_contact_type
 msgid "Which way user want to be contacted."
-msgstr ""
+msgstr "Par quel moyen l'utilisateur souhaite-il être contacté."
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "You can contact me by Email or Phone."
-msgstr ""
+msgstr "Vous pouvez me contacter par courriel ou par téléphone."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document

@@ -6,195 +6,202 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-01-27 16:03+0000\n"
+"Last-Translator: Nicolas JEUDY <njeudy@panda-chi.io>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_active
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.activity_action
 #: model:ir.ui.menu,name:privacy.menu_privacy_activity
 msgid "Activities"
-msgstr ""
+msgstr "Traitements"
 
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_search
 msgid "Archived"
-msgstr ""
+msgstr "Archivé"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_subject_find
 msgid "Are affected subjects present in this database?"
-msgstr ""
+msgstr "Est ce que les personnes impactées sont dans cette base de données ?"
 
 #. module: privacy
 #: model:ir.actions.act_window,help:privacy.activity_action
 msgid "Click to add a data processing activity."
-msgstr ""
+msgstr "Cliquez pour ajouter un traitement au registre."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_controller_id
 #: model:ir.ui.view,arch_db:privacy.activity_search
 msgid "Controller"
-msgstr ""
+msgstr "Responsable"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: privacy
 #: model:ir.module.category,name:privacy.module_category_data_protection
 msgid "Data Protection"
-msgstr ""
+msgstr "Protection des données"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_manager
 msgid "Data Protection Manager"
-msgstr ""
+msgstr "Responsable des traitements"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_config
 msgid "Data Protection Settings"
-msgstr ""
+msgstr "Protection des données - Paramètres"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_user
 msgid "Data Protection User"
-msgstr ""
+msgstr "Protection des données - Utilisateur"
 
 #. module: privacy
 #: model:ir.model,name:privacy.model_privacy_activity
 msgid "Data processing activities"
-msgstr ""
+msgstr "Traitements des données personnelles"
 
 #. module: privacy
 #: model:ir.actions.act_window,help:privacy.activity_action
 msgid "Data processing activities define why, how and what you do\n"
 "                with subjects' personal data."
 msgstr ""
+"Le registre des traitements des données personnelles définit\n"
+"…………pourquoi et comment sont utilisées les données personnelles."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_subject_find
 msgid "Define subjects"
-msgstr ""
+msgstr "Filtrer les personnes impactées"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_description
 #: model:ir.ui.view,arch_db:privacy.activity_form
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_form
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_search
 msgid "Group By"
-msgstr ""
+msgstr "Grouper par"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_description
 msgid "How is personal data used here? Why? Etc."
-msgstr ""
+msgstr "Comment sont utilisées les données personnelles ? Pourquoi ? Etc."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Modificatié le"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Mis à jour par"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Mis à jour le"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
 msgid "Master Data"
-msgstr ""
+msgstr "Registre(s)"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_name
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
 #: model:ir.ui.menu,name:privacy.menu_data_protection_partner
 msgid "Partners"
-msgstr ""
+msgstr "Contacts"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.parent_menu_data_protection
 msgid "Privacy"
-msgstr ""
+msgstr "Vie privée"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_processor_ids
 msgid "Processors"
-msgstr ""
+msgstr "Sous-traitants"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_report
 msgid "Reports"
-msgstr ""
+msgstr "Rapports"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_subject_domain
 msgid "Selection filter to find specific subjects included."
-msgstr ""
+msgstr "Ajouter des filtres pour associer les personnes concernées."
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_setting
 msgid "Settings"
-msgstr ""
+msgstr "Configuration"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_subject_domain
 msgid "Subjects filter"
-msgstr ""
+msgstr "Filtre des personnes concernées"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
+#, fuzzy
 msgid "Transactions"
-msgstr ""
+msgstr "Traitements"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_controller_id
 msgid "Whoever determines the purposes and means of the processing of personal data."
 msgstr ""
+"Personnes  définissant les finalités et les raisons du traitement des "
+"données personnelles."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_processor_ids
 msgid "Whoever processes personal data on behalf of the controller."
-msgstr ""
+msgstr "Sous-traitants utilisant ces données personnelles."

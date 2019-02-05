@@ -51,18 +51,31 @@ class ResPartnerGdpr(models.TransientModel):
 
     @api.multi
     def _pre_gdpr_cleanup(self):
+        if 'child_ids' in self.fields.mapped('name'):
+            childs = self.partner_ids.mapped('child_ids')
+            all_partners = self.partner_ids | childs
+            self.partner_ids = all_partners.ids
         pass
+
+    @api.model
+    def _do_gdpr_cleanup(self, fields, records):
+        vals = {}
+        for field in fields:
+            if field.ttype in ['many2one', 'binary']:
+                vals.update({field.name: False})
+            elif field.ttype in ['many2many']:
+                vals.update({field.name: [(5, _, _)]})
+            # To improve...
+            elif field.ttype in ['one2many']:
+                continue
+            else:
+                vals.update({field.name: self._get_remove_text()})
+        records.write(vals)
 
     @api.multi
     def _gdpr_cleanup(self):
         self.ensure_one()
-        vals = {}
-        for field in self.fields:
-            if field.ttype in ['many2many', 'many2one', 'one2many', 'binary']:
-                vals.update({field.name: False})
-            else:
-                vals.update({field.name: self._get_remove_text()})
-        self.partner_ids.write(vals)
+        self._do_gdpr_cleanup(self.fields, self.partner_ids)
 
     @api.multi
     def _post_gdpr_cleanup(self):

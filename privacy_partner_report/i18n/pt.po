@@ -6,152 +6,154 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-02-08 18:50+0000\n"
+"Last-Translator: João Carvalhido <joao.carvalhido@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: privacy_partner_report
 #: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "<span>Select a company</span><br/>"
-msgstr ""
+msgstr "<span>Seleccione uma empresa</span><br/>"
 
 #. module: privacy_partner_report
 #: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "<span>Select a partner</span><br/>"
-msgstr ""
+msgstr "<span>Seleccione um parceiro</span><br/>"
 
 #. module: privacy_partner_report
 #: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_company_id
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_create_uid
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_create_date
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_name
 msgid "Database Table"
-msgstr ""
+msgstr "Tabela da Base de Dados"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_display_name
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome a Apresentar"
 
 #. module: privacy_partner_report
 #: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "Export XLSX"
-msgstr ""
+msgstr "Exportar XLSX"
 
 #. module: privacy_partner_report
 #: code:addons/privacy_partner_report/wizard/privacy_report_partner.py:110
 #, python-format
 msgid "Form content is missing, this report cannot be printed."
-msgstr ""
+msgstr "O formulário não tem conteúdo, este relatório não se pode imprimir."
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_id
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data___last_update
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Alteração em"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_write_uid
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Atualização por"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_write_date
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Atualização em"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_model_id
 msgid "Models"
-msgstr ""
+msgstr "Modelos"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_table_ids
 msgid "Models with related partner data"
-msgstr ""
+msgstr "Modelos com dados relacionados de parceiro"
 
 #. module: privacy_partner_report
 #: code:addons/privacy_partner_report/wizard/privacy_report_partner.py:114
 #, python-format
 msgid "No provided partner."
-msgstr ""
+msgstr "Nenhum parceiro fornecido."
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_count_rows
 msgid "Number of lines"
-msgstr ""
+msgstr "Número de linhas"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_partner_id
 msgid "Partner"
-msgstr ""
+msgstr "Parceiro"
 
 #. module: privacy_partner_report
 #: code:addons/privacy_partner_report/report/privacy_partner_xlsx.py:37
 #, python-format
 msgid "Partner Data"
-msgstr ""
+msgstr "Dados do Parceiro"
 
 #. module: privacy_partner_report
 #: model:ir.actions.act_window,name:privacy_partner_report.action_privacy_partner_menu
 #: model:ir.ui.menu,name:privacy_partner_report.menu_privacy_report_privacy_report
 msgid "Partner Report"
-msgstr ""
+msgstr "Relatório do Parceiro"
 
 #. module: privacy_partner_report
 #: model:ir.actions.report.xml,name:privacy_partner_report.action_report_partner_data_xlsx
 #: model:ir.model,name:privacy_partner_report.model_privacy_partner_data
 msgid "Privacy Partner Data"
-msgstr ""
+msgstr "Privacidade dos Dados do Parceiro"
 
 #. module: privacy_partner_report
 #: model:ir.model,name:privacy_partner_report.model_privacy_partner_report
 msgid "Privacy Partner Report"
-msgstr ""
+msgstr "Privacidade do Relatório do Parceiro"
 
 #. module: privacy_partner_report
 #: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "Report Options"
-msgstr ""
+msgstr "Opções do Relatório"
 
 #. module: privacy_partner_report
 #: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_type
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: privacy_partner_report
 #: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "or"
-msgstr ""
+msgstr "ou"

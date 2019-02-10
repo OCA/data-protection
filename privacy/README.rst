@@ -17,13 +17,13 @@ Data Privacy and Protection
     :target: https://github.com/OCA/data-protection/tree/12.0/privacy
     :alt: OCA/data-protection
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/data-protection-11-0/data-protection-11-0-privacy
+    :target: https://translation.odoo-community.org/projects/data-protection-12-0/data-protection-12-0-privacy
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/263/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This application provides data protection and privacy feature,
 to comply with regulations such as GDPR.
@@ -49,7 +49,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/data-protection/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/data-protection/issues/new?body=module:%20privacy%0Aversion:%2011.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/data-protection/issues/new?body=module:%20privacy%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -67,6 +67,7 @@ Contributors
 
 * Miquel Raïch <miquel.raich@eficent.com>
 * Daniel Reis <dreis.pt@hotmail.com>
+* Nicolas JEUDY <https://github.com/njeudy>
 
 Maintainers
 ~~~~~~~~~~~

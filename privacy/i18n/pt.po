@@ -1,0 +1,204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Portuguese (data-protection-10.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2018-09-22 09:43+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
+"Language-Team: Portuguese <https://translation.odoo-community.org/projects/"
+"data-protection-10-0/data-protection-10-0-privacy/pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.1.1\n"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.activity_action
+#: model:ir.ui.menu,name:privacy.menu_privacy_activity
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: privacy
+#: model:ir.ui.view,arch_db:privacy.activity_search
+msgid "Archived"
+msgstr "Arquivado"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity_subject_find
+msgid "Are affected subjects present in this database?"
+msgstr "Os titulares afetados estão presentes nesta base de dados?"
+
+#. module: privacy
+#: model:ir.actions.act_window,help:privacy.activity_action
+msgid "Click to add a data processing activity."
+msgstr "Clique para adicionar uma atividade de processamento de dados."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_controller_id
+#: model:ir.ui.view,arch_db:privacy.activity_search
+msgid "Controller"
+msgstr "Controlador"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: privacy
+#: model:ir.module.category,name:privacy.module_category_data_protection
+msgid "Data Protection"
+msgstr "Proteção de Dados"
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_manager
+msgid "Data Protection Manager"
+msgstr "Gestor de Proteção de Dados"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_config
+#, fuzzy
+msgid "Data Protection Settings"
+msgstr "Utilizador de Proteção de Dados"
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_user
+msgid "Data Protection User"
+msgstr "Utilizador de Proteção de Dados"
+
+#. module: privacy
+#: model:ir.model,name:privacy.model_privacy_activity
+msgid "Data processing activities"
+msgstr "Atividades de processamento de dados"
+
+#. module: privacy
+#: model:ir.actions.act_window,help:privacy.activity_action
+msgid ""
+"Data processing activities define why, how and what you do\n"
+"                with subjects' personal data."
+msgstr ""
+"As atividades de processamento de dados definem porquê, como e o que faz com "
+"os dados pessoais dos titulares."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_subject_find
+msgid "Define subjects"
+msgstr "Definir titulares"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_description
+#: model:ir.ui.view,arch_db:privacy.activity_form
+msgid "Description"
+msgstr "Descrição"
+
+#. module: privacy
+#: model:ir.ui.view,arch_db:privacy.activity_form
+msgid "Details"
+msgstr "Detalhes"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_display_name
+msgid "Display Name"
+msgstr "Nome a Exibir"
+
+#. module: privacy
+#: model:ir.ui.view,arch_db:privacy.activity_search
+msgid "Group By"
+msgstr "Agrupar Por"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity_description
+msgid "How is personal data used here? Why? Etc."
+msgstr "Como são usados os dados pessoais aqui? Porquê? Etc."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_id
+msgid "ID"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity___last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
+msgid "Master Data"
+msgstr "Dados Principais"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
+#: model:ir.ui.menu,name:privacy.menu_data_protection_partner
+msgid "Partners"
+msgstr "Parceiros"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.parent_menu_data_protection
+msgid "Privacy"
+msgstr "Privacidade"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_processor_ids
+msgid "Processors"
+msgstr "Processadores"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_report
+msgid "Reports"
+msgstr "Relatórios"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity_subject_domain
+msgid "Selection filter to find specific subjects included."
+msgstr "Filtro de seleção para procurar titulares específicos incluídos."
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_setting
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity_subject_domain
+msgid "Subjects filter"
+msgstr "Filtro de titulares"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
+msgid "Transactions"
+msgstr "Transações"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity_controller_id
+msgid ""
+"Whoever determines the purposes and means of the processing of personal data."
+msgstr "Quem determina os fins e meios do processamento de dados pessoais."
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity_processor_ids
+msgid "Whoever processes personal data on behalf of the controller."
+msgstr "Quem processa dados pessoais em nome do controlador."

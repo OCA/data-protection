@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+
+    <record model="ir.ui.view" id="activity_form">
+        <field name="name">Privacy Activity Form</field>
+        <field name="model">privacy.activity</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- Placeholder for submodules -->
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            icon="fa-archive"
+                            name="toggle_active"
+                            type="object"
+                        >
+                            <field
+                                name="active"
+                                options='{"terminology": "archive"}'
+                                widget="boolean_button"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group name="basic">
+                        <group name="owners">
+                            <field name="controller_id"/>
+                        </group>
+                        <group name="dates">
+                            <field name="create_date" readonly="1"/>
+                            <field name="write_date" readonly="1"/>
+                            <field name="write_uid" readonly="1"/>
+                        </group>
+                    </group>
+                    <separator name="subjects" string="Subjects details"/>
+                    <group name="subjects">
+                      <field name="subject_find"/>
+                      <field
+                          name="subject_domain"
+                          widget="domain"
+                          options='{"model": "res.partner"}'
+                          attrs='{"required": [("subject_find", "=", True)],
+                                  "invisible": [("subject_find", "=", False)]}'
+                      />
+                    </group>
+                    <separator name="processors" string="Processors"/>
+                    <group name="processors">
+                      <field
+                          name="processor_ids"
+                          widget="many2many"
+                      >
+                      <tree string="processors">
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="country_id"/>
+                      </tree>
+                    </field>
+                    </group>
+                    <notebook string="Details" name="advanced">
+                        <page string="Description">
+                            <group>
+                                <field name="description" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="activity_tree">
+        <field name="name">Privacy Activity Tree</field>
+        <field name="model">privacy.activity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="controller_id"/>
+                <field name="processor_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="activity_search">
+        <field name="name">Privacy Activity Search</field>
+        <field name="model">privacy.activity</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="controller_id"/>
+                <field name="processor_ids"/>
+                <separator/>
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+                <separator/>
+                <group string="Group By" name="groupby">
+                    <filter
+                        name="controller_id_groupby"
+                        string="Controller"
+                        context="{'group_by': 'controller_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="activity_action" model="ir.actions.act_window">
+        <field name="name">Activities</field>
+        <field name="res_model">privacy.activity</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a data processing activity.
+            </p><p>
+                Data processing activities define why, how and what you do
+                with subjects' personal data.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        action="activity_action"
+        groups="group_data_protection_user"
+        id="menu_privacy_activity"
+        parent="menu_data_protection_master_data"
+    />
+
+</data>

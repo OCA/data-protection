@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
+     Copyright 2019 Tecnativa - Cristina Martin R.
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
 <data>
@@ -10,6 +11,7 @@
         <field name="subject">Data processing consent request for ${object.activity_id.display_name|safe}</field>
         <field name="model_id" ref="model_privacy_consent"/>
         <field name="use_default_to" eval="True"/>
+        <field name="lang">${object.partner_id.lang}</field>
         <field name="body_html" type="xml">
             <div style="background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
                 <table style="width:600px;margin:5px auto;">

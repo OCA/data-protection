@@ -18,6 +18,7 @@ FIELDS_GDPR = [
     'email',
     'title',
     'child_ids',
+    'comment',
 ]
 
 

@@ -238,11 +238,6 @@ msgid "Email Templates"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model,name:privacy_consent.model_mail_compose_message
-msgid "Email composition wizard"
-msgstr ""
-
-#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_id
 msgid "Email template"
 msgstr ""
@@ -268,7 +263,7 @@ msgid "Generate missing draft consent requests"
 msgstr ""
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:140
+#: code:addons/privacy_consent/models/privacy_activity.py:139
 #, python-format
 msgid "Generated consents"
 msgstr ""

@@ -10,7 +10,7 @@ class MailMail(models.Model):
 
     def _postprocess_sent_message(self, mail_sent=True):
         """Write consent status after sending message."""
-        if mail_sent and self.env.context.get('mark_consent_sent'):
+        if mail_sent:
             # Get all mails sent to consents
             consent_mails = self.filtered(
                 lambda one: one.mail_message_id.model == "privacy.consent"
@@ -37,7 +37,7 @@ class MailMail(models.Model):
         """
         result = super(MailMail, self).send_get_mail_body(partner=partner)
         # Avoid polluting other model mails
-        if self.env.context.get("active_model") != "privacy.consent":
+        if self.model != "privacy.consent":
             return result
         # Tokenize consent links
         consent = self.env["privacy.consent"] \

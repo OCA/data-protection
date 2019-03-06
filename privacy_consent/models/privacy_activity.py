@@ -120,11 +120,10 @@ class PrivacyActivity(models.Model):
         # Skip activitys where consent is not required
         for one in self.with_context(active_test=False) \
                 .filtered("consent_required"):
-            domain = safe_eval(one.subject_domain)
-            domain += [
+            domain = [
                 ("id", "not in", one.mapped("consent_ids.partner_id").ids),
                 ("email", "!=", False),
-            ]
+            ] + safe_eval(one.subject_domain)
             # Create missing consent requests
             for missing in self.env["res.partner"].search(domain):
                 consents |= consents.create({

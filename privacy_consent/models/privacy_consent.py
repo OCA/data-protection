@@ -104,8 +104,7 @@ class PrivacyConsent(models.Model):
         consents_by_template = {}
         for one in self.with_context(tpl_force_default_to=True,
                                      mail_notify_user_signature=False,
-                                     mail_auto_subscribe_no_notify=True,
-                                     mark_consent_sent=True):
+                                     mail_auto_subscribe_no_notify=True):
             # Group consents by template, to send in batch where possible
             template_id = one.activity_id.consent_template_id.id
             consents_by_template.setdefault(template_id, one)
@@ -168,7 +167,6 @@ class PrivacyConsent(models.Model):
                 "default_res_id": self.id,
                 "default_template_id": self.activity_id.consent_template_id.id,
                 "default_use_template": True,
-                "mark_consent_sent": True,
                 "tpl_force_default_to": True,
             },
             "force_email": True,

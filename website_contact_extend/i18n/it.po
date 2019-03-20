@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-03-20 12:14+0000\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #. module: website_contact_extend
 #: model:mail.template,body_html:website_contact_extend.verification_email_template
@@ -116,7 +118,7 @@ msgstr ""
 #. module: website_contact_extend
 #: model:ir.model,name:website_contact_extend.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: website_contact_extend
 #: model:ir.actions.report,name:website_contact_extend.report_contact
@@ -127,7 +129,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_contact_type
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_contact_type
 msgid "Contact Type"
-msgstr ""
+msgstr "Tipo contatto"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
@@ -166,27 +168,27 @@ msgstr ""
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Email:"
-msgstr ""
+msgstr "E-mail:"
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I do not want to be contacted."
-msgstr ""
+msgstr "Non voglio essere contattato."
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I only want to be contacted by Email."
-msgstr ""
+msgstr "Voglio essere contattato solo tramite e-mail."
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "I only want to be contacted by Phone."
-msgstr ""
+msgstr "Voglio essere contattato solo per telefono."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
 msgid "In the future I want to be contacted by"
-msgstr ""
+msgstr "In futuro voglio essere contattato da"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
@@ -213,36 +215,36 @@ msgstr ""
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_phone_contact
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_phone_contact
 msgid "Phone Contact"
-msgstr ""
+msgstr "Contatto telefonico"
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
 msgid "Phone:"
-msgstr ""
+msgstr "Telefono:"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_is_verified
 #: model:ir.model.fields,field_description:website_contact_extend.field_res_users_is_verified
 #: model:mail.template,subject:website_contact_extend.confirmation_email_template
 msgid "Verified Email"
-msgstr ""
+msgstr "E-mail verificata"
 
 #. module: website_contact_extend
 #: model:ir.model.fields,help:website_contact_extend.field_res_partner_contact_type
 #: model:ir.model.fields,help:website_contact_extend.field_res_users_contact_type
 msgid "Which way user want to be contacted."
-msgstr ""
+msgstr "In che modo vuole essere contattato l'utente."
 
 #. module: website_contact_extend
 #: selection:res.partner,contact_type:0
 msgid "You can contact me by Email or Phone."
-msgstr ""
+msgstr "Posso essere contattato tramite e-mail o telefono."
 
 #. module: website_contact_extend
 #: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document

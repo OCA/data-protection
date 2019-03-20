@@ -6,139 +6,141 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-03-20 12:14+0000\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #. module: contact_search_form
 #: model:ir.ui.menu,name:contact_search_form.menu_customer_info
 #: model:ir.ui.menu,name:contact_search_form.menu_customer_info_base
 msgid "Contact Search"
-msgstr ""
+msgstr "Ricerca contatto"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_create_uid
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_create_date
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: contact_search_form
 #: model:ir.actions.act_window,name:contact_search_form.action_dpo_view_itis
 #: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
 msgid "Customer Info"
-msgstr ""
+msgstr "Informazioni cliente"
 
 #. module: contact_search_form
 #: model:res.groups,name:contact_search_form.group_dpo
 msgid "Data Protection Officer"
-msgstr ""
+msgstr "Responsabile protezione dati (DPO)"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_display_name
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_field_list
 msgid "Fields Name"
-msgstr ""
+msgstr "Nome campi"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_model_id
 msgid "Found in Model"
-msgstr ""
+msgstr "Trovato nel modello"
 
 #. module: contact_search_form
 #: code:addons/contact_search_form/models/contact_search.py:20
 #, python-format
 msgid "Found record"
-msgstr ""
+msgstr "Trovato record"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_id
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view___last_update
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_write_uid
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_write_date
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_name
 msgid "Model Name"
-msgstr ""
+msgstr "Nome modello"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_record_id
 msgid "Record ID"
-msgstr ""
+msgstr "ID record"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_record_name
 msgid "Record Name"
-msgstr ""
+msgstr "Nome record"
 
 #. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
 msgid "SEARCH"
-msgstr ""
+msgstr "RICERCA"
 
 #. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.dpo_view_tree
 msgid "Search Contact"
-msgstr ""
+msgstr "Ricerca contatto"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_search_lines
 msgid "Search Result"
-msgstr ""
+msgstr "Risultato ricerca"
 
 #. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.search_line_tree_view_itis
 msgid "Search Results"
-msgstr ""
+msgstr "Risultati ricerca"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_name
 msgid "Search Term"
-msgstr ""
+msgstr "Termine di ricerca"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_search_line_search_id
 #: model:ir.ui.view,arch_db:contact_search_form.view_dpo_form_view_itis
 msgid "Search Terms"
-msgstr ""
+msgstr "Termini di ricerca"
 
 #. module: contact_search_form
 #: model:ir.model.fields,field_description:contact_search_form.field_dpo_view_model_ids
 msgid "Search in Model"
-msgstr ""
+msgstr "Ricerca nel modello"
 
 #. module: contact_search_form
 #: model:ir.ui.view,arch_db:contact_search_form.search_line_tree_view_itis
@@ -148,9 +150,9 @@ msgstr ""
 #. module: contact_search_form
 #: model:ir.model,name:contact_search_form.model_dpo_view
 msgid "dpo.view"
-msgstr ""
+msgstr "dpo.view"
 
 #. module: contact_search_form
 #: model:ir.model,name:contact_search_form.model_search_line
 msgid "search.line"
-msgstr ""
+msgstr "search.line"

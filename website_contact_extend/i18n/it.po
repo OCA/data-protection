@@ -1,0 +1,330 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_contact_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: website_contact_extend
+#: model:mail.template,body_html:website_contact_extend.verification_email_template
+msgid "\n"
+"            <p>\n"
+"            % if object.partner_id\n"
+"            Dear <strong>${object.partner_id.name}</strong>,<br/>\n"
+"            % endif\n"
+"            % if not object.partner_id\n"
+"            Dear <strong>${object.email_from}</strong>,<br/>\n"
+"            % endif\n"
+"\n"
+"            Please click on below link to verify your email address <strong>${object.email_link}</strong>.<br/>\n"
+"\n"
+"            Thank you.\n"
+"            </p>\n"
+"        \n"
+"        "
+msgstr ""
+
+#. module: website_contact_extend
+#: model:mail.template,body_html:website_contact_extend.confirmation_email_template
+msgid "\n"
+"            <p>\n"
+"            Dear <strong>${user.partner_id.name}</strong>,<br/>\n"
+"\n"
+"            This email address <strong> ${object.email}</strong> has been verified by user.<br/>\n"
+"\n"
+"            Thank you.\n"
+"            </p>\n"
+"        \n"
+"        "
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "(2)\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T7\">Die</span>personenbezogene Daten<span class=\"T7\">werden nicht</span>an ein\n"
+"                        Drittland oder an eine internationale Organisation übermittelt"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "(3) Der Verantwortliche stellt eine Kopie der personenbezogenen Daten, die\n"
+"                        Gegenstand der Verarbeitung sind, zur Verfügung:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "(4) Das Recht auf Erhalt einer Kopie gemäß Absatz 3 darf die Rechte und\n"
+"                        Freiheiten anderer<br/>Personen nicht beeinträchtigen."
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "<span class=\"T2\">□ bis zum __. __. ____</span>\n"
+"                        <span class=\"T2\">□ Bis zu ____ Jahre</span>\n"
+"                        <span class=\"T3\">□ Gesetzl. Aufbewahrungfrist</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "<span class=\"T2\">□</span>\n"
+"                        <span class=\"T4\">Wenn doch: Die Daten werden</span>\n"
+"                        <span class=\"T7\">nach folgender Art ausgewertet und gruppiert _______________</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "<span class=\"T6\">Grund</span>\n"
+"                        <span class=\"T2\">□ Kontakt ____ mal nicht erreicht □ Systemwechsel</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "<span>oder □ Widerspruchsrecht gegen diese Verarbeitung besteht;</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Adresse:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Auskunft für:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Auskunft n\n"
+"                        <span class=\"T1\">ach Artikel 15 DS-GVO</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Auskunftsgeber:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model,name:website_contact_extend.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.actions.report,name:website_contact_extend.report_contact
+msgid "Contact Report"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_contact_type
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_contact_type
+msgid "Contact Type"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
+msgid "Contact by E-Mail"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
+msgid "Contact by Letter"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
+msgid "Contact by Phone"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Die betroffene Person hat das Recht, von dem Verantwortlichen eine\n"
+"                        Bestätigung darüber zu verlangen, ob sie betreffende personenbezogene Daten verarbeitet werden;\n"
+"                        ist dies der Fall, so hat sie ein Recht auf Auskunft über diese personenbezogenen Daten und auf\n"
+"                        folgende Informationen:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_email_contact
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_email_contact
+msgid "Email Contact"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_crm_lead_email_link
+msgid "Email verification link"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Email:"
+msgstr ""
+
+#. module: website_contact_extend
+#: selection:res.partner,contact_type:0
+msgid "I do not want to be contacted."
+msgstr ""
+
+#. module: website_contact_extend
+#: selection:res.partner,contact_type:0
+msgid "I only want to be contacted by Email."
+msgstr ""
+
+#. module: website_contact_extend
+#: selection:res.partner,contact_type:0
+msgid "I only want to be contacted by Phone."
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
+msgid "In the future I want to be contacted by"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.contactus_form_inherited
+msgid "Information request concerning data about the personally"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model,name:website_contact_extend.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_letter_contact
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_letter_contact
+msgid "Letter Contact"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_last_updated
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_last_updated
+msgid "Letzte Aktualisierung"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Name:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_phone_contact
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_phone_contact
+msgid "Phone Contact"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "Phone:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_partner_is_verified
+#: model:ir.model.fields,field_description:website_contact_extend.field_res_users_is_verified
+#: model:mail.template,subject:website_contact_extend.confirmation_email_template
+msgid "Verified Email"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.model.fields,help:website_contact_extend.field_res_partner_contact_type
+#: model:ir.model.fields,help:website_contact_extend.field_res_users_contact_type
+msgid "Which way user want to be contacted."
+msgstr ""
+
+#. module: website_contact_extend
+#: selection:res.partner,contact_type:0
+msgid "You can contact me by Email or Phone."
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "a) die Verarbeitungszwecke:\n"
+"                        <span class=\"T1\"/>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Kontaktaufnahme;</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T3\">Geschäftsvorgänge;</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T3\">Sonstiges;</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "b) die Kategorien personenbezogener Daten, die verarbeitet werden:\n"
+"                        <span class=\"T1\">\n"
+"                            <br/>\n"
+"                        </span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Kundendaten,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Lieferantendaten,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Interessentendaten,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Personaldaten</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "c) die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen\n"
+"                        Daten offengelegt worden sind oder noch offengelegt werden, insbesondere bei Empfängern in\n"
+"                        Drittländern oder bei internationalen Organisationen:\n"
+"                        <span class=\"T2\">□</span>_______________________________\n"
+"                        <br/>\n"
+"                        <span class=\"T6\">oder</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T3\">keine Offenlegung gegenüber Dritten beabsichtigt,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T1\">Nicht bekannt</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "d) geplante Dauer, für die die personenbezogenen Daten gespeichert werden:"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "e)\n"
+"                        <span>□ Recht auf Berichtigung oder Löschung der betreffenden\n"
+"                            personenbezogenen Daten besteht oder\n"
+"                        </span>\n"
+"                        <span>□ Einschränkung der Verarbeitung durch den Verantwortlichen\n"
+"                        </span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "f)\n"
+"                        <span>□ das Bestehen eines Beschwerderechts bei einer Aufsichtsbehörde besteht\n"
+"                        </span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "g) die Herkunft der Daten\n"
+"                        <span class=\"T7\">ist von</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T4\">eigener Recherche,</span>\n"
+"                        <span class=\"T2\">□</span>\n"
+"                        <span class=\"T4\">Auskunftei</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:ir.ui.view,arch_db:website_contact_extend.report_contact_document
+msgid "h)<span class=\"T2\">□</span>eine automatisierte Entscheidungsfindung\n"
+"                        <span class=\"T7\">mit diesen Daten findet nicht statt.</span>"
+msgstr ""
+
+#. module: website_contact_extend
+#: model:mail.template,subject:website_contact_extend.verification_email_template
+msgid "mail verification link"
+msgstr ""

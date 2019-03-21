@@ -13,6 +13,7 @@ addon | version | summary
 --- | --- | ---
 [contact_search_form](contact_search_form/) | 11.0.1.0.0 | Multiple models can be searched for specified string by DPO
 [privacy](privacy/) | 11.0.1.0.0 | Provides data privacy and protection features to comply to regulations, such as GDPR.
+[privacy_partner_report](privacy_partner_report/) | 11.0.1.0.0 | Show the transactions that a specific partner is involved in.
 [website_contact_extend](website_contact_extend/) | 11.0.1.0.0 | Extended Website Contact View
 
 [//]: # (end addons)

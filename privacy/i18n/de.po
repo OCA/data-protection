@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-20 16:14+0000\n"
-"Last-Translator: Malin Kienke <malin.kienke@initos.com>\n"
+"PO-Revision-Date: 2019-03-26 10:14+0000\n"
+"Last-Translator: dw3gn3r <denise.wegner@initos.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_active
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.activity_action
@@ -30,7 +30,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_search
 msgid "Archived"
-msgstr ""
+msgstr "Archiviert"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_subject_find

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-26 10:14+0000\n"
+"PO-Revision-Date: 2019-03-27 15:14+0000\n"
 "Last-Translator: dw3gn3r <denise.wegner@initos.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -25,7 +25,7 @@ msgstr "Aktiv"
 #: model:ir.actions.act_window,name:privacy.activity_action
 #: model:ir.ui.menu,name:privacy.menu_privacy_activity
 msgid "Activities"
-msgstr ""
+msgstr "Tätigkeiten"
 
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_search
@@ -35,12 +35,12 @@ msgstr "Archiviert"
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_subject_find
 msgid "Are affected subjects present in this database?"
-msgstr ""
+msgstr "Sind betroffene Personen in der Datenbank enthalten?"
 
 #. module: privacy
 #: model:ir.actions.act_window,help:privacy.activity_action
 msgid "Click to add a data processing activity."
-msgstr ""
+msgstr "Klicken Sie hier, um eine Verarbeitungstätigkeit hinzuzufügen."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_controller_id
@@ -51,17 +51,17 @@ msgstr "Verantwortlicher"
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Erstellt von"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Erstellt am"
 
 #. module: privacy
 #: model:ir.module.category,name:privacy.module_category_data_protection
 msgid "Data Protection"
-msgstr ""
+msgstr "Datenschutz"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_manager

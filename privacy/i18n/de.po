@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-27 15:14+0000\n"
+"PO-Revision-Date: 2019-03-28 17:14+0000\n"
 "Last-Translator: dw3gn3r <denise.wegner@initos.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -66,7 +66,7 @@ msgstr "Datenschutz"
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_manager
 msgid "Data Protection Manager"
-msgstr ""
+msgstr "Datenschutzbeauftragter"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_user
@@ -76,7 +76,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.model,name:privacy.model_privacy_activity
 msgid "Data processing activities"
-msgstr ""
+msgstr "Verarbeitungstätigkeiten"
 
 #. module: privacy
 #: model:ir.actions.act_window,help:privacy.activity_action
@@ -93,27 +93,27 @@ msgstr ""
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_description
 #: model:ir.ui.view,arch_db:privacy.activity_form
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_form
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #. module: privacy
 #: model:ir.ui.view,arch_db:privacy.activity_search
 msgid "Group By"
-msgstr ""
+msgstr "Gruppieren nach"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_description
 msgid "How is personal data used here? Why? Etc."
-msgstr ""
+msgstr "Wie werden hier personenbezogene Daten verwendet? Warum? Etc."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_id
@@ -123,17 +123,17 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Letzte Änderung am"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert von"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
@@ -143,7 +143,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_name
 msgid "Name"
-msgstr ""
+msgstr "Bezeichnung"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
@@ -159,22 +159,22 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_processor_ids
 msgid "Processors"
-msgstr ""
+msgstr "Auftragsverarbeiter"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_report
 msgid "Reports"
-msgstr ""
+msgstr "Berichte"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_subject_domain
 msgid "Selection filter to find specific subjects included."
-msgstr ""
+msgstr "Auswahlfilter, um bestimmte betroffene Personen auszuwählen."
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_setting
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity_subject_domain
@@ -190,8 +190,12 @@ msgstr ""
 #: model:ir.model.fields,help:privacy.field_privacy_activity_controller_id
 msgid "Whoever determines the purposes and means of the processing of personal data."
 msgstr ""
+"Die Stelle, welche über die Zwecke und Mittel der Verarbeitung von "
+"personenbezogenen Daten entscheidet."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity_processor_ids
 msgid "Whoever processes personal data on behalf of the controller."
 msgstr ""
+"Die Stelle, die personenbezogene Daten im Auftrag des Verantwortlichen "
+"verarbeitet."

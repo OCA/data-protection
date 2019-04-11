@@ -403,7 +403,7 @@ msgid "Generate missing draft consent requests"
 msgstr "Gerar pedidos de consentimento em rascunho em falta"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:139
+#: code:addons/privacy_consent/models/privacy_activity.py:142
 #, python-format
 msgid "Generated consents"
 msgstr "Consentimentos gerados"

@@ -131,6 +131,9 @@ class PrivacyActivity(models.Model):
                     "accepted": one.default_consent,
                     "activity_id": one.id,
                 })
+        # Avoid race condition where a user could click on accept/reject link
+        # in his email before its consent record is saved to the database
+        consents.env.cr.commit()
         # Send consent request emails for automatic activitys
         consents.action_auto_ask()
         # Redirect user to new consent requests generated

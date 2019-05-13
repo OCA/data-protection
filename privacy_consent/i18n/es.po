@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-11 08:38+0000\n"
-"PO-Revision-Date: 2018-07-11 11:07+0200\n"
+"POT-Creation-Date: 2019-05-13 17:04+0000\n"
+"PO-Revision-Date: 2019-05-13 18:08+0100\n"
 "Last-Translator: Jairo Llopis <yajo.sk8@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
@@ -373,6 +373,11 @@ msgid "Email Templates"
 msgstr "Plantillas de correo electrónico"
 
 #. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente de redacción de correo electrónico"
+
+#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_id
 msgid "Email template"
 msgstr "Plantilla de correo electrónico"
@@ -394,12 +399,14 @@ msgid ""
 "Enable if you need to track any kind of consent from the affected subjects"
 msgstr ""
 "Actívelo si necesita registrar cualquier tipo de consentimiento de los "
-"interesados."
+"interesados"
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "Generate and send missing consent requests"
-msgstr "Generar y enviar solicitudes de consentimiento faltantes"
+msgid "Generate and enqueue missing consent requests"
+msgstr ""
+"Generar y colocar en la bandeja de salida las solicitudes de consentimiento "
+"que falten"
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
@@ -407,7 +414,7 @@ msgid "Generate missing draft consent requests"
 msgstr "Generar borradores de las solicitudes de consentimiento faltantes"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:142
+#: code:addons/privacy_consent/models/privacy_activity.py:139
 #, python-format
 msgid "Generated consents"
 msgstr "Consentimientos generados"
@@ -623,10 +630,10 @@ msgstr "Gracias por su respuesta."
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "This could send many consent emails, are you sure to proceed?"
+msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
-"Esto podría enviar muchos correos electrónicos solicitando consentimiento "
-"para el tratamiento de datos, ¿seguro que quiere continuar?"
+"Esto podría poner en la cola muchos correos electrónicos solicitando "
+"consentimiento para el tratamiento de datos, ¿seguro que quiere continuar?"
 
 #. module: privacy_consent
 #: model:ir.actions.server,name:privacy_consent.update_opt_out
@@ -656,6 +663,3 @@ msgstr "Ha <b class=\"text-danger\">rechazado</b> dicho tratamiento."
 #: model:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr "Ha <b class=\"text-success\">aceptado</b> dicho tratamiento."
-
-#~ msgid "Email composition wizard"
-#~ msgstr "Asistente de redacción de correo electrónico"

@@ -17,6 +17,8 @@ class ActivityCase(HttpCase):
         self.env = self._oldenv(self.cursor())
         # HACK end
         self.cron = self.env.ref("privacy_consent.cron_auto_consent")
+        self.cron_mail_queue = self.env.ref(
+            "mail.ir_cron_mail_scheduler_action")
         self.update_opt_out = self.env.ref("privacy_consent.update_opt_out")
         self.mt_consent_consent_new = self.env.ref(
             "privacy_consent.mt_consent_consent_new")
@@ -93,11 +95,17 @@ class ActivityCase(HttpCase):
         consents = self.env["privacy.consent"].search([
             ("activity_id", "=", self.activity_auto.id),
         ])
+        # Check pending mails
+        for consent in consents:
+            self.assertEqual(consent.state, "draft")
+            messages = consent.message_ids
+            self.assertEqual(len(messages), 2)
         # Check sent mails
+        self.cron_mail_queue.method_direct_trigger()
         for consent in consents:
             self.assertEqual(consent.state, "sent")
-            messages = consent.mapped("message_ids")
-            self.assertEqual(len(messages), 4)
+            messages = consent.message_ids
+            self.assertEqual(len(messages), 3)
             # 2nd message notifies creation
             self.assertEqual(
                 messages[2].subtype_id,
@@ -167,7 +175,7 @@ class ActivityCase(HttpCase):
         self.assertEqual(consents.mapped("last_metadata"), [False] * 2)
         # Check sent mails
         messages = consents.mapped("message_ids")
-        self.assertEqual(len(messages), 4)
+        self.assertEqual(len(messages), 2)
         subtypes = messages.mapped("subtype_id")
         self.assertTrue(subtypes & self.mt_consent_consent_new)
         self.assertFalse(subtypes & self.mt_consent_acceptance_changed)

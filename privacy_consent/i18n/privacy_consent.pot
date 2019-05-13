@@ -254,7 +254,7 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "Generate and send missing consent requests"
+msgid "Generate and enqueue missing consent requests"
 msgstr ""
 
 #. module: privacy_consent
@@ -263,7 +263,7 @@ msgid "Generate missing draft consent requests"
 msgstr ""
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:142
+#: code:addons/privacy_consent/models/privacy_activity.py:139
 #, python-format
 msgid "Generated consents"
 msgstr ""
@@ -452,7 +452,7 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "This could send many consent emails, are you sure to proceed?"
+msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
 
 #. module: privacy_consent

@@ -2,6 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portuguese (data-protection-10.0)\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-13 17:04+0000\n"
 "PO-Revision-Date: 2018-12-15 21:58+0000\n"
 "Last-Translator: alvarorib <alvaro.ribeiro@exo.pt>\n"
 "Language-Team: Portuguese <https://translation.odoo-community.org/projects/"
@@ -394,7 +395,9 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "Generate and send missing consent requests"
+#, fuzzy
+#| msgid "Generate and send missing consent requests"
+msgid "Generate and enqueue missing consent requests"
 msgstr "Gerar e enviar pedidos de consentimento em falta"
 
 #. module: privacy_consent
@@ -403,7 +406,7 @@ msgid "Generate missing draft consent requests"
 msgstr "Gerar pedidos de consentimento em rascunho em falta"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:142
+#: code:addons/privacy_consent/models/privacy_activity.py:139
 #, python-format
 msgid "Generated consents"
 msgstr "Consentimentos gerados"
@@ -612,7 +615,9 @@ msgstr "Obrigado pela sua resposta."
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "This could send many consent emails, are you sure to proceed?"
+#, fuzzy
+#| msgid "This could send many consent emails, are you sure to proceed?"
+msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
 "Atenção, esta operação pode enviar múltiplo emails de consentimento pretende "
 "prosseguir?"

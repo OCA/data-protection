@@ -46,8 +46,8 @@
                                 icon="fa-user-plus"
                                 name="action_new_consents"
                                 type="object"
-                                string="Generate and send missing consent requests"
-                                confirm="This could send many consent emails, are you sure to proceed?"
+                                string="Generate and enqueue missing consent requests"
+                                confirm="This could enqueue many consent emails, are you sure to proceed?"
                             />
                         </div>
                     </group>

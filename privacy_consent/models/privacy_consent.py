@@ -101,23 +101,10 @@ class PrivacyConsent(models.Model):
 
     def _send_consent_notification(self):
         """Send email notification to subject."""
-        consents_by_template = {}
         for one in self.with_context(tpl_force_default_to=True,
                                      mail_notify_user_signature=False,
                                      mail_auto_subscribe_no_notify=True):
-            # Group consents by template, to send in batch where possible
-            template_id = one.activity_id.consent_template_id.id
-            consents_by_template.setdefault(template_id, one)
-            consents_by_template[template_id] |= one
-        # Send emails
-        for template_id, consents in consents_by_template.items():
-            consents.message_post_with_template(
-                template_id,
-                # This mode always sends email, regardless of partner's
-                # notification preferences; we use it here because it's very
-                # likely that we are asking authorisation to send emails
-                composition_mode="mass_mail",
-            )
+            one.activity_id.consent_template_id.send_mail(one.id)
 
     def _run_action(self):
         """Execute server action defined in data processing activity."""
@@ -135,7 +122,8 @@ class PrivacyConsent(models.Model):
     @api.model
     def create(self, vals):
         """Run server action on create."""
-        result = super(PrivacyConsent, self).create(vals)
+        result = super(PrivacyConsent,
+                       self.with_context(mail_create_nolog=True)).create(vals)
         # Sync the default acceptance status
         result.sudo()._run_action()
         return result

@@ -106,8 +106,8 @@ New options for data processing activities:
    * If you chose *Manual* mode, all missing consent request are created as
      drafts, and nothing else is done now.
 
-   * If you chose *Automatic* mode, also those requests are sent to subjects
-     and set as *Sent*.
+   * If you chose *Automatic* mode, also those request e-mails are enqueued
+     and, when the mail queue is cleared, they will be set as *Sent*.
 
 #. You will be presented with the list of just-created consent requests.
    See below.

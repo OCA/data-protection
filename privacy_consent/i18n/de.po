@@ -6,6 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-13 17:04+0000\n"
 "PO-Revision-Date: 2019-04-11 11:16+0000\n"
 "Last-Translator: dw3gn3r <denise.wegner@initos.com>\n"
 "Language-Team: none\n"
@@ -264,6 +265,11 @@ msgid "Email Templates"
 msgstr "E-Mail-Vorlagen"
 
 #. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr ""
+
+#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_id
 msgid "Email template"
 msgstr ""
@@ -288,7 +294,9 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "Generate and send missing consent requests"
+#, fuzzy
+#| msgid "Generate and send missing consent requests"
+msgid "Generate and enqueue missing consent requests"
 msgstr "Erstellung und Versand fehlender Einwilligungsanfragen"
 
 #. module: privacy_consent
@@ -297,7 +305,7 @@ msgid "Generate missing draft consent requests"
 msgstr "Fehlende Entwürfe von Einwilligungsanfragen erstellen"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:142
+#: code:addons/privacy_consent/models/privacy_activity.py:139
 #, python-format
 msgid "Generated consents"
 msgstr ""
@@ -500,7 +508,9 @@ msgstr "Vielen Dank für Ihre Antwort."
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "This could send many consent emails, are you sure to proceed?"
+#, fuzzy
+#| msgid "This could send many consent emails, are you sure to proceed?"
+msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
 "Hiermit könnten viele Einwilligungs-E-Mails verschickt werden. Sind Sie "
 "sicher, dass Sie fortfahren wollen?"

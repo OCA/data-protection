@@ -265,11 +265,6 @@ msgid "Email Templates"
 msgstr "E-Mail-Vorlagen"
 
 #. module: privacy_consent
-#: model:ir.model,name:privacy_consent.model_mail_compose_message
-msgid "Email composition wizard"
-msgstr ""
-
-#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_id
 msgid "Email template"
 msgstr ""

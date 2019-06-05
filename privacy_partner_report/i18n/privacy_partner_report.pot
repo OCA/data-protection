@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,46 +14,46 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: privacy_partner_report
-#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+#: model_terms:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "<span>Select a company</span><br/>"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+#: model_terms:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "<span>Select a partner</span><br/>"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_company_id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__company_id
 msgid "Company"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_create_uid
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_create_uid
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__create_uid
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_create_date
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_create_date
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__create_date
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__create_date
 msgid "Created on"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_name
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__name
 msgid "Database Table"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_display_name
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_display_name
-#: model:ir.model.fields,field_description:privacy_partner_report.field_report_privacy_partner_report_report_partner_xlsx_display_name
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__display_name
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__display_name
+#: model:ir.model.fields,field_description:privacy_partner_report.field_report_privacy_partner_report_report_partner_xlsx__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+#: model_terms:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "Export XLSX"
 msgstr ""
 
@@ -64,44 +64,44 @@ msgid "Form content is missing, this report cannot be printed."
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_id
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_id
-#: model:ir.model.fields,field_description:privacy_partner_report.field_report_privacy_partner_report_report_partner_xlsx_id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_report_privacy_partner_report_report_partner_xlsx__id
 msgid "ID"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data___last_update
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report___last_update
-#: model:ir.model.fields,field_description:privacy_partner_report.field_report_privacy_partner_report_report_partner_xlsx___last_update
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data____last_update
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report____last_update
+#: model:ir.model.fields,field_description:privacy_partner_report.field_report_privacy_partner_report_report_partner_xlsx____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_write_uid
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_write_uid
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__write_uid
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_write_date
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_write_date
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__write_date
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,help:privacy_partner_report.field_privacy_partner_data_res_ids
+#: model:ir.model.fields,help:privacy_partner_report.field_privacy_partner_data__res_ids
 msgid "List of Related Document IDs"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_model_id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__model_id
 msgid "Models"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_table_ids
-#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__table_ids
+#: model_terms:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "Models with related partner data"
 msgstr ""
 
@@ -118,12 +118,12 @@ msgid "No provided partner."
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_count_rows
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__count_rows
 msgid "Number of lines"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report_partner_id
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_report__partner_id
 msgid "Partner"
 msgstr ""
 
@@ -151,17 +151,17 @@ msgid "Privacy Partner Report"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_res_ids
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__res_ids
 msgid "Related Document IDs"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
+#: model_terms:ir.ui.view,arch_db:privacy_partner_report.privacy_partner_report_wizard
 msgid "Report Options"
 msgstr ""
 
 #. module: privacy_partner_report
-#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data_field_type
+#: model:ir.model.fields,field_description:privacy_partner_report.field_privacy_partner_data__field_type
 msgid "Type"
 msgstr ""
 

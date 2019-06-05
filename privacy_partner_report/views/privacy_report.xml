@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="report_partner_xlsx"
+        model="privacy.partner.report"
+        string="Privacy Partner Data"
+        report_type="xlsx"
+        name="privacy_partner_report.report_partner_xlsx"
+        file="privacy_partner_report"
+        attachment_use="False"
+    />
+</odoo>

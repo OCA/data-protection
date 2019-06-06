@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-03-20 12:14+0000\n"
+"PO-Revision-Date: 2019-06-06 22:20+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Richiesta azione"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__active
@@ -105,7 +105,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_find
 msgid "Define subjects"
-msgstr ""
+msgstr "Indicare soggetti"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__description
@@ -196,7 +196,7 @@ msgstr "Allegato principale"
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
 msgid "Master Data"
-msgstr "Dati originali"
+msgstr "Dati principali"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error

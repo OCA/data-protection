@@ -2,7 +2,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portuguese (data-protection-10.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 17:04+0000\n"
 "PO-Revision-Date: 2018-12-15 21:58+0000\n"
 "Last-Translator: alvarorib <alvaro.ribeiro@exo.pt>\n"
 "Language-Team: Portuguese <https://translation.odoo-community.org/projects/"
@@ -395,9 +394,7 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-#, fuzzy
-#| msgid "Generate and send missing consent requests"
-msgid "Generate and enqueue missing consent requests"
+msgid "Generate and send missing consent requests"
 msgstr "Gerar e enviar pedidos de consentimento em falta"
 
 #. module: privacy_consent
@@ -615,9 +612,7 @@ msgstr "Obrigado pela sua resposta."
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-#, fuzzy
-#| msgid "This could send many consent emails, are you sure to proceed?"
-msgid "This could enqueue many consent emails, are you sure to proceed?"
+msgid "This could send many consent emails, are you sure to proceed?"
 msgstr ""
 "Atenção, esta operação pode enviar múltiplo emails de consentimento pretende "
 "prosseguir?"

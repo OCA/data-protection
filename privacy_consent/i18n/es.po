@@ -373,6 +373,11 @@ msgid "Email Templates"
 msgstr "Plantillas de correo electrónico"
 
 #. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente de redacción de correo electrónico"
+
+#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_id
 msgid "Email template"
 msgstr "Plantilla de correo electrónico"
@@ -658,6 +663,3 @@ msgstr "Ha <b class=\"text-danger\">rechazado</b> dicho tratamiento."
 #: model:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr "Ha <b class=\"text-success\">aceptado</b> dicho tratamiento."
-
-#~ msgid "Email composition wizard"
-#~ msgstr "Asistente de redacción de correo electrónico"

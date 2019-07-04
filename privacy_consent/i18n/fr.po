@@ -6,7 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 17:04+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -283,7 +282,7 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "Generate and enqueue missing consent requests"
+msgid "Generate and send missing consent requests"
 msgstr ""
 
 #. module: privacy_consent
@@ -488,7 +487,7 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
-msgid "This could enqueue many consent emails, are you sure to proceed?"
+msgid "This could send many consent emails, are you sure to proceed?"
 msgstr ""
 
 #. module: privacy_consent

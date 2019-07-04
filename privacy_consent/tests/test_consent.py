@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -204,7 +203,7 @@ class ActivityCase(HttpCase):
         self.assertNotIn(reject_url, messages[1].body)
         # Visit tokenized accept URL
         with self.release_cr():
-            result = self.url_open(accept_url).read()
+            result = self.url_open(accept_url).text
             self.assertIn("accepted", result)
             self.assertIn(reject_url, result)
             self.assertIn(self.activity_manual.name, result)
@@ -220,7 +219,7 @@ class ActivityCase(HttpCase):
         )
         # Visit tokenized reject URL
         with self.release_cr():
-            result = self.url_open(reject_url).read()
+            result = self.url_open(reject_url).text
             self.assertIn("rejected", result)
             self.assertIn(accept_url, result)
             self.assertIn(self.activity_manual.name, result)

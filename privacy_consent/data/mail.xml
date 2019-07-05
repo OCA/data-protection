@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     Copyright 2019 Tecnativa - Cristina Martin R.
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<data>
+
+    <!-- Mail templates -->
+    <record id="template_consent" model="mail.template">
+        <field name="auto_delete" eval="False"/>
+        <field name="name">Personal data processing consent request</field>
+        <field name="subject">Data processing consent request for ${object.activity_id.display_name|safe}</field>
+        <field name="model_id" ref="model_privacy_consent"/>
+        <field name="use_default_to" eval="True"/>
+        <field name="lang">${object.partner_id.lang}</field>
+        <field name="body_html" type="xml">
+            <div style="background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                <table style="width:600px;margin:5px auto;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="/">
+                                    <img src="/logo" alt="${object.activity_id.controller_id.display_name|safe}" style="vertical-align:baseline;max-width:100px;"/>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width:600px;margin:0px auto;background:white;border:1px solid #e1e1e1;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="padding:15px 20px 0px 20px; font-size:16px;">
+                                <p>
+                                    Hello, ${object.partner_id.name|safe}
+                                </p>
+                                <p>
+                                    We contacted you to ask you to give us your explicit consent to include your data in a data processing activity called
+                                    <b>${object.activity_id.display_name|safe}</b>, property of
+                                    <i>${object.activity_id.controller_id.display_name|safe}</i>
+                                </p>
+                                ${object.description or ""}
+                                <p>
+                                    % if object.state == "answered":
+                                        The last time you answered, you
+                                    % elif object.state == "sent":
+                                        If you do nothing, we will assume you have
+                                    % endif
+
+                                    % if object.accepted:
+                                        <b>accepted</b>
+                                    % else:
+                                        <b>rejected</b>
+                                    % endif
+                                    such data processing.
+                                </p>
+                                <p>
+                                    You can update your preferences below:
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:15px 20px 0px 20px; font-size:16px; text-align:right;">
+                                <a href="/privacy/consent/accept/" style="background-color: #449d44; padding: 12px; font-weight: 12px; text-decoration: none; color: #fff; border-radius: 5px; font-size:16px;">
+                                    Accept
+                                </a>
+                            </td>
+                            <td style="padding:15px 20px 0px 20px; font-size:16px; text-align:left;">
+                                <a href="/privacy/consent/reject/" style="background-color: #d9534f; padding: 12px; font-weight: 12px; text-decoration: none; color: #fff; border-radius: 5px; font-size:16px;">
+                                    Reject
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding:15px 20px 15px 20px; font-size:16px;">
+                                <p>
+                                    If you need further information, please respond to this email and we will attend your request as soon as possible.
+                                </p>
+                                <p>
+                                    Thank you!
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width:600px;margin:0px auto;text-align:center;">
+                    <tbody>
+                        <tr>
+                            <td style="padding-top:10px;font-size: 12px;">
+                                <p>
+                                    Sent by
+                                    <a href="/" style="color:#717188;">${object.activity_id.controller_id.display_name|safe}</a>.
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </field>
+    </record>
+
+    <!-- Mail subtypes -->
+    <record id="mt_consent_consent_new" model="mail.message.subtype">
+        <field name="name">New Consent</field>
+        <field name="description">Privacy consent request created</field>
+        <field name="res_model">privacy.consent</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+    </record>
+    <record id="mt_consent_acceptance_changed" model="mail.message.subtype">
+        <field name="name">Acceptance Changed by Subject</field>
+        <field name="description">Acceptance status updated by subject</field>
+        <field name="res_model">privacy.consent</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+    </record>
+    <record id="mt_consent_state_changed" model="mail.message.subtype">
+        <field name="name">State Changed</field>
+        <field name="description">Privacy consent request state changed</field>
+        <field name="res_model">privacy.consent</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+    </record>
+
+    <record id="mt_activity_consent_new" model="mail.message.subtype">
+        <field name="name">New Consent</field>
+        <field name="description">Privacy consent request created</field>
+        <field name="res_model">privacy.activity</field>
+        <field name="default" eval="True"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="parent_id" ref="mt_consent_consent_new"/>
+        <field name="relation_field">activity_id</field>
+    </record>
+    <record id="mt_activity_acceptance_changed" model="mail.message.subtype">
+        <field name="name">Acceptance Changed</field>
+        <field name="description">Privacy consent request acceptance status changed</field>
+        <field name="res_model">privacy.activity</field>
+        <field name="default" eval="True"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="parent_id" ref="mt_consent_acceptance_changed"/>
+        <field name="relation_field">activity_id</field>
+    </record>
+    <record id="mt_activity_state_changed" model="mail.message.subtype">
+        <field name="name">State Changed</field>
+        <field name="description">Privacy consent request state changed</field>
+        <field name="res_model">privacy.activity</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="parent_id" ref="mt_consent_state_changed"/>
+        <field name="relation_field">activity_id</field>
+    </record>
+
+</data>

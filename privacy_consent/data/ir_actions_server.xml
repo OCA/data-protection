@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     Copyright 2019 initOS GmbH - Florian Kantelberg
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<data>
+
+    <record id="update_opt_out" model="ir.actions.server">
+        <field name="name">Update partner's opt out</field>
+        <field name="model_id" ref="model_privacy_consent"/>
+        <field name="crud_model_id" ref="base.model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">records.mapped('partner_id').write({'opt_out': not record.accepted})</field>
+    </record>
+
+</data>

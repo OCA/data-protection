@@ -42,7 +42,7 @@
                             <field name="subject_find"/>
                             <field
                                 name="subject_domain"
-                                widget="char_domain"
+                                widget="domain"
                                 options='{"model": "res.partner"}'
                                 attrs='{"required": [("subject_find", "=", True)],
                                         "invisible": [("subject_find", "=", False)]}'

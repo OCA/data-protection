@@ -10,12 +10,11 @@
         <field name="inherit_id" ref="privacy.activity_form"/>
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
-                <!-- TODO Change icon to fa-handshake-o in Odoo 11 -->
                 <button
                     attrs='{"invisible": [("consent_required", "=", False)]}'
                     class="oe_stat_button"
                     context='{"search_default_activity_id": active_id}'
-                    icon="fa-gavel"
+                    icon="fa-handshake-o"
                     name="%(consent_action)d"
                     type="action"
                 >

@@ -7,8 +7,10 @@ from odoo import models
 class MailMail(models.Model):
     _inherit = "mail.mail"
 
-    def _postprocess_sent_message(self, mail_sent=True):
+    def _postprocess_sent_message(self, success_pids, failure_reason=False,
+                                  failure_type=None):
         """Write consent status after sending message."""
+        mail_sent = not failure_type
         if mail_sent:
             # Get all mails sent to consents
             consent_mails = self.filtered(
@@ -23,7 +25,11 @@ class MailMail(models.Model):
             consents.write({
                 "state": "sent",
             })
-        return super(MailMail, self)._postprocess_sent_message(mail_sent)
+        return super()._postprocess_sent_message(
+            success_pids=success_pids,
+            failure_reason=False,
+            failure_type=None,
+        )
 
     def send_get_mail_body(self, partner=None):
         """Replace privacy consent magic links.

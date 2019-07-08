@@ -24,7 +24,7 @@ class PrivacyActivity(models.Model):
         "Consents",
     )
     consent_count = fields.Integer(
-        "Consents",
+        "Consents count",
         compute="_compute_consent_count",
     )
     consent_required = fields.Selection(
@@ -115,7 +115,7 @@ class PrivacyActivity(models.Model):
 
     def action_new_consents(self):
         """Generate new consent requests."""
-        consents = self.env["privacy.consent"]
+        consents_vals = []
         # Skip activitys where consent is not required
         for one in self.with_context(active_test=False) \
                 .filtered("consent_required"):
@@ -123,14 +123,15 @@ class PrivacyActivity(models.Model):
                 ("id", "not in", one.mapped("consent_ids.partner_id").ids),
                 ("email", "!=", False),
             ] + safe_eval(one.subject_domain)
-            # Create missing consent requests
+            # Store values for creating missing consent requests
             for missing in self.env["res.partner"].search(domain):
-                consents |= consents.create({
+                consents_vals.append({
                     "partner_id": missing.id,
                     "accepted": one.default_consent,
                     "activity_id": one.id,
                 })
-        # Send consent request emails for automatic activitys
+        # Create and send consent request emails for automatic activitys
+        consents = self.env["privacy.consent"].create(consents_vals)
         consents.action_auto_ask()
         # Redirect user to new consent requests generated
         return {

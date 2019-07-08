@@ -5,12 +5,25 @@
 
 <data>
 
-    <record id="update_opt_out" model="ir.actions.server">
-        <field name="name">Update partner's opt out</field>
+    <record id="sync_blacklist" model="ir.actions.server">
+        <field name="name">Sync partner's email blacklist status</field>
         <field name="model_id" ref="model_privacy_consent"/>
         <field name="crud_model_id" ref="base.model_res_partner"/>
         <field name="state">code</field>
-        <field name="code">records.mapped('partner_id').write({'opt_out': not record.accepted})</field>
+        <field name="code">
+            for consent in records:
+                email = consent.partner_id.email
+                # Skip records without email, although highly improbable
+                if not email:
+                    continue
+                # Choose method to sync acceptance and blacklisting
+                if consent.accepted:
+                    method = env["mail.blacklist"]._remove
+                else:
+                    method = env["mail.blacklist"]._add
+                # Apply user desire
+                method(email)
+        </field>
     </record>
 
 </data>

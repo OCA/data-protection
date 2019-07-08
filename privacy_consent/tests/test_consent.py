@@ -1,8 +1,6 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from contextlib import contextmanager
-
 from odoo.exceptions import ValidationError
 from odoo.tests.common import HttpCase
 
@@ -10,15 +8,10 @@ from odoo.tests.common import HttpCase
 class ActivityCase(HttpCase):
     def setUp(self):
         super(ActivityCase, self).setUp()
-        # HACK https://github.com/odoo/odoo/issues/12237
-        # TODO Remove hack in v12
-        self._oldenv = self.env
-        self.env = self._oldenv(self.cursor())
-        # HACK end
         self.cron = self.env.ref("privacy_consent.cron_auto_consent")
         self.cron_mail_queue = self.env.ref(
             "mail.ir_cron_mail_scheduler_action")
-        self.update_opt_out = self.env.ref("privacy_consent.update_opt_out")
+        self.sync_blacklist = self.env.ref("privacy_consent.sync_blacklist")
         self.mt_consent_consent_new = self.env.ref(
             "privacy_consent.mt_consent_consent_new")
         self.mt_consent_acceptance_changed = self.env.ref(
@@ -30,25 +23,22 @@ class ActivityCase(HttpCase):
         self.partners += self.partners.create({
             "name": "consent-partner-0",
             "email": "partner0@example.com",
-            "notify_email": "none",
-            "opt_out": False,
         })
         self.partners += self.partners.create({
             "name": "consent-partner-1",
             "email": "partner1@example.com",
-            "notify_email": "always",
-            "opt_out": True,
         })
         self.partners += self.partners.create({
             "name": "consent-partner-2",
             "email": "partner2@example.com",
-            "opt_out": False,
         })
         # Partner without email, on purpose
         self.partners += self.partners.create({
             "name": "consent-partner-3",
-            "opt_out": True,
         })
+        # Blacklist some partners
+        self.blacklists = self.env["mail.blacklist"]
+        self.blacklists += self.blacklists._add("partner1@example.com")
         # Activity without consent
         self.activity_noconsent = self.env["privacy.activity"].create({
             "name": "activity_noconsent",
@@ -62,7 +52,7 @@ class ActivityCase(HttpCase):
             "subject_domain": repr([("id", "in", self.partners.ids)]),
             "consent_required": "auto",
             "default_consent": True,
-            "server_action_id": self.update_opt_out.id,
+            "server_action_id": self.sync_blacklist.id,
         })
         # Activity with manual consent, skipping partner 0
         self.activity_manual = self.env["privacy.activity"].create({
@@ -72,22 +62,8 @@ class ActivityCase(HttpCase):
             "subject_domain": repr([("id", "in", self.partners[1:].ids)]),
             "consent_required": "manual",
             "default_consent": False,
-            "server_action_id": self.update_opt_out.id,
+            "server_action_id": self.sync_blacklist.id,
         })
-
-    # HACK https://github.com/odoo/odoo/issues/12237
-    # TODO Remove hack in v12
-    def tearDown(self):
-        self.env = self._oldenv
-        super(ActivityCase, self).tearDown()
-
-    # HACK https://github.com/odoo/odoo/issues/12237
-    # TODO Remove hack in v12
-    @contextmanager
-    def release_cr(self):
-        self.env.cr.release()
-        yield
-        self.env.cr.acquire()
 
     def check_activity_auto_properly_sent(self):
         """Check emails sent by ``self.activity_auto``."""
@@ -122,8 +98,8 @@ class ActivityCase(HttpCase):
                 messages[0].subtype_id,
                 self.mt_consent_state_changed,
             )
-            # Partner's opt_out should be synced with default consent
-            self.assertFalse(consent.partner_id.opt_out)
+            # Partner's is_blacklisted should be synced with default consent
+            self.assertFalse(consent.partner_id.is_blacklisted)
 
     def test_default_template(self):
         """We have a good mail template by default."""
@@ -164,12 +140,17 @@ class ActivityCase(HttpCase):
 
     def test_generate_manually(self):
         """Manually-generated consents work as expected."""
-        self.partners.write({"opt_out": False})
+        for partner in self.partners:
+            if partner.email:
+                self.blacklists._remove(partner.email)
         result = self.activity_manual.action_new_consents()
         self.assertEqual(result["res_model"], "privacy.consent")
         consents = self.env[result["res_model"]].search(result["domain"])
         self.assertEqual(consents.mapped("state"), ["draft"] * 2)
-        self.assertEqual(consents.mapped("partner_id.opt_out"), [False] * 2)
+        self.assertEqual(
+            consents.mapped("partner_id.is_blacklisted"),
+            [False] * 2,
+        )
         self.assertEqual(consents.mapped("accepted"), [False] * 2)
         self.assertEqual(consents.mapped("last_metadata"), [False] * 2)
         # Check sent mails
@@ -192,7 +173,10 @@ class ActivityCase(HttpCase):
         self.assertEqual(len(messages), 2)
         self.assertEqual(messages[0].subtype_id, self.mt_consent_state_changed)
         self.assertEqual(consents.mapped("state"), ["sent", "draft"])
-        self.assertEqual(consents.mapped("partner_id.opt_out"), [True, False])
+        self.assertEqual(
+            consents.mapped("partner_id.is_blacklisted"),
+            [False, False],
+        )
         # Placeholder links should be logged
         self.assertTrue("/privacy/consent/accept/" in messages[1].body)
         self.assertTrue("/privacy/consent/reject/" in messages[1].body)
@@ -202,32 +186,30 @@ class ActivityCase(HttpCase):
         self.assertNotIn(accept_url, messages[1].body)
         self.assertNotIn(reject_url, messages[1].body)
         # Visit tokenized accept URL
-        with self.release_cr():
-            result = self.url_open(accept_url).text
-            self.assertIn("accepted", result)
-            self.assertIn(reject_url, result)
-            self.assertIn(self.activity_manual.name, result)
-            self.assertIn(self.activity_manual.description, result)
+        result = self.url_open(accept_url).text
+        self.assertIn("accepted", result)
+        self.assertIn(reject_url, result)
+        self.assertIn(self.activity_manual.name, result)
+        self.assertIn(self.activity_manual.description, result)
         consents.invalidate_cache()
         self.assertEqual(consents.mapped("accepted"), [True, False])
         self.assertTrue(consents[0].last_metadata)
-        self.assertFalse(consents[0].partner_id.opt_out)
+        self.assertFalse(consents[0].partner_id.is_blacklisted)
         self.assertEqual(consents.mapped("state"), ["answered", "draft"])
         self.assertEqual(
             consents[0].message_ids[0].subtype_id,
             self.mt_consent_acceptance_changed,
         )
         # Visit tokenized reject URL
-        with self.release_cr():
-            result = self.url_open(reject_url).text
-            self.assertIn("rejected", result)
-            self.assertIn(accept_url, result)
-            self.assertIn(self.activity_manual.name, result)
-            self.assertIn(self.activity_manual.description, result)
+        result = self.url_open(reject_url).text
+        self.assertIn("rejected", result)
+        self.assertIn(accept_url, result)
+        self.assertIn(self.activity_manual.name, result)
+        self.assertIn(self.activity_manual.description, result)
         consents.invalidate_cache()
         self.assertEqual(consents.mapped("accepted"), [False, False])
         self.assertTrue(consents[0].last_metadata)
-        self.assertTrue(consents[0].partner_id.opt_out)
+        self.assertTrue(consents[0].partner_id.is_blacklisted)
         self.assertEqual(consents.mapped("state"), ["answered", "draft"])
         self.assertEqual(
             consents[0].message_ids[0].subtype_id,

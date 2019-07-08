@@ -118,14 +118,15 @@ class PrivacyConsent(models.Model):
             )
             action.run()
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """Run server action on create."""
-        result = super(PrivacyConsent,
-                       self.with_context(mail_create_nolog=True)).create(vals)
+        super_ = super(PrivacyConsent,
+                       self.with_context(mail_create_nolog=True))
+        results = super_.create(vals_list)
         # Sync the default acceptance status
-        result.sudo()._run_action()
-        return result
+        results.sudo()._run_action()
+        return results
 
     def write(self, vals):
         """Run server action on update."""

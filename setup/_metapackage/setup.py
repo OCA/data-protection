@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-privacy',
+        'odoo12-addon-privacy_consent',
         'odoo12-addon-privacy_partner_report',
     ],
     classifiers=[

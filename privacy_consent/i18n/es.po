@@ -1,0 +1,665 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* privacy_consent
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-13 17:04+0000\n"
+"PO-Revision-Date: 2019-05-13 18:08+0100\n"
+"Last-Translator: Jairo Llopis <yajo.sk8@gmail.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#. module: privacy_consent
+#: model:mail.template,body_html:privacy_consent.template_consent
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:"
+"Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"                <table style=\"width:600px;margin:5px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <a href=\"/\">\n"
+"                                    <img src=\"/logo\" alt=\"${object."
+"activity_id.controller_id.display_name|safe}\" style=\"vertical-align:"
+"baseline;max-width:100px;\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;background:white;"
+"border:1px solid #e1e1e1;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 0px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Hello, ${object.partner_id.name|safe}\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    We contacted you to ask you to give us "
+"your explicit consent to include your data in a data processing activity "
+"called\n"
+"                                    <b>${object.activity_id.display_name|"
+"safe}</b>, property of\n"
+"                                    <i>${object.activity_id.controller_id."
+"display_name|safe}</i>\n"
+"                                </p>\n"
+"                                ${object.description or \"\"}\n"
+"                                <p>\n"
+"                                    % if object.state == \"answered\":\n"
+"                                        The last time you answered, you\n"
+"                                    % elif object.state == \"sent\":\n"
+"                                        If you do nothing, we will assume "
+"you have\n"
+"                                    % endif\n"
+"\n"
+"                                    % if object.accepted:\n"
+"                                        <b>accepted</b>\n"
+"                                    % else:\n"
+"                                        <b>rejected</b>\n"
+"                                    % endif\n"
+"                                    such data processing.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    You can update your preferences below:\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:right;\">\n"
+"                                <a href=\"/privacy/consent/accept/\" style="
+"\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Accept\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:left;\">\n"
+"                                <a href=\"/privacy/consent/reject/\" style="
+"\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Reject\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 15px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    If you need further information, please "
+"respond to this email and we will attend your request as soon as possible.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Thank you!\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;text-align:center;"
+"\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;font-size: 12px;"
+"\">\n"
+"                                <p>\n"
+"                                    Sent by\n"
+"                                    <a href=\"/\" style=\"color:#717188;\">"
+"${object.activity_id.controller_id.display_name|safe}</a>.\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:"
+"Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"                <table style=\"width:600px;margin:5px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <a href=\"/\">\n"
+"                                    <img src=\"/logo\" alt=\"${object."
+"activity_id.controller_id.display_name|safe}\" style=\"vertical-align:"
+"baseline;max-width:100px;\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;background:white;"
+"border:1px solid #e1e1e1;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 0px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Hola, ${object.partner_id.name|safe}\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Le hemos contactado para pedirle su "
+"consentimiento explícito para incluir sus datos en una actividad de "
+"tratamiento llamada\n"
+"                                    <b>${object.activity_id.display_name|"
+"safe}</b>, propiedad de\n"
+"                                    <i>${object.activity_id.controller_id."
+"display_name|safe}</i>\n"
+"                                </p>\n"
+"                                ${object.description or \"\"}\n"
+"                                <p>\n"
+"                                    % if object.state == \"answered\":\n"
+"                                        Según su última respuesta,\n"
+"                                    % elif object.state == \"sent\":\n"
+"                                        Si no recibimos respuesta, "
+"asumiremos que\n"
+"                                    % endif\n"
+"\n"
+"                                    % if object.accepted:\n"
+"                                        <b>ha aceptado</b>\n"
+"                                    % else:\n"
+"                                        <b>ha rechazado</b>\n"
+"                                    % endif\n"
+"                                    dicho procesamiento de datos.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Puede cambiar sus preferencias aquí "
+"abajo:\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:right;\">\n"
+"                                <a href=\"/privacy/consent/accept/\" style="
+"\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Aceptar\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:left;\">\n"
+"                                <a href=\"/privacy/consent/reject/\" style="
+"\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Rechazar\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 15px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Si necesita más información, por favor "
+"responda a este correo electrónico y atenderemos su solicitud a la mayor "
+"brevedad posible.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    ¡Gracias!\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;text-align:center;"
+"\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;font-size: 12px;"
+"\">\n"
+"                                <p>\n"
+"                                    Enviado por\n"
+"                                    <a href=\"/\" style=\"color:#717188;\">"
+"${object.activity_id.controller_id.display_name|safe}</a>.\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_activity_acceptance_changed
+msgid "Acceptance Changed"
+msgstr "Aceptación cambiada"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_consent_acceptance_changed
+msgid "Acceptance Changed by Subject"
+msgstr "Aceptación cambiada por el interesado"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_consent_acceptance_changed
+msgid "Acceptance status updated by subject"
+msgstr "Estado de aceptación modificado por el interesado"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_accepted
+#: model:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Accepted"
+msgstr "Aceptado"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_default_consent
+msgid "Accepted by default"
+msgstr "Aceptado por defecto"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_activity_id
+#: model:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: privacy_consent
+#: selection:privacy.consent,state:0
+msgid "Answered"
+msgstr "Respondido"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.consent_form
+msgid "Ask for consent"
+msgstr "Solicitar consentimiento"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_required
+msgid "Ask subjects for consent"
+msgstr "Solicitar consentimiento a los interesados"
+
+#. module: privacy_consent
+#: selection:privacy.activity,consent_required:0
+msgid "Automatically"
+msgstr "Automáticamente"
+
+#. module: privacy_consent
+#: selection:privacy.consent,state:0
+msgid "Awaiting response"
+msgstr "Esperando respuesta"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "Consent"
+msgstr "Consentimiento"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_privacy_consent
+msgid "Consent of data processing"
+msgstr "Consentimiento para tratamiento de datos"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_default_body_html
+msgid "Consent template default body html"
+msgstr "HTML por defecto para el cuerpo de la plantilla de consentimiento"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_default_subject
+msgid "Consent template default subject"
+msgstr "HTML por defecto para el asunto de la plantilla de consentimiento"
+
+#. module: privacy_consent
+#: model:ir.actions.act_window,name:privacy_consent.consent_action
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_count
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_ids
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner_privacy_consent_count
+#: model:ir.model.fields,field_description:privacy_consent.field_res_users_privacy_consent_count
+#: model:ir.ui.menu,name:privacy_consent.menu_privacy_consent
+msgid "Consents"
+msgstr "Consents"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_privacy_activity
+msgid "Data processing activities"
+msgstr "Actividades de tratamiento de datos"
+
+#. module: privacy_consent
+#: model:mail.template,subject:privacy_consent.template_consent
+msgid ""
+"Data processing consent request for ${object.activity_id.display_name|safe}"
+msgstr ""
+"Solicitud de consentimiento para el tratamiento de datos personales para "
+"${object.activity_id.display_name|safe}"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: privacy_consent
+#: selection:privacy.consent,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: privacy_consent
+#: sql_constraint:privacy.consent:0
+msgid "Duplicated partner in this data processing activity"
+msgstr "Contacto duplicado en esta actividad de tratamiento"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_template
+msgid "Email Templates"
+msgstr "Plantillas de correo electrónico"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente de redacción de correo electrónico"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_id
+msgid "Email template"
+msgstr "Plantilla de correo electrónico"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity_consent_template_id
+msgid ""
+"Email to be sent to subjects to ask for consent. A good template should "
+"include details about the current consent request status, how to change it, "
+"and where to get more information."
+msgstr ""
+"Correo electrónico a enviar a los interesados para solicitarles el "
+"consentimiento. Una buena plantilla debería incluir detalles sobre el estado "
+"actual del consentimiento, cómo cambiarlo, y dónde obtener más información."
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity_consent_required
+msgid ""
+"Enable if you need to track any kind of consent from the affected subjects"
+msgstr ""
+"Actívelo si necesita registrar cualquier tipo de consentimiento de los "
+"interesados"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "Generate and enqueue missing consent requests"
+msgstr ""
+"Generar y colocar en la bandeja de salida las solicitudes de consentimiento "
+"que falten"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "Generate missing draft consent requests"
+msgstr "Generar borradores de las solicitudes de consentimiento faltantes"
+
+#. module: privacy_consent
+#: code:addons/privacy_consent/models/privacy_activity.py:139
+#, python-format
+msgid "Generated consents"
+msgstr "Consentimientos generados"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "Hello,"
+msgstr "Hola,"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "I <b>accept</b> this processing of my data"
+msgstr "<b>Acepto</b> este tratamiento de mis datos"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "I <b>reject</b> this processing of my data"
+msgstr "<b>Rechazo</b> este tratamiento de mis datos"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_id
+msgid "ID"
+msgstr "ID"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "If it was a mistake, you can undo it here:"
+msgstr "Si ha sido un error, puede deshacerlo aquí:"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent_accepted
+msgid ""
+"Indicates current acceptance status, which can come from subject's last "
+"answer, or from the default specified in the related data processing "
+"activity."
+msgstr ""
+"Indica el estado actual de la aceptación, el cual puede venir de la última "
+"respuesta del interesado, o del estado por defecto especificado en la "
+"actividad de tratamiento relacionada."
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_last_metadata
+msgid "Last metadata"
+msgstr "Últimos metadatos"
+
+#. module: privacy_consent
+#: selection:privacy.activity,consent_required:0
+msgid "Manually"
+msgstr "Manualmente"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent_last_metadata
+msgid "Metadata from the last acceptance or rejection by the subject"
+msgstr ""
+"Metadatos de la última aceptación o denegación por parte del interesado"
+
+#. module: privacy_consent
+#: code:addons/privacy_consent/models/mail_template.py:25
+#, python-format
+msgid ""
+"Missing privacy consent link placeholders. You need at least these two "
+"links:\n"
+"<a href=\"%s\">Accept</a>\n"
+"<a href=\"%s\">Reject</a>"
+msgstr ""
+"Faltan los marcadores de posición de los enlaces para el consentimiento. "
+"Necesita al menos estos dos enlaces:\n"
+"<a href=\"%s\">Aceptar</a>\n"
+"<a href=\"%s\">Rechazar</a>"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_activity_consent_new
+#: model:mail.message.subtype,name:privacy_consent.mt_consent_consent_new
+msgid "New Consent"
+msgstr "Nuevo consentimiento"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "Correos electrónicos salientes"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_res_partner
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
+msgid "Privacy consent request acceptance status changed"
+msgstr ""
+"El estado de aceptación de la solicitud de consentimiento para el "
+"tratamiento de datos ha cambiado"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_activity_consent_new
+#: model:mail.message.subtype,description:privacy_consent.mt_consent_consent_new
+msgid "Privacy consent request created"
+msgstr ""
+"La solicitud de consentimiento para el tratamiento de datos ha sido creada"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_activity_state_changed
+#: model:mail.message.subtype,description:privacy_consent.mt_consent_state_changed
+msgid "Privacy consent request state changed"
+msgstr ""
+"El estado de la solicitud de consentimiento para el tratamiento de datos ha "
+"cambiado"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_res_partner_privacy_consent_count
+#: model:ir.model.fields,help:privacy_consent.field_res_users_privacy_consent_count
+msgid "Privacy consent requests amount"
+msgstr "Cantidad de solicitudes de consentimiento para el tratamiento de datos"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner_privacy_consent_ids
+#: model:ir.model.fields,field_description:privacy_consent.field_res_users_privacy_consent_ids
+msgid "Privacy consents"
+msgstr "Consentimientos para el tratamiento de datos"
+
+#. module: privacy_consent
+#: code:addons/privacy_consent/models/privacy_activity.py:100
+#, python-format
+msgid "Require consent is available only for subjects in current database."
+msgstr ""
+"La opción de exigir consentimiento solo está disponible para interesados que "
+"se encuentren en esta misma base de datos."
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity_server_action_id
+msgid ""
+"Run this action when a new consent request is created or its acceptance "
+"status is updated."
+msgstr ""
+"Ejecutar esta acción cuando se cree una nueva solicitud de consentimiento, o "
+"cuando su estado de aceptación cambie."
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_server_action_id
+msgid "Server action"
+msgstr "Acción de servidor"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity_default_consent
+msgid "Should we assume the subject has accepted if we receive no response?"
+msgstr ""
+"¿Hay que asumir que el interesado ha aceptado si no recibimos respuesta?"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "Sincerely,<br/>"
+msgstr "Atentamente,<br/>"
+
+#. module: privacy_consent
+#: code:addons/privacy_consent/models/privacy_activity.py:92
+#, python-format
+msgid "Specify a mail template to ask automated consent."
+msgstr ""
+"Especifique una plantilla de correo electrónico para solicitar "
+"automáticamente el consentimiento."
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_state
+#: model:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "State"
+msgstr "Estado"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_activity_state_changed
+#: model:mail.message.subtype,name:privacy_consent.mt_consent_state_changed
+msgid "State Changed"
+msgstr "El estado ha cambiado"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_partner_id
+msgid "Subject"
+msgstr "Interesado"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent_partner_id
+msgid "Subject asked for consent."
+msgstr "Interesado a quien se le pide el consentimiento."
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "Thanks for your response."
+msgstr "Gracias por su respuesta."
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "This could enqueue many consent emails, are you sure to proceed?"
+msgstr ""
+"Esto podría poner en la cola muchos correos electrónicos solicitando "
+"consentimiento para el tratamiento de datos, ¿seguro que quiere continuar?"
+
+#. module: privacy_consent
+#: model:ir.actions.server,name:privacy_consent.update_opt_out
+msgid "Update partner's opt out"
+msgstr "Sincronizar la opción del contacto para recibir o no envíos masivos"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid ""
+"We asked you to authorize us to process your data in this data processing "
+"activity:"
+msgstr ""
+"Le hemos solicitado que nos autorice para procesar sus datos personales en "
+"esta actividad de tratamiento:"
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "We have recorded this action on your side."
+msgstr "Hemos registrado esta acción por su parte."
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "You have <b class=\"text-danger\">rejected</b> such processing."
+msgstr "Ha <b class=\"text-danger\">rechazado</b> dicho tratamiento."
+
+#. module: privacy_consent
+#: model:ir.ui.view,arch_db:privacy_consent.form
+msgid "You have <b class=\"text-success\">accepted</b> such processing."
+msgstr "Ha <b class=\"text-success\">aceptado</b> dicho tratamiento."

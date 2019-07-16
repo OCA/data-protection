@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<data>
+
+    <record id="activity_form" model="ir.ui.view">
+        <field name="name">Add consent fields</field>
+        <field name="model">privacy.activity</field>
+        <field name="inherit_id" ref="privacy.activity_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    attrs='{"invisible": [("consent_required", "=", False)]}'
+                    class="oe_stat_button"
+                    context='{"search_default_activity_id": active_id}'
+                    icon="fa-handshake-o"
+                    name="%(consent_action)d"
+                    type="action"
+                >
+                    <field
+                        name="consent_count"
+                        widget="statinfo"
+                    />
+                </button>
+            </div>
+
+            <notebook name="advanced" position="inside">
+                <page string="Consent" name="consent">
+                    <group>
+                        <label for="consent_required"/>
+                        <div>
+                            <field name="consent_required" class="oe_inline"/>
+                            <button
+                                attrs='{"invisible": [("consent_required", "!=", "manual")]}'
+                                class="btn-link"
+                                icon="fa-user-plus"
+                                name="action_new_consents"
+                                type="object"
+                                string="Generate missing draft consent requests"
+                            />
+                            <button
+                                attrs='{"invisible": [("consent_required", "!=", "auto")]}'
+                                class="btn-link"
+                                icon="fa-user-plus"
+                                name="action_new_consents"
+                                type="object"
+                                string="Generate and enqueue missing consent requests"
+                                confirm="This could enqueue many consent emails, are you sure to proceed?"
+                            />
+                        </div>
+                    </group>
+                    <group
+                        attrs='{"invisible": [("consent_required", "=", False)]}'
+                    >
+                        <group>
+                            <field name="default_consent"/>
+                            <field
+                                name="server_action_id"
+                                groups="base.group_no_one"
+                            />
+                        </group>
+                        <group>
+                            <field
+                                name="consent_template_default_body_html"
+                                invisible="1"
+                            />
+                            <field
+                                name="consent_template_default_subject"
+                                invisible="1"
+                            />
+                            <field
+                                name="consent_template_id"
+                                attrs='{"required": [("consent_required", "=", "auto")]}'
+                                context='{
+                                    "default_model": "privacy.consent",
+                                    "default_body_html": consent_template_default_body_html,
+                                    "default_subject": consent_template_default_subject,
+                                }'
+                            />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</data>

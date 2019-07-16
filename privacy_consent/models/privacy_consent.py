@@ -130,12 +130,12 @@ class PrivacyConsent(models.Model):
 
     def write(self, vals):
         """Run server action on update."""
-        result = super(PrivacyConsent, self).write(vals)
+        result = super().write(vals)
         self._run_action()
         return result
 
     def message_get_suggested_recipients(self):
-        result = super(PrivacyConsent, self) \
+        result = super() \
             .message_get_suggested_recipients()
         reason = self._fields["partner_id"].string
         for one in self:

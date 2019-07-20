@@ -199,19 +199,23 @@ msgid "Consent"
 msgstr "Einwilligung"
 
 #. module: privacy_consent
-#: model:ir.model,name:privacy_consent.model_privacy_consent
-msgid "Consent of data processing"
-msgstr "Einwilligung in die Datenverarbeitung"
-
-#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_default_body_html
-msgid "Consent template default body html"
+#, fuzzy
+#| msgid "Consent template default body html"
+msgid "Consent Template Default Body Html"
 msgstr "Einverständniserklärung Standardtext html"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity_consent_template_default_subject
-msgid "Consent template default subject"
+#, fuzzy
+#| msgid "Consent template default subject"
+msgid "Consent Template Default Subject"
 msgstr "Standardmäßige Einverständniserklärung Betroffener"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_privacy_consent
+msgid "Consent of data processing"
+msgstr "Einwilligung in die Datenverarbeitung"
 
 #. module: privacy_consent
 #: model:ir.actions.act_window,name:privacy_consent.consent_action
@@ -222,6 +226,11 @@ msgstr "Standardmäßige Einverständniserklärung Betroffener"
 #: model:ir.ui.menu,name:privacy_consent.menu_privacy_consent
 msgid "Consents"
 msgstr "Einwilligungen"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_res_partner
+msgid "Contact"
+msgstr ""
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_create_uid
@@ -300,7 +309,7 @@ msgid "Generate missing draft consent requests"
 msgstr "Fehlende Entwürfe von Einwilligungsanfragen erstellen"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:139
+#: code:addons/privacy_consent/models/privacy_activity.py:138
 #, python-format
 msgid "Generated consents"
 msgstr ""
@@ -347,6 +356,13 @@ msgstr ""
 "angegebenen Standard ergeben kann."
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_last_metadata
+#, fuzzy
+#| msgid "Last metadata"
+msgid "Last Metadata"
+msgstr "Letzte Metadaten"
+
+#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent___last_update
 msgid "Last Modified on"
 msgstr "Letzte Änderung am"
@@ -362,11 +378,6 @@ msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent_last_metadata
-msgid "Last metadata"
-msgstr "Letzte Metadaten"
-
-#. module: privacy_consent
 #: selection:privacy.activity,consent_required:0
 msgid "Manually"
 msgstr "Manuell"
@@ -377,7 +388,7 @@ msgid "Metadata from the last acceptance or rejection by the subject"
 msgstr "Metadaten aus der letzten Annahme oder Ablehnung durch den Betroffenen"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/mail_template.py:25
+#: code:addons/privacy_consent/models/mail_template.py:24
 #, python-format
 msgid ""
 "Missing privacy consent link placeholders. You need at least these two "
@@ -396,11 +407,6 @@ msgstr "Neue Einwilligung"
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
 msgstr "Ausgehende Mails"
-
-#. module: privacy_consent
-#: model:ir.model,name:privacy_consent.model_res_partner
-msgid "Partner"
-msgstr "Partner"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
@@ -434,7 +440,14 @@ msgid "Privacy consents"
 msgstr "Einwilligung zum Datenschutz"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:100
+#: model:ir.actions.server,name:privacy_consent.cron_auto_consent_ir_actions_server
+#: model:ir.cron,cron_name:privacy_consent.cron_auto_consent
+#: model:ir.cron,name:privacy_consent.cron_auto_consent
+msgid "Request automatic data processing consents"
+msgstr ""
+
+#. module: privacy_consent
+#: code:addons/privacy_consent/models/privacy_activity.py:99
 #, python-format
 msgid "Require consent is available only for subjects in current database."
 msgstr ""
@@ -462,7 +475,7 @@ msgid "Sincerely,<br/>"
 msgstr "Mit freundlichen Grüßen<br/>"
 
 #. module: privacy_consent
-#: code:addons/privacy_consent/models/privacy_activity.py:92
+#: code:addons/privacy_consent/models/privacy_activity.py:91
 #, python-format
 msgid "Specify a mail template to ask automated consent."
 msgstr ""
@@ -539,3 +552,6 @@ msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr ""
 "Du hast dieser Verarbeitungstätigkeit <b class=\"text-success\">zugestimmt</"
 "b>."
+
+#~ msgid "Partner"
+#~ msgstr "Partner"

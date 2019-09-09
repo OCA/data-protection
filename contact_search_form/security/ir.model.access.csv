@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_dpo_view,access_dpo_view,model_dpo_view,group_dpo,1,1,1,1
+access_search_line,access_search_line,model_search_line,group_dpo,1,1,1,1

@@ -98,7 +98,6 @@ class ContactByController(http.Controller):
         email = link_data_split[0]
         contact_name = link_data_split[1]
 
-
         partner = request.env['res.partner'].sudo().search([
             ('email', '=', email),
             ('name', '=', contact_name)
@@ -167,7 +166,6 @@ class FormReview(parent_controller.WebsiteForm):
 
         # if len(res_part_rec) == 0 and res_part_email:
         #     print('Company change detected!')
-
 
         id_record = self.insert_record(
             request,

@@ -8,6 +8,7 @@ from psycopg2 import IntegrityError
 import base64
 import json
 
+
 class VerifyController(http.Controller):
     @http.route('/verify_email',
                 type='http',
@@ -49,7 +50,8 @@ class VerifyController(http.Controller):
                 ('name', '=', contact_name)
             ])
             if not partner:
-                partner = request.env['res.partner'].sudo().create({'name':contact_name,'email':email})
+                partner = request.env['res.partner'].sudo().create(
+                    {'name': contact_name, 'email': email})
             if partner:
                 for part in partner:
                     part.is_verified = True
@@ -71,14 +73,15 @@ class VerifyController(http.Controller):
                     ).sudo().send_mail(part.id)
 
                 page_render_html = "<center style='color:green'>"\
-                       "Thank You! Your email address has been verified!"\
-                       "</center>"
+                    "Thank You! Your email address has been verified!"\
+                    "</center>"
 
                 # print(request_gdpdr)
                 if request_gdpdr == "True":
                     # print("Hit")
                     page_render_html = page_render_html + "<br/>"\
-                        "<div style='text-align: center'>Click <a href='" + contact_url + "'>here</a> to choose how you want to be contacted</div>"
+                        "<div style='text-align: center'>Click <a href='" + contact_url + \
+                        "'>here</a> to choose how you want to be contacted</div>"
 
                 if personal_data == "True":
 
@@ -161,8 +164,8 @@ class MyFilter(parent_controller.WebsiteForm):
             email = data.get("record").get("email_from")
             company = data.get("record").get("partner_name")
             res_part_rec = request.env['res.partner'].sudo().search([
-            ('email', '=', email),
-            ('company_name', '=', company)])
+                ('email', '=', email),
+                ('company_name', '=', company)])
             # ('name', '=', contact_name)])
 
             # ('company_name', '=', company)
@@ -219,7 +222,8 @@ class MyFilter(parent_controller.WebsiteForm):
                 print('Hello')
                 request.session['review_form'] = "/contactus-thank-you"
 
-                res_cat = request.env['res.partner.category'].search([('name', '=', 'New')])
+                res_cat = request.env['res.partner.category'].search(
+                    [('name', '=', 'New')])
                 print(res_cat)
                 cat_id = 0
 
@@ -227,7 +231,8 @@ class MyFilter(parent_controller.WebsiteForm):
                     print('Hit')
                     id_part_res_cat = self.insert_record(
                         request,
-                        request.env['ir.model'].search([('model', '=', 'res.partner.category')]),
+                        request.env['ir.model'].search(
+                            [('model', '=', 'res.partner.category')]),
                         {'name': 'New', 'create_uid': request.env.uid},
                         '',
                         ''
@@ -236,7 +241,6 @@ class MyFilter(parent_controller.WebsiteForm):
                     print(id_part_res_cat)
                 else:
                     cat_id = res_cat[0].id
-
 
                 res_partner_dict = {}
 
@@ -250,7 +254,6 @@ class MyFilter(parent_controller.WebsiteForm):
                     res_partner_dict['phone'] = res_partner_data['phone']
                 res_partner_dict['company_name'] = res_partner_data['partner_name']
                 res_partner_dict['category_id'] = [[6, False, [cat_id]]]
-
 
                 res_partner_company_dict = res_partner_dict.copy()
                 res_partner_company_dict.pop('email')
@@ -266,7 +269,8 @@ class MyFilter(parent_controller.WebsiteForm):
 
                 id_record_res_company = self.insert_record(
                     request,
-                    request.env['ir.model'].search([('model', '=', 'res.partner')]),
+                    request.env['ir.model'].search(
+                        [('model', '=', 'res.partner')]),
                     res_partner_company_dict,
                     '',
                     data.get('meta')
@@ -276,7 +280,8 @@ class MyFilter(parent_controller.WebsiteForm):
 
                 id_record_res = self.insert_record(
                     request,
-                    request.env['ir.model'].search([('model', '=', 'res.partner')]),
+                    request.env['ir.model'].search(
+                        [('model', '=', 'res.partner')]),
                     res_partner_dict,
                     '',
                     data.get('meta')
@@ -313,14 +318,14 @@ class MyFilter(parent_controller.WebsiteForm):
                             ('id', '=', id_record)]
                         )
                         email_data = crm_lead_obj.email_from + "####" + \
-                                     crm_lead_obj.contact_name + "####" + \
-                                     str(email_contact) + "####" + \
-                                     str(phone_contact) + "####" + \
-                                     str(letter_contact) + "####" + \
-                                     str(send_mail) + "####" + \
-                                     str(request_gdpdr) + "####" + \
-                                     str(id_record) + "####" + \
-                                     str(crm_lead_obj.create_date)
+                            crm_lead_obj.contact_name + "####" + \
+                            str(email_contact) + "####" + \
+                            str(phone_contact) + "####" + \
+                            str(letter_contact) + "####" + \
+                            str(send_mail) + "####" + \
+                            str(request_gdpdr) + "####" + \
+                            str(id_record) + "####" + \
+                            str(crm_lead_obj.create_date)
 
                         print(email_data)
                         ency_email = base64.b64encode(email_data.encode()).decode(
@@ -328,7 +333,7 @@ class MyFilter(parent_controller.WebsiteForm):
                         )
                         action_url = '%s/verify_email/?data=%s' % (
                             request.env['ir.config_parameter'].
-                                sudo().get_param('web.base.url'),
+                            sudo().get_param('web.base.url'),
                             ency_email,
                         )
                         if crm_lead_obj:

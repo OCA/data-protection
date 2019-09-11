@@ -35,6 +35,6 @@
         'views/means_of_contact.xml',
         'views/disp_msg_template.xml',
         'views/email_template.xml'
-        #'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
     ],
 }

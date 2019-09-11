@@ -24,7 +24,7 @@ class SearchLine(models.Model):
             'type': 'ir.actions.act_window',
             'res_id': self.record_id,
             'target': 'new'
-            }
+        }
 
     def _compute_record_name(self):
         for record in self:

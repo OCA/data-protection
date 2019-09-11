@@ -2,6 +2,7 @@
 
 from odoo import fields, models, api
 
+
 class ResContacts(models.Model):
     _inherit = "res.partner"
 

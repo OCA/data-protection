@@ -13,7 +13,7 @@ link_data = {}
 
 class ContactByController(http.Controller):
 
-    @http.route('/check_user_exists/',type='json',auth="public",methods=['POST'],website=True,csrf=False)
+    @http.route('/check_user_exists/', type='json', auth="public", methods=['POST'], website=True, csrf=False)
     def check_user_exists(self, email_from, company_name, **kwargs):
         res_part_rec = request.env['res.partner'].sudo().search([
             ('email', '=', email_from),
@@ -23,7 +23,7 @@ class ContactByController(http.Controller):
             ('email', '=', email_from)])
 
         if len(res_part_rec) > 0 or len(res_part_rec) == 0 and len(res_part_email) > 0:
-        # if partner:
+            # if partner:
             return True
         return False
 
@@ -91,12 +91,12 @@ class ContactByController(http.Controller):
             return json.dumps(False)
 
         # print(link_data)
-        link_data_split = base64.b64decode(link_data).decode("utf-8").split("####")
+        link_data_split = base64.b64decode(
+            link_data).decode("utf-8").split("####")
         # print(link_data_split)
 
         email = link_data_split[0]
         contact_name = link_data_split[1]
-
 
         print(email, contact_name, email_name, phone_name, letter_name)
 
@@ -105,7 +105,8 @@ class ContactByController(http.Controller):
             ('name', '=', contact_name)
         ])
         if not partner:
-            partner = request.env['res.partner'].sudo().create({'name': contact_name, 'email': email})
+            partner = request.env['res.partner'].sudo().create(
+                {'name': contact_name, 'email': email})
         if partner:
             for part in partner:
                 part.is_verified = True
@@ -129,7 +130,7 @@ class ContactByController(http.Controller):
 
         return json.dumps({'id': partner[0].id})
 
-            # return http.request.render('website_contact_extend.disp_msg_template', {'message_success': 'Means of contact changed!'})
+        # return http.request.render('website_contact_extend.disp_msg_template', {'message_success': 'Means of contact changed!'})
         #     return "<p style='color: green'>Means of contact changed!</p>"
         # else:
         #     # return http.request.render('website_contact_extend.disp_msg_template', {'message_failure': 'Could not change your means of contact. Please request a new link'})
@@ -168,20 +169,19 @@ class FormReview(parent_controller.WebsiteForm):
         print('Verified?')
         print(res_part_email[0].is_verified)
 
-
-
         id_record = self.insert_record(
-                request,
-                model_record,
-                res_partner_data,
-                '',
-                ''
-            )
+            request,
+            model_record,
+            res_partner_data,
+            '',
+            ''
+        )
 
         if len(res_part_email) > 0 and len(res_part_rec) == 0 and res_part_email[0].is_verified == True:
             print('Company change detected')
 
-            res_cat = request.env['res.partner.category'].search([('name', '=', 'New')])
+            res_cat = request.env['res.partner.category'].search(
+                [('name', '=', 'New')])
             print(res_cat)
             cat_id = 0
 
@@ -189,7 +189,8 @@ class FormReview(parent_controller.WebsiteForm):
                 print('Hit')
                 id_part_res_cat = self.insert_record(
                     request,
-                    request.env['ir.model'].search([('model', '=', 'res.partner.category')]),
+                    request.env['ir.model'].search(
+                        [('model', '=', 'res.partner.category')]),
                     {'name': 'New', 'create_uid': request.env.uid},
                     '',
                     ''
@@ -242,24 +243,27 @@ class FormReview(parent_controller.WebsiteForm):
 
             id_record_res = self.insert_record(
                 request,
-                request.env['ir.model'].search([('model', '=', 'res.partner')]),
+                request.env['ir.model'].search(
+                    [('model', '=', 'res.partner')]),
                 res_partner_dict,
                 '',
                 ''
             )
 
-            res_partner_company_dict['child_ids'] = [[6, 'virtual_1798', [id_record_res]]]
+            res_partner_company_dict['child_ids'] = [
+                [6, 'virtual_1798', [id_record_res]]]
             id_record_res_company = self.insert_record(
                 request,
-                request.env['ir.model'].search([('model', '=', 'res.partner')]),
+                request.env['ir.model'].search(
+                    [('model', '=', 'res.partner')]),
                 res_partner_company_dict,
                 '',
                 ''
             )
 
             if update_parent_partner and len(update_parent_partner) > 0:
-                update_parent_partner[0].child_ids = [[6, 'virtual_1798', [id_record_res]]]
-
+                update_parent_partner[0].child_ids = [
+                    [6, 'virtual_1798', [id_record_res]]]
 
             id_record = self.insert_record(
                 request,
@@ -301,7 +305,8 @@ class FormReview(parent_controller.WebsiteForm):
                     'website_contact_extend.verification_email_template'
                 ).sudo().send_mail(id_record)
 
-        request.env.ref('website_contact_extend.email_template_onchange_data').sudo().send_mail(id_record)
+        request.env.ref('website_contact_extend.email_template_onchange_data').sudo(
+        ).send_mail(id_record)
 
         request.session['form_builder_model_model'] = model_record.model
         request.session['form_builder_model'] = model_record.name

@@ -1,16 +1,17 @@
-odoo.define('website_contact_extend.success_page', function(require) {
+odoo.define('website_contact_extend.success_page', function (require) {
     "use strict";
 
     var ajax = require("web.ajax");
 
-    $(document).on('blur', '.input_email_from', function(ev) {
+    $(document).on('blur', '.input_email_from', function (ev) {
+        console.log(ev);
         var email_from = $('.input_email_from').val();
         var company_name = $('.input_company').val();
 
         return ajax.jsonRpc('/check_user_exists', 'call', {
             email_from: email_from,
             company_name: company_name,
-        }).then(function(res) {
+        }).then(function (res) {
             var contactus_page = "/contactus-thank-you";
             if (res) {
                 contactus_page = "/contact-us-form-review";
@@ -20,14 +21,15 @@ odoo.define('website_contact_extend.success_page', function(require) {
         });
     });
 
-    $(document).on('blur', '.input_company', function(ev) {
+    $(document).on('blur', '.input_company', function (ev) {
+        console.log(ev);
         var email_from = $('.input_email_from').val();
         var company_name = $('.input_company').val();
 
         return ajax.jsonRpc('/check_user_exists', 'call', {
             email_from: email_from,
             company_name: company_name,
-        }).then(function(res) {
+        }).then(function (res) {
             var contactus_page = "/contactus-thank-you";
             if (res) {
                 contactus_page = "/contact-us-form-review";

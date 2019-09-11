@@ -175,12 +175,10 @@ class MyFilter(parent_controller.WebsiteForm):
             if len(res_part_rec) > 0 or len(res_part_rec) == 0 \
                     and len(res_part_email) > 0:
                 request.session['review_form'] = "/contact-us-form-review"
-                print('Display review')
 
                 for chkbx_val_out in data['custom'].split('\n'):
                     if chkbx_val_out != '':
                         for chkbx_val_in in chkbx_val_out.split(':'):
-                            print(chkbx_val_in)
                             if chkbx_val_in.strip() == "request_gdpdr":
                                 request_gdpdr = True
                                 break
@@ -188,7 +186,6 @@ class MyFilter(parent_controller.WebsiteForm):
                 id_record = res_part_email[0].id
 
                 rec_form = data.get('record')
-                print(rec_form)
                 # if 'phone' not in data.get('record'):
                 #     rec_form['phone'] = ""
                 lst_form_rec = []
@@ -212,7 +209,6 @@ class MyFilter(parent_controller.WebsiteForm):
 
                 request.session['form_data'] = lst_form_rec
                 request.session['form_data_dict'] = rec_form
-                print(request.session['form_data'])
 
             # Some fields have additional SQL constraints
             #  that we can't check generically
@@ -220,16 +216,13 @@ class MyFilter(parent_controller.WebsiteForm):
             # TODO: How to get the name of the erroneous field ?
             else:
                 #         code for adding new customer
-                print('Hello')
                 request.session['review_form'] = "/contactus-thank-you"
 
                 res_cat = request.env['res.partner.category'].search(
                     [('name', '=', 'New')])
-                print(res_cat)
                 cat_id = 0
 
                 if len(res_cat) == 0:
-                    print('Hit')
                     id_part_res_cat = self.insert_record(
                         request,
                         request.env['ir.model'].search(
@@ -239,7 +232,6 @@ class MyFilter(parent_controller.WebsiteForm):
                         ''
                     )
                     cat_id = id_part_res_cat
-                    print(id_part_res_cat)
                 else:
                     cat_id = res_cat[0].id
 
@@ -309,12 +301,10 @@ class MyFilter(parent_controller.WebsiteForm):
                 for chkbx_val_out in data['custom'].split('\n'):
                     if chkbx_val_out != '':
                         for chkbx_val_in in chkbx_val_out.split(':'):
-                            print(chkbx_val_in)
                             if chkbx_val_in.strip() == "request_gdpdr":
                                 request_gdpdr = True
                                 break
 
-                print("RGPDR" + str(request_gdpdr))
                 # if request_gdpdr == True:
 
                 if request_gdpdr is True or send_mail is True:
@@ -332,7 +322,6 @@ class MyFilter(parent_controller.WebsiteForm):
                             str(id_record) + "####" + \
                             str(crm_lead_obj.create_date)
 
-                        print(email_data)
                         ency_email = base64.b64encode(email_data.encode())\
                             .decode("utf-8")
                         action_url = '%s/verify_email/?data=%s' % (
@@ -350,7 +339,6 @@ class MyFilter(parent_controller.WebsiteForm):
         except IntegrityError:
             return json.dumps(False)
 
-        print(request.session['review_form'])
         request.session['form_builder_model_model'] = model_record.model
         request.session['form_builder_model'] = model_record.name
         request.session['form_builder_id'] = id_record

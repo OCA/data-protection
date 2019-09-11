@@ -49,7 +49,6 @@ class ContactByController(http.Controller):
                 website=True)
     def contact_by(self, data, **kwargs):
         global link_data
-        print(data)
         # print(kwargs.get("data"))
         # link_data =base64.b64decode(kwargs.get("data")).decode("utf-8") \
         link_data = data
@@ -71,8 +70,6 @@ class ContactByController(http.Controller):
             ('website_form_access', '=', True)
         ])
 
-        print(model_record)
-        print(request.params)
         means_of_cont_dict = request.params
 
         if 'letter_contact' in means_of_cont_dict:
@@ -101,7 +98,6 @@ class ContactByController(http.Controller):
         email = link_data_split[0]
         contact_name = link_data_split[1]
 
-        print(email, contact_name, email_name, phone_name, letter_name)
 
         partner = request.env['res.partner'].sudo().search([
             ('email', '=', email),
@@ -155,7 +151,6 @@ class FormReview(parent_controller.WebsiteForm):
                 website=True)
     def form_review_send(self, model_name, **kwargs):
         # model_name = 'crm.lead'
-        print('Send')
 
         res_partner_data = request.session['form_data_dict']
         model_record = request.env['ir.model'].sudo().search([
@@ -173,10 +168,6 @@ class FormReview(parent_controller.WebsiteForm):
         # if len(res_part_rec) == 0 and res_part_email:
         #     print('Company change detected!')
 
-        print(res_part_email)
-
-        print('Verified?')
-        print(res_part_email[0].is_verified)
 
         id_record = self.insert_record(
             request,
@@ -188,15 +179,12 @@ class FormReview(parent_controller.WebsiteForm):
 
         if len(res_part_email) > 0 and len(res_part_rec) == 0 and \
                 res_part_email[0].is_verified is True:
-            print('Company change detected')
 
             res_cat = request.env['res.partner.category'].search(
                 [('name', '=', 'New')])
-            print(res_cat)
             cat_id = 0
 
             if len(res_cat) == 0:
-                print('Hit')
                 id_part_res_cat = self.insert_record(
                     request,
                     request.env['ir.model'].search(
@@ -206,7 +194,6 @@ class FormReview(parent_controller.WebsiteForm):
                     ''
                 )
                 cat_id = id_part_res_cat
-                print(id_part_res_cat)
             else:
                 cat_id = res_cat[0].id
 
@@ -221,12 +208,9 @@ class FormReview(parent_controller.WebsiteForm):
             if 'phone' in res_partner_data:
                 res_partner_dict['phone'] = res_partner_data['phone']
 
-            print('Here')
-
             update_parent_partner = request.env['res.partner'].sudo().search([
                 ('id', '=', res_part_email[0].id)])
 
-            print(update_parent_partner)
             if update_parent_partner and len(update_parent_partner) > 0:
                 update_parent_partner[0].category_id = False
 

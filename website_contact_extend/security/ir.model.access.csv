@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_mail_template,access.mail.template.view,mail.model_mail_template,,1,0,0,0
-access_crm_lead_record,access.crm.lead.record,crm.model_crm_lead,,1,0,0,0
-access_mail_mail_record,access.mail.mail.record,mail.model_mail_mail,,1,1,1,0

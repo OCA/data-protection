@@ -3,8 +3,6 @@
 from odoo.addons.website_form.controllers import main as parent_controller
 from odoo import http
 from odoo.http import request
-from odoo.exceptions import ValidationError
-from psycopg2 import IntegrityError
 import base64
 import json
 
@@ -13,7 +11,8 @@ link_data = {}
 
 class ContactByController(http.Controller):
 
-    @http.route('/check_user_exists/', type='json', auth="public", methods=['POST'], website=True, csrf=False)
+    @http.route('/check_user_exists/', type='json', auth="public",
+                methods=['POST'], website=True, csrf=False)
     def check_user_exists(self, email_from, company_name, **kwargs):
         res_part_rec = request.env['res.partner'].sudo().search([
             ('email', '=', email_from),
@@ -22,7 +21,8 @@ class ContactByController(http.Controller):
         res_part_email = request.env['res.partner'].sudo().search([
             ('email', '=', email_from)])
 
-        if len(res_part_rec) > 0 or len(res_part_rec) == 0 and len(res_part_email) > 0:
+        if len(res_part_rec) > 0 or len(res_part_rec) == 0 \
+                and len(res_part_email) > 0:
             # if partner:
             return True
         return False
@@ -37,8 +37,10 @@ class ContactByController(http.Controller):
         # link_data =base64.b64decode(kwargs.get("data")).decode("utf-8") \
         # print('FD')
         # print(request.session['form_data'])
-        return http.request.render('website_contact_extend.review_form', {'form_data': request.session['form_data'],
-                                                                          'form_data_dict': request.session['form_data_dict']})
+        return http.request.render(
+            'website_contact_extend.review_form',
+            {'form_data': request.session['form_data'],
+                'form_data_dict': request.session['form_data_dict']})
 
     @http.route('/contact_by/<string:data>',
                 type='http',
@@ -52,7 +54,8 @@ class ContactByController(http.Controller):
         # link_data =base64.b64decode(kwargs.get("data")).decode("utf-8") \
         link_data = data
         return http.request.render('website_contact_extend.contactby_form')
-        # return "<center style='color:red'>You are at the right place</center>"
+        # return "<center style='color:red'>You are at the right \
+        #   place</center>"
 
     @http.route('/contact_by_send/<string:model_name>',
                 type='http',
@@ -130,11 +133,17 @@ class ContactByController(http.Controller):
 
         return json.dumps({'id': partner[0].id})
 
-        # return http.request.render('website_contact_extend.disp_msg_template', {'message_success': 'Means of contact changed!'})
+        # return http.request.render('website_contact_extend.\
+        #    disp_msg_template', {'message_success': \
+        #                           'Means of contact changed!'})
         #     return "<p style='color: green'>Means of contact changed!</p>"
         # else:
-        #     # return http.request.render('website_contact_extend.disp_msg_template', {'message_failure': 'Could not change your means of contact. Please request a new link'})
-        #     return "<p style='color: red'>Could not change your means of contact. Please request a new link</p>"
+        #     return http.request.render('website_contact_extend.\
+        #         disp_msg_template', {'message_failure': \
+        #                 'Could not change your means of contact. \
+        #                   Please request a new link'})
+        #    return "<p style='color: red'>Could not change your means\
+        #       of contact. Please request a new link</p>"
 
 
 class FormReview(parent_controller.WebsiteForm):
@@ -177,7 +186,8 @@ class FormReview(parent_controller.WebsiteForm):
             ''
         )
 
-        if len(res_part_email) > 0 and len(res_part_rec) == 0 and res_part_email[0].is_verified == True:
+        if len(res_part_email) > 0 and len(res_part_rec) == 0 and \
+                res_part_email[0].is_verified is True:
             print('Company change detected')
 
             res_cat = request.env['res.partner.category'].search(
@@ -220,10 +230,12 @@ class FormReview(parent_controller.WebsiteForm):
             if update_parent_partner and len(update_parent_partner) > 0:
                 update_parent_partner[0].category_id = False
 
-                update_parent_partner_comp = request.env['res.partner'].sudo().search([
-                    ('id', '=', res_part_email[0].parent_id.id)])
+                update_parent_partner_comp = \
+                    request.env['res.partner'].sudo().search([
+                        ('id', '=', res_part_email[0].parent_id.id)])
 
-                if update_parent_partner_comp and len(update_parent_partner_comp) > 0:
+                if update_parent_partner_comp and \
+                        len(update_parent_partner_comp) > 0:
                     update_parent_partner_comp[0].category_id = False
 
             res_partner_company_dict = res_partner_dict.copy()
@@ -234,7 +246,8 @@ class FormReview(parent_controller.WebsiteForm):
                 res_partner_company_dict.pop('phone')
 
             res_partner_company_dict['name'] = res_partner_data['partner_name']
-            res_partner_company_dict['display_name'] = res_partner_data['partner_name']
+            res_partner_company_dict['display_name'] = \
+                res_partner_data['partner_name']
             res_partner_company_dict['customer'] = False
             res_partner_company_dict['is_company'] = True
             res_partner_company_dict['company_type'] = 'company'
@@ -252,7 +265,8 @@ class FormReview(parent_controller.WebsiteForm):
 
             res_partner_company_dict['child_ids'] = [
                 [6, 'virtual_1798', [id_record_res]]]
-            id_record_res_company = self.insert_record(
+            # id_record_res_company = self.insert_record(
+            self.insert_record(
                 request,
                 request.env['ir.model'].search(
                     [('model', '=', 'res.partner')]),
@@ -305,7 +319,8 @@ class FormReview(parent_controller.WebsiteForm):
                     'website_contact_extend.verification_email_template'
                 ).sudo().send_mail(id_record)
 
-        request.env.ref('website_contact_extend.email_template_onchange_data').sudo(
+        request.env.ref('website_contact_extend.\
+            email_template_onchange_data').sudo(
         ).send_mail(id_record)
 
         request.session['form_builder_model_model'] = model_record.model

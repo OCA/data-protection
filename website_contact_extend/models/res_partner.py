@@ -25,12 +25,10 @@ class ResContacts(models.Model):
     # s
     @api.multi
     def write(self, vals):
-        print(vals)
         return super(ResContacts, self).write(vals)
 
     @api.model
     def create(self, vals):
-        print(vals)
         return super(ResContacts, self).create(vals)
 
 

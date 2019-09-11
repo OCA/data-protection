@@ -17,7 +17,7 @@
     # Check https://github.com/odoo/odoo/blob/master/
     # openerp/addons/base/module/module_data.xml
     # for the full list
-    'version': '12.0.1.0',
+    'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Contacts',
     'depends': ['base',

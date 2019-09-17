@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="contactby_form">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form action="/contact_by_send/" method="post" data-model_name="crm.lead" data-success_page="/contactus-thank-you"
+                          class="s_website_form container-fluid mt32" enctype="multipart/form-data"
+                          data-editable-form="false">
+                        <div class="form-group row form-field o_website_form_required_custom">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_type">In the future I want to
+                                be
+                                contacted
+                                by
+                            </label>
+                            <div class="col-lg-7 col-md-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="letter_contact" value="letter_contact"/>
+                                        Contact by Letter
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="email_contact" value="email_contact"/>
+                                        Contact by E-Mail
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="phone_contact" value="phone_contact"/>
+                                        Contact by Phone
+                                    </label>
+                                </div>
+                                <div>
+                                    <a href="#" role="button" class="btn btn-primary btn-lg o_website_form_send">Send</a>
+                                    <!--<button name="Send" class="btn btn-primary btn-lg o_website_form_send" type="submit">Send</button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="review_form">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form action="/form_review_send/" method="post"
+                      data-success_page="/contactus-thank-you" data-model_name="crm.lead"
+                      class="s_website_form container-fluid mt32">
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="email_from">Email</label>
+                            <div class="col-lg-7 col-md-8">
+                                <input class="form-control o_website_form_input" type="text" name="email_from" t-att-value="form_data[0]" disabled="true"/></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Your Name</label>
+                            <div class="col-lg-7 col-md-8">
+                            <input class="form-control o_website_form_input" type="text" name="contact_name" t-att-value="form_data[4]" disabled="true"/></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="company_name">Your Company</label>
+                            <div class="col-lg-7 col-md-8">
+                            <input class="form-control o_website_form_input" type="text" name="company_name" t-att-value="form_data[2]" disabled="true"/></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="phone">Phone</label>
+                            <div class="col-lg-7 col-md-8">
+                            <input class="form-control o_website_form_input" type="text" name="phone" t-att-value="form_data[10]" disabled="true"/></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="name">Subject</label>
+                            <div class="col-lg-7 col-md-8">
+                             <input class="form-control o_website_form_input" type="text" name="name" t-att-value="form_data[1]" disabled="true"/></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="description">Your Question</label>
+                            <div class="col-lg-7 col-md-8">
+                                <textarea class="form-control o_website_form_input" type="text" name="description" disabled="disabled"><t t-esc="form_data[6]"/></textarea></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="request_gdpdr">Set contact channel</label>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="checkbox" name="request_gdpdr" t-att-checked="form_data[8]" disabled="true"/></div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <label class="col-lg-3 col-md-4 col-form-label" for="send_mail">Information request about personal data</label>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="checkbox" name="send_mail" t-att-checked="form_data[9]" disabled="true"/></div>
+                        </div>
+                        <div>
+                            <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                <a href="#" role="button" class="btn btn-primary btn-lg o_website_form_send">Confirm</a>
+                                <a href="/contactus" class="btn btn-primary btn-lg" style="margin-left: 1%;">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

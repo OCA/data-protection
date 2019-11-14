@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-11-14 16:34+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,83 +15,84 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Potrebna radnja"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivan"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.activity_action
 #: model:ir.ui.menu,name:privacy.menu_privacy_activity
 msgid "Activities"
-msgstr ""
+msgstr "Aktivnosti"
 
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__subject_find
 msgid "Are affected subjects present in this database?"
-msgstr ""
+msgstr "Jesu li dotični subjekti prisutni u ovoj bazi?"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Broj priloga"
 
 #. module: privacy
 #: model_terms:ir.actions.act_window,help:privacy.activity_action
 msgid "Click to add a data processing activity."
-msgstr ""
+msgstr "Kliknite za dodavanje aktivnosti obrade podataka."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__controller_id
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Controller"
-msgstr ""
+msgstr "Kontroler"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: privacy
 #: model:ir.module.category,name:privacy.module_category_data_protection
 msgid "Data Protection"
-msgstr ""
+msgstr "Zaštita podataka"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_manager
 msgid "Data Protection Manager"
-msgstr ""
+msgstr "Upravlja zaštitom podataka"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_config
 msgid "Data Protection Settings"
-msgstr ""
+msgstr "Postavke zaštite podataka"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_user
 msgid "Data Protection User"
-msgstr ""
+msgstr "Korisnik zaštite podataka"
 
 #. module: privacy
 #: model:ir.model,name:privacy.model_privacy_activity
 msgid "Data processing activities"
-msgstr ""
+msgstr "Aktivnosti obrade podataka"
 
 #. module: privacy
 #: model_terms:ir.actions.act_window,help:privacy.activity_action
@@ -101,63 +103,63 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_find
 msgid "Define subjects"
-msgstr ""
+msgstr "Definirajte subjekte"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__description
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "Details"
-msgstr ""
+msgstr "Pojedinosti"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Pratitelji"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Pratitelji (kanali)"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Pratitelji (partneri)"
 
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Group By"
-msgstr ""
+msgstr "Grupiraj po"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__description
 msgid "How is personal data used here? Why? Etc."
-msgstr ""
+msgstr "Kako su ovdje korišteni osobni podaci? Zašto? itd..."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ako je označeno, nove poruke zahtijevaju važu pozornost."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Ako je označeno, nove poruke zahtijevaju važu pozornost."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error
@@ -167,7 +169,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Je pratitelj"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity____last_update
@@ -202,7 +204,7 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Poruke"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__name

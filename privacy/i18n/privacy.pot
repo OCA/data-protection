@@ -25,8 +25,14 @@ msgstr ""
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.activity_action
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_ids
 #: model:ir.ui.menu,name:privacy.menu_privacy_activity
 msgid "Activities"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
+msgid "Activity State"
 msgstr ""
 
 #. module: privacy
@@ -208,6 +214,21 @@ msgid "Name"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
@@ -233,9 +254,19 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Overdue"
+msgstr ""
+
+#. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
 #: model:ir.ui.menu,name:privacy.menu_data_protection_partner
 msgid "Partners"
+msgstr ""
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Planned"
 msgstr ""
 
 #. module: privacy
@@ -255,6 +286,11 @@ msgid "Reports"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__subject_domain
 msgid "Selection filter to find specific subjects included."
 msgstr ""
@@ -265,6 +301,14 @@ msgid "Settings"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "Subjects details"
 msgstr ""
@@ -272,6 +316,11 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_domain
 msgid "Subjects filter"
+msgstr ""
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Today"
 msgstr ""
 
 #. module: privacy

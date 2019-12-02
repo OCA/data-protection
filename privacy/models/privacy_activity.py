@@ -7,7 +7,7 @@ from odoo import api, fields, models
 class PrivacyActivity(models.Model):
     _name = "privacy.activity"
     _description = "Data processing activities"
-    _inherit = "mail.thread"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     active = fields.Boolean(
         default=True,

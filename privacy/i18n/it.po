@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* privacy
+# 	* privacy
 #
 msgid ""
 msgstr ""
@@ -28,8 +28,16 @@ msgstr "Attiva"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.activity_action
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_ids
 #: model:ir.ui.menu,name:privacy.menu_privacy_activity
 msgid "Activities"
+msgstr "Attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
+#, fuzzy
+#| msgid "Activities"
+msgid "Activity State"
 msgstr "Attività"
 
 #. module: privacy
@@ -95,7 +103,8 @@ msgstr "Attività di elaborazione dei dati"
 
 #. module: privacy
 #: model_terms:ir.actions.act_window,help:privacy.activity_action
-msgid "Data processing activities define why, how and what you do\n"
+msgid ""
+"Data processing activities define why, how and what you do\n"
 "                with subjects' personal data."
 msgstr ""
 "Le attività di elaborazione dei dati definiscono perché, come e cosa viene "
@@ -214,6 +223,21 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Numero di azioni"
@@ -239,10 +263,20 @@ msgid "Number of unread messages"
 msgstr "Numero di messaggi non letti"
 
 #. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Overdue"
+msgstr ""
+
+#. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
 #: model:ir.ui.menu,name:privacy.menu_data_protection_partner
 msgid "Partners"
 msgstr "Partner"
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Planned"
+msgstr ""
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.parent_menu_data_protection
@@ -261,14 +295,29 @@ msgid "Reports"
 msgstr "Informative"
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__subject_domain
 msgid "Selection filter to find specific subjects included."
-msgstr "Filtro di selezione per trovare specifici soggetti interessati inclusi."
+msgstr ""
+"Filtro di selezione per trovare specifici soggetti interessati inclusi."
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_setting
 msgid "Settings"
 msgstr "Impostazioni"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
 
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
@@ -279,6 +328,11 @@ msgstr "Dettagli soggetti interessati"
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_domain
 msgid "Subjects filter"
 msgstr "Filtro soggetti interessati"
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Today"
+msgstr ""
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
@@ -297,13 +351,16 @@ msgstr "Numero messaggi non letti"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__controller_id
-msgid "Whoever determines the purposes and means of the processing of personal data."
-msgstr "Chiunque determini i fini e i mezzi di elaborazione dei dati personali."
+msgid ""
+"Whoever determines the purposes and means of the processing of personal data."
+msgstr ""
+"Chiunque determini i fini e i mezzi di elaborazione dei dati personali."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__processor_ids
 msgid "Whoever processes personal data on behalf of the controller."
-msgstr "Chiunque elabori dati personali per conto del titolare del trattamento."
+msgstr ""
+"Chiunque elabori dati personali per conto del titolare del trattamento."
 
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form

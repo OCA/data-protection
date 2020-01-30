@@ -29,10 +29,16 @@ class PrivacyActivity(models.Model):
         compute="_compute_consent_count",
     )
     consent_required = fields.Selection(
-        [("auto", "Automatically"), ("manual", "Manually")],
+        [("auto", "Automatically"),
+         ("manual", "Manually"),
+         ("full_manual", "Full Manual")],
         "Ask subjects for consent",
         help="Enable if you need to track any kind of consent "
-             "from the affected subjects",
+             "from the affected subjects\n"
+             "[Automatically] Generates consent and send email "
+             "automatically.\n"
+             "[Manually] Generates consent and allow to send email manually\n"
+             "[Full manual] Allow to manage consents steps manually.",
     )
     consent_template_id = fields.Many2one(
         "mail.template",

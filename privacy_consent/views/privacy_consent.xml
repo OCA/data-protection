@@ -16,6 +16,28 @@
                         class="oe_highlight"
                         string="Ask for consent"
                     />
+                    <button
+                        type="object"
+                        name="action_set_awaiting"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('consent_required', '!=', 'full_manual'), ('state', '!=', 'draft')]}"
+                        string="Set to Awaiting"
+                    />
+                    <button
+                        type="object"
+                        name="action_set_accepted"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('consent_required', '!=', 'full_manual'), ('state', 'not in', ('draft', 'sent'))]}"
+                        string="Accepted"
+                    />
+                    <button
+                        type="object"
+                        name="action_set_accepted"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('consent_required', '!=', 'full_manual'), ('state', 'not in', ('draft', 'sent'))]}"
+                        string="Refused"
+                    />
+                    <field name="consent_required" invisible="1"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -34,10 +56,16 @@
                         </button>
                     </div>
                     <group>
-                        <field name="partner_id"/>
-                        <field name="activity_id"/>
-                        <field name="accepted"/>
-                        <field name="last_metadata"/>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="activity_id"/>
+                            <field name="accepted"/>
+                            <field name="last_metadata"/>
+                        </group>
+                        <group>
+                            <field name="accepted_date"/>
+                            <field name="refusal_date"/>
+                        </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">

@@ -24,6 +24,7 @@ class PrivacyConsent(models.Model):
     )
     accepted = fields.Boolean(
         track_visibility="onchange",
+        inverse="_inverse_accepted",
         help="Indicates current acceptance status, which can come from "
              "subject's last answer, or from the default specified in the "
              "related data processing activity.",
@@ -48,6 +49,10 @@ class PrivacyConsent(models.Model):
         required=True,
         track_visibility="onchange",
     )
+    consent_required = fields.Selection(
+        related="activity_id.consent_required",
+        readonly=True,
+    )
     state = fields.Selection(
         selection=[
             ("draft", "Draft"),
@@ -58,6 +63,14 @@ class PrivacyConsent(models.Model):
         readonly=True,
         required=True,
         track_visibility="onchange",
+    )
+    accepted_date = fields.Datetime(
+        readonly=True,
+        help="The date at which the consent was done",
+    )
+    refusal_date = fields.Datetime(
+        readonly=True,
+        help="The date at which the consent was refused",
     )
 
     def _track_subtype(self, init_values):
@@ -119,9 +132,23 @@ class PrivacyConsent(models.Model):
             )
             action.run()
 
+    @api.multi
+    def _inverse_accepted(self):
+        """
+        When accepted, set accepted date to now.
+        Whend refused, set refusal date to now.
+        :return:
+        """
+        now = fields.Datetime.now()
+        accepted_consents = self.filtered("accepted")
+        accepted_consents.update({"accepted_date": now})
+        (self - accepted_consents).update({"refusal_date": now})
+
     @api.model
     def create(self, vals):
         """Run server action on create."""
+        if vals.get("accepted"):
+            vals.update()
         result = super(PrivacyConsent,
                        self.with_context(mail_create_nolog=True)).create(vals)
         # Sync the default acceptance status
@@ -185,3 +212,14 @@ class PrivacyConsent(models.Model):
             "accepted": answer,
             "last_metadata": metadata,
         })
+
+    def action_set_awaiting(self):
+        self.write({
+            "state": "sent",
+        })
+
+    def action_set_accepted(self):
+        self.action_answer(True)
+
+    def action_set_refused(self):
+        self.action_answer(False)

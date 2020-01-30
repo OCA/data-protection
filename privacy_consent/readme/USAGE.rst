@@ -13,6 +13,9 @@ New options for data processing activities:
    * *Automatic* enables this module's full power: send all consent requests
      to selected partners automatically, every day and under your demand.
 
+   * *Full Manual* tells the activity that you will want to create and send the
+     consent requests manually, and can manage consent states manually.
+
 #. When you do this, all the consent-related options appear. Configure them:
 
    * A smart button tells you how many consents have been generated, and lets you

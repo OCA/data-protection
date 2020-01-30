@@ -3,12 +3,15 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from contextlib import contextmanager
+import mock
 
 from odoo.exceptions import ValidationError
 from odoo.tests.common import HttpCase
+from odoo import fields
 
 
 class ActivityCase(HttpCase):
+
     def setUp(self):
         super(ActivityCase, self).setUp()
         # HACK https://github.com/odoo/odoo/issues/12237
@@ -72,6 +75,16 @@ class ActivityCase(HttpCase):
             "subject_find": True,
             "subject_domain": repr([("id", "in", self.partners[1:].ids)]),
             "consent_required": "manual",
+            "default_consent": False,
+            "server_action_id": self.update_opt_out.id,
+        })
+
+        self.activity_full_manual = self.env["privacy.activity"].create({
+            "name": "activity_full_manual",
+            "description": "I'm activity 4",
+            "subject_find": True,
+            "subject_domain": repr([("id", "in", self.partners[1:].ids)]),
+            "consent_required": "full_manual",
             "default_consent": False,
             "server_action_id": self.update_opt_out.id,
         })
@@ -251,3 +264,42 @@ class ActivityCase(HttpCase):
         """Cannot create mail template without needed links."""
         with self.assertRaises(ValidationError):
             self.activity_manual.consent_template_id.body_html = "No links :("
+
+    def test_consent_states(self):
+        """
+        Test states, accepted and refusal dates
+        :return:
+        """
+        now = "2020-01-01 12:00:00"
+        result = self.activity_full_manual.action_new_consents()
+        consents = self.env[result["res_model"]].search(result["domain"])
+        consents.action_set_awaiting()
+        self.assertEquals(consents.mapped("state"), ["sent", "sent"])
+        first_consent = consents[0]
+        second_consent = consents[1]
+
+        with mock.patch.object(fields.Datetime, "now") as mock_now:
+            mock_now.return_value = now
+            first_consent.action_set_accepted()
+        self.assertEquals(
+            "answered",
+            first_consent.state
+        )
+        self.assertTrue(first_consent.accepted)
+        self.assertEquals(
+            now,
+            first_consent.accepted_date,
+        )
+
+        with mock.patch.object(fields.Datetime, "now") as mock_now:
+            mock_now.return_value = now
+            second_consent.action_set_refused()
+        self.assertEquals(
+            "answered",
+            second_consent.state
+        )
+        self.assertFalse(second_consent.accepted)
+        self.assertEquals(
+            now,
+            second_consent.refusal_date,
+        )

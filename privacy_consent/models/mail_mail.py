@@ -10,25 +10,31 @@ class MailMail(models.Model):
     def _postprocess_sent_message(self, success_pids, failure_reason=False,
                                   failure_type=None):
         """Write consent status after sending message."""
-        mail_sent = not failure_type
-        if mail_sent:
-            # Get all mails sent to consents
-            consent_mails = self.filtered(
-                lambda one: one.mail_message_id.model == "privacy.consent"
+        # Know if mail was successfully sent to a privacy consent
+        if (
+            self.mail_message_id.model == "privacy.consent"
+            and self.state == "sent"
+            and success_pids
+            and not failure_reason
+            and not failure_type
+        ):
+            # Get related consent
+            consent = self.env["privacy.consent"].browse(
+                self.mail_message_id.res_id,
+                self._prefetch,
             )
-            # Get related draft consents
-            consents = self.env["privacy.consent"].browse(
-                consent_mails.mapped("mail_message_id.res_id"),
-                self._prefetch
-            ).filtered(lambda one: one.state == "draft")
-            # Set as sent
-            consents.write({
-                "state": "sent",
-            })
+            # Set as sent if needed
+            if (
+                consent.state == "draft"
+                and consent.partner_id.id in {par.id for par in success_pids}
+            ):
+                consent.write({
+                    "state": "sent",
+                })
         return super()._postprocess_sent_message(
             success_pids=success_pids,
-            failure_reason=False,
-            failure_type=None,
+            failure_reason=failure_reason,
+            failure_type=failure_type,
         )
 
     def send_get_mail_body(self, partner=None):

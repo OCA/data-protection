@@ -7,8 +7,9 @@ from odoo import models
 class MailMail(models.Model):
     _inherit = "mail.mail"
 
-    def _postprocess_sent_message(self, success_pids, failure_reason=False,
-                                  failure_type=None):
+    def _postprocess_sent_message(
+        self, success_pids, failure_reason=False, failure_type=None
+    ):
         """Write consent status after sending message."""
         # Know if mail was successfully sent to a privacy consent
         if (
@@ -20,17 +21,13 @@ class MailMail(models.Model):
         ):
             # Get related consent
             consent = self.env["privacy.consent"].browse(
-                self.mail_message_id.res_id,
-                self._prefetch,
+                self.mail_message_id.res_id, self._prefetch,
             )
             # Set as sent if needed
-            if (
-                consent.state == "draft"
-                and consent.partner_id.id in {par.id for par in success_pids}
-            ):
-                consent.write({
-                    "state": "sent",
-                })
+            if consent.state == "draft" and consent.partner_id.id in {
+                par.id for par in success_pids
+            }:
+                consent.write({"state": "sent"})
         return super()._postprocess_sent_message(
             success_pids=success_pids,
             failure_reason=failure_reason,
@@ -51,15 +48,11 @@ class MailMail(models.Model):
         if self.model != "privacy.consent":
             return result
         # Tokenize consent links
-        consent = self.env["privacy.consent"] \
-            .browse(self.mail_message_id.res_id) \
+        consent = (
+            self.env["privacy.consent"]
+            .browse(self.mail_message_id.res_id)
             .with_prefetch(self._prefetch)
-        result = result.replace(
-            "/privacy/consent/accept/",
-            consent._url(True),
         )
-        result = result.replace(
-            "/privacy/consent/reject/",
-            consent._url(False),
-        )
+        result = result.replace("/privacy/consent/accept/", consent._url(True),)
+        result = result.replace("/privacy/consent/reject/", consent._url(False),)
         return result

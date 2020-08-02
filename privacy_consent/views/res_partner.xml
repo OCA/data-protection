@@ -1,12 +1,10 @@
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
-
 <odoo>
-
     <record id="view_partner_form" model="ir.ui.view">
         <field name="name">Add consent smart button</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="inherit_id" ref="base.view_partner_form" />
         <field
             name="groups_id"
             eval="[(4, ref('privacy.group_data_protection_user'))]"
@@ -21,13 +19,9 @@
                     name="%(consent_action)d"
                     type="action"
                 >
-                    <field
-                        name="privacy_consent_count"
-                        widget="statinfo"
-                    />
+                    <field name="privacy_consent_count" widget="statinfo" />
                 </button>
             </div>
         </field>
     </record>
-
 </odoo>

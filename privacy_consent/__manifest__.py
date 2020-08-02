@@ -23,4 +23,5 @@
         "views/privacy_activity.xml",
         "views/res_partner.xml",
     ],
+    "external_dependencies": {"python": ["openupgradelib"]},
 }

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
-<data>
+<odoo>
 
     <record model="ir.ui.view" id="consent_form">
         <field name="name">Privacy Consent Form</field>
@@ -110,4 +109,4 @@
         parent="privacy.menu_data_protection_master_data"
     />
 
-</data>
+</odoo>

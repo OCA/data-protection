@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      Copyright 2019 Tecnativa - Cristina Martin R.
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
-<data>
+<odoo>
 
     <!-- Mail templates -->
     <record id="template_consent" model="mail.template">
@@ -155,4 +154,4 @@
         <field name="relation_field">activity_id</field>
     </record>
 
-</data>
+</odoo>

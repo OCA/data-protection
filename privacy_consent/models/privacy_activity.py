@@ -70,6 +70,8 @@ class PrivacyActivity(models.Model):
             ["activity_id"],
             ["activity_id"],
         )
+        if not groups:
+            self.consent_count = 0
         for group in groups:
             self.browse(group["activity_id"][0], self._prefetch) \
                 .consent_count = group["activity_id_count"]
@@ -118,11 +120,11 @@ class PrivacyActivity(models.Model):
         consents_vals = []
         # Skip activitys where consent is not required
         for one in self.with_context(active_test=False) \
-                .filtered("consent_required"):
+            .filtered("consent_required"):
             domain = [
-                ("id", "not in", one.mapped("consent_ids.partner_id").ids),
-                ("email", "!=", False),
-            ] + safe_eval(one.subject_domain)
+                         ("id", "not in", one.mapped("consent_ids.partner_id").ids),
+                         ("email", "!=", False),
+                     ] + safe_eval(one.subject_domain)
             # Store values for creating missing consent requests
             for missing in self.env["res.partner"].search(domain):
                 consents_vals.append({

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      Copyright 2019 initOS GmbH - Florian Kantelberg
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
-<data>
+<odoo>
 
     <record id="cron_auto_consent" model="ir.cron">
         <field name="name">Request automatic data processing consents</field>
@@ -15,4 +14,4 @@
         <field name="numbercall">-1</field>
     </record>
 
-</data>
+</odoo>

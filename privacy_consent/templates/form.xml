@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
-<data>
+<odoo>
 
     <template id="form" name="Consent response processed">
         <!-- Use web.login_layout because it gets automatically wrapped
@@ -60,4 +59,4 @@
         </t>
     </template>
 
-</data>
+</odoo>

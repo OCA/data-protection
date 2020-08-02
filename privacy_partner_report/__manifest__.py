@@ -2,7 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     'name': 'Privacy Partner Report',
-    'version': '12.0.1.0.0',
+    'version': '13.0.1.0.0',
     'category': 'GDPR',
     'summary': 'Show the transactions that a specific partner is involved in.',
     'author': "Eficent, "

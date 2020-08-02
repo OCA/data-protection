@@ -59,7 +59,7 @@ class PrivacyPartnerReport(models.TransientModel):
             },
         }
 
-    @api.multi
+
     def button_export_xlsx(self):
         self.ensure_one()
         if not self.table_ids:
@@ -101,7 +101,6 @@ class PrivacyPartnerReport(models.TransientModel):
                         cleaned_rows[i][label] = rows[i][key]
         return cleaned_rows
 
-    @api.multi
     def check_report(self, xlsx_report=False):
         self.ensure_one()
         data = {}
@@ -114,7 +113,6 @@ class PrivacyPartnerReport(models.TransientModel):
             used_context, lang=self.env.context.get('lang', 'en_US'))
         return self._print_report(data=data, xlsx_report=xlsx_report)
 
-    @api.multi
     def compute_data_for_report(self, data):
         if not data.get('form'):
             raise UserError(
@@ -238,7 +236,6 @@ class PrivacyPartnerData(models.TransientModel):
     res_ids = fields.Char('Related Document IDs', index=True,
                           help='List of Related Document IDs')
 
-    @api.multi
     def action_view_records(self):
         self.ensure_one()
         response = {

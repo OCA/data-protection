@@ -211,14 +211,12 @@ msgstr "Einwilligung"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_body_html
 #, fuzzy
-#| msgid "Consent template default body html"
 msgid "Consent Template Default Body Html"
 msgstr "Einverständniserklärung Standardtext html"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_subject
 #, fuzzy
-#| msgid "Consent template default subject"
 msgid "Consent Template Default Subject"
 msgstr "Standardmäßige Einverständniserklärung Betroffener"
 
@@ -239,7 +237,6 @@ msgstr "Einwilligungen"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_count
 #, fuzzy
-#| msgid "Consents"
 msgid "Consents count"
 msgstr "Einwilligungen"
 
@@ -330,7 +327,6 @@ msgstr ""
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
 #, fuzzy
-#| msgid "Generate and send missing consent requests"
 msgid "Generate and enqueue missing consent requests"
 msgstr "Erstellung und Versand fehlender Einwilligungsanfragen"
 
@@ -409,7 +405,6 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__last_metadata
 #, fuzzy
-#| msgid "Last metadata"
 msgid "Last Metadata"
 msgstr "Letzte Metadaten"
 
@@ -613,7 +608,6 @@ msgstr "Vielen Dank für Ihre Antwort."
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
 #, fuzzy
-#| msgid "This could send many consent emails, are you sure to proceed?"
 msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
 "Hiermit könnten viele Einwilligungs-E-Mails verschickt werden. Sind Sie "

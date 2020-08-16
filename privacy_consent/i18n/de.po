@@ -290,7 +290,6 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
 #, fuzzy
-#| msgid "Generate and send missing consent requests"
 msgid "Generate and enqueue missing consent requests"
 msgstr "Erstellung und Versand fehlender Einwilligungsanfragen"
 
@@ -504,7 +503,6 @@ msgstr "Vielen Dank für Ihre Antwort."
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.activity_form
 #, fuzzy
-#| msgid "This could send many consent emails, are you sure to proceed?"
 msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
 "Hiermit könnten viele Einwilligungs-E-Mails verschickt werden. Sind Sie "

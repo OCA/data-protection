@@ -33,7 +33,6 @@ msgstr "Atividades"
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
 #, fuzzy
-#| msgid "Activities"
 msgid "Activity State"
 msgstr "Atividades"
 

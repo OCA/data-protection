@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
-<data>
+<odoo>
     <record model="ir.ui.view" id="activity_form">
         <field name="name">Privacy Activity Form</field>
         <field name="model">privacy.activity</field>
@@ -133,4 +132,4 @@
         id="menu_privacy_activity"
         parent="menu_data_protection_master_data"
     />
-</data>
+</odoo>

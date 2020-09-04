@@ -1,12 +1,10 @@
-<?xml version="1.0" ?>
 <!-- Copyright 2018 Eficent Business and IT Consulting Services S.L.
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
-<data>
+<odoo>
     <record id="action_data_protection_partner_form" model="ir.actions.act_window">
         <field name="name">Partners</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
     <menuitem
@@ -59,4 +57,4 @@
         groups="group_data_protection_manager"
         sequence="90"
     />
-</data>
+</odoo>

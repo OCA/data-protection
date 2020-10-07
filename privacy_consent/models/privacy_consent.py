@@ -150,7 +150,7 @@ class PrivacyConsent(models.Model):
         """Let user manually ask for consent."""
         return {
             "context": {
-                "default_composition_mode": "mass_mail",
+                "default_composition_mode": "comment",
                 "default_model": self._name,
                 "default_res_id": self.id,
                 "default_template_id": self.activity_id.consent_template_id.id,

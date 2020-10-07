@@ -9,6 +9,7 @@
              by website layout if website is installed, and otherwise includes
              all possibly needed assets -->
         <t t-call="web.login_layout">
+            <t t-set="login_card_classes" t-value="'o_consent_form'" />
             <div class="container readable">
                 <div class="jumbotron">
                     <h1>Thank you!</h1>

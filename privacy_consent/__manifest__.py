@@ -4,7 +4,7 @@
     "name": "Privacy - Consent",
     "summary": "Allow people to explicitly accept or reject inclusion "
                "in some activity, GDPR compliant",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.1.0",
     "development_status": "Production/Stable",
     "category": "Privacy",
     "website": "https://github.com/OCA/management-activity",
@@ -20,6 +20,7 @@
         "data/ir_actions_server.xml",
         "data/ir_cron.xml",
         "data/mail.xml",
+        "templates/assets.xml",
         "templates/form.xml",
         "views/privacy_consent.xml",
         "views/privacy_activity.xml",

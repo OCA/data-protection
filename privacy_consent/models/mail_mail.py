@@ -37,7 +37,7 @@ class MailMail(models.Model):
             failure_type=failure_type,
         )
 
-    def send_get_mail_body(self, partner=None):
+    def _send_prepare_body(self):
         """Replace privacy consent magic links.
 
         This replacement is done here instead of directly writing it into
@@ -46,7 +46,7 @@ class MailMail(models.Model):
         which would enable any reader of such thread to impersonate the
         subject and choose in its behalf.
         """
-        result = super(MailMail, self).send_get_mail_body(partner=partner)
+        result = super(MailMail, self)._send_prepare_body()
         # Avoid polluting other model mails
         if self.model != "privacy.consent":
             return result

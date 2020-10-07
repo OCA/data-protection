@@ -1,8 +1,10 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from contextlib import contextmanager
+
 from odoo.exceptions import ValidationError
-from odoo.tests.common import HttpCase
+from odoo.tests.common import HttpCase, Form
 
 
 class ActivityCase(HttpCase):
@@ -70,6 +72,37 @@ class ActivityCase(HttpCase):
             "server_action_id": self.sync_blacklist.id,
         })
 
+    @contextmanager
+    def _patch_build(self):
+        self._built_messages = []
+        IMS = self.env['ir.mail_server']
+
+        def _build_email(
+            _self,
+            email_from,
+            email_to,
+            subject,
+            body,
+            *args,
+            **kwargs
+        ):
+            self._built_messages.append(body)
+            return _build_email.origin(
+                _self,
+                email_from,
+                email_to,
+                subject,
+                body,
+                *args,
+                **kwargs,
+            )
+
+        try:
+            IMS._patch_method('build_email', _build_email)
+            yield
+        finally:
+            IMS._revert_method('build_email')
+
     def check_activity_auto_properly_sent(self):
         """Check emails sent by ``self.activity_auto``."""
         consents = self.env["privacy.consent"].search([
@@ -81,8 +114,9 @@ class ActivityCase(HttpCase):
             messages = consent.message_ids
             self.assertEqual(len(messages), 2)
         # Check sent mails
-        self.cron_mail_queue.method_direct_trigger()
-        for consent in consents:
+        with self._patch_build():
+            self.cron_mail_queue.method_direct_trigger()
+        for index, consent in enumerate(consents):
             good_email = "@" in (consent.partner_id.email or "")
             expected_messages = 3 if good_email else 2
             self.assertEqual(
@@ -119,6 +153,14 @@ class ActivityCase(HttpCase):
                 )
             # Partner's is_blacklisted should be synced with default consent
             self.assertFalse(consent.partner_id.is_blacklisted)
+            # Check the sent message was built properly tokenized
+            accept_url, reject_url = map(consent._url, (True, False))
+            for body in self._built_messages:
+                if accept_url in body and reject_url in body:
+                    self._built_messages.remove(body)
+                    break
+            else:
+                raise AssertionError("Some message body should have these urls")
 
     def test_default_template(self):
         """We have a good mail template by default."""
@@ -182,19 +224,27 @@ class ActivityCase(HttpCase):
         # Send one manual request
         action = consents[0].action_manual_ask()
         self.assertEqual(action["res_model"], "mail.compose.message")
-        composer = self.env[action["res_model"]] \
-            .with_context(active_ids=consents[0].ids,
-                          active_model=consents._name,
-                          **action["context"]).create({})
-        composer.onchange_template_id_wrapper()
-        composer.send_mail()
+        Composer = self.env[action["res_model"]].with_context(
+            active_ids=consents[0].ids,
+            active_model=consents._name,
+            **action["context"],
+        )
+        composer_wizard = Form(Composer)
+        self.assertIn(consents[0].partner_id.name, composer_wizard.body)
+        composer_record = composer_wizard.save()
+        with self._patch_build():
+            composer_record.send_mail()
+        # Check the sent message was built properly tokenized
+        body = self._built_messages[0]
+        self.assertIn(consents[0]._url(True), body)
+        self.assertIn(consents[0]._url(False), body)
         messages = consents.mapped("message_ids") - messages
         self.assertEqual(len(messages), 2)
         self.assertEqual(messages[0].subtype_id, self.mt_consent_state_changed)
         self.assertEqual(consents.mapped("state"), ["sent", "draft", "draft"])
         self.assertEqual(
             consents.mapped("partner_id.is_blacklisted"),
-            [False, False, False],
+            [True, False, False],
         )
         # Placeholder links should be logged
         self.assertTrue("/privacy/consent/accept/" in messages[1].body)

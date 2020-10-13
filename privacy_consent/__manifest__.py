@@ -20,6 +20,7 @@
         "data/ir_actions_server.xml",
         "data/ir_cron.xml",
         "data/mail.xml",
+        "templates/assets.xml",
         "templates/form.xml",
         "views/privacy_consent.xml",
         "views/privacy_activity.xml",

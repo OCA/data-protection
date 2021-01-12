@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
-
 <data>
-
     <record id="activity_form" model="ir.ui.view">
         <field name="name">Add consent fields</field>
         <field name="model">privacy.activity</field>
-        <field name="inherit_id" ref="privacy.activity_form"/>
+        <field name="inherit_id" ref="privacy.activity_form" />
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
                 <button
@@ -18,19 +16,15 @@
                     name="%(consent_action)d"
                     type="action"
                 >
-                    <field
-                        name="consent_count"
-                        widget="statinfo"
-                    />
+                    <field name="consent_count" widget="statinfo" />
                 </button>
             </div>
-
             <notebook name="advanced" position="inside">
                 <page string="Consent" name="consent">
                     <group>
-                        <label for="consent_required"/>
+                        <label for="consent_required" />
                         <div>
-                            <field name="consent_required" class="oe_inline"/>
+                            <field name="consent_required" class="oe_inline" />
                             <button
                                 attrs='{"invisible": [("consent_required", "!=", "manual")]}'
                                 class="btn-link"
@@ -50,15 +44,10 @@
                             />
                         </div>
                     </group>
-                    <group
-                        attrs='{"invisible": [("consent_required", "=", False)]}'
-                    >
+                    <group attrs='{"invisible": [("consent_required", "=", False)]}'>
                         <group>
-                            <field name="default_consent"/>
-                            <field
-                                name="server_action_id"
-                                groups="base.group_no_one"
-                            />
+                            <field name="default_consent" />
+                            <field name="server_action_id" groups="base.group_no_one" />
                         </group>
                         <group>
                             <field
@@ -84,5 +73,4 @@
             </notebook>
         </field>
     </record>
-
 </data>

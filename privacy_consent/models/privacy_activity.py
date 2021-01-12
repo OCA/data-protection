@@ -7,48 +7,36 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class PrivacyActivity(models.Model):
-    _inherit = 'privacy.activity'
+    _inherit = "privacy.activity"
 
     server_action_id = fields.Many2one(
         "ir.actions.server",
         "Server action",
-        domain=[
-            ("model_id.model", "=", "privacy.consent"),
-        ],
+        domain=[("model_id.model", "=", "privacy.consent")],
         help="Run this action when a new consent request is created or its "
-             "acceptance status is updated.",
+        "acceptance status is updated.",
     )
-    consent_ids = fields.One2many(
-        "privacy.consent",
-        "activity_id",
-        "Consents",
-    )
-    consent_count = fields.Integer(
-        "Consents count",
-        compute="_compute_consent_count",
-    )
+    consent_ids = fields.One2many("privacy.consent", "activity_id", "Consents",)
+    consent_count = fields.Integer("Consents count", compute="_compute_consent_count",)
     consent_required = fields.Selection(
         [("auto", "Automatically"), ("manual", "Manually")],
         "Ask subjects for consent",
         help="Enable if you need to track any kind of consent "
-             "from the affected subjects",
+        "from the affected subjects",
     )
     consent_template_id = fields.Many2one(
         "mail.template",
         "Email template",
         default=lambda self: self._default_consent_template_id(),
-        domain=[
-            ("model", "=", "privacy.consent"),
-        ],
+        domain=[("model", "=", "privacy.consent")],
         help="Email to be sent to subjects to ask for consent. "
-             "A good template should include details about the current "
-             "consent request status, how to change it, and where to "
-             "get more information.",
+        "A good template should include details about the current "
+        "consent request status, how to change it, and where to "
+        "get more information.",
     )
     default_consent = fields.Boolean(
         "Accepted by default",
-        help="Should we assume the subject has accepted if we receive no "
-             "response?",
+        help="Should we assume the subject has accepted if we receive no " "response?",
     )
 
     # Hidden helpers help user design new templates
@@ -66,40 +54,43 @@ class PrivacyActivity(models.Model):
     @api.depends("consent_ids")
     def _compute_consent_count(self):
         groups = self.env["privacy.consent"].read_group(
-            [("activity_id", "in", self.ids)],
-            ["activity_id"],
-            ["activity_id"],
+            [("activity_id", "in", self.ids)], ["activity_id"], ["activity_id"],
         )
         for group in groups:
-            self.browse(group["activity_id"][0], self._prefetch) \
-                .consent_count = group["activity_id_count"]
+            self.browse(group["activity_id"][0], self._prefetch).consent_count = group[
+                "activity_id_count"
+            ]
 
     def _compute_consent_template_defaults(self):
         """Used in context values, to help users design new templates."""
         template = self._default_consent_template_id()
         if template:
-            self.update({
-                "consent_template_default_body_html": template.body_html,
-                "consent_template_default_subject": template.subject,
-            })
+            self.update(
+                {
+                    "consent_template_default_body_html": template.body_html,
+                    "consent_template_default_subject": template.subject,
+                }
+            )
 
     @api.constrains("consent_required", "consent_template_id")
     def _check_auto_consent_has_template(self):
         """Require a mail template to automate consent requests."""
         for one in self:
             if one.consent_required == "auto" and not one.consent_template_id:
-                raise ValidationError(_(
-                    "Specify a mail template to ask automated consent."
-                ))
+                raise ValidationError(
+                    _("Specify a mail template to ask automated consent.")
+                )
 
     @api.constrains("consent_required", "subject_find")
     def _check_consent_required_subject_find(self):
         for one in self:
             if one.consent_required and not one.subject_find:
-                raise ValidationError(_(
-                    "Require consent is available only for subjects "
-                    "in current database."
-                ))
+                raise ValidationError(
+                    _(
+                        "Require consent is available only for subjects "
+                        "in current database."
+                    )
+                )
 
     @api.model
     def _cron_new_consents(self):
@@ -117,19 +108,20 @@ class PrivacyActivity(models.Model):
         """Generate new consent requests."""
         consents_vals = []
         # Skip activitys where consent is not required
-        for one in self.with_context(active_test=False) \
-                .filtered("consent_required"):
+        for one in self.with_context(active_test=False).filtered("consent_required"):
             domain = [
                 ("id", "not in", one.mapped("consent_ids.partner_id").ids),
                 ("email", "!=", False),
             ] + safe_eval(one.subject_domain)
             # Store values for creating missing consent requests
             for missing in self.env["res.partner"].search(domain):
-                consents_vals.append({
-                    "partner_id": missing.id,
-                    "accepted": one.default_consent,
-                    "activity_id": one.id,
-                })
+                consents_vals.append(
+                    {
+                        "partner_id": missing.id,
+                        "accepted": one.default_consent,
+                        "activity_id": one.id,
+                    }
+                )
         # Create and send consent request emails for automatic activitys
         consents = self.env["privacy.consent"].create(consents_vals)
         consents.action_auto_ask()

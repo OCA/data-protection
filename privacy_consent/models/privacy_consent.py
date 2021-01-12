@@ -59,14 +59,15 @@ class PrivacyConsent(models.Model):
         track_visibility="onchange",
     )
 
+    def _creation_subtype(self):
+        return self.env.ref("privacy_consent.mt_consent_consent_new")
+
     def _track_subtype(self, init_values):
         """Return specific subtypes."""
         if self.env.context.get("subject_answering"):
-            return "privacy_consent.mt_consent_acceptance_changed"
-        if "activity_id" in init_values or "partner_id" in init_values:
-            return "privacy_consent.mt_consent_consent_new"
+            return self.env.ref("privacy_consent.mt_consent_acceptance_changed")
         if "state" in init_values:
-            return "privacy_consent.mt_consent_state_changed"
+            return self.env.ref("privacy_consent.mt_consent_state_changed")
         return super(PrivacyConsent, self)._track_subtype(init_values)
 
     def _token(self):
@@ -115,10 +116,9 @@ class PrivacyConsent(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         """Run server action on create."""
-        super_ = super(PrivacyConsent, self.with_context(mail_create_nolog=True))
-        results = super_.create(vals_list)
+        results = super().create(vals_list)
         # Sync the default acceptance status
-        results.sudo()._run_action()
+        results._run_action()
         return results
 
     def write(self, vals):

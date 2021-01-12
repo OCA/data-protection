@@ -12,7 +12,7 @@ from odoo.addons.web.controllers.main import ensure_db
 
 class ConsentController(Controller):
     @route(
-        "/privacy/consent/<any(accept,reject):choice>/" "<int:consent_id>/<token>",
+        "/privacy/consent/<any(accept,reject):choice>/<int:consent_id>/<token>",
         type="http",
         auth="none",
         website=True,

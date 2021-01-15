@@ -20,9 +20,7 @@ class MailMail(models.Model):
             and not failure_type
         ):
             # Get related consent
-            consent = self.env["privacy.consent"].browse(
-                self.mail_message_id.res_id, self._prefetch,
-            )
+            consent = self.env["privacy.consent"].browse(self.mail_message_id.res_id)
             # Set as sent if needed
             if consent.state == "draft" and consent.partner_id.id in {
                 par.id for par in success_pids
@@ -48,11 +46,7 @@ class MailMail(models.Model):
         if self.model != "privacy.consent":
             return result
         # Tokenize consent links
-        consent = (
-            self.env["privacy.consent"]
-            .browse(self.mail_message_id.res_id)
-            .with_prefetch(self._prefetch)
-        )
+        consent = self.env["privacy.consent"].browse(self.mail_message_id.res_id)
         result = result.replace("/privacy/consent/accept/", consent._url(True),)
         result = result.replace("/privacy/consent/reject/", consent._url(False),)
         return result

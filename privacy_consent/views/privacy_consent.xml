@@ -18,18 +18,13 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button
-                            class="oe_stat_button"
-                            icon="fa-archive"
-                            name="toggle_active"
-                            type="object"
-                        >
-                            <field
-                                name="active"
-                                options='{"terminology": "archive"}'
-                                widget="boolean_button"
-                            />
-                        </button>
+                        <field name="active" invisible="1" />
+                        <widget
+                            name="web_ribbon"
+                            title="Archived"
+                            bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"
+                        />
                     </div>
                     <group>
                         <field name="partner_id" />

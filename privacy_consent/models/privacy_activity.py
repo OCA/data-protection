@@ -53,11 +53,12 @@ class PrivacyActivity(models.Model):
 
     @api.depends("consent_ids")
     def _compute_consent_count(self):
+        self.consent_count = 0
         groups = self.env["privacy.consent"].read_group(
             [("activity_id", "in", self.ids)], ["activity_id"], ["activity_id"],
         )
         for group in groups:
-            self.browse(group["activity_id"][0], self._prefetch).consent_count = group[
+            self.browse(group["activity_id"][0]).consent_count = group[
                 "activity_id_count"
             ]
 

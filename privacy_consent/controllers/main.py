@@ -5,6 +5,7 @@ from datetime import datetime
 
 from werkzeug.exceptions import NotFound
 
+from odoo import SUPERUSER_ID
 from odoo.http import Controller, request, route
 
 from odoo.addons.web.controllers.main import ensure_db
@@ -24,8 +25,9 @@ class ConsentController(Controller):
             # If there's a website, we need a user to render the template
             request.uid = request.website.user_id.id
         except AttributeError:
-            # If there's no website, the default is OK
-            pass
+            # If there's no website, be root if there's no UID
+            if not request.uid:
+                request.uid = SUPERUSER_ID
         consent = (
             request.env["privacy.consent"]
             .with_context(subject_answering=True)

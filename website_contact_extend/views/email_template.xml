@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_onchange_data" model="mail.template">
+            <field name="name">Data Change Email Template</field>
+            <field name="subject">Change has been made</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                <p>Dear Sir/Madam,<br/><br/>
+                User ${(object.contact_name)} with the ID ${(object.id)} the  has made a change in the record.<br/><p>
+
+                <p>Please find the user and his/her details below.<br/></p>
+                <table class="table table-striped">
+                <tbody>
+                <tr>
+                <td>Name</td><td>${object.contact_name}</td>
+                </tr>
+                <tr>
+                <td>Company</td><td>${object.partner_name}</td>
+                </tr>
+                <tr>
+                <td>Email</td><td>${object.email_from}</td>
+                </tr>
+                <tr>
+                <td>Phone</td><td>${object.phone}</td>
+                </tr>
+                </tbody>
+                </table>
+                <br/><br/>
+                Thank you.
+                ]]>
+            </field>
+        </record>
+
+        <record id="email_template_information_request" model="mail.template">
+            <field name="name">Information Request Template</field>
+            <field name="subject">Information request on stored data for user ${object.email_from} from contact form</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                <p>Dear colleagues,<br/><br/>
+                <p>following customer has requested an information about personal data stored in odoo:<br/></p>
+                <table class="table">
+                <tbody>
+                <tr>
+                <td>Name</td><td>${object.contact_name}</td>
+                </tr>
+                <tr>
+                <td>Company</td><td>${object.partner_name}</td>
+                </tr>
+                <tr>
+                <td>Notes:</td><td><strong>${object.name}</strong></td>
+                <td></td><td>${object.description[:-50]}</td>
+                </tr>
+                </tbody>
+                </table>
+                <br/><br/>
+                Thank you.
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

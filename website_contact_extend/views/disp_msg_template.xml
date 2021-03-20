@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="disp_msg_template">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <div class="page">
+                        <div class="row">
+                            <p id="message_success" style="color: green;"></p>
+                            <p id="message_failure" style="color: red;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

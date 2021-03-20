@@ -57,3 +57,5 @@ docs/_build/
 
 # OSX Files
 *.DS_Store
+
+.eslintrc.json

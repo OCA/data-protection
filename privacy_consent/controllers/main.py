@@ -5,29 +5,18 @@ from datetime import datetime
 
 from werkzeug.exceptions import NotFound
 
-from odoo import SUPERUSER_ID
 from odoo.http import Controller, request, route
-
-from odoo.addons.web.controllers.main import ensure_db
 
 
 class ConsentController(Controller):
     @route(
         "/privacy/consent/<any(accept,reject):choice>/<int:consent_id>/<token>",
         type="http",
-        auth="none",
+        auth="public",
         website=True,
     )
     def consent(self, choice, consent_id, token, *args, **kwargs):
         """Process user's consent acceptance or rejection."""
-        ensure_db()
-        try:
-            # If there's a website, we need a user to render the template
-            request.uid = request.website.user_id.id
-        except AttributeError:
-            # If there's no website, be root if there's no UID
-            if not request.uid:
-                request.uid = SUPERUSER_ID
         consent = (
             request.env["privacy.consent"]
             .with_context(subject_answering=True)

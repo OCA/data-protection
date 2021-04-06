@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-04-06 12:46+0000\n"
+"Last-Translator: Logan Gônet <logan.gonet@horanet.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
@@ -517,7 +519,7 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-danger\">rejected</b> such processing."
-msgstr ""
+msgstr "Vous avez <b class=\"text-danger\">refusé</b> ce traitement."
 
 #. module: privacy_consent
 #: model:ir.ui.view,arch_db:privacy_consent.form

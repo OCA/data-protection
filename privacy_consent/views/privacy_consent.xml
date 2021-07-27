@@ -88,7 +88,12 @@
             </search>
         </field>
     </record>
-    <act_window id="consent_action" name="Consents" res_model="privacy.consent" />
+    <record model="ir.actions.act_window" id="consent_action">
+        <field name="name">Consents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">privacy.consent</field>
+        <field name="view_mode">tree,form</field>
+    </record>
     <menuitem
         action="consent_action"
         id="menu_privacy_consent"

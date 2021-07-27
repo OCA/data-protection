@@ -25,30 +25,30 @@ class PrivacyConsent(models.Model):
         index=True,
     )
     accepted = fields.Boolean(
-        track_visibility="onchange",
+        tracking=True,
         help="Indicates current acceptance status, which can come from "
         "subject's last answer, or from the default specified in the "
         "related data processing activity.",
     )
     last_metadata = fields.Text(
         readonly=True,
-        track_visibility="onchange",
+        tracking=True,
         help="Metadata from the last acceptance or rejection by the subject",
     )
     partner_id = fields.Many2one(
-        "res.partner",
-        "Subject",
+        comodel_name="res.partner",
+        string="Subject",
         required=True,
         readonly=True,
-        track_visibility="onchange",
+        tracking=True,
         help="Subject asked for consent.",
     )
     activity_id = fields.Many2one(
-        "privacy.activity",
-        "Activity",
+        comodel_name="privacy.activity",
+        string="Activity",
         readonly=True,
         required=True,
-        track_visibility="onchange",
+        tracking=True,
     )
     state = fields.Selection(
         selection=[
@@ -59,7 +59,7 @@ class PrivacyConsent(models.Model):
         default="draft",
         readonly=True,
         required=True,
-        track_visibility="onchange",
+        tracking=True,
     )
 
     def _creation_subtype(self):
@@ -67,11 +67,12 @@ class PrivacyConsent(models.Model):
 
     def _track_subtype(self, init_values):
         """Return specific subtypes."""
+        self.ensure_one()
         if self.env.context.get("subject_answering"):
             return self.env.ref("privacy_consent.mt_consent_acceptance_changed")
         if "state" in init_values:
             return self.env.ref("privacy_consent.mt_consent_state_changed")
-        return super(PrivacyConsent, self)._track_subtype(init_values)
+        return super()._track_subtype(init_values)
 
     def _token(self):
         """Secret token to publicly authenticate this record."""
@@ -112,10 +113,9 @@ class PrivacyConsent(models.Model):
 
     def _run_action(self):
         """Execute server action defined in data processing activity."""
-        for one in self:
-            # Always skip draft consents
-            if one.state == "draft":
-                continue
+        for one in self.filtered(
+            lambda x: x.state != "draft" and x.activity_id.server_action_id
+        ):
             action = one.activity_id.server_action_id.with_context(
                 active_id=one.id,
                 active_ids=one.ids,

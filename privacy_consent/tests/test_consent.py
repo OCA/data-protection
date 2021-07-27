@@ -3,13 +3,16 @@
 
 from contextlib import contextmanager
 
+import odoo.tests
+from odoo import http
 from odoo.exceptions import ValidationError
-from odoo.tests.common import Form, HttpCase
+from odoo.tests.common import Form
 
 
-class ActivityCase(HttpCase):
+@odoo.tests.tagged("post_install", "-at_install")
+class ActivityCase(odoo.tests.HttpCase):
     def setUp(self):
-        super(ActivityCase, self).setUp()
+        super().setUp()
         self.cron = self.env.ref("privacy_consent.cron_auto_consent")
         self.cron_mail_queue = self.env.ref("mail.ir_cron_mail_scheduler_action")
         self.sync_blacklist = self.env.ref("privacy_consent.sync_blacklist")
@@ -96,48 +99,39 @@ class ActivityCase(HttpCase):
 
     def check_activity_auto_properly_sent(self):
         """Check emails sent by ``self.activity_auto``."""
-        consents = self.env["privacy.consent"].search(
-            [("activity_id", "=", self.activity_auto.id)]
-        )
         # Check pending mails
-        for consent in consents:
+        for consent in self.activity_auto.consent_ids:
             self.assertEqual(consent.state, "draft")
-            messages = consent.message_ids
-            self.assertEqual(len(messages), 2)
+            self.assertEqual(len(consent.message_ids), 2)
         # Check sent mails
         with self._patch_build():
             self.cron_mail_queue.method_direct_trigger()
-        for consent in consents:
+        for consent in self.activity_auto.consent_ids:
             good_email = "@" in (consent.partner_id.email or "")
-            expected_messages = 3 if good_email else 2
             self.assertEqual(
                 consent.state,
                 "sent" if good_email else "draft",
             )
-            messages = consent.message_ids
-            self.assertEqual(len(messages), expected_messages)
-            # 2nd message notifies creation
-            self.assertEqual(
-                messages[expected_messages - 1].subtype_id,
-                self.mt_consent_consent_new,
+            self.assertEqual(len(consent.message_ids), 2)
+            # message notifies creation
+            self.assertTrue(
+                self.mt_consent_consent_new in consent.message_ids.mapped("subtype_id")
             )
-            # 3rd message notifies subject
+            # message notifies subject
             # Placeholder links should be logged
-            self.assertIn(
-                "/privacy/consent/accept/", messages[expected_messages - 2].body
+            message_subject = consent.message_ids.filtered(
+                lambda x: x.subtype_id != self.mt_consent_consent_new
             )
-            self.assertIn(
-                "/privacy/consent/reject/", messages[expected_messages - 2].body
-            )
+            self.assertIn("/privacy/consent/accept/", message_subject.body)
+            self.assertIn("/privacy/consent/reject/", message_subject.body)
             # Tokenized links shouldn't be logged
-            self.assertNotIn(consent._url(True), messages[expected_messages - 2].body)
-            self.assertNotIn(consent._url(False), messages[expected_messages - 2].body)
-            # 4th message contains the state change
-            if good_email:
-                self.assertEqual(
-                    messages[0].subtype_id,
-                    self.mt_consent_state_changed,
-                )
+            self.assertNotIn(consent._url(True), message_subject.body)
+            self.assertNotIn(consent._url(False), message_subject.body)
+            # without state change (only in test mode)
+            self.assertTrue(
+                self.mt_consent_state_changed
+                not in consent.message_ids.mapped("subtype_id")
+            )
             # Partner's is_blacklisted should be synced with default consent
             self.assertFalse(consent.partner_id.is_blacklisted)
             # Check the sent message was built properly tokenized
@@ -227,22 +221,24 @@ class ActivityCase(HttpCase):
         self.assertIn(consents[0]._url(True), body)
         self.assertIn(consents[0]._url(False), body)
         messages = consents.mapped("message_ids") - messages
-        self.assertEqual(len(messages), 2)
-        self.assertEqual(messages[0].subtype_id, self.mt_consent_state_changed)
+        self.assertEqual(len(messages), 1)
+        self.assertNotEqual(messages.subtype_id, self.mt_consent_state_changed)
         self.assertEqual(consents.mapped("state"), ["sent", "draft", "draft"])
         self.assertEqual(
             consents.mapped("partner_id.is_blacklisted"),
             [True, False, False],
         )
         # Placeholder links should be logged
-        self.assertTrue("/privacy/consent/accept/" in messages[1].body)
-        self.assertTrue("/privacy/consent/reject/" in messages[1].body)
+        self.assertTrue("/privacy/consent/accept/" in messages.body)
+        self.assertTrue("/privacy/consent/reject/" in messages.body)
         # Tokenized links shouldn't be logged
         accept_url = consents[0]._url(True)
         reject_url = consents[0]._url(False)
-        self.assertNotIn(accept_url, messages[1].body)
-        self.assertNotIn(reject_url, messages[1].body)
+        self.assertNotIn(accept_url, messages.body)
+        self.assertNotIn(reject_url, messages.body)
         # Visit tokenized accept URL
+        self.authenticate("portal", "portal")
+        http.root.session_store.save(self.session)
         result = self.url_open(accept_url).text
         self.assertIn("accepted", result)
         self.assertIn(reject_url, result)

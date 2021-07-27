@@ -2,12 +2,12 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Data Privacy and Protection",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Data Protection",
     "summary": "Provides data privacy and protection features "
     "to comply to regulations, such as GDPR.",
     "author": "Eficent, " "Tecnativa, " "Odoo Community Association (OCA)",
-    "website": "http://www.github.com/OCA/data-protection",
+    "website": "https://github.com/OCA/data-protection",
     "license": "AGPL-3",
     "data": [
         "security/data_protection.xml",

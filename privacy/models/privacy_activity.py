@@ -22,7 +22,7 @@ class PrivacyActivity(models.Model):
         translate=True, help="How is personal data used here? Why? Etc."
     )
     controller_id = fields.Many2one(
-        "res.partner",
+        comodel_name="res.partner",
         string="Controller",
         required=True,
         default=lambda self: self._default_controller_id(),
@@ -30,17 +30,17 @@ class PrivacyActivity(models.Model):
         "of personal data.",
     )
     processor_ids = fields.Many2many(
-        "res.partner",
-        "privacy_activity_res_partner_processor_ids",
+        comodel_name="res.partner",
+        relation="privacy_activity_res_partner_processor_ids",
         string="Processors",
         help="Whoever processes personal data on behalf of the controller.",
     )
     subject_find = fields.Boolean(
-        "Define subjects",
+        string="Define subjects",
         help="Are affected subjects present in this database?",
     )
     subject_domain = fields.Char(
-        "Subjects filter",
+        string="Subjects filter",
         default="[]",
         help="Selection filter to find specific subjects included.",
     )

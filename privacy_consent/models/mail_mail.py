@@ -45,7 +45,7 @@ class MailMail(models.Model):
         which would enable any reader of such thread to impersonate the
         subject and choose in its behalf.
         """
-        result = super(MailMail, self)._send_prepare_body()
+        result = super()._send_prepare_body()
         # Avoid polluting other model mails
         if self.model != "privacy.consent":
             return result

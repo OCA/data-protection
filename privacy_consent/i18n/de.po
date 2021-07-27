@@ -650,6 +650,3 @@ msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr ""
 "Du hast dieser Verarbeitungstätigkeit <b class=\"text-success\">zugestimmt</"
 "b>."
-
-#~ msgid "Partner"
-#~ msgstr "Partner"

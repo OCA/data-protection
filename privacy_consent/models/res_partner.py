@@ -8,12 +8,12 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     privacy_consent_ids = fields.One2many(
-        "privacy.consent",
-        "partner_id",
-        "Privacy consents",
+        comodel_name="privacy.consent",
+        inverse_name="partner_id",
+        string="Privacy consents",
     )
     privacy_consent_count = fields.Integer(
-        "Consents",
+        string="Consents",
         compute="_compute_privacy_consent_count",
         help="Privacy consent requests amount",
     )

@@ -10,30 +10,30 @@ class PrivacyActivity(models.Model):
     _inherit = "privacy.activity"
 
     server_action_id = fields.Many2one(
-        "ir.actions.server",
-        "Server action",
+        comodel_name="ir.actions.server",
+        string="Server action",
         domain=[("model_id.model", "=", "privacy.consent")],
         help="Run this action when a new consent request is created or its "
         "acceptance status is updated.",
     )
     consent_ids = fields.One2many(
-        "privacy.consent",
-        "activity_id",
-        "Consents",
+        comodel_name="privacy.consent",
+        inverse_name="activity_id",
+        string="Consents",
     )
     consent_count = fields.Integer(
-        "Consents count",
+        string="Consents count",
         compute="_compute_consent_count",
     )
     consent_required = fields.Selection(
-        [("auto", "Automatically"), ("manual", "Manually")],
-        "Ask subjects for consent",
+        selection=[("auto", "Automatically"), ("manual", "Manually")],
+        string="Ask subjects for consent",
         help="Enable if you need to track any kind of consent "
         "from the affected subjects",
     )
     consent_template_id = fields.Many2one(
-        "mail.template",
-        "Email template",
+        comodel_name="mail.template",
+        string="Email template",
         default=lambda self: self._default_consent_template_id(),
         domain=[("model", "=", "privacy.consent")],
         help="Email to be sent to subjects to ask for consent. "
@@ -42,7 +42,7 @@ class PrivacyActivity(models.Model):
         "get more information.",
     )
     default_consent = fields.Boolean(
-        "Accepted by default",
+        string="Accepted by default",
         help="Should we assume the subject has accepted if we receive no " "response?",
     )
 

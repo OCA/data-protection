@@ -49,4 +49,4 @@ class PrivacyActivity(models.Model):
     @api.model
     def _default_controller_id(self):
         """By default it should be the current user's company."""
-        return self.env.user.company_id
+        return self.env.user.company_id.partner_id

@@ -16,8 +16,15 @@ class PrivacyActivity(models.Model):
         help="Run this action when a new consent request is created or its "
         "acceptance status is updated.",
     )
-    consent_ids = fields.One2many("privacy.consent", "activity_id", "Consents",)
-    consent_count = fields.Integer("Consents count", compute="_compute_consent_count",)
+    consent_ids = fields.One2many(
+        "privacy.consent",
+        "activity_id",
+        "Consents",
+    )
+    consent_count = fields.Integer(
+        "Consents count",
+        compute="_compute_consent_count",
+    )
     consent_required = fields.Selection(
         [("auto", "Automatically"), ("manual", "Manually")],
         "Ask subjects for consent",
@@ -55,7 +62,9 @@ class PrivacyActivity(models.Model):
     def _compute_consent_count(self):
         self.consent_count = 0
         groups = self.env["privacy.consent"].read_group(
-            [("activity_id", "in", self.ids)], ["activity_id"], ["activity_id"],
+            [("activity_id", "in", self.ids)],
+            ["activity_id"],
+            ["activity_id"],
         )
         for group in groups:
             self.browse(group["activity_id"][0]).consent_count = group[

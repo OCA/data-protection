@@ -7,7 +7,7 @@
     "summary": "Provides data privacy and protection features "
     "to comply to regulations, such as GDPR.",
     "author": "Eficent, " "Tecnativa, " "Odoo Community Association (OCA)",
-    "website": "http://www.github.com/OCA/data-protection",
+    "website": "https://github.com/OCA/data-protection",
     "license": "AGPL-3",
     "data": [
         "security/data_protection.xml",

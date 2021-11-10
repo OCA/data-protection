@@ -9,8 +9,15 @@ class PrivacyActivity(models.Model):
     _description = "Data processing activities"
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
-    active = fields.Boolean(default=True, index=True,)
-    name = fields.Char(index=True, required=True, translate=True,)
+    active = fields.Boolean(
+        default=True,
+        index=True,
+    )
+    name = fields.Char(
+        index=True,
+        required=True,
+        translate=True,
+    )
     description = fields.Html(
         translate=True, help="How is personal data used here? Why? Etc."
     )
@@ -29,7 +36,8 @@ class PrivacyActivity(models.Model):
         help="Whoever processes personal data on behalf of the controller.",
     )
     subject_find = fields.Boolean(
-        "Define subjects", help="Are affected subjects present in this database?",
+        "Define subjects",
+        help="Are affected subjects present in this database?",
     )
     subject_domain = fields.Char(
         "Subjects filter",

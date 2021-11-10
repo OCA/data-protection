@@ -20,7 +20,10 @@ class PrivacyConsent(models.Model):
         ),
     ]
 
-    active = fields.Boolean(default=True, index=True,)
+    active = fields.Boolean(
+        default=True,
+        index=True,
+    )
     accepted = fields.Boolean(
         track_visibility="onchange",
         help="Indicates current acceptance status, which can come from "
@@ -74,10 +77,15 @@ class PrivacyConsent(models.Model):
         """Secret token to publicly authenticate this record."""
         secret = self.env["ir.config_parameter"].sudo().get_param("database.secret")
         params = "{}-{}-{}-{}".format(
-            self.env.cr.dbname, self.id, self.partner_id.id, self.activity_id.id,
+            self.env.cr.dbname,
+            self.id,
+            self.partner_id.id,
+            self.activity_id.id,
         )
         return hmac.new(
-            secret.encode("utf-8"), params.encode("utf-8"), hashlib.sha512,
+            secret.encode("utf-8"),
+            params.encode("utf-8"),
+            hashlib.sha512,
         ).hexdigest()
 
     def _url(self, accept):
@@ -109,7 +117,9 @@ class PrivacyConsent(models.Model):
             if one.state == "draft":
                 continue
             action = one.activity_id.server_action_id.with_context(
-                active_id=one.id, active_ids=one.ids, active_model=one._name,
+                active_id=one.id,
+                active_ids=one.ids,
+                active_model=one._name,
             )
             action.run()
 
@@ -132,7 +142,9 @@ class PrivacyConsent(models.Model):
         reason = self._fields["partner_id"].string
         for one in self:
             one._message_add_suggested_recipient(
-                result, partner=one.partner_id, reason=reason,
+                result,
+                partner=one.partner_id,
+                reason=reason,
             )
         return result
 

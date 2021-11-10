@@ -8,7 +8,9 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     privacy_consent_ids = fields.One2many(
-        "privacy.consent", "partner_id", "Privacy consents",
+        "privacy.consent",
+        "partner_id",
+        "Privacy consents",
     )
     privacy_consent_count = fields.Integer(
         "Consents",
@@ -21,7 +23,9 @@ class ResPartner(models.Model):
         """Count consent requests."""
         self.privacy_consent_count = 0
         groups = self.env["privacy.consent"].read_group(
-            [("partner_id", "in", self.ids)], ["partner_id"], ["partner_id"],
+            [("partner_id", "in", self.ids)],
+            ["partner_id"],
+            ["partner_id"],
         )
         for group in groups:
             self.browse(group["partner_id"][0]).privacy_consent_count = group[

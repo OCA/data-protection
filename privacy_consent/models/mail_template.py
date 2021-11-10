@@ -30,5 +30,8 @@ class MailTemplate(models.Model):
                             '<a href="%s">Accept</a>\n'
                             '<a href="%s">Reject</a>'
                         )
-                        % ("/privacy/consent/accept/", "/privacy/consent/reject/",)
+                        % (
+                            "/privacy/consent/accept/",
+                            "/privacy/consent/reject/",
+                        )
                     )

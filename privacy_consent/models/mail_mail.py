@@ -51,6 +51,12 @@ class MailMail(models.Model):
             return result
         # Tokenize consent links
         consent = self.env["privacy.consent"].browse(self.mail_message_id.res_id)
-        result = result.replace("/privacy/consent/accept/", consent._url(True),)
-        result = result.replace("/privacy/consent/reject/", consent._url(False),)
+        result = result.replace(
+            "/privacy/consent/accept/",
+            consent._url(True),
+        )
+        result = result.replace(
+            "/privacy/consent/reject/",
+            consent._url(False),
+        )
         return result

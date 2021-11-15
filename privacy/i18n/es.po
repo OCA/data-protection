@@ -1,0 +1,369 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* privacy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-11 08:39+0000\n"
+"PO-Revision-Date: 2019-03-01 10:52+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__active
+msgid "Active"
+msgstr "Activa"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.activity_action
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_ids
+#: model:ir.ui.menu,name:privacy.menu_privacy_activity
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
+#, fuzzy
+msgid "Activity State"
+msgstr "Actividades"
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_search
+msgid "Archived"
+msgstr "Archivada"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__subject_find
+msgid "Are affected subjects present in this database?"
+msgstr "¿Los sujetos interesados se encuentran en esta base de datos?"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: privacy
+#: model_terms:ir.actions.act_window,help:privacy.activity_action
+msgid "Click to add a data processing activity."
+msgstr "Pulse para añadir una actividad de tratamiento de datos."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__controller_id
+#: model_terms:ir.ui.view,arch_db:privacy.activity_search
+msgid "Controller"
+msgstr "Responsable"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: privacy
+#: model:ir.module.category,name:privacy.module_category_data_protection
+msgid "Data Protection"
+msgstr "Protección de datos"
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_manager
+msgid "Data Protection Manager"
+msgstr "Gestor de protección de datos"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_config
+msgid "Data Protection Settings"
+msgstr "Configuración Protección de Datos"
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_user
+msgid "Data Protection User"
+msgstr "Usuario de protección de datos"
+
+#. module: privacy
+#: model:ir.model,name:privacy.model_privacy_activity
+msgid "Data processing activities"
+msgstr "Actividades de tratamiento de datos"
+
+#. module: privacy
+#: model_terms:ir.actions.act_window,help:privacy.activity_action
+msgid ""
+"Data processing activities define why, how and what you do\n"
+"                with subjects' personal data."
+msgstr ""
+"Las actividades de tratamiento definen por qué, cómo y qué se hace\n"
+"\t\tcon los datos personales de los interesados."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_find
+msgid "Define subjects"
+msgstr "Definir interesados"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__description
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Details"
+msgstr "Detalles"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__description
+msgid "How is personal data used here? Why? Etc."
+msgstr "¿Cómo se usan los datos personales aquí? ¿Por qué? Etc."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__id
+msgid "ID"
+msgstr "ID"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
+msgid "Master Data"
+msgstr "Datos maestros"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error_counter
+msgid "Number of error"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Overdue"
+msgstr ""
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
+#: model:ir.ui.menu,name:privacy.menu_data_protection_partner
+msgid "Partners"
+msgstr "Contactos"
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Planned"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.parent_menu_data_protection
+msgid "Privacy"
+msgstr "Privacidad"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__processor_ids
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Processors"
+msgstr "Encargados del tratamiento"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_report
+msgid "Reports"
+msgstr "Informes"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__subject_domain
+msgid "Selection filter to find specific subjects included."
+msgstr ""
+"Filtro de selección para encontrar los interesados específicos incluidos."
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_setting
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+#, fuzzy
+msgid "Subjects details"
+msgstr "Filtro de interesados"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_domain
+msgid "Subjects filter"
+msgstr "Filtro de interesados"
+
+#. module: privacy
+#: selection:privacy.activity,activity_state:0
+msgid "Today"
+msgstr ""
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
+msgid "Transactions"
+msgstr "Transacciones"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__controller_id
+msgid ""
+"Whoever determines the purposes and means of the processing of personal data."
+msgstr ""
+"Quien determina los propósitos y medios del procesamiento de datos "
+"personales."
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__processor_ids
+msgid "Whoever processes personal data on behalf of the controller."
+msgstr "Quien procesa los datos personales en nombre del responsable."
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+#, fuzzy
+msgid "processors"
+msgstr "Encargados del tratamiento"

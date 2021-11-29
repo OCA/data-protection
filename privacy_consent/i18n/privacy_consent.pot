@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -240,7 +240,11 @@ msgid ""
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__display_name
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__display_name
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__display_name
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -330,7 +334,11 @@ msgid "I <b>reject</b> this processing of my data"
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__id
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__id
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__id
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -370,7 +378,11 @@ msgid "Last Metadata"
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail____last_update
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_template____last_update
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity____last_update
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent____last_update
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 

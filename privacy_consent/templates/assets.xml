@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr=".">
+            <link
+                rel="stylesheet"
+                href="/privacy_consent/static/src/css/privacy_consent.scss"
+            />
+        </xpath>
+    </template>
+</data>

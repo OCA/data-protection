@@ -1,4 +1,5 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
+# Copyright 2022 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import models
@@ -21,14 +22,15 @@ class MailMail(models.Model):
                 and not failure_type
             ):
                 res_ids.append(mail.mail_message_id.res_id)
-        consents = self.env["privacy.consent"].search([
-            ("id", "in", res_ids),
-            ("state", "=", "draft"),
-            ("partner_id", "in", [par.id for par in success_pids])
-        ])
-        consents.write({
-            "state": "sent",
-        })
+        if res_ids:
+            consents = self.env["privacy.consent"].search([
+                ("id", "in", res_ids),
+                ("state", "=", "draft"),
+                ("partner_id", "in", [par.id for par in success_pids])
+            ])
+            consents.write({
+                "state": "sent",
+            })
         return super()._postprocess_sent_message(
             success_pids=success_pids,
             failure_reason=failure_reason,

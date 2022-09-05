@@ -51,19 +51,19 @@ msgid ""
 "                                    <i>${object.activity_id.controller_id."
 "display_name|safe}</i>\n"
 "                                </p>\n"
-"                                ${object.description or \"\"}\n"
+"                                ${object.activity_id.description or \"\"}\n"
 "                                <p>\n"
 "                                    % if object.state == \"answered\":\n"
 "                                        The last time you answered, you\n"
-"                                    % elif object.state == \"sent\":\n"
+"                                    % else:\n"
 "                                        If you do nothing, we will assume "
 "you have\n"
 "                                    % endif\n"
 "\n"
 "                                    % if object.accepted:\n"
-"                                        <b>accepted</b>\n"
+"                                    <b>accepted</b>\n"
 "                                    % else:\n"
-"                                        <b>rejected</b>\n"
+"                                    <b>rejected</b>\n"
 "                                    % endif\n"
 "                                    such data processing.\n"
 "                                </p>\n"
@@ -262,7 +262,11 @@ msgid ""
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__display_name
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__display_name
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__display_name
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -352,7 +356,11 @@ msgid "I <b>reject</b> this processing of my data"
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__id
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__id
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__id
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -392,7 +400,11 @@ msgid "Last Metadata"
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail____last_update
+#: model:ir.model.fields,field_description:privacy_consent.field_mail_template____last_update
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity____last_update
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent____last_update
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 

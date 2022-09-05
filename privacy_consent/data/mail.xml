@@ -51,18 +51,18 @@
                                     <i
                                     >${object.activity_id.controller_id.display_name|safe}</i>
                                 </p>
-                                ${object.description or ""}
+                                ${object.activity_id.description or ""}
                                 <p>
                                     % if object.state == "answered":
                                         The last time you answered, you
-                                    % elif object.state == "sent":
+                                    % else:
                                         If you do nothing, we will assume you have
                                     % endif
 
                                     % if object.accepted:
-                                        <b>accepted</b>
+                                    <b>accepted</b>
                                     % else:
-                                        <b>rejected</b>
+                                    <b>rejected</b>
                                     % endif
                                     such data processing.
                                 </p>

@@ -21,7 +21,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [privacy](privacy/) | 14.0.1.0.0 |  | Provides data privacy and protection features to comply to regulations, such as GDPR.
-[privacy_consent](privacy_consent/) | 14.0.1.0.1 |  | Allow people to explicitly accept or reject inclusion in some activity, GDPR compliant
+[privacy_consent](privacy_consent/) | 14.0.1.1.0 |  | Allow people to explicitly accept or reject inclusion in some activity, GDPR compliant
 
 [//]: # (end addons)
 

@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-10 12:55+0000\n"
+"PO-Revision-Date: 2022-10-10 12:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +18,13 @@ msgstr ""
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
 msgid ""
-"<?xml version=\"1.0\"?>\n"
 "<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
 "                <table style=\"width:600px;margin:5px auto;\">\n"
 "                    <tbody>\n"
 "                        <tr>\n"
 "                            <td>\n"
 "                                <a href=\"/\">\n"
-"                                    <img src=\"/logo\" alt=\"${object.activity_id.controller_id.display_name|safe}\" style=\"vertical-align:baseline;max-width:100px;\"/>\n"
+"                                    <img t-attf-src=\"'/logo'\" t-attf-alt=\"{{object.activity_id.controller_id.display_name}}\" style=\"vertical-align:baseline;max-width:100px;\"/>\n"
 "                                </a>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -34,26 +35,29 @@ msgid ""
 "                        <tr>\n"
 "                            <td colspan=\"2\" style=\"padding:15px 20px 0px 20px; font-size:16px;\">\n"
 "                                <p>\n"
-"                                    Hello, ${object.partner_id.name|safe}\n"
+"                                    Hello, <t t-out=\"object.partner_id.name\"/>\n"
 "                                </p>\n"
 "                                <p>\n"
 "                                    We contacted you to ask you to give us your explicit consent to include your data in a data processing activity called\n"
-"                                    <b>${object.activity_id.display_name|safe}</b>, property of\n"
-"                                    <i>${object.activity_id.controller_id.display_name|safe}</i>\n"
+"                                    <b t-out=\"object.activity_id.display_name\"/>, property of\n"
+"                                    <i t-out=\"object.activity_id.controller_id.display_name\"/>\n"
 "                                </p>\n"
-"                                ${object.activity_id.description or \"\"}\n"
+"                                <t t-out=\"object.activity_id.description\"/>\n"
 "                                <p>\n"
-"                                    % if object.state == \"answered\":\n"
+"                                    <t t-if=\"object.state == 'answered'\">\n"
 "                                        The last time you answered, you\n"
-"                                    % else:\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
 "                                        If you do nothing, we will assume you have\n"
-"                                    % endif\n"
+"                                    </t>\n"
 "\n"
-"                                    % if object.accepted:\n"
-"                                    <b>accepted</b>\n"
-"                                    % else:\n"
-"                                    <b>rejected</b>\n"
-"                                    % endif\n"
+"                                    <t t-if=\"object.accepted\">\n"
+"                                        <b>accepted</b>\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        <b>rejected</b>\n"
+"                                    </t>\n"
+"\n"
 "                                    such data processing.\n"
 "                                </p>\n"
 "                                <p>\n"
@@ -78,9 +82,7 @@ msgid ""
 "                                <p>\n"
 "                                    If you need further information, please respond to this email and we will attend your request as soon as possible.\n"
 "                                </p>\n"
-"                                <p>\n"
-"                                    Thank you!\n"
-"                                </p>\n"
+"                                <p>Thank you!</p>\n"
 "                            </td>\n"
 "                        </tr>\n"
 "                    </tbody>\n"
@@ -91,7 +93,7 @@ msgid ""
 "                            <td style=\"padding-top:10px;font-size: 12px;\">\n"
 "                                <p>\n"
 "                                    Sent by\n"
-"                                    <a href=\"/\" style=\"color:#717188;\">${object.activity_id.controller_id.display_name|safe}</a>.\n"
+"                                    <a t-att-href=\"'/'\" style=\"color:#717188;\" t-out=\"object.activity_id.controller_id.display_name\"/>.\n"
 "                                </p>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -236,15 +238,11 @@ msgstr ""
 #. module: privacy_consent
 #: model:mail.template,subject:privacy_consent.template_consent
 msgid ""
-"Data processing consent request for ${object.activity_id.display_name|safe}"
+"Data processing consent request for {{object.activity_id.display_name}}"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__display_name
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -288,11 +286,6 @@ msgid "Followers"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
@@ -319,6 +312,11 @@ msgid "Group By"
 msgstr ""
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Hello,"
 msgstr ""
@@ -334,11 +332,7 @@ msgid "I <b>reject</b> this processing of my data"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__id
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__id
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__id
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -350,7 +344,6 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
-#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -378,11 +371,7 @@ msgid "Last Metadata"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity____last_update
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -426,8 +415,8 @@ msgstr ""
 #, python-format
 msgid ""
 "Missing privacy consent link placeholders. You need at least these two links:\n"
-"<a href=\"%s\">Accept</a>\n"
-"<a href=\"%s\">Reject</a>"
+"<a href=\"%(accept)s\">Accept</a>\n"
+"<a href=\"%(reject)s\">Reject</a>"
 msgstr ""
 
 #. module: privacy_consent
@@ -464,6 +453,11 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
+msgstr ""
+
+#. module: privacy_consent
+#: model:mail.template,name:privacy_consent.template_consent
+msgid "Personal data processing consent request"
 msgstr ""
 
 #. module: privacy_consent
@@ -513,11 +507,6 @@ msgstr ""
 msgid ""
 "Run this action when a new consent request is created or its acceptance "
 "status is updated."
-msgstr ""
-
-#. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: privacy_consent

@@ -215,7 +215,7 @@ class ActivityCase(odoo.tests.HttpCase):
         self.assertIn(consents[0].partner_id.name, composer_wizard.body)
         composer_record = composer_wizard.save()
         with self._patch_build():
-            composer_record.send_mail()
+            composer_record._action_send_mail()
         # Check the sent message was built properly tokenized
         body = self._built_messages[0]
         self.assertIn(consents[0]._url(True), body)

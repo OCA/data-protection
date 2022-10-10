@@ -27,11 +27,13 @@ class MailTemplate(models.Model):
                         _(
                             "Missing privacy consent link placeholders. "
                             "You need at least these two links:\n"
-                            '<a href="%s">Accept</a>\n'
-                            '<a href="%s">Reject</a>'
+                            '<a href="%(accept)s">Accept</a>\n'
+                            '<a href="%(reject)s">Reject</a>'
                         )
                         % (
-                            "/privacy/consent/accept/",
-                            "/privacy/consent/reject/",
+                            {
+                                "accept": "/privacy/consent/accept/",
+                                "reject": "/privacy/consent/reject/",
+                            }
                         )
                     )

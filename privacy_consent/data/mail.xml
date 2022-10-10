@@ -9,11 +9,11 @@
         <field name="name">Personal data processing consent request</field>
         <field
             name="subject"
-        >Data processing consent request for ${object.activity_id.display_name|safe}</field>
+        >Data processing consent request for {{object.activity_id.display_name}}</field>
         <field name="model_id" ref="model_privacy_consent" />
         <field name="use_default_to" eval="True" />
-        <field name="lang">${object.partner_id.lang}</field>
-        <field name="body_html" type="xml">
+        <field name="lang">{{object.partner_id.lang}}</field>
+        <field name="body_html" type="html">
             <div
                 style="background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;"
             >
@@ -23,8 +23,8 @@
                             <td>
                                 <a href="/">
                                     <img
-                                        src="/logo"
-                                        alt="${object.activity_id.controller_id.display_name|safe}"
+                                        src="'/logo'"
+                                        t-att-alt="object.activity_id.controller_id.display_name"
                                         style="vertical-align:baseline;max-width:100px;"
                                     />
                                 </a>
@@ -42,28 +42,33 @@
                                 style="padding:15px 20px 0px 20px; font-size:16px;"
                             >
                                 <p>
-                                    Hello, ${object.partner_id.name|safe}
+                                    Hello, <t t-out="object.partner_id.name" />
                                 </p>
                                 <p>
                                     We contacted you to ask you to give us your explicit consent to include your data in a data processing activity called
                                     <b
-                                    >${object.activity_id.display_name|safe}</b>, property of
+                                        t-out="object.activity_id.display_name"
+                                    />, property of
                                     <i
-                                    >${object.activity_id.controller_id.display_name|safe}</i>
+                                        t-out="object.activity_id.controller_id.display_name"
+                                    />
                                 </p>
-                                ${object.activity_id.description or ""}
+                                <t t-out="object.activity_id.description" />
                                 <p>
-                                    % if object.state == "answered":
+                                    <t t-if="object.state == 'answered'">
                                         The last time you answered, you
-                                    % else:
+                                    </t>
+                                    <t t-else="">
                                         If you do nothing, we will assume you have
-                                    % endif
+                                    </t>
 
-                                    % if object.accepted:
-                                    <b>accepted</b>
-                                    % else:
-                                    <b>rejected</b>
-                                    % endif
+                                    <t t-if="object.accepted">
+                                        <b>accepted</b>
+                                    </t>
+                                    <t t-else="">
+                                        <b>rejected</b>
+                                    </t>
+
                                     such data processing.
                                 </p>
                                 <p>
@@ -101,9 +106,7 @@
                                 <p>
                                     If you need further information, please respond to this email and we will attend your request as soon as possible.
                                 </p>
-                                <p>
-                                    Thank you!
-                                </p>
+                                <p>Thank you!</p>
                             </td>
                         </tr>
                     </tbody>
@@ -114,10 +117,11 @@
                             <td style="padding-top:10px;font-size: 12px;">
                                 <p>
                                     Sent by
-                                    <a
-                                        href="/"
-                                        style="color:#717188;"
-                                    >${object.activity_id.controller_id.display_name|safe}</a>.
+                                    <a href="/" style="color:#717188;">
+                                        <t
+                                            t-out="object.activity_id.controller_id.display_name"
+                                        />
+                                    </a>.
                                 </p>
                             </td>
                         </tr>

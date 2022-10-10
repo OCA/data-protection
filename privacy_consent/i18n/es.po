@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 17:04+0000\n"
-"PO-Revision-Date: 2019-05-13 18:08+0100\n"
+"POT-Creation-Date: 2022-10-10 12:55+0000\n"
+"PO-Revision-Date: 2022-10-10 14:56+0200\n"
 "Last-Translator: Jairo Llopis <yajo.sk8@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -15,12 +15,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
 msgid ""
-"<?xml version=\"1.0\"?>\n"
 "<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:"
 "Arial,Helvetica,sans-serif;font-size:14px;\">\n"
 "                <table style=\"width:600px;margin:5px auto;\">\n"
@@ -28,9 +27,9 @@ msgid ""
 "                        <tr>\n"
 "                            <td>\n"
 "                                <a href=\"/\">\n"
-"                                    <img src=\"/logo\" alt=\"${object."
-"activity_id.controller_id.display_name|safe}\" style=\"vertical-align:"
-"baseline;max-width:100px;\"/>\n"
+"                                    <img t-attf-src=\"'/logo'\" t-attf-"
+"alt=\"{{object.activity_id.controller_id.display_name}}\" style=\"vertical-"
+"align:baseline;max-width:100px;\"/>\n"
 "                                </a>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -43,31 +42,36 @@ msgid ""
 "                            <td colspan=\"2\" style=\"padding:15px 20px 0px "
 "20px; font-size:16px;\">\n"
 "                                <p>\n"
-"                                    Hello, ${object.partner_id.name|safe}\n"
+"                                    Hello, <t t-out=\"object.partner_id."
+"name\"/>\n"
 "                                </p>\n"
 "                                <p>\n"
 "                                    We contacted you to ask you to give us "
 "your explicit consent to include your data in a data processing activity "
 "called\n"
-"                                    <b>${object.activity_id.display_name|"
-"safe}</b>, property of\n"
-"                                    <i>${object.activity_id.controller_id."
-"display_name|safe}</i>\n"
+"                                    <b t-out=\"object.activity_id."
+"display_name\"/>, property of\n"
+"                                    <i t-out=\"object.activity_id."
+"controller_id.display_name\"/>\n"
 "                                </p>\n"
-"                                ${object.activity_id.description or \"\"}\n"
+"                                <t t-out=\"object.activity_id.description\"/"
+">\n"
 "                                <p>\n"
-"                                    % if object.state == \"answered\":\n"
+"                                    <t t-if=\"object.state == 'answered'\">\n"
 "                                        The last time you answered, you\n"
-"                                    % else:\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
 "                                        If you do nothing, we will assume "
 "you have\n"
-"                                    % endif\n"
+"                                    </t>\n"
 "\n"
-"                                    % if object.accepted:\n"
-"                                    <b>accepted</b>\n"
-"                                    % else:\n"
-"                                    <b>rejected</b>\n"
-"                                    % endif\n"
+"                                    <t t-if=\"object.accepted\">\n"
+"                                        <b>accepted</b>\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        <b>rejected</b>\n"
+"                                    </t>\n"
+"\n"
 "                                    such data processing.\n"
 "                                </p>\n"
 "                                <p>\n"
@@ -78,16 +82,16 @@ msgid ""
 "                        <tr>\n"
 "                            <td style=\"padding:15px 20px 0px 20px; font-"
 "size:16px; text-align:right;\">\n"
-"                                <a href=\"/privacy/consent/accept/\" style="
-"\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
+"                                <a href=\"/privacy/consent/accept/\" "
+"style=\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
 "decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
 "                                    Accept\n"
 "                                </a>\n"
 "                            </td>\n"
 "                            <td style=\"padding:15px 20px 0px 20px; font-"
 "size:16px; text-align:left;\">\n"
-"                                <a href=\"/privacy/consent/reject/\" style="
-"\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
+"                                <a href=\"/privacy/consent/reject/\" "
+"style=\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
 "decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
 "                                    Reject\n"
 "                                </a>\n"
@@ -100,9 +104,7 @@ msgid ""
 "                                    If you need further information, please "
 "respond to this email and we will attend your request as soon as possible.\n"
 "                                </p>\n"
-"                                <p>\n"
-"                                    Thank you!\n"
-"                                </p>\n"
+"                                <p>Thank you!</p>\n"
 "                            </td>\n"
 "                        </tr>\n"
 "                    </tbody>\n"
@@ -115,8 +117,8 @@ msgid ""
 "\">\n"
 "                                <p>\n"
 "                                    Sent by\n"
-"                                    <a href=\"/\" style=\"color:#717188;\">"
-"${object.activity_id.controller_id.display_name|safe}</a>.\n"
+"                                    <a t-att-href=\"'/'\" style=\"color:"
+"#717188;\" t-out=\"object.activity_id.controller_id.display_name\"/>.\n"
 "                                </p>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -125,6 +127,113 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:"
+"Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"                <table style=\"width:600px;margin:5px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <a href=\"/\">\n"
+"                                    <img t-attf-src=\"'/logo'\" t-attf-"
+"alt=\"{{object.activity_id.controller_id.display_name}}\" style=\"vertical-"
+"align:baseline;max-width:100px;\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;background:white;"
+"border:1px solid #e1e1e1;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 0px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Hola, <t t-out=\"object.partner_id."
+"name\"/>\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Nos comunicamos con usted para pedirle "
+"que nos dé su consentimiento explícito para incluir sus datos en una "
+"actividad de procesamiento de datos llamada\n"
+"                                    <b t-out=\"object.activity_id."
+"display_name\"/>, propiedad de\n"
+"                                    <i t-out=\"object.activity_id."
+"controller_id.display_name\"/>\n"
+"                                </p>\n"
+"                                <t t-out=\"object.activity_id.description\"/"
+">\n"
+"                                <p>\n"
+"                                    <t t-if=\"object.state == 'answered'\">\n"
+"                                        La última vez que respondió, usted\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        Si no hace nada, asumiremos que "
+"usted\n"
+"                                    </t>\n"
+"\n"
+"                                    <t t-if=\"object.accepted\">\n"
+"                                        <b>acepta</b>\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        <b>rechaza</b>\n"
+"                                    </t>\n"
+"\n"
+"                                    el procesamiento de datos.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Puede actualizar sus preferencias a "
+"continuación:\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:right;\">\n"
+"                                <a href=\"/privacy/consent/accept/\" "
+"style=\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Aceptar\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:left;\">\n"
+"                                <a href=\"/privacy/consent/reject/\" "
+"style=\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Rechazar\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 15px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    If you need further information, please "
+"respond to this email and we will attend your request as soon as possible.\n"
+"                                </p>\n"
+"                                <p>Thank you!</p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;text-align:center;"
+"\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;font-size: 12px;"
+"\">\n"
+"                                <p>\n"
+"                                    Sent by\n"
+"                                    <a t-att-href=\"'/'\" style=\"color:"
+"#717188;\" t-out=\"object.activity_id.controller_id.display_name\"/>.\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
 
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_acceptance_changed
@@ -155,7 +264,7 @@ msgstr "Aceptado por defecto"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Acción necesaria"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__active
@@ -192,7 +301,7 @@ msgstr "Solicitar consentimiento a los interesados"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Total de adjuntos"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__auto
@@ -211,13 +320,11 @@ msgstr "Consentimiento"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_body_html
-#, fuzzy
 msgid "Consent Template Default Body Html"
 msgstr "HTML por defecto para el cuerpo de la plantilla de consentimiento"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_subject
-#, fuzzy
 msgid "Consent Template Default Subject"
 msgstr "HTML por defecto para el asunto de la plantilla de consentimiento"
 
@@ -237,14 +344,13 @@ msgstr "Consents"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_count
-#, fuzzy
 msgid "Consents count"
-msgstr "Consents"
+msgstr "Total consentimientos"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_uid
@@ -263,18 +369,13 @@ msgstr "Actividades de tratamiento de datos"
 
 #. module: privacy_consent
 #: model:mail.template,subject:privacy_consent.template_consent
-msgid ""
-"Data processing consent request for ${object.activity_id.display_name|safe}"
+msgid "Data processing consent request for {{object.activity_id.display_name}}"
 msgstr ""
 "Solicitud de consentimiento para el tratamiento de datos personales para "
-"${object.activity_id.display_name|safe}"
+"{{object.activity_id.display_name}}"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__display_name
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -320,17 +421,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_follower_ids
 msgid "Followers"
-msgstr ""
-
-#. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguidores (Contactos)"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
@@ -356,6 +452,11 @@ msgid "Group By"
 msgstr "Agrupar por"
 
 #. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Hello,"
 msgstr "Hola,"
@@ -371,11 +472,7 @@ msgid "I <b>reject</b> this processing of my data"
 msgstr "<b>Rechazo</b> este tratamiento de mis datos"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__id
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__id
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__id
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
@@ -383,13 +480,12 @@ msgstr "ID"
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Si está marcado, hay nuevos mensajes que requieren de su atención."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
-#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si está marcado, hay mensajes que tienen error de entrega."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -410,20 +506,15 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Es seguidor"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__last_metadata
-#, fuzzy
 msgid "Last Metadata"
 msgstr "Últimos metadatos"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity____last_update
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -440,7 +531,7 @@ msgstr "Última actualización el"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Adjunto principal"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__manual
@@ -450,12 +541,12 @@ msgstr "Manualmente"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Mensaje de error de entrega"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__last_metadata
@@ -469,13 +560,13 @@ msgstr ""
 msgid ""
 "Missing privacy consent link placeholders. You need at least these two "
 "links:\n"
-"<a href=\"%s\">Accept</a>\n"
-"<a href=\"%s\">Reject</a>"
+"<a href=\"%(accept)s\">Accept</a>\n"
+"<a href=\"%(reject)s\">Reject</a>"
 msgstr ""
 "Faltan los marcadores de posición de los enlaces para el consentimiento. "
 "Necesita al menos estos dos enlaces:\n"
-"<a href=\"%s\">Aceptar</a>\n"
-"<a href=\"%s\">Rechazar</a>"
+"<a href=\"%(accept)s\">Aceptar</a>\n"
+"<a href=\"%(reject)s\">Rechazar</a>"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_consent_new
@@ -486,32 +577,39 @@ msgstr "Nuevo consentimiento"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Número de acciones"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Número de errores"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Nº de mensajes que requieren acción"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Nº de mensajes con error de entrega"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Número de mensajes no leídos"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
 msgstr "Correos electrónicos salientes"
+
+#. module: privacy_consent
+#: model:mail.template,name:privacy_consent.template_consent
+msgid "Personal data processing consent request"
+msgstr ""
+"Generar y colocar en la bandeja de salida las solicitudes de consentimiento "
+"que falten"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
@@ -552,7 +650,7 @@ msgstr "Consentimientos para el tratamiento de datos"
 #: model:ir.cron,cron_name:privacy_consent.cron_auto_consent
 #: model:ir.cron,name:privacy_consent.cron_auto_consent
 msgid "Request automatic data processing consents"
-msgstr ""
+msgstr "Solicitar consentimientos para el tratamiento automático de datos"
 
 #. module: privacy_consent
 #: code:addons/privacy_consent/models/privacy_activity.py:0
@@ -570,11 +668,6 @@ msgid ""
 msgstr ""
 "Ejecutar esta acción cuando se cree una nueva solicitud de consentimiento, o "
 "cuando su estado de aceptación cambie."
-
-#. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
@@ -647,12 +740,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes no leídos"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Contador de mensajes sin leer"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -677,219 +770,3 @@ msgstr "Ha <b class=\"text-danger\">rechazado</b> dicho tratamiento."
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr "Ha <b class=\"text-success\">aceptado</b> dicho tratamiento."
-
-#~ msgid ""
-#~ "<?xml version=\"1.0\"?>\n"
-#~ "<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-"
-#~ "family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
-#~ "                <table style=\"width:600px;margin:5px auto;\">\n"
-#~ "                    <tbody>\n"
-#~ "                        <tr>\n"
-#~ "                            <td>\n"
-#~ "                                <a href=\"/\">\n"
-#~ "                                    <img src=\"/logo\" alt=\"${object."
-#~ "activity_id.controller_id.display_name|safe}\" style=\"vertical-align:"
-#~ "baseline;max-width:100px;\"/>\n"
-#~ "                                </a>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                    </tbody>\n"
-#~ "                </table>\n"
-#~ "                <table style=\"width:600px;margin:0px auto;background:"
-#~ "white;border:1px solid #e1e1e1;\">\n"
-#~ "                    <tbody>\n"
-#~ "                        <tr>\n"
-#~ "                            <td colspan=\"2\" style=\"padding:15px 20px "
-#~ "0px 20px; font-size:16px;\">\n"
-#~ "                                <p>\n"
-#~ "                                    Hello, ${object.partner_id.name|"
-#~ "safe}\n"
-#~ "                                </p>\n"
-#~ "                                <p>\n"
-#~ "                                    We contacted you to ask you to give "
-#~ "us your explicit consent to include your data in a data processing "
-#~ "activity called\n"
-#~ "                                    <b>${object.activity_id.display_name|"
-#~ "safe}</b>, property of\n"
-#~ "                                    <i>${object.activity_id.controller_id."
-#~ "display_name|safe}</i>\n"
-#~ "                                </p>\n"
-#~ "                                ${object.description or \"\"}\n"
-#~ "                                <p>\n"
-#~ "                                    % if object.state == \"answered\":\n"
-#~ "                                        The last time you answered, you\n"
-#~ "                                    % elif object.state == \"sent\":\n"
-#~ "                                        If you do nothing, we will assume "
-#~ "you have\n"
-#~ "                                    % endif\n"
-#~ "\n"
-#~ "                                    % if object.accepted:\n"
-#~ "                                        <b>accepted</b>\n"
-#~ "                                    % else:\n"
-#~ "                                        <b>rejected</b>\n"
-#~ "                                    % endif\n"
-#~ "                                    such data processing.\n"
-#~ "                                </p>\n"
-#~ "                                <p>\n"
-#~ "                                    You can update your preferences "
-#~ "below:\n"
-#~ "                                </p>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                        <tr>\n"
-#~ "                            <td style=\"padding:15px 20px 0px 20px; font-"
-#~ "size:16px; text-align:right;\">\n"
-#~ "                                <a href=\"/privacy/consent/accept/\" "
-#~ "style=\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
-#~ "decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
-#~ "                                    Accept\n"
-#~ "                                </a>\n"
-#~ "                            </td>\n"
-#~ "                            <td style=\"padding:15px 20px 0px 20px; font-"
-#~ "size:16px; text-align:left;\">\n"
-#~ "                                <a href=\"/privacy/consent/reject/\" "
-#~ "style=\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
-#~ "decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
-#~ "                                    Reject\n"
-#~ "                                </a>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                        <tr>\n"
-#~ "                            <td colspan=\"2\" style=\"padding:15px 20px "
-#~ "15px 20px; font-size:16px;\">\n"
-#~ "                                <p>\n"
-#~ "                                    If you need further information, "
-#~ "please respond to this email and we will attend your request as soon as "
-#~ "possible.\n"
-#~ "                                </p>\n"
-#~ "                                <p>\n"
-#~ "                                    Thank you!\n"
-#~ "                                </p>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                    </tbody>\n"
-#~ "                </table>\n"
-#~ "                <table style=\"width:600px;margin:0px auto;text-align:"
-#~ "center;\">\n"
-#~ "                    <tbody>\n"
-#~ "                        <tr>\n"
-#~ "                            <td style=\"padding-top:10px;font-size: 12px;"
-#~ "\">\n"
-#~ "                                <p>\n"
-#~ "                                    Sent by\n"
-#~ "                                    <a href=\"/\" style=\"color:#717188;"
-#~ "\">${object.activity_id.controller_id.display_name|safe}</a>.\n"
-#~ "                                </p>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                    </tbody>\n"
-#~ "                </table>\n"
-#~ "            </div>\n"
-#~ "        "
-#~ msgstr ""
-#~ "<?xml version=\"1.0\"?>\n"
-#~ "<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-"
-#~ "family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
-#~ "                <table style=\"width:600px;margin:5px auto;\">\n"
-#~ "                    <tbody>\n"
-#~ "                        <tr>\n"
-#~ "                            <td>\n"
-#~ "                                <a href=\"/\">\n"
-#~ "                                    <img src=\"/logo\" alt=\"${object."
-#~ "activity_id.controller_id.display_name|safe}\" style=\"vertical-align:"
-#~ "baseline;max-width:100px;\"/>\n"
-#~ "                                </a>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                    </tbody>\n"
-#~ "                </table>\n"
-#~ "                <table style=\"width:600px;margin:0px auto;background:"
-#~ "white;border:1px solid #e1e1e1;\">\n"
-#~ "                    <tbody>\n"
-#~ "                        <tr>\n"
-#~ "                            <td colspan=\"2\" style=\"padding:15px 20px "
-#~ "0px 20px; font-size:16px;\">\n"
-#~ "                                <p>\n"
-#~ "                                    Hola, ${object.partner_id.name|safe}\n"
-#~ "                                </p>\n"
-#~ "                                <p>\n"
-#~ "                                    Le hemos contactado para pedirle su "
-#~ "consentimiento explícito para incluir sus datos en una actividad de "
-#~ "tratamiento llamada\n"
-#~ "                                    <b>${object.activity_id.display_name|"
-#~ "safe}</b>, propiedad de\n"
-#~ "                                    <i>${object.activity_id.controller_id."
-#~ "display_name|safe}</i>\n"
-#~ "                                </p>\n"
-#~ "                                ${object.description or \"\"}\n"
-#~ "                                <p>\n"
-#~ "                                    % if object.state == \"answered\":\n"
-#~ "                                        Según su última respuesta,\n"
-#~ "                                    % elif object.state == \"sent\":\n"
-#~ "                                        Si no recibimos respuesta, "
-#~ "asumiremos que\n"
-#~ "                                    % endif\n"
-#~ "\n"
-#~ "                                    % if object.accepted:\n"
-#~ "                                        <b>ha aceptado</b>\n"
-#~ "                                    % else:\n"
-#~ "                                        <b>ha rechazado</b>\n"
-#~ "                                    % endif\n"
-#~ "                                    dicho procesamiento de datos.\n"
-#~ "                                </p>\n"
-#~ "                                <p>\n"
-#~ "                                    Puede cambiar sus preferencias aquí "
-#~ "abajo:\n"
-#~ "                                </p>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                        <tr>\n"
-#~ "                            <td style=\"padding:15px 20px 0px 20px; font-"
-#~ "size:16px; text-align:right;\">\n"
-#~ "                                <a href=\"/privacy/consent/accept/\" "
-#~ "style=\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
-#~ "decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
-#~ "                                    Aceptar\n"
-#~ "                                </a>\n"
-#~ "                            </td>\n"
-#~ "                            <td style=\"padding:15px 20px 0px 20px; font-"
-#~ "size:16px; text-align:left;\">\n"
-#~ "                                <a href=\"/privacy/consent/reject/\" "
-#~ "style=\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
-#~ "decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
-#~ "                                    Rechazar\n"
-#~ "                                </a>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                        <tr>\n"
-#~ "                            <td colspan=\"2\" style=\"padding:15px 20px "
-#~ "15px 20px; font-size:16px;\">\n"
-#~ "                                <p>\n"
-#~ "                                    Si necesita más información, por "
-#~ "favor responda a este correo electrónico y atenderemos su solicitud a la "
-#~ "mayor brevedad posible.\n"
-#~ "                                </p>\n"
-#~ "                                <p>\n"
-#~ "                                    ¡Gracias!\n"
-#~ "                                </p>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                    </tbody>\n"
-#~ "                </table>\n"
-#~ "                <table style=\"width:600px;margin:0px auto;text-align:"
-#~ "center;\">\n"
-#~ "                    <tbody>\n"
-#~ "                        <tr>\n"
-#~ "                            <td style=\"padding-top:10px;font-size: 12px;"
-#~ "\">\n"
-#~ "                                <p>\n"
-#~ "                                    Enviado por\n"
-#~ "                                    <a href=\"/\" style=\"color:#717188;"
-#~ "\">${object.activity_id.controller_id.display_name|safe}</a>.\n"
-#~ "                                </p>\n"
-#~ "                            </td>\n"
-#~ "                        </tr>\n"
-#~ "                    </tbody>\n"
-#~ "                </table>\n"
-#~ "            </div>\n"
-#~ "        "

@@ -18,7 +18,7 @@
                         We asked you to authorize us to process your data in this data processing activity:
                         <b t-esc="consent.activity_id.display_name" />
                     </p>
-                    <t t-raw="consent.activity_id.description or ''" />
+                    <t t-out="consent.activity_id.description or ''" />
                     <p t-if="consent.accepted">
                         You have <b class="text-success">accepted</b> such processing.
                     </p>
@@ -53,7 +53,7 @@
                     <p class="text-muted">
                         Sincerely,<br />
                         <i
-                            t-raw="consent.activity_id.controller_id.with_context(show_address=True, html_format=True).name_get()[0][1]"
+                            t-out="consent.activity_id.controller_id.with_context(show_address=True, html_format=True).name_get()[0][1]"
                         />
                     </p>
                 </div>

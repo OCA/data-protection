@@ -6,6 +6,7 @@
     <!-- Mail templates -->
     <record id="template_consent" model="mail.template">
         <field name="auto_delete" eval="False" />
+        <field name="description">Used to explicitly ask for consent to use data</field>
         <field name="name">Personal data processing consent request</field>
         <field
             name="subject"

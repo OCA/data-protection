@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-24 10:44+0000\n"
+"PO-Revision-Date: 2022-10-24 15:44+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -412,12 +412,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Errore di consegna messaggio"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Messaggi"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__last_metadata
@@ -442,32 +442,32 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Numero di azioni"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numero di errori"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Numero di messaggi non letti"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
-msgstr ""
+msgstr "Posta in uscita"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
@@ -521,12 +521,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Errore di consegna SMS"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
 msgid "Server action"
-msgstr ""
+msgstr "Azione server"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__default_consent
@@ -589,12 +589,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Messaggi non letti"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Numero messaggi non letti"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form

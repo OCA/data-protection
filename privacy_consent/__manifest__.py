@@ -4,7 +4,7 @@
     "name": "Privacy - Consent",
     "summary": "Allow people to explicitly accept or reject inclusion "
     "in some activity, GDPR compliant",
-    "version": "14.0.1.1.0",
+    "version": "16.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Privacy",
     "website": "https://github.com/OCA/data-protection",
@@ -18,10 +18,14 @@
         "data/ir_actions_server.xml",
         "data/ir_cron.xml",
         "data/mail.xml",
-        "templates/assets.xml",
         "templates/form.xml",
         "views/privacy_consent.xml",
         "views/privacy_activity.xml",
         "views/res_partner.xml",
     ],
+    "assets": {
+        "web.assets_frontend": [
+            "/privacy_consent/static/src/css/privacy_consent.scss",
+        ],
+    },
 }

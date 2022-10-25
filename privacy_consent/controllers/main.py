@@ -26,8 +26,7 @@ class ConsentController(Controller):
         if not (consent.exists() and consent._token() == token):
             raise NotFound
         if consent.partner_id.lang:
-            consent = consent.with_context(lang=consent.partner_id.lang)
-            request.context = consent.env.context
+            request.update_context(lang=consent.partner_id.lang)
         consent.action_answer(choice == "accept", self._metadata())
         return request.render("privacy_consent.form", {"consent": consent})
 

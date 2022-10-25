@@ -59,9 +59,7 @@
                     </group>
                     <notebook string="Details" name="advanced">
                         <page string="Description">
-                            <group>
-                                <field name="description" nolabel="1" />
-                            </group>
+                            <field name="description" nolabel="1" />
                         </page>
                     </notebook>
                 </sheet>

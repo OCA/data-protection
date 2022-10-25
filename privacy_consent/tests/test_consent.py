@@ -5,11 +5,13 @@ from contextlib import contextmanager
 
 import odoo.tests
 from odoo import http
-from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError, ValidationError
+from odoo.tests import users
 from odoo.tests.common import Form
 
+from odoo.addons.mail.tests.common import mail_new_test_user
 
-@odoo.tests.tagged("post_install", "-at_install")
+
 class ActivityCase(odoo.tests.HttpCase):
     def setUp(self):
         super().setUp()
@@ -26,21 +28,16 @@ class ActivityCase(odoo.tests.HttpCase):
             "privacy_consent.mt_consent_state_changed"
         )
         # Some partners to ask for consent
-        self.partners = self.env["res.partner"]
-        self.partners += self.partners.create(
-            {"name": "consent-partner-0", "email": "partner0@example.com"}
-        )
-        self.partners += self.partners.create(
-            {"name": "consent-partner-1", "email": "partner1@example.com"}
-        )
-        self.partners += self.partners.create(
-            {"name": "consent-partner-2", "email": "partner2@example.com"}
-        )
-        # Partner without email, on purpose
-        self.partners += self.partners.create({"name": "consent-partner-3"})
-        # Partner with wrong email, on purpose
-        self.partners += self.partners.create(
-            {"name": "consent-partner-4", "email": "wrong-mail"}
+        self.partners = self.env["res.partner"].create(
+            [
+                {"name": "consent-partner-0", "email": "partner0@example.com"},
+                {"name": "consent-partner-1", "email": "partner1@example.com"},
+                {"name": "consent-partner-2", "email": "partner2@example.com"},
+                # Partner without email, on purpose
+                {"name": "consent-partner-3"},
+                # Partner with wrong email, on purpose
+                {"name": "consent-partner-4", "email": "wrong-mail"},
+            ]
         )
         # Blacklist some partners
         self.blacklists = self.env["mail.blacklist"]
@@ -97,6 +94,9 @@ class ActivityCase(odoo.tests.HttpCase):
         finally:
             IMS._revert_method("build_email")
 
+
+@odoo.tests.tagged("post_install", "-at_install")
+class ActivityFlow(ActivityCase):
     def check_activity_auto_properly_sent(self):
         """Check emails sent by ``self.activity_auto``."""
         # Check pending mails
@@ -285,3 +285,69 @@ class ActivityCase(odoo.tests.HttpCase):
         """Cannot create mail template without needed links."""
         with self.assertRaises(ValidationError):
             self.activity_manual.consent_template_id.body_html = "No links :("
+
+
+@odoo.tests.tagged("post_install", "-at_install")
+class ActivitySecurity(ActivityCase):
+    @classmethod
+    def setUpClass(cls):
+        """Create users based on privacy groups to tests ACLs"""
+        super().setUpClass()
+
+        # users
+        cls.user_admin = cls.env.ref("base.user_admin")
+        cls.user_privacy_user = mail_new_test_user(
+            cls.env,
+            company_id=cls.user_admin.company_id.id,
+            country_id=cls.env.ref("base.be").id,
+            groups="base.group_user,privacy.group_data_protection_user",
+            login="user_privacy_user",
+            name="Patrick Privacy User",
+            notification_type="inbox",
+            signature="--\nPatrick",
+        )
+        cls.user_privacy_manager = mail_new_test_user(
+            cls.env,
+            company_id=cls.user_admin.company_id.id,
+            country_id=cls.env.ref("base.be").id,
+            groups="base.group_user,privacy.group_data_protection_manager",
+            login="user_privacy_manager",
+            name="Patricia Privacy Manager",
+            notification_type="inbox",
+            signature="--\nPatricia",
+        )
+
+    @users("user_privacy_user")
+    def test_consent_acl_user(self):
+        """Users can read"""
+        activity_manual = self.activity_manual.with_user(self.env.user)
+        activity_manual.read(["name"])
+
+        # can't create consents
+        with self.assertRaises(AccessError):
+            activity_manual.action_new_consents()
+
+    @users("user_privacy_manager")
+    def test_consent_acl_manager(self):
+        """Managers have all rights"""
+        activity_manual = self.activity_manual.with_user(self.env.user)
+        activity_manual.read(["name"])
+
+        result = activity_manual.action_new_consents()
+        consents = self.env[result["res_model"]].search(result["domain"], limit=1)
+        consents.read(["state"])
+        consents.unlink()
+
+    def test_consent_controller_security_noaccess(self):
+        """Test no access granted scenarios, should raise a NotFound and no
+        crash / error"""
+        result = self.activity_manual.action_new_consents()
+        consent = self.env[result["res_model"]].search(result["domain"], limit=1)
+
+        for res_id, token in [
+            (-1, consent._token()),
+            (-1, ""),
+            (consent.id, ""),
+        ]:
+            response = self.url_open(f"/privacy/consent/accept/{res_id}/{token}")
+            self.assertEqual(response.status_code, 404)

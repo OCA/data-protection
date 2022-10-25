@@ -3,6 +3,7 @@
 {
     "name": "Data Privacy and Protection",
     "version": "16.0.1.0.0",
+    "development_status": "Production/Stable",
     "category": "Data Protection",
     "summary": "Provides data privacy and protection features "
     "to comply to regulations, such as GDPR.",

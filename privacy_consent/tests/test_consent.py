@@ -215,7 +215,7 @@ class ActivityCase(odoo.tests.HttpCase):
         self.assertIn(consents[0].partner_id.name, composer_wizard.body)
         composer_record = composer_wizard.save()
         with self._patch_build():
-            composer_record.send_mail()
+            composer_record.action_send_mail()
         # Check the sent message was built properly tokenized
         body = self._built_messages[0]
         self.assertIn(consents[0]._url(True), body)
@@ -244,7 +244,7 @@ class ActivityCase(odoo.tests.HttpCase):
         self.assertIn(reject_url, result)
         self.assertIn(self.activity_manual.name, result)
         self.assertIn(self.activity_manual.description, result)
-        consents.invalidate_cache()
+        consents.invalidate_recordset()
         self.assertEqual(consents.mapped("accepted"), [True, False, False])
         self.assertTrue(consents[0].last_metadata)
         self.assertFalse(consents[0].partner_id.is_blacklisted)
@@ -259,7 +259,7 @@ class ActivityCase(odoo.tests.HttpCase):
         self.assertIn(accept_url, result)
         self.assertIn(self.activity_manual.name, result)
         self.assertIn(self.activity_manual.description, result)
-        consents.invalidate_cache()
+        consents.invalidate_recordset()
         self.assertEqual(consents.mapped("accepted"), [False, False, False])
         self.assertTrue(consents[0].last_metadata)
         self.assertTrue(consents[0].partner_id.is_blacklisted)

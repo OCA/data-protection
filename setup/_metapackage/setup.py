@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-privacy>=16.0dev,<16.1dev',
+        'odoo-addon-privacy_consent>=16.0dev,<16.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',

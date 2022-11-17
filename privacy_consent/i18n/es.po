@@ -20,7 +20,6 @@ msgstr ""
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
 msgid ""
-"<?xml version=\"1.0\"?>\n"
 "<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:"
 "Arial,Helvetica,sans-serif;font-size:14px;\">\n"
 "                <table style=\"width:600px;margin:5px auto;\">\n"
@@ -28,9 +27,9 @@ msgid ""
 "                        <tr>\n"
 "                            <td>\n"
 "                                <a href=\"/\">\n"
-"                                    <img src=\"/logo\" alt=\"${object."
-"activity_id.controller_id.display_name|safe}\" style=\"vertical-align:"
-"baseline;max-width:100px;\"/>\n"
+"                                    <img src=\"/logo\" t-att-alt=\"object."
+"activity_id.controller_id.display_name\" style=\"vertical-align:baseline;max-"
+"width:100px;\"/>\n"
 "                                </a>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -43,31 +42,35 @@ msgid ""
 "                            <td colspan=\"2\" style=\"padding:15px 20px 0px "
 "20px; font-size:16px;\">\n"
 "                                <p>\n"
-"                                    Hello, ${object.partner_id.name|safe}\n"
+"                                    Hello, <t t-out=\"object.partner_id.name"
+"\"/>\n"
 "                                </p>\n"
 "                                <p>\n"
 "                                    We contacted you to ask you to give us "
 "your explicit consent to include your data in a data processing activity "
 "called\n"
-"                                    <b>${object.activity_id.display_name|"
-"safe}</b>, property of\n"
-"                                    <i>${object.activity_id.controller_id."
-"display_name|safe}</i>\n"
+"                                    <b t-out=\"object.activity_id."
+"display_name\"/>, property of\n"
+"                                    <i t-out=\"object.activity_id."
+"controller_id.display_name\"/>\n"
 "                                </p>\n"
-"                                ${object.activity_id.description or \"\"}\n"
+"                                <t t-out=\"object.activity_id.description\"/"
+">\n"
 "                                <p>\n"
-"                                    % if object.state == \"answered\":\n"
+"                                    <t t-if=\"object.state == 'answered'\">\n"
 "                                        The last time you answered, you\n"
-"                                    % else:\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
 "                                        If you do nothing, we will assume "
 "you have\n"
-"                                    % endif\n"
+"                                    </t>\n"
 "\n"
-"                                    % if object.accepted:\n"
-"                                    <b>accepted</b>\n"
-"                                    % else:\n"
-"                                    <b>rejected</b>\n"
-"                                    % endif\n"
+"                                    <t t-if=\"object.accepted\">\n"
+"                                        <b>accepted</b>\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        <b>rejected</b>\n"
+"                                    </t>\n"
 "                                    such data processing.\n"
 "                                </p>\n"
 "                                <p>\n"
@@ -115,8 +118,10 @@ msgid ""
 "\">\n"
 "                                <p>\n"
 "                                    Sent by\n"
-"                                    <a href=\"/\" style=\"color:#717188;\">"
-"${object.activity_id.controller_id.display_name|safe}</a>.\n"
+"                                    <a href=\"/\" style=\"color:#717188;\">\n"
+"                                        <t t-out=\"object.activity_id."
+"controller_id.display_name\"/>\n"
+"                                    </a>.\n"
 "                                </p>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -264,17 +269,11 @@ msgstr "Actividades de tratamiento de datos"
 #. module: privacy_consent
 #: model:mail.template,subject:privacy_consent.template_consent
 msgid ""
-"Data processing consent request for ${object.activity_id.display_name|safe}"
+"Data processing consent request for {{ object.activity_id.display_name }}"
 msgstr ""
-"Solicitud de consentimiento para el tratamiento de datos personales para "
-"${object.activity_id.display_name|safe}"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__display_name
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -323,11 +322,6 @@ msgid "Followers"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
@@ -345,6 +339,7 @@ msgid "Generate missing draft consent requests"
 msgstr "Generar borradores de las solicitudes de consentimiento faltantes"
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Generated consents"
@@ -354,6 +349,11 @@ msgstr "Consentimientos generados"
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "Group By"
 msgstr "Agrupar por"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -371,17 +371,12 @@ msgid "I <b>reject</b> this processing of my data"
 msgstr "<b>Rechazo</b> este tratamiento de mis datos"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail__id
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template__id
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__id
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction
-#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -419,11 +414,7 @@ msgid "Last Metadata"
 msgstr "Últimos metadatos"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_mail____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_mail_template____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity____last_update
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent____last_update
-#: model:ir.model.fields,field_description:privacy_consent.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -464,18 +455,15 @@ msgstr ""
 "Metadatos de la última aceptación o denegación por parte del interesado"
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/mail_template.py:0
 #, python-format
 msgid ""
 "Missing privacy consent link placeholders. You need at least these two "
 "links:\n"
-"<a href=\"%s\">Accept</a>\n"
-"<a href=\"%s\">Reject</a>"
+"<a href=\"%(consent_url)s\">Accept</a>\n"
+"<a href=\"%(reject_url)s\">Reject</a>"
 msgstr ""
-"Faltan los marcadores de posición de los enlaces para el consentimiento. "
-"Necesita al menos estos dos enlaces:\n"
-"<a href=\"%s\">Aceptar</a>\n"
-"<a href=\"%s\">Rechazar</a>"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_consent_new
@@ -504,14 +492,14 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: privacy_consent
-#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread_counter
-msgid "Number of unread messages"
-msgstr ""
-
-#. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
 msgstr "Correos electrónicos salientes"
+
+#. module: privacy_consent
+#: model:mail.template,name:privacy_consent.template_consent
+msgid "Personal data processing consent request"
+msgstr ""
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
@@ -555,6 +543,7 @@ msgid "Request automatic data processing consents"
 msgstr ""
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Require consent is available only for subjects in current database."
@@ -593,6 +582,7 @@ msgid "Sincerely,<br/>"
 msgstr "Atentamente,<br/>"
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Specify a mail template to ask automated consent."
@@ -645,16 +635,6 @@ msgstr ""
 "consentimiento para el tratamiento de datos, ¿seguro que quiere continuar?"
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr ""
-
-#. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid ""
 "We asked you to authorize us to process your data in this data processing "
@@ -677,6 +657,25 @@ msgstr "Ha <b class=\"text-danger\">rechazado</b> dicho tratamiento."
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr "Ha <b class=\"text-success\">aceptado</b> dicho tratamiento."
+
+#~ msgid ""
+#~ "Data processing consent request for ${object.activity_id.display_name|"
+#~ "safe}"
+#~ msgstr ""
+#~ "Solicitud de consentimiento para el tratamiento de datos personales para "
+#~ "${object.activity_id.display_name|safe}"
+
+#, python-format
+#~ msgid ""
+#~ "Missing privacy consent link placeholders. You need at least these two "
+#~ "links:\n"
+#~ "<a href=\"%s\">Accept</a>\n"
+#~ "<a href=\"%s\">Reject</a>"
+#~ msgstr ""
+#~ "Faltan los marcadores de posición de los enlaces para el consentimiento. "
+#~ "Necesita al menos estos dos enlaces:\n"
+#~ "<a href=\"%s\">Aceptar</a>\n"
+#~ "<a href=\"%s\">Rechazar</a>"
 
 #~ msgid ""
 #~ "<?xml version=\"1.0\"?>\n"

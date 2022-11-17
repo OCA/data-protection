@@ -302,6 +302,7 @@ msgid "Generate missing draft consent requests"
 msgstr ""
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Generated consents"
@@ -412,6 +413,7 @@ msgid "Metadata from the last acceptance or rejection by the subject"
 msgstr ""
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/mail_template.py:0
 #, python-format
 msgid ""
@@ -493,6 +495,7 @@ msgid "Request automatic data processing consents"
 msgstr ""
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Require consent is available only for subjects in current database."
@@ -526,6 +529,7 @@ msgid "Sincerely,<br/>"
 msgstr ""
 
 #. module: privacy_consent
+#. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Specify a mail template to ask automated consent."

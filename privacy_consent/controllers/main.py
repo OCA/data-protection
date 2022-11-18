@@ -7,6 +7,7 @@ from markupsafe import Markup
 from werkzeug.exceptions import NotFound
 
 from odoo.http import Controller, request, route
+from odoo.tools import consteq
 
 
 class ConsentController(Controller):
@@ -24,7 +25,7 @@ class ConsentController(Controller):
             .sudo()
             .browse(consent_id)
         )
-        if not (consent.exists() and consent._token() == token):
+        if not (consent.exists() and consteq(consent._token(), token)):
             raise NotFound
         if consent.partner_id.lang:
             request.update_context(lang=consent.partner_id.lang)

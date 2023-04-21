@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-12 15:35+0000\n"
+"PO-Revision-Date: 2023-04-21 14:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -163,7 +163,7 @@ msgstr "ID"
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Se selezionato, nuovi messaggi richiedono attenzione."
+msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction

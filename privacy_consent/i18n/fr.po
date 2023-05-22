@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-17 17:34+0000\n"
+"PO-Revision-Date: 2023-05-22 18:09+0000\n"
 "Last-Translator: abirslh <salahabir94@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
@@ -325,7 +325,7 @@ msgstr "Modèle de corps HTML par défaut pour un consentement"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_subject
 msgid "Consent Template Default Subject"
-msgstr ""
+msgstr "Objet par défaut du modèle de consentement"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_privacy_consent
@@ -344,58 +344,60 @@ msgstr "Consentements"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_count
 msgid "Consents count"
-msgstr ""
+msgstr "Compteur des consentements"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_privacy_activity
 msgid "Data processing activities"
-msgstr ""
+msgstr "Traitements des données personnelles"
 
 #. module: privacy_consent
 #: model:mail.template,subject:privacy_consent.template_consent
 msgid ""
 "Data processing consent request for ${object.activity_id.display_name|safe}"
 msgstr ""
+"Demande de consentement pour le traitement de ${object.activity_id."
+"display_name|safe}"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom à afficher"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Brouillon"
 
 #. module: privacy_consent
 #: model:ir.model.constraint,message:privacy_consent.constraint_privacy_consent_unique_partner_activity
 msgid "Duplicated partner in this data processing activity"
-msgstr ""
+msgstr "Partenaire dupliqué dans ce traitement de donnés"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_template
 msgid "Email Templates"
-msgstr ""
+msgstr "Modèles d'emails"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_id
 msgid "Email template"
-msgstr ""
+msgstr "Modèle de courriel"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__consent_template_id
@@ -404,85 +406,92 @@ msgid ""
 "include details about the current consent request status, how to change it, "
 "and where to get more information."
 msgstr ""
+"Courriel qui va être envoyé aux intéressés afin de leur demander leur "
+"consentement. Un bon modèle doit inclure des informations le statut actuel "
+"du consentement, comment le changer et où peu t'il avoir davantage "
+"d'information."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__consent_required
 msgid ""
 "Enable if you need to track any kind of consent from the affected subjects"
 msgstr ""
+"Activer si vous avez besoin de suivre tout type de consentement des "
+"intéressés"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Abonnés"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Abonnés (Canaux)"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Abonnés (Partenaires)"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
 msgid "Generate and enqueue missing consent requests"
 msgstr ""
+"Générer et mettre en file d'attente les demandes de consentement manquant"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
 msgid "Generate missing draft consent requests"
-msgstr ""
+msgstr "Générer des brouillons de demandes de consentement manquants"
 
 #. module: privacy_consent
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Generated consents"
-msgstr ""
+msgstr "Consentements générés"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "Group By"
-msgstr ""
+msgstr "Regrouper par"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Hello,"
-msgstr ""
+msgstr "Bonjour,"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "I <b>accept</b> this processing of my data"
-msgstr ""
+msgstr "J' <b>accepte</b> ce traitement de mes données"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "I <b>reject</b> this processing of my data"
-msgstr ""
+msgstr "Je <b>refuse</b> ce traitement de mes données"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Si coché, de nouveaux messages requièrent votre attention."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si coché, certains messages n'ont pas été envoyés."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "If it was a mistake, you can undo it here:"
-msgstr ""
+msgstr "Si c'était une erreur, vous pouvez l'annule :"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__accepted
@@ -491,56 +500,59 @@ msgid ""
 "answer, or from the default specified in the related data processing "
 "activity."
 msgstr ""
+"Indique l'état d'acceptation actuel, qui peut provenir de la dernière "
+"réponse de l'intéressé ou de la valeur par défaut spécifiée dans le "
+"traitement des données associée."
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Est abonné"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__last_metadata
 msgid "Last Metadata"
-msgstr ""
+msgstr "Dernières méta-données"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Pièce jointe principale"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__manual
 msgid "Manually"
-msgstr ""
+msgstr "Manuellement"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Erreur d'envoi du message"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__last_metadata
 msgid "Metadata from the last acceptance or rejection by the subject"
-msgstr ""
+msgstr "Métadonnées de la dernière acceptation ou refus par l'intéressé"
 
 #. module: privacy_consent
 #: code:addons/privacy_consent/models/mail_template.py:0
@@ -551,84 +563,90 @@ msgid ""
 "<a href=\"%s\">Accept</a>\n"
 "<a href=\"%s\">Reject</a>"
 msgstr ""
+"Variable manquantes pour les liens de consentement. Vous avez besoin d'au "
+"moins ces deux liens :\n"
+"<a href=\"%s\">Accepter</a>\n"
+"<a href=\"%s\">Refuser</a>"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_consent_new
 #: model:mail.message.subtype,name:privacy_consent.mt_consent_consent_new
 msgid "New Consent"
-msgstr ""
+msgstr "Nouveau Consentement"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Nombre d'actions"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Nombre d'erreurs"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Nombre de messages qui requièrent une action"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Nombre de message avec une erreur d'envoi"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Nombre de messages non lus"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
-msgstr ""
+msgstr "Emails à envoyer"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
 msgid "Privacy consent request acceptance status changed"
-msgstr ""
+msgstr "Statut d'acceptation du consentement modifié"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_consent_new
 #: model:mail.message.subtype,description:privacy_consent.mt_consent_consent_new
 msgid "Privacy consent request created"
-msgstr ""
+msgstr "Demande de consentement créé"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,description:privacy_consent.mt_activity_state_changed
 #: model:mail.message.subtype,description:privacy_consent.mt_consent_state_changed
 msgid "Privacy consent request state changed"
-msgstr ""
+msgstr "État du consentement modifié"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_res_partner__privacy_consent_count
 #: model:ir.model.fields,help:privacy_consent.field_res_users__privacy_consent_count
 msgid "Privacy consent requests amount"
-msgstr ""
+msgstr "Nombre de demande de consentement"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_res_partner__privacy_consent_ids
 #: model:ir.model.fields,field_description:privacy_consent.field_res_users__privacy_consent_ids
 msgid "Privacy consents"
-msgstr ""
+msgstr "Consentement à la protection des données"
 
 #. module: privacy_consent
 #: model:ir.actions.server,name:privacy_consent.cron_auto_consent_ir_actions_server
 #: model:ir.cron,cron_name:privacy_consent.cron_auto_consent
 #: model:ir.cron,name:privacy_consent.cron_auto_consent
 msgid "Request automatic data processing consents"
-msgstr ""
+msgstr "Demander des autorisations de traitement automatique des données"
 
 #. module: privacy_consent
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Require consent is available only for subjects in current database."
 msgstr ""
+"L'exigence de consentement n'est disponible que pour les intéressés de la "
+"base de données actuelle."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__server_action_id
@@ -636,84 +654,91 @@ msgid ""
 "Run this action when a new consent request is created or its acceptance "
 "status is updated."
 msgstr ""
+"Exécutez cette action lorsqu'une nouvelle demande de consentement est créée "
+"ou que son statut d'acceptation est mis à jour."
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Erreur d'envoi du message"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
 msgid "Server action"
-msgstr ""
+msgstr "Action du serveur"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__default_consent
 msgid "Should we assume the subject has accepted if we receive no response?"
 msgstr ""
+"Doit-on supposer que le sujet a accepté si nous ne recevons aucune réponse ?"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Sincerely,<br/>"
-msgstr ""
+msgstr "Sincèrement,<br/>"
 
 #. module: privacy_consent
 #: code:addons/privacy_consent/models/privacy_activity.py:0
 #, python-format
 msgid "Specify a mail template to ask automated consent."
 msgstr ""
+"Spécifiez un modèle de courriel électronique pour demander un consentement "
+"automatisé."
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__state
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "State"
-msgstr ""
+msgstr "État"
 
 #. module: privacy_consent
 #: model:mail.message.subtype,name:privacy_consent.mt_activity_state_changed
 #: model:mail.message.subtype,name:privacy_consent.mt_consent_state_changed
 msgid "State Changed"
-msgstr ""
+msgstr "État modifié"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__partner_id
 msgid "Subject"
-msgstr ""
+msgstr "Intéressé"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__partner_id
 msgid "Subject asked for consent."
-msgstr ""
+msgstr "L'intéressé questionné sur son consentement."
 
 #. module: privacy_consent
 #: model:ir.actions.server,name:privacy_consent.sync_blacklist
 msgid "Sync partner's email blacklist status"
-msgstr ""
+msgstr "Synchronisation de l'état de la liste noire des e-mails du partenaire"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Thank you!"
-msgstr ""
+msgstr "Merci !"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Thanks for your response."
-msgstr ""
+msgstr "Merci pour votre réponse."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
 msgid "This could enqueue many consent emails, are you sure to proceed?"
 msgstr ""
+"Cela peut mettre plusieurs courriels de consentement dans la file d'attente, "
+"êtes-vous sûr de vouloir continuer ?"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Messages non lus"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Nombre de messages non lus"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -721,18 +746,20 @@ msgid ""
 "We asked you to authorize us to process your data in this data processing "
 "activity:"
 msgstr ""
+"Nous vous avons demandé de nous autoriser à traiter vos données dans cette "
+"activité de traitement de données :"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "We have recorded this action on your side."
-msgstr ""
+msgstr "Nous avons enregistré cette action pour vous."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-danger\">rejected</b> such processing."
-msgstr ""
+msgstr "Vous avez <b class=\"text-danger\">refusé</b> ce traitement."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-success\">accepted</b> such processing."
-msgstr ""
+msgstr "Vous avez <b class=\"text-success\">accepté</b> ce traitement."

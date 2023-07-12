@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-12 12:09+0000\n"
+"PO-Revision-Date: 2023-07-12 15:10+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -53,7 +53,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Archived"
-msgstr "Archiviata"
+msgstr "In archivio"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__subject_find

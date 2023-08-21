@@ -274,8 +274,8 @@ msgstr "Número de errores"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Número de mensajes que requieren una acción"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error_counter
@@ -375,3 +375,6 @@ msgstr "Quien procesa los datos personales en nombre del responsable."
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "processors"
 msgstr "procesadores"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Número de mensajes que requieren una acción"

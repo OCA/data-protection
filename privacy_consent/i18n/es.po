@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-10 12:55+0000\n"
-"PO-Revision-Date: 2023-09-20 21:47+0000\n"
+"PO-Revision-Date: 2023-09-25 18:02+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -568,7 +568,7 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Error en la entrega de SMS"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
@@ -619,7 +619,7 @@ msgstr "Interesado a quien se le pide el consentimiento."
 #. module: privacy_consent
 #: model:ir.actions.server,name:privacy_consent.sync_blacklist
 msgid "Sync partner's email blacklist status"
-msgstr ""
+msgstr "Sincronizar el estado de la lista negra de correo electrónico del socio"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form

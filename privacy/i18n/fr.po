@@ -32,11 +32,22 @@ msgid "Activities"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
 msgid "Activity State"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Archived"
 msgstr ""
@@ -141,6 +152,11 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Group By"
 msgstr ""
@@ -156,17 +172,24 @@ msgid "ID"
 msgstr ""
 
 #. module: privacy
-#: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
-msgid "If checked new messages require your attention."
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_icon
+msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -211,6 +234,11 @@ msgid "Messages"
 msgstr ""
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__name
 msgid "Name"
 msgstr ""
@@ -237,7 +265,7 @@ msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error_counter
-msgid "Number of error"
+msgid "Number of errors"
 msgstr ""
 
 #. module: privacy
@@ -256,19 +284,9 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: privacy
-#: selection:privacy.activity,activity_state:0
-msgid "Overdue"
-msgstr ""
-
-#. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
 #: model:ir.ui.menu,name:privacy.menu_data_protection_partner
 msgid "Partners"
-msgstr ""
-
-#. module: privacy
-#: selection:privacy.activity,activity_state:0
-msgid "Planned"
 msgstr ""
 
 #. module: privacy
@@ -290,6 +308,11 @@ msgstr ""
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_user_id
 msgid "Responsible User"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_sms_error
+msgid "SMS Delivery error"
 msgstr ""
 
 #. module: privacy
@@ -322,13 +345,13 @@ msgid "Subjects filter"
 msgstr ""
 
 #. module: privacy
-#: selection:privacy.activity,activity_state:0
-msgid "Today"
+#: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
+msgid "Transactions"
 msgstr ""
 
 #. module: privacy
-#: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
-msgid "Transactions"
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_decoration
+msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: privacy

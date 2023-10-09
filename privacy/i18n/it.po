@@ -34,12 +34,18 @@ msgid "Activities"
 msgstr "Attività"
 
 #. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
 #, fuzzy
 msgid "Activity State"
 msgstr "Attività"
 
 #. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Archived"
 msgstr "In archivio"
@@ -162,17 +168,24 @@ msgid "ID"
 msgstr "ID"
 
 #. module: privacy
-#: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
-msgid "If checked new messages require your attention."
-msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
@@ -243,8 +256,8 @@ msgstr "Numero di azioni"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error_counter
-msgid "Number of error"
-msgstr "Numero di errori"
+msgid "Number of errors"
+msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction_counter
@@ -262,20 +275,10 @@ msgid "Number of unread messages"
 msgstr "Numero di messaggi non letti"
 
 #. module: privacy
-#: selection:privacy.activity,activity_state:0
-msgid "Overdue"
-msgstr ""
-
-#. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
 #: model:ir.ui.menu,name:privacy.menu_data_protection_partner
 msgid "Partners"
 msgstr "Partner"
-
-#. module: privacy
-#: selection:privacy.activity,activity_state:0
-msgid "Planned"
-msgstr ""
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.parent_menu_data_protection
@@ -296,6 +299,11 @@ msgstr "Informative"
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_user_id
 msgid "Responsible User"
+msgstr ""
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_sms_error
+msgid "SMS Delivery error"
 msgstr ""
 
 #. module: privacy
@@ -329,14 +337,14 @@ msgid "Subjects filter"
 msgstr "Filtro soggetti interessati"
 
 #. module: privacy
-#: selection:privacy.activity,activity_state:0
-msgid "Today"
-msgstr ""
-
-#. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
 msgid "Transactions"
 msgstr "Operazioni"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_unread
@@ -365,3 +373,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "processors"
 msgstr "responsabili trattamento"
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
+
+#~ msgid "Number of error"
+#~ msgstr "Numero di errori"

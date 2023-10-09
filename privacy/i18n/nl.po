@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* privacy
+# 	* privacy
 #
 msgid ""
 msgstr ""
@@ -101,7 +101,8 @@ msgstr ""
 
 #. module: privacy
 #: model_terms:ir.actions.act_window,help:privacy.activity_action
-msgid "Data processing activities define why, how and what you do\n"
+msgid ""
+"Data processing activities define why, how and what you do\n"
 "                with subjects' personal data."
 msgstr ""
 
@@ -305,7 +306,8 @@ msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
@@ -343,7 +345,8 @@ msgstr ""
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__controller_id
-msgid "Whoever determines the purposes and means of the processing of personal data."
+msgid ""
+"Whoever determines the purposes and means of the processing of personal data."
 msgstr ""
 
 #. module: privacy

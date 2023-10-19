@@ -3,9 +3,11 @@
 
 from datetime import datetime
 
+from markupsafe import Markup
 from werkzeug.exceptions import NotFound
 
 from odoo.http import Controller, request, route
+from odoo.tools import consteq
 
 
 class ConsentController(Controller):
@@ -23,13 +25,23 @@ class ConsentController(Controller):
             .sudo()
             .browse(consent_id)
         )
-        if not (consent.exists() and consent._token() == token):
+        if not (consent.exists() and consteq(consent._token(), token)):
             raise NotFound
         if consent.partner_id.lang:
             consent = consent.with_context(lang=consent.partner_id.lang)
             request.context = consent.env.context
         consent.action_answer(choice == "accept", self._metadata())
-        return request.render("privacy_consent.form", {"consent": consent})
+        return request.render(
+            "privacy_consent.form",
+            {
+                "consent": consent,
+                "controller_name_html": Markup(
+                    consent.activity_id.controller_id.with_context(
+                        show_address=True, html_format=True
+                    ).name_get()[0][1]
+                ),
+            },
+        )
 
     def _metadata(self):
         return (

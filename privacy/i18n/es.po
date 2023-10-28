@@ -194,7 +194,6 @@ msgstr "Si está marcada, nuevos mensajes requieren su atención."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error
-#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "si está marcada, algunos mensajes tienen un error de entrega."
 
@@ -316,11 +315,6 @@ msgid "Responsible User"
 msgstr "Usuario Responsable"
 
 #. module: privacy
-#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error en la entrega del SMS"
-
-#. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__subject_domain
 msgid "Selection filter to find specific subjects included."
 msgstr ""
@@ -391,6 +385,9 @@ msgstr "Quien procesa los datos personales en nombre del responsable."
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "processors"
 msgstr "procesadores"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error en la entrega del SMS"
 
 #~ msgid "Followers (Channels)"
 #~ msgstr "Seguidores/as (Canales)"

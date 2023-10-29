@@ -377,7 +377,6 @@ msgstr ""
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
-#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -547,11 +546,6 @@ msgid ""
 msgstr ""
 "Execute esta ação quando um novo pedido de consentimento for criado ou seu "
 "estado de aceitação for atualizado."
-
-#. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id

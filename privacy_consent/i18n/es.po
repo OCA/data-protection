@@ -491,7 +491,6 @@ msgstr "Si está marcada, nuevos mensajes requieren su atención."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
-#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si está marcada, algunos mensajes tienen un error de entrega."
 
@@ -672,11 +671,6 @@ msgstr ""
 "cuando su estado de aceptación cambie."
 
 #. module: privacy_consent
-#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error en la entrega de SMS"
-
-#. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
 msgid "Server action"
 msgstr "Acción de servidor"
@@ -769,6 +763,9 @@ msgstr "Ha <b class=\"text-danger\">rechazado</b> dicho tratamiento."
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "You have <b class=\"text-success\">accepted</b> such processing."
 msgstr "Ha <b class=\"text-success\">aceptado</b> dicho tratamiento."
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error en la entrega de SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Números de mensajes que requieren una acción"

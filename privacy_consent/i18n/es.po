@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-13 17:04+0000\n"
-"PO-Revision-Date: 2023-12-21 09:35+0000\n"
+"PO-Revision-Date: 2023-12-21 12:34+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -317,15 +317,13 @@ msgstr "Consentimiento"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_body_html
-#, fuzzy
 msgid "Consent Template Default Body Html"
-msgstr "HTML por defecto para el cuerpo de la plantilla de consentimiento"
+msgstr "Plantilla HTML de consentimiento por defecto para el cuerpo"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_subject
-#, fuzzy
 msgid "Consent Template Default Subject"
-msgstr "HTML por defecto para el asunto de la plantilla de consentimiento"
+msgstr "Plantilla de Consentimiento para el Asunto por Defecto"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_privacy_consent
@@ -339,18 +337,17 @@ msgstr "Consentimiento para tratamiento de datos"
 #: model:ir.model.fields,field_description:privacy_consent.field_res_users__privacy_consent_count
 #: model:ir.ui.menu,name:privacy_consent.menu_privacy_consent
 msgid "Consents"
-msgstr "Consents"
+msgstr "Consentimientos"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_count
-#, fuzzy
 msgid "Consents count"
-msgstr "Consents"
+msgstr "Conteo de Consentimientos"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_uid
@@ -426,17 +423,17 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Seguidores/as (Canales)"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguidores (Socios)"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
@@ -489,13 +486,13 @@ msgstr "ID"
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Si están marcados, nuevos mensajes requiere su atención."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si está marcado los nuevos mensajes requieren su atención."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -516,13 +513,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Es Seguidor"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__last_metadata
-#, fuzzy
 msgid "Last Metadata"
-msgstr "Últimos metadatos"
+msgstr "Últimos Metadatos"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_mail_mail____last_update
@@ -546,7 +542,7 @@ msgstr "Última actualización el"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Archivo Adjunto Principal"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__manual
@@ -556,12 +552,12 @@ msgstr "Manualmente"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Error en Entrega de Mensaje"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__last_metadata
@@ -592,27 +588,27 @@ msgstr "Nuevo consentimiento"
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Número de Acciones"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Número de errores"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Número de mensajes que requieren una acción"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Cantidad de mensajes con errores de envio"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Número de mensajes sin leer"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
@@ -658,7 +654,7 @@ msgstr "Consentimientos para el tratamiento de datos"
 #: model:ir.cron,cron_name:privacy_consent.cron_auto_consent
 #: model:ir.cron,name:privacy_consent.cron_auto_consent
 msgid "Request automatic data processing consents"
-msgstr ""
+msgstr "Solicitar consentimientos para el tratamiento automatizado de datos"
 
 #. module: privacy_consent
 #: code:addons/privacy_consent/models/privacy_activity.py:0
@@ -680,7 +676,7 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Error en la Entrega de SMS"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
@@ -731,7 +727,7 @@ msgstr "Interesado a quien se le pide el consentimiento."
 #. module: privacy_consent
 #: model:ir.actions.server,name:privacy_consent.sync_blacklist
 msgid "Sync partner's email blacklist status"
-msgstr ""
+msgstr "Sincronizar el estado de la lista negra de correo electrónico del socio"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -753,12 +749,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Número de Mensajes no Leídos"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Contador de Mensajes no Leídos"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form

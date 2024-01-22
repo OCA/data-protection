@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-27 19:34+0000\n"
+"PO-Revision-Date: 2024-01-22 10:45+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -199,7 +199,7 @@ msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_is_follower
 msgid "Is Follower"
-msgstr "È un follower"
+msgstr "Segue"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity____last_update

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-01-22 10:45+0000\n"
+"PO-Revision-Date: 2024-10-03 11:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction
@@ -345,7 +345,7 @@ msgstr "Filtro soggetti interessati"
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
 msgid "Transactions"
-msgstr "Operazioni"
+msgstr "Transazioni"
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_decoration

@@ -14,7 +14,7 @@ class MailTemplate(models.Model):
     def _check_consent_links_in_body_html(self):
         """Body for ``privacy.consent`` templates needs placeholder links."""
         links = [
-            "//a[@href='/privacy/consent/{}/']".format(action)
+            f"//a[@href='/privacy/consent/{action}/']"
             for action in ("accept", "reject")
         ]
         for one in self:

@@ -2,6 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from contextlib import contextmanager
+from unittest.mock import patch
+
+import requests
 
 import odoo.tests
 from odoo import http
@@ -9,6 +12,7 @@ from odoo.exceptions import AccessError, ValidationError
 from odoo.tests import users
 from odoo.tests.common import Form
 
+from odoo.addons.base.models.ir_mail_server import IrMailServer
 from odoo.addons.mail.tests.common import mail_new_test_user
 
 
@@ -73,32 +77,41 @@ class ActivityCase(odoo.tests.HttpCase):
 
     @contextmanager
     def _patch_build(self):
+        build_email_origin = IrMailServer.build_email
         self._built_messages = []
-        IMS = self.env["ir.mail_server"]
 
         def _build_email(_self, email_from, email_to, subject, body, *args, **kwargs):
             self._built_messages.append(body)
-            return _build_email.origin(
-                _self,
-                email_from,
-                email_to,
-                subject,
-                body,
-                *args,
-                **kwargs,
+            return build_email_origin(
+                _self, email_from, email_to, subject, body, *args, **kwargs
             )
 
-        try:
-            IMS._patch_method("build_email", _build_email)
+        with patch.object(
+            IrMailServer,
+            "build_email",
+            autospec=True,
+            wraps=build_email_origin,
+            side_effect=_build_email,
+        ) as build_email_mocked:
+            self.build_email_mocked = build_email_mocked
             yield
-        finally:
-            IMS._revert_method("build_email")
 
 
 @odoo.tests.tagged("post_install", "-at_install")
 class ActivityFlow(ActivityCase):
     def check_activity_auto_properly_sent(self):
         """Check emails sent by ``self.activity_auto``."""
+        # Check message if model is not privacy.consent
+        message = self.env["mail.message"].create(
+            {
+                "model": "res.partner",
+                "res_id": self.partners[0].id,
+                "body": "Test message.",
+                "subtype_id": self.mt_consent_consent_new.id,
+            }
+        )
+        self.assertFalse("/privacy/consent/accept/" in message.body)
+        self.assertFalse("/privacy/consent/reject/" in message.body)
         # Check pending mails
         for consent in self.activity_auto.consent_ids:
             self.assertEqual(consent.state, "draft")
@@ -142,6 +155,21 @@ class ActivityFlow(ActivityCase):
                     break
             else:
                 raise AssertionError("Some message body should have these urls")
+
+    def check_activity_auto_properly_sent_no_links(self):
+        """Test case where no message contains the required URLs."""
+        self.env["privacy.consent"].create(
+            {
+                "activity_id": self.activity_auto.id,
+                "partner_id": self.partners[0].id,
+                "state": "draft",
+            }
+        )
+        self._built_messages = ["Random message without URLs"]
+        with self.assertRaises(
+            AssertionError, msg="Some message body should have these urls"
+        ):
+            self.activity_auto.check_activity_auto_properly_sent()
 
     def test_default_template(self):
         """We have a good mail template by default."""
@@ -207,8 +235,8 @@ class ActivityFlow(ActivityCase):
         action = consents[0].action_manual_ask()
         self.assertEqual(action["res_model"], "mail.compose.message")
         Composer = self.env[action["res_model"]].with_context(
-            active_ids=consents[0].ids,
-            active_model=consents._name,
+            ids=consents[0].ids,
+            model=consents._name,
             **action["context"],
         )
         composer_wizard = Form(Composer)
@@ -286,12 +314,106 @@ class ActivityFlow(ActivityCase):
         with self.assertRaises(ValidationError):
             self.activity_manual.consent_template_id.body_html = "No links :("
 
+    def test_track_subtype(self):
+        """Test that _track_subtype returns the correct
+        mail message subtype for consent."""
+        consent = self.env["privacy.consent"].create(
+            {
+                "activity_id": self.activity_auto.id,
+                "partner_id": self.partners[0].id,
+                "state": "draft",
+            }
+        )
+        # Case 1: Change in state
+        subtype = consent._track_subtype({"state": "approved"})
+        self.assertEqual(
+            subtype,
+            self.env.ref("privacy_consent.mt_consent_state_changed"),
+            "Subtype must be 'mt_consent_state_changed' when state is changed.",
+        )
+        # Case 2: Context subject_answering activated
+        subtype = consent.with_context(subject_answering=True)._track_subtype({})
+        self.assertEqual(
+            subtype,
+            self.env.ref("privacy_consent.mt_consent_acceptance_changed"),
+            """Subtype must be 'mt_consent_acceptance_changed'
+             when subject_answering is activated.""",
+        )
+        # Case 3: Without any of the conditions
+        with patch.object(
+            type(consent), "_track_subtype", return_value="super_subtype"
+        ) as mock_super:
+            subtype = consent._track_subtype({})
+            mock_super.assert_called_once_with({})
+            self.assertEqual(
+                subtype,
+                "super_subtype",
+                "Subtype must be the same from original method.",
+            )
+
+    def test_message_get_suggested_recipients(self):
+        """Test that consent suggests the correct recipients."""
+        consent = self.env["privacy.consent"].create(
+            {
+                "activity_id": self.activity_auto.id,
+                "partner_id": self.partners[0].id,
+                "state": "draft",
+            }
+        )
+        suggested_recipients = consent._message_get_suggested_recipients()
+        recipient_data = suggested_recipients.get(consent.id)
+        self.assertEqual(consent.partner_id.id, recipient_data[0][0])
+        self.assertIn(consent.partner_id.name, recipient_data[0][1])
+        self.assertIn(consent.partner_id.email, recipient_data[0][1])
+
+    def test_compute_consent_count(self):
+        """Test that consent_count is correctly updated."""
+        self.assertEqual(
+            self.activity_auto.consent_count, 0, "Initial consent count should be 0."
+        )
+        self.env["privacy.consent"].create(
+            {
+                "activity_id": self.activity_auto.id,
+                "partner_id": self.partners[0].id,
+                "state": "draft",
+            }
+        )
+        self.activity_auto._compute_consent_count()
+        self.assertEqual(
+            self.activity_auto.consent_count,
+            1,
+            "Consent count should be 1 after adding a consent.",
+        )
+
+    def test_compute_privacy_consent_count(self):
+        """Test that privacy_consent_count is correctly updated."""
+        self.assertEqual(
+            self.partners[0].privacy_consent_count,
+            0,
+            "Initial privacy consent count should be 0.",
+        )
+        self.env["privacy.consent"].create(
+            {
+                "activity_id": self.activity_auto.id,
+                "partner_id": self.partners[0].id,
+                "state": "draft",
+            }
+        )
+        self.partners[0]._compute_privacy_consent_count()
+
+        self.assertEqual(
+            self.partners[0].privacy_consent_count,
+            1,
+            "Privacy consent count should be 1 after adding a consent.",
+        )
+
 
 @odoo.tests.tagged("post_install", "-at_install")
 class ActivitySecurity(ActivityCase):
     @classmethod
     def setUpClass(cls):
         """Create users based on privacy groups to tests ACLs"""
+        cls._super_send = requests.Session.send
         super().setUpClass()
 
         # users
@@ -316,6 +438,10 @@ class ActivitySecurity(ActivityCase):
             notification_type="inbox",
             signature="--\nPatricia",
         )
+
+    @classmethod
+    def _request_handler(cls, s, r, /, **kw):
+        return cls._super_send(s, r, **kw)
 
     @users("user_privacy_user")
     def test_consent_acl_user(self):

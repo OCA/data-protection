@@ -38,16 +38,16 @@ class MailMail(models.Model):
             failure_type=failure_type,
         )
 
-    def _send_prepare_body(self):
+    def _prepare_outgoing_body(self):
         """Replace privacy consent magic links.
 
         This replacement is done here instead of directly writing it into
-        the ``mail.template`` to avoid writing the tokeinzed URL
+        the ``mail.template`` to avoid writing the tokenized URL
         in the mail thread for the ``privacy.consent`` record,
         which would enable any reader of such thread to impersonate the
         subject and choose in its behalf.
         """
-        result = super()._send_prepare_body()
+        result = super()._prepare_outgoing_body()
         # Avoid polluting other model mails
         if self.model != "privacy.consent":
             return result

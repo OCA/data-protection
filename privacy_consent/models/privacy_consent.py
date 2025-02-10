@@ -31,7 +31,6 @@ class PrivacyConsent(models.Model):
         "related data processing activity.",
     )
     last_metadata = fields.Text(
-        readonly=True,
         tracking=True,
         help="Metadata from the last acceptance or rejection by the subject",
     )
@@ -39,14 +38,12 @@ class PrivacyConsent(models.Model):
         comodel_name="res.partner",
         string="Subject",
         required=True,
-        readonly=True,
         tracking=True,
         help="Subject asked for consent.",
     )
     activity_id = fields.Many2one(
         comodel_name="privacy.activity",
         string="Activity",
-        readonly=True,
         required=True,
         tracking=True,
     )
@@ -57,7 +54,6 @@ class PrivacyConsent(models.Model):
             ("answered", "Answered"),
         ],
         default="draft",
-        readonly=True,
         required=True,
         tracking=True,
     )
@@ -137,8 +133,8 @@ class PrivacyConsent(models.Model):
         self._run_action()
         return result
 
-    def message_get_suggested_recipients(self):
-        result = super().message_get_suggested_recipients()
+    def _message_get_suggested_recipients(self):
+        result = super()._message_get_suggested_recipients()
         reason = self._fields["partner_id"].string
         for one in self:
             one._message_add_suggested_recipient(
@@ -154,7 +150,7 @@ class PrivacyConsent(models.Model):
             "context": {
                 "default_composition_mode": "comment",
                 "default_model": self._name,
-                "default_res_id": self.id,
+                "default_res_ids": self.ids,
                 "default_template_id": self.activity_id.consent_template_id.id,
                 "default_use_template": True,
                 "tpl_force_default_to": True,

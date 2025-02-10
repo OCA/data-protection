@@ -23,14 +23,14 @@
                             name="web_ribbon"
                             title="Archived"
                             bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"
+                            invisible="active == True"
                         />
                     </div>
                     <group>
-                        <field name="partner_id" />
-                        <field name="activity_id" />
+                        <field name="partner_id" readonly="1" />
+                        <field name="activity_id" readonly="1" />
                         <field name="accepted" />
-                        <field name="last_metadata" />
+                        <field name="last_metadata" readonly="1" />
                     </group>
                 </sheet>
                 <div class="oe_chatter">

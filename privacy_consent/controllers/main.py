@@ -37,7 +37,7 @@ class ConsentController(Controller):
                 "controller_name_html": Markup(
                     consent.activity_id.controller_id.with_context(
                         show_address=True, html_format=True
-                    ).name_get()[0][1]
+                    ).display_name
                 ),
             },
         )

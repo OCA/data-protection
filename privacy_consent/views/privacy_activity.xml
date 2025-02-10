@@ -9,9 +9,9 @@
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
                 <button
-                    attrs='{"invisible": [("consent_required", "=", False)]}'
+                    invisible="consent_required == False"
                     class="oe_stat_button"
-                    context='{"search_default_activity_id": active_id}'
+                    context='{"search_default_activity_id": id}'
                     icon="fa-handshake-o"
                     name="%(consent_action)d"
                     type="action"
@@ -26,7 +26,7 @@
                         <div>
                             <field name="consent_required" class="oe_inline" />
                             <button
-                                attrs='{"invisible": [("consent_required", "!=", "manual")]}'
+                                invisible="consent_required != 'manual'"
                                 class="btn-link"
                                 icon="fa-user-plus"
                                 name="action_new_consents"
@@ -34,7 +34,7 @@
                                 string="Generate missing draft consent requests"
                             />
                             <button
-                                attrs='{"invisible": [("consent_required", "!=", "auto")]}'
+                                invisible="consent_required != 'auto'"
                                 class="btn-link"
                                 icon="fa-user-plus"
                                 name="action_new_consents"
@@ -44,7 +44,7 @@
                             />
                         </div>
                     </group>
-                    <group attrs='{"invisible": [("consent_required", "=", False)]}'>
+                    <group invisible="consent_required == False">
                         <group>
                             <field name="default_consent" />
                             <field name="server_action_id" groups="base.group_no_one" />
@@ -60,7 +60,7 @@
                             />
                             <field
                                 name="consent_template_id"
-                                attrs='{"required": [("consent_required", "=", "auto")]}'
+                                required="consent_required == 'auto'"
                                 context='{
                                     "default_model": "privacy.consent",
                                     "default_body_html": consent_template_default_body_html,

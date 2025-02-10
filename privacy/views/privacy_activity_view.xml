@@ -17,7 +17,7 @@
                             name="web_ribbon"
                             title="Archived"
                             bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"
+                            invisible="active"
                         />
                     </div>
                     <div class="oe_title">
@@ -43,8 +43,8 @@
                             name="subject_domain"
                             widget="domain"
                             options='{"model": "res.partner"}'
-                            attrs='{"required": [("subject_find", "=", True)],
-                                  "invisible": [("subject_find", "=", False)]}'
+                            required="subject_find"
+                            invisible="not subject_find"
                         />
                     </group>
                     <separator name="processors" string="Processors" />

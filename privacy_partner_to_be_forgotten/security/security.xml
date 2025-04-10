@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Create a new category for Anonymize Contacts under Administration -->
+    <record model="ir.module.category" id="module_category_anonymize_contacts">
+        <field name="name">Anonymize Contacts</field>
+        <field name="parent_id" ref="base.module_category_administration" />
+        <field name="sequence">101</field>
+    </record>
+
+    <!-- Define the group for Anonymize Contacts -->
+    <record id="group_partner_anonymize" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="module_category_anonymize_contacts" />
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+        <field
+            name="comment"
+        >Users in this group can anonymize contact information for GDPR compliance.</field>
+    </record>
+</odoo>

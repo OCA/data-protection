@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <!-- Test Partners -->
+    <record id="partner_company_sodasopa" model="res.partner">
+        <field name="name">Sodasopa</field>
+        <field name="is_company" eval="True" />
+        <field name="phone">+1 123-456-7890</field>
+        <field name="email">info@sodasopa.com</field>
+        <field name="street">123 Main St</field>
+        <field name="city">South Park</field>
+        <field name="zip">80435</field>
+        <field name="country_id" ref="base.us" />
+        <field name="website">www.sodasopa.com</field>
+        <field name="vat">US123456789</field>
+    </record>
+
+    <record id="partner_eric_cartman" model="res.partner">
+        <field name="name">Eric Cartman</field>
+        <field name="parent_id" ref="partner_company_sodasopa" />
+        <field name="phone">+1 123-456-7891</field>
+        <field name="mobile">+1 123-456-7892</field>
+        <field name="email">eric@sodasopa.com</field>
+        <field name="street">124 Main St</field>
+        <field name="city">South Park</field>
+        <field name="zip">80435</field>
+        <field name="country_id" ref="base.us" />
+        <field name="function">Manager</field>
+    </record>
+
+    <record id="partner_butters_stotch" model="res.partner">
+        <field name="name">Butters Stotch</field>
+        <field name="parent_id" ref="partner_company_sodasopa" />
+        <field name="phone">+1 123-456-7893</field>
+        <field name="mobile">+1 123-456-7894</field>
+        <field name="email">butters@sodasopa.com</field>
+        <field name="street">125 Main St</field>
+        <field name="city">South Park</field>
+        <field name="zip">80435</field>
+        <field name="country_id" ref="base.us" />
+        <field name="function">Assistant</field>
+    </record>
+
+    <record id="partner_kenny_mccormick" model="res.partner">
+        <field name="name">Kenny McCormick</field>
+        <field name="parent_id" ref="partner_eric_cartman" />
+        <field name="phone">+1 123-456-7895</field>
+        <field name="mobile">+1 123-456-7896</field>
+        <field name="email">kenny@sodasopa.com</field>
+        <field name="street">126 Main St</field>
+        <field name="city">South Park</field>
+        <field name="zip">80435</field>
+        <field name="country_id" ref="base.us" />
+        <field name="function">Intern</field>
+    </record>
+
+    <record id="partner_stanley_marsh" model="res.partner">
+        <field name="name">Stanley Marsh</field>
+        <field name="phone">+1 123-456-7897</field>
+        <field name="mobile">+1 123-456-7898</field>
+        <field name="email">stan@sp.com</field>
+        <field name="street">127 Main St</field>
+        <field name="city">South Park</field>
+        <field name="zip">80435</field>
+        <field name="country_id" ref="base.us" />
+        <field name="function">Student</field>
+    </record>
+
+    <!-- Test Users -->
+    <record
+        id="user_company_sodasopa"
+        model="res.users"
+        context="{'no_reset_password': True}"
+    >
+        <field name="partner_id" ref="partner_company_sodasopa" />
+        <field name="login">sodasopa</field>
+        <field name="password">sodasopa</field>
+        <field name="name">Sodasopa</field>
+        <field name="email">info@sodasopa.com</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]" />
+        <field name="action_id" ref="mail.action_discuss" />
+    </record>
+
+    <record
+        id="user_eric_cartman"
+        model="res.users"
+        context="{'no_reset_password': True}"
+    >
+        <field name="partner_id" ref="partner_eric_cartman" />
+        <field name="login">eric</field>
+        <field name="password">eric</field>
+        <field name="name">Eric Cartman</field>
+        <field name="email">eric@sodasopa.com</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]" />
+        <field name="action_id" ref="mail.action_discuss" />
+    </record>
+
+    <record
+        id="user_butters_stotch"
+        model="res.users"
+        context="{'no_reset_password': True}"
+    >
+        <field name="partner_id" ref="partner_butters_stotch" />
+        <field name="login">butters</field>
+        <field name="password">butters</field>
+        <field name="name">Butters Stotch</field>
+        <field name="email">butters@sodasopa.com</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]" />
+        <field name="action_id" ref="mail.action_discuss" />
+    </record>
+
+    <record
+        id="user_kenny_mccormick"
+        model="res.users"
+        context="{'no_reset_password': True}"
+    >
+        <field name="partner_id" ref="partner_kenny_mccormick" />
+        <field name="login">kenny</field>
+        <field name="password">kenny</field>
+        <field name="name">Kenny McCormick</field>
+        <field name="email">kenny@sodasopa.com</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]" />
+        <field name="action_id" ref="mail.action_discuss" />
+    </record>
+
+    <record
+        id="user_stanley_marsh"
+        model="res.users"
+        context="{'no_reset_password': True}"
+    >
+        <field name="partner_id" ref="partner_stanley_marsh" />
+        <field name="login">stan</field>
+        <field name="password">stan</field>
+        <field name="name">Stanley Marsh</field>
+        <field name="email">stan@sp.com</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]" />
+        <field name="action_id" ref="mail.action_discuss" />
+    </record>
+</odoo>

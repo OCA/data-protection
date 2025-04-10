@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_partner_anonymize_wizard,access.partner.anonymize.wizard,model_partner_anonymize_wizard,privacy_partner_to_be_forgotten.group_partner_anonymize,1,1,1,1

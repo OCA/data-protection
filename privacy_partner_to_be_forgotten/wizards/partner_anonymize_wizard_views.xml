@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2025 Cetmix OÜ
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="view_partner_anonymize_wizard_form" model="ir.ui.view">
+        <field name="name">partner.anonymize.wizard.form</field>
+        <field name="model">partner.anonymize.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Anonymize Partners">
+                <div class="alert alert-warning" role="alert">
+                    <h3>Confirmation Required: Anonymization Process</h3>
+                    <p
+                    >Once you confirm, Odoo will anonymize the selected partner(s) and all related records, including:
+                        <ul>
+                            <li>Personal information (name, email, phone, address)</li>
+                            <li>Chatter messages and attachments</li>
+                            <li>Linked res.users (user) records, if applicable</li>
+                            <li>Contact's activity history</li>
+                        </ul>
+                    </p>
+                    <p><strong>Important:</strong></p>
+                    <ul>
+                        <li>The anonymization operation <strong
+                            >cannot be undone</strong>.</li>
+                        <li
+                        >Once the data is anonymized, it cannot be restored. Please proceed carefully.</li>
+                        <li>Company records cannot be anonymized.</li>
+                        <li
+                        >You carry full responsibility for using the module's features in compliance with GDPR regulations.</li>
+                    </ul>
+                </div>
+                <group>
+                    <field name="partner_ids" readonly="1">
+                        <tree>
+                            <field name="name" />
+                            <field name="email" />
+                            <field name="phone" />
+                            <field name="is_company" invisible="1" />
+                            <field name="parent_id" />
+                            <field name="company_type" />
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        string="Confirm Anonymization"
+                        type="object"
+                        class="btn-primary"
+                        data-hotkey="q"
+                    />
+                    <button
+                        string="Cancel"
+                        class="btn-secondary"
+                        special="cancel"
+                        data-hotkey="z"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

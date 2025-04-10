@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2025 Cetmix OÜ
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="group_partner_anonymize" model="res.groups">
+        <field name="name">Anonymize Contacts</field>
+        <field name="category_id" ref="base.module_category_administration" />
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+        <field
+            name="comment"
+        >Users in this group can anonymize contact information for GDPR compliance.</field>
+    </record>
+</odoo>

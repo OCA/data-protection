@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2025 Cetmix OÜ
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="res_partner_view_form_anonymize" model="ir.ui.view">
+        <field name="name">res.partner.view.form.anonymize</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="action_anonymize_partner"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-user-secret"
+                    string="Anonymize (GDPR)"
+                    groups="privacy_partner_to_be_forgotten.group_partner_anonymize"
+                    invisible="email and '@anonymized.oca' in email"
+                />
+            </div>
+        </field>
+    </record>
+
+    <!-- Action menu item -->
+    <record id="action_partner_anonymize" model="ir.actions.act_window">
+        <field name="name">Anonymize (GDPR)</field>
+        <field name="res_model">partner.anonymize.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="binding_view_types">form,list</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('privacy_partner_to_be_forgotten.group_partner_anonymize'))]"
+        />
+        <field name="context">{'default_partner_ids': active_ids}</field>
+    </record>
+</odoo>

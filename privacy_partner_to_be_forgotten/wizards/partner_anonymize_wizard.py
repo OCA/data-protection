@@ -1,4 +1,8 @@
+# Copyright (C) 2025 Cetmix OÜ
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
 from odoo import _, fields, models
+from odoo.exceptions import AccessError, UserError
 
 
 class PartnerAnonymizeWizard(models.TransientModel):
@@ -12,38 +16,49 @@ class PartnerAnonymizeWizard(models.TransientModel):
         readonly=True,
     )
 
+    def _validate_partners_for_anonymization(self):
+        # Check access rights
+        if not self.env.user.has_group(
+            "privacy_partner_to_be_forgotten.group_partner_anonymize"
+        ):
+            raise AccessError(_("You don't have permission to anonymize partners."))
+
+        # Check if partner is a company
+        company_partners = self.partner_ids.filtered(lambda p: p.is_company)
+        if company_partners:
+            company_names = ", ".join(company_partners.mapped("name"))
+            raise UserError(
+                _("Cannot anonymize the following company records: %s") % company_names
+            )
+
+        # Check if partner is already anonymized
+
+        anonymized_partners = self.partner_ids.filtered(
+            lambda p: p.email and "@anonymized.oca" in p.email
+        )
+        if anonymized_partners:
+            anonymized_names = ", ".join(anonymized_partners.mapped("name"))
+            raise UserError(
+                _("The following partners are already anonymized: %s")
+                % anonymized_names
+            )
+
     def action_confirm(self):
         """Confirm and process partner anonymization for multiple partners"""
         self.ensure_one()
-        company_partners = self.partner_ids.filtered(lambda p: p.is_company)
-        partners_to_anonymize = self.partner_ids - company_partners
+        self._validate_partners_for_anonymization()
 
-        # Show warning if company partners were selected
-        if company_partners:
-            company_names = ", ".join(company_partners.mapped("name"))
-            self.env["bus.bus"]._sendone(
-                self.env.user.partner_id,
-                "warning",
-                {
-                    "title": _("Warning"),
-                    "message": _("These company records cannot be anonymized: %s")
-                    % company_names,
-                },
-            )
-
-        # Process anonymization for valid partners
-        for partner in partners_to_anonymize:
+        for partner in self.partner_ids:
             partner.anonymize_partner_data()
 
-        anonymized_count = len(partners_to_anonymize)
         return {
             "type": "ir.actions.client",
             "tag": "display_notification",
             "params": {
-                "title": _("Success"),
-                "message": _("%s partner(s) have been anonymized successfully.")
-                % anonymized_count,
-                "type": "success",
+                "title": _("Anonymization Result"),
+                "message": _("Partner(s) have been anonymized successfully."),
                 "sticky": False,
+                "type": "success",
+                "next": {"type": "ir.actions.act_window_close"},
             },
         }

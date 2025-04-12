@@ -9,69 +9,26 @@ from odoo import _, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    def action_anonymize_partner(self):
-        """Open a wizard to confirm partner anonymization"""
-        self.ensure_one()
-        self = self.sudo()
-
-        # Check access rights
-        if not self.env.user.has_group(
-            "privacy_partner_to_be_forgotten.group_partner_anonymize"
-        ):
-            return {
-                "type": "ir.actions.client",
-                "tag": "display_notification",
-                "params": {
-                    "title": _("Access Denied"),
-                    "message": _(
-                        "You don't have permission to anonymize partners."
-                    ),  # check text message according to task
-                    "type": "warning",
-                    "sticky": False,
-                },
-            }
-
-        # Check if partner is a company
-        if self.is_company:
-            return {
-                "type": "ir.actions.client",
-                "tag": "display_notification",
-                "params": {
-                    "title": _("Warning"),
-                    "message": _(
-                        "Company records cannot be anonymized."
-                    ),  # check text message according to task
-                    "type": "warning",
-                    "sticky": False,
-                },
-            }
-
-        # Check if partner is already anonymized
-        if self.email and "@anonymized.oca" in self.email:
-            return {
-                "type": "ir.actions.client",
-                "tag": "display_notification",
-                "params": {
-                    "title": _("Warning"),
-                    "message": _(
-                        "This partner is already anonymized."
-                    ),  # check text message according to task
-                    "type": "warning",
-                    "sticky": False,
-                },
-            }
-
-        return {
-            "type": "ir.actions.act_window",
-            "name": _("Anonymize Partner"),
-            "res_model": "partner.anonymize.wizard",
-            "view_mode": "form",
-            "target": "new",
-            "context": {"default_partner_ids": [(6, 0, self.ids)]},
-        }
-
     def anonymize_partner_data(self):
-        """Anonymize partner personal data"""
+        """Anonymizes personally identifiable information for a res.partner record.
+
+        Implements GDPR data erasure requirements by anonymizing all personal data.
+
+        This includes:
+        - Replacing name with anonymized initials (e.g., "EC Anonymized")
+        - Creating unique anonymized email with date stamp
+        - Clearing contact fields (phone, address, website, job title, tax ID)
+        - Clearing notes, references, and avatars
+        - Archiving partner record (active=False)
+
+        Additionally:
+        - Anonymizes linked res.users (login/email) and archives them
+        - Removes all mail.message chatter logs
+        - Removes all ir.attachment files from partner/messages
+        - Adds anonymization log note
+
+        Note: This operation is irreversible and removes all personal data traces.
+        """
         self.ensure_one()
 
         # Generate anonymized values
@@ -138,12 +95,12 @@ class ResPartner(models.Model):
             ("partner_ids", "in", [self.id]),
             # Messages in channels where this partner is a member
             "&",
-            ("model", "=", "mail.channel"),
+            ("model", "=", "discuss.channel"),
             (
                 "res_id",
                 "in",
-                self.env["mail.channel"]
-                .search([("channel_partner_ids", "in", self.id)])
+                self.env["discuss.channel"]
+                .search([("channel_member_ids.partner_id", "=", self.id)])
                 .ids,
             ),
         ]
@@ -151,7 +108,7 @@ class ResPartner(models.Model):
 
         # Delete attachments
         attachment_domain = [
-            "|",  # OR operator between two main conditions
+            "|",
             # Direct attachments on partner record
             "&",
             ("res_model", "=", "res.partner"),

@@ -19,7 +19,7 @@
         "views/res_partner_views.xml",
         "wizards/partner_anonymize_wizard_views.xml",
     ],
-    "demo": [],
+    "demo": ["demo/demo_partner_anonymize_data.xml"],
     "maintainers": ["halbtonjazz"],
     "installable": True,
     "application": False,

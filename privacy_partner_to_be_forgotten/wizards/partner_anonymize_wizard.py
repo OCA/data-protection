@@ -32,7 +32,6 @@ class PartnerAnonymizeWizard(models.TransientModel):
             )
 
         # Check if partner is already anonymized
-
         anonymized_partners = self.partner_ids.filtered(
             lambda p: p.email and "@anonymized.oca" in p.email
         )

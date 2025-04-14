@@ -6,9 +6,7 @@
     "version": "17.0.1.0.0",
     "development_status": "Beta",
     "category": "Data Protection",
-    # question for manager:
-    # this is from task description. is it ok?
-    "summary": "This module adds tons of cool features",
+    "summary": "Anonymize partner data for GDPR compliance",
     "author": "Cetmix OÜ, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "website": "https://github.com/OCA/data-protection",
@@ -20,7 +18,6 @@
         "wizards/partner_anonymize_wizard_views.xml",
     ],
     "demo": ["demo/demo_partner_anonymize_data.xml"],
-    "maintainers": ["halbtonjazz"],
     "installable": True,
     "application": False,
 }

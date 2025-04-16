@@ -18,12 +18,11 @@ class PartnerAnonymizeWizard(models.TransientModel):
     @api.model
     def default_get(self, fields_list):
         res = super().default_get(fields_list)
-        if "partner_ids" in fields_list:
-            active_ids = self.env.context.get("active_ids", [])
-            if active_ids:
-                domain = [("id", "child_of", active_ids)]
-                all_partners = self.env["res.partner"].search(domain)
-                res["partner_ids"] = [(6, 0, all_partners.ids)]
+        active_ids = self._context.get("active_ids")
+        if "partner_ids" in fields_list and active_ids:
+            domain = [("id", "child_of", active_ids)]
+            all_partners = self.env["res.partner"].search(domain)
+            res["partner_ids"] = [(6, 0, all_partners.ids)]
         return res
 
     def _validate_partners_for_anonymization(self):
@@ -65,7 +64,8 @@ class PartnerAnonymizeWizard(models.TransientModel):
             "tag": "display_notification",
             "params": {
                 "title": _("Anonymization Result"),
-                "message": _("Partner(s) have been anonymized successfully."),
+                "message": _("%d partner(s) have been anonymized successfully.")
+                % len(self.partner_ids),
                 "sticky": False,
                 "type": "success",
                 "next": {"type": "ir.actions.act_window_close"},

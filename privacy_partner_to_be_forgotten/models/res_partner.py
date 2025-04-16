@@ -18,12 +18,30 @@ class ResPartner(models.Model):
         return initials or "X"
 
     def _generate_anonymized_email(self, initials):
-        """Generate anonymized email address."""
+        """Generate anonymized email address.
+
+        Args:
+            initials (str): Partner name initials (e.g., "JD" for "John Doe")
+
+        Returns:
+            str: Anonymized email address in format
+                "initials_dd.mm.yy_id@anonymized.oca"
+        """
         date_stamp = fields.Date.today().strftime("%d.%m.%y")
         return f"{initials.lower()}_{date_stamp}_{self.id}@anonymized.oca"
 
     def _prepare_partner_anonymized_vals(self, anonymized_name, anonymized_email):
-        """Prepare values for anonymizing partner data."""
+        """Prepare values for anonymizing partner data.
+
+        Args:
+            anonymized_name (str): Generated anonymous name for the partner
+                (format: "XX Anonymized")
+            anonymized_email (str): Generated anonymous email
+                (format: "xx_dd.mm.yy_id@anonymized.oca")
+
+        Returns:
+            dict: Dictionary of fields to update with anonymized or cleared values
+        """
         return {
             "name": anonymized_name,
             "email": anonymized_email,
@@ -50,7 +68,16 @@ class ResPartner(models.Model):
         }
 
     def _prepare_user_anonymized_vals(self, anonymized_email):
-        """Prepare values for anonymizing related user accounts."""
+        """Prepare values for anonymizing related user accounts.
+
+        Args:
+            anonymized_email (str): Generated anonymous email
+                (format: "xx_dd.mm.yy_id@anonymized.oca")
+
+        Returns:
+            dict: Dictionary containing user fields to update
+                (login, email, active status, signature)
+        """
         return {
             "login": anonymized_email,
             "email": anonymized_email,
@@ -59,7 +86,12 @@ class ResPartner(models.Model):
         }
 
     def _anonymize_user(self, anonymized_email):
-        """Anonymize related user accounts."""
+        """Anonymize related user accounts.
+
+        Args:
+            anonymized_email (str): Generated anonymous email to be set
+                for user accounts
+        """
         if self.user_ids:
             self.user_ids.write(self._prepare_user_anonymized_vals(anonymized_email))
             self.user_ids = self.env["res.users"].browse(self.user_ids.ids)
@@ -115,6 +147,7 @@ class ResPartner(models.Model):
         """Prepare domain for searching attachments to be deleted during
         anonymization.
         """
+        self.ensure_one()
         return [
             ("res_model", "=", "res.partner"),
             ("res_id", "=", self.id),
@@ -161,7 +194,7 @@ class ResPartner(models.Model):
         now = fields.Datetime.now()
 
         initials = self._get_partner_initials()
-        anonymized_name = _("%s Anonymized") % initials
+        anonymized_name = _("%(initials)s Anonymized", initials=initials)
         anonymized_email = self._generate_anonymized_email(initials)
 
         self._anonymize_user(anonymized_email)

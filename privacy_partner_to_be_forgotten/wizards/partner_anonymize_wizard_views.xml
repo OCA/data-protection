@@ -32,12 +32,11 @@
                             >carry full responsibility</strong> for using the module's features in compliance with GDPR regulations.</li>
                     </ul>
                 </div>
-                <field name="partner_ids" readonly="1">
+                <field name="partner_ids">
                     <tree>
                         <field name="name" />
                         <field name="email" />
                         <field name="phone" />
-                        <field name="is_company" invisible="1" />
                         <field name="parent_id" />
                         <field name="company_type" />
                     </tree>

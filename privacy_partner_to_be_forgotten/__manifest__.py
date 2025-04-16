@@ -18,6 +18,4 @@
         "wizards/partner_anonymize_wizard_views.xml",
     ],
     "demo": ["demo/demo_partner_anonymize_data.xml"],
-    "installable": True,
-    "application": False,
 }

@@ -1,7 +1,7 @@
 # Copyright (C) 2025 Cetmix OÜ
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError
 
 
@@ -11,10 +11,20 @@ class PartnerAnonymizeWizard(models.TransientModel):
 
     partner_ids = fields.Many2many(
         "res.partner",
-        string="Partners",
         required=True,
         readonly=True,
     )
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super().default_get(fields_list)
+        if "partner_ids" in fields_list:
+            active_ids = self.env.context.get("active_ids", [])
+            if active_ids:
+                domain = [("id", "child_of", active_ids)]
+                all_partners = self.env["res.partner"].search(domain)
+                res["partner_ids"] = [(6, 0, all_partners.ids)]
+        return res
 
     def _validate_partners_for_anonymization(self):
         # Check access rights
@@ -24,7 +34,7 @@ class PartnerAnonymizeWizard(models.TransientModel):
             raise AccessError(_("You don't have permission to anonymize partners."))
 
         # Check if partner is a company
-        company_partners = self.partner_ids.filtered(lambda p: p.is_company)
+        company_partners = self.partner_ids.filtered("is_company")
         if company_partners:
             company_names = ", ".join(company_partners.mapped("name"))
             raise UserError(

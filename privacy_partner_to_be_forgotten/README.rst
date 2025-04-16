@@ -122,6 +122,11 @@ related child records, including:
 - You carry full responsibility for using the module's features, in line
   with GDPR compliance.
 
+Changelog
+=========
+
+
+
 Bug Tracker
 ===========
 

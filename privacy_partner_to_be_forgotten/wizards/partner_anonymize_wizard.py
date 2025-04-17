@@ -1,5 +1,5 @@
 # Copyright (C) 2025 Cetmix OÜ
-# License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError

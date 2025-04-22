@@ -7,7 +7,7 @@
     "development_status": "Beta",
     "category": "Data Protection",
     "summary": "Anonymize partner data for GDPR compliance",
-    "author": "Cetmix OÜ, Odoo Community Association (OCA)",
+    "author": "Cetmix, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "website": "https://github.com/OCA/data-protection",
     "depends": ["contacts"],

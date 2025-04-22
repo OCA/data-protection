@@ -13,34 +13,136 @@ class TestPartnerAnonymize(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
 
-        cls.partner_company = cls.env.ref(
-            "privacy_partner_to_be_forgotten.partner_company_sodasopa"
-        )
-        cls.partner_eric = cls.env.ref(
-            "privacy_partner_to_be_forgotten.partner_eric_cartman"
-        )
-        cls.partner_butters = cls.env.ref(
-            "privacy_partner_to_be_forgotten.partner_butters_stotch"
-        )
-        cls.partner_kenny = cls.env.ref(
-            "privacy_partner_to_be_forgotten.partner_kenny_mccormick"
-        )
-        cls.partner_stanley = cls.env.ref(
-            "privacy_partner_to_be_forgotten.partner_stanley_marsh"
+        # Create test company
+        cls.partner_company = cls.env["res.partner"].create(
+            {
+                "name": "Sodasopa",
+                "is_company": True,
+                "phone": "+1 123-456-7890",
+                "email": "info@sodasopa.com",
+                "street": "123 Main St",
+                "city": "South Park",
+                "zip": "80435",
+                "country_id": cls.env.ref("base.us").id,
+                "website": "www.sodasopa.com",
+                "vat": "US123456789",
+            }
         )
 
-        cls.user_company = cls.env.ref(
-            "privacy_partner_to_be_forgotten.user_company_sodasopa"
+        # Create test partners
+        cls.partner_eric = cls.env["res.partner"].create(
+            {
+                "name": "Eric Cartman",
+                "parent_id": cls.partner_company.id,
+                "phone": "+1 123-456-7891",
+                "mobile": "+1 123-456-7892",
+                "email": "eric@sodasopa.com",
+                "street": "124 Main St",
+                "city": "South Park",
+                "zip": "80435",
+                "country_id": cls.env.ref("base.us").id,
+                "function": "Manager",
+            }
         )
-        cls.user_eric = cls.env.ref("privacy_partner_to_be_forgotten.user_eric_cartman")
-        cls.user_butters = cls.env.ref(
-            "privacy_partner_to_be_forgotten.user_butters_stotch"
+
+        cls.partner_butters = cls.env["res.partner"].create(
+            {
+                "name": "Butters Stotch",
+                "parent_id": cls.partner_company.id,
+                "phone": "+1 123-456-7893",
+                "mobile": "+1 123-456-7894",
+                "email": "butters@sodasopa.com",
+                "street": "125 Main St",
+                "city": "South Park",
+                "zip": "80435",
+                "country_id": cls.env.ref("base.us").id,
+                "function": "Assistant",
+            }
         )
-        cls.user_kenny = cls.env.ref(
-            "privacy_partner_to_be_forgotten.user_kenny_mccormick"
+
+        cls.partner_kenny = cls.env["res.partner"].create(
+            {
+                "name": "Kenny McCormick",
+                "parent_id": cls.partner_eric.id,
+                "phone": "+1 123-456-7895",
+                "mobile": "+1 123-456-7896",
+                "email": "kenny@sodasopa.com",
+                "street": "126 Main St",
+                "city": "South Park",
+                "zip": "80435",
+                "country_id": cls.env.ref("base.us").id,
+                "function": "Intern",
+            }
         )
-        cls.user_stanley = cls.env.ref(
-            "privacy_partner_to_be_forgotten.user_stanley_marsh"
+
+        cls.partner_stanley = cls.env["res.partner"].create(
+            {
+                "name": "Stanley Marsh",
+                "phone": "+1 123-456-7897",
+                "mobile": "+1 123-456-7898",
+                "email": "stan@sp.com",
+                "street": "127 Main St",
+                "city": "South Park",
+                "zip": "80435",
+                "country_id": cls.env.ref("base.us").id,
+                "function": "Student",
+            }
+        )
+
+        # Create test users
+        cls.user_company = cls.env["res.users"].create(
+            {
+                "partner_id": cls.partner_company.id,
+                "login": "test_sodasopa",
+                "password": "sodasopa",
+                "name": "Sodasopa",
+                "email": "info@sodasopa.com",
+                "groups_id": [(4, cls.env.ref("base.group_user").id)],
+            }
+        )
+
+        cls.user_eric = cls.env["res.users"].create(
+            {
+                "partner_id": cls.partner_eric.id,
+                "login": "test_eric",
+                "password": "eric",
+                "name": "Eric Cartman",
+                "email": "eric@sodasopa.com",
+                "groups_id": [(4, cls.env.ref("base.group_user").id)],
+            }
+        )
+
+        cls.user_butters = cls.env["res.users"].create(
+            {
+                "partner_id": cls.partner_butters.id,
+                "login": "test_butters",
+                "password": "butters",
+                "name": "Butters Stotch",
+                "email": "butters@sodasopa.com",
+                "groups_id": [(4, cls.env.ref("base.group_user").id)],
+            }
+        )
+
+        cls.user_kenny = cls.env["res.users"].create(
+            {
+                "partner_id": cls.partner_kenny.id,
+                "login": "test_kenny",
+                "password": "kenny",
+                "name": "Kenny McCormick",
+                "email": "kenny@sodasopa.com",
+                "groups_id": [(4, cls.env.ref("base.group_user").id)],
+            }
+        )
+
+        cls.user_stanley = cls.env["res.users"].create(
+            {
+                "partner_id": cls.partner_stanley.id,
+                "login": "test_stan",
+                "password": "stan",
+                "name": "Stanley Marsh",
+                "email": "stan@sp.com",
+                "groups_id": [(4, cls.env.ref("base.group_user").id)],
+            }
         )
 
         cls.test_user = cls.env["res.users"].create(

@@ -143,7 +143,7 @@ Credits
 Authors
 -------
 
-* Cetmix OÜ
+* Cetmix
 
 Contributors
 ------------

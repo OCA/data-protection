@@ -94,7 +94,6 @@ class ResPartner(models.Model):
         """
         if self.user_ids:
             self.user_ids.write(self._prepare_user_anonymized_vals(anonymized_email))
-            self.user_ids = self.env["res.users"].browse(self.user_ids.ids)
 
     def _anonymize_partner(self, anonymized_name, anonymized_email):
         """Anonymize partner record."""

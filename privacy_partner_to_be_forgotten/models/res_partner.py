@@ -93,7 +93,9 @@ class ResPartner(models.Model):
                 for user accounts
         """
         if self.user_ids:
-            self.user_ids.write(self._prepare_user_anonymized_vals(anonymized_email))
+            self.user_ids.with_context(tracking_disable=True).write(
+                self._prepare_user_anonymized_vals(anonymized_email)
+            )
 
     def _anonymize_partner(self, anonymized_name, anonymized_email):
         """Anonymize partner record."""
@@ -101,7 +103,10 @@ class ResPartner(models.Model):
         # active=True. This is needed because Odoo prevents archiving users with
         # non-archived partners, and the partner archiving check is done via a regular
         # search() that doesn't filter archived records when active_test=False
-        self.with_context(active_test=True).write(
+        self.with_context(
+            active_test=True,
+            tracking_disable=True,
+        ).write(
             self._prepare_partner_anonymized_vals(anonymized_name, anonymized_email)
         )
 

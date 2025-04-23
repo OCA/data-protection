@@ -3,6 +3,7 @@
 
 import re
 
+from odoo import fields
 from odoo.exceptions import AccessError, UserError
 from odoo.tests.common import Form, TransactionCase, tagged
 
@@ -515,3 +516,47 @@ class TestPartnerAnonymize(TransactionCase):
         # Verify the partner is not anonymized
         self.assertTrue(self.partner_stanley.active)
         self.assertNotIn("Anonymized", self.partner_stanley.name)
+
+    def test_08_no_personal_data_in_chatter_after_anonymization(self):
+        """Test that after anonymization:
+        1. Only anonymization message is present in chatter
+        2. No personal data is exposed in tracking values
+        """
+        partner = self.partner_stanley
+        original_name = partner.name
+        original_email = partner.email
+        original_phone = partner.phone
+
+        # Get current user and timestamp before anonymization
+        anonymizing_user = self.test_user.name
+        anonymization_datetime = fields.Datetime.now()
+
+        # Anonymize partner
+        wizard = self._create_anonymize_wizard([partner.id], self.test_user)
+        wizard.action_confirm()
+
+        # Get all messages after anonymization
+        messages = self.env["mail.message"].search(
+            [
+                ("model", "=", "res.partner"),
+                ("res_id", "=", partner.id),
+            ]
+        )
+
+        # Should have exactly one message
+        self.assertEqual(len(messages), 1)
+
+        # Check message content
+        message = messages[0]
+        expected_datetime_str = fields.Datetime.to_string(anonymization_datetime)
+        self.assertIn(anonymizing_user, message.body)
+        self.assertIn(expected_datetime_str[:10], message.body)
+
+        # Ensure no personal data is present in the chatter
+        for sensitive_data in [original_name, original_email, original_phone]:
+            if sensitive_data:  # Skip if field was empty
+                self.assertNotIn(
+                    sensitive_data,
+                    message.body,
+                    "Personal data should not appear in chatter after anonymization",
+                )

@@ -20,7 +20,12 @@ class PartnerAnonymizeWizard(models.TransientModel):
         res = super().default_get(fields_list)
         active_ids = self._context.get("active_ids")
         if "partner_ids" in fields_list and active_ids:
-            domain = [("id", "child_of", active_ids)]
+            domain = [
+                ("id", "child_of", active_ids),
+                "|",
+                ("email", "=", False),
+                ("email", "not like", "%@anonymized.oca"),
+            ]
             all_partners = self.env["res.partner"].search(domain)
             res["partner_ids"] = [(6, 0, all_partners.ids)]
         return res

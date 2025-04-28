@@ -30,6 +30,24 @@ class ResPartner(models.Model):
         date_stamp = fields.Date.today().strftime("%d.%m.%y")
         return f"{initials.lower()}_{date_stamp}_{self.id}@anonymized.oca"
 
+    def _prepare_company_anonymized_vals(self, anonymized_name):
+        """Prepare values for anonymizing company data.
+
+        For companies, we only anonymize the name by adding 'Anonymized' suffix
+        and set active to False, while preserving all business-critical information.
+
+        Args:
+            anonymized_name (str): Generated anonymous name for the company
+                (format: "Company Name Anonymized")
+
+        Returns:
+            dict: Dictionary of fields to update with anonymized values
+        """
+        return {
+            "name": anonymized_name,
+            "active": False,
+        }
+
     def _prepare_partner_anonymized_vals(self, anonymized_name, anonymized_email):
         """Prepare values for anonymizing partner data.
 
@@ -85,17 +103,26 @@ class ResPartner(models.Model):
             "signature": False,
         }
 
-    def _anonymize_user(self, anonymized_email):
+    def _anonymize_user(self, anonymized_email=False):
         """Anonymize related user accounts.
 
         Args:
-            anonymized_email (str): Generated anonymous email to be set
-                for user accounts
+            anonymized_email (str, optional): Generated anonymous email to be set
+                for user accounts. Only needed for individual contacts.
         """
         if self.user_ids:
-            self.user_ids.with_context(tracking_disable=True).write(
-                self._prepare_user_anonymized_vals(anonymized_email)
-            )
+            if self.is_company:
+                # For companies, just deactivate portal users
+                self.user_ids.with_context(tracking_disable=True).write(
+                    {
+                        "active": False,
+                    }
+                )
+            else:
+                # For individuals, anonymize and deactivate
+                self.user_ids.with_context(tracking_disable=True).write(
+                    self._prepare_user_anonymized_vals(anonymized_email)
+                )
 
     def _anonymize_partner(self, anonymized_name, anonymized_email):
         """Anonymize partner record."""
@@ -197,12 +224,23 @@ class ResPartner(models.Model):
         self.ensure_one()
         now = fields.Datetime.now()
 
-        initials = self._get_partner_initials()
-        anonymized_name = _("%(initials)s Anonymized", initials=initials)
-        anonymized_email = self._generate_anonymized_email(initials)
+        if self.is_company:
+            # Company anonymization
+            anonymized_name = _("%(company)s Anonymized", company=self.name)
+            self._anonymize_user()
+            self.with_context(active_test=True, tracking_disable=True).write(
+                self._prepare_company_anonymized_vals(anonymized_name)
+            )
+        else:
+            # Individual contact anonymization
+            initials = self._get_partner_initials()
+            anonymized_name = _("%(initials)s Anonymized", initials=initials)
+            anonymized_email = self._generate_anonymized_email(initials)
 
-        self._anonymize_user(anonymized_email)
-        self._anonymize_partner(anonymized_name, anonymized_email)
+            self._anonymize_user(anonymized_email)
+            self._anonymize_partner(anonymized_name, anonymized_email)
+
+        # Common operations for both companies and individuals
         self._anonymize_partner_messages()
         self._anonymize_partner_attachments()
         self._log_anonymization(now)

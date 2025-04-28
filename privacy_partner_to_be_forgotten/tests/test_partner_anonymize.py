@@ -4,7 +4,7 @@
 import re
 
 from odoo import fields
-from odoo.exceptions import AccessError, UserError
+from odoo.exceptions import AccessError
 from odoo.tests.common import Form, TransactionCase, tagged
 
 
@@ -257,6 +257,34 @@ class TestPartnerAnonymize(TransactionCase):
 
         return True
 
+    def _check_anonymized_company(self, company, original_name):
+        """Helper method to check if a company is properly anonymized"""
+        # Check name format ("Company Name Anonymized")
+        self.assertEqual(
+            company.name,
+            f"{original_name} Anonymized",
+        )
+
+        # Check that business-critical fields are preserved
+        preserved_fields = [
+            "vat",
+            "country_id",
+            "state_id",
+            "zip",
+            "city",
+            "street",
+            "street2",
+        ]
+        for field in preserved_fields:
+            self.assertEqual(
+                company[field],
+                self.partner_company[field],
+            )
+
+        self.assertFalse(self.partner_company.active)
+
+        return True
+
     def test_01_anonymize_individual_with_child(self):
         """Test Case 1: Anonymize Individual Contact (Parent with Child)"""
         eric_name = self.partner_eric.name
@@ -345,26 +373,62 @@ class TestPartnerAnonymize(TransactionCase):
         )
         self.assertEqual(len(attachments), 0)
 
-    def test_03_anonymize_company_not_allowed(self):
-        """Test Case 3: Attempt to Anonymize Company (should fail)"""
-        # Try to anonymize the company
+    def test_03_anonymize_company_with_children(self):
+        """Test Case 3: Anonymize Parent Company with Child Records"""
+
+        # Setup initial state
+        company_name = self.partner_company.name
+        eric_name = self.partner_eric.name
+        butters_name = self.partner_butters.name
+
+        # Link Eric and Butters to the company
+        self.partner_eric.write({"parent_id": self.partner_company.id})
+        self.partner_butters.write({"parent_id": self.partner_company.id})
+
+        # Verify initial state
+        self.assertEqual(self.partner_eric.parent_id, self.partner_company)
+        self.assertEqual(self.partner_butters.parent_id, self.partner_company)
+
+        # Anonymize company
         wizard = self._create_anonymize_wizard(
             [self.partner_company.id], self.test_user
         )
+        wizard.action_confirm()
 
-        # This should raise a UserError
-        with self.assertRaises(UserError) as context:
-            wizard.action_confirm()
+        # Check company anonymization
+        self._check_anonymized_company(self.partner_company, company_name)
 
-        # Check the error message
-        self.assertIn(
-            "Cannot anonymize the following company records", str(context.exception)
-        )
-        self.assertIn(self.partner_company.name, str(context.exception))
+        # Check Eric's anonymization
+        self._check_anonymized_partner(self.partner_eric, eric_name)
+        self._check_anonymized_user(self.user_eric, self.partner_eric)
 
-        # Verify the company is not anonymized
-        self.assertTrue(self.partner_company.active)
-        self.assertNotIn("Anonymized", self.partner_company.name)
+        # Check Butters' anonymization
+        self._check_anonymized_partner(self.partner_butters, butters_name)
+        self._check_anonymized_user(self.user_butters, self.partner_butters)
+
+        # Check messages (should only have anonymization logs)
+        for partner in [self.partner_company, self.partner_eric, self.partner_butters]:
+            messages = self.env["mail.message"].search(
+                [
+                    ("model", "=", "res.partner"),
+                    ("res_id", "=", partner.id),
+                ]
+            )
+            self.assertEqual(len(messages), 1)
+            self.assertIn("anonymized", messages[0].body)
+
+            # Check attachments (should be empty)
+            attachments = self.env["ir.attachment"].search(
+                [
+                    ("res_model", "=", "res.partner"),
+                    ("res_id", "=", partner.id),
+                ]
+            )
+            self.assertEqual(len(attachments), 0)
+
+        # Verify relationships are preserved
+        self.assertEqual(self.partner_eric.parent_id, self.partner_company)
+        self.assertEqual(self.partner_butters.parent_id, self.partner_company)
 
     def test_04_anonymize_one_child_record(self):
         """Test Case 4: Anonymize One of the Child Records"""
@@ -558,5 +622,4 @@ class TestPartnerAnonymize(TransactionCase):
                 self.assertNotIn(
                     sensitive_data,
                     message.body,
-                    "Personal data should not appear in chatter after anonymization",
                 )

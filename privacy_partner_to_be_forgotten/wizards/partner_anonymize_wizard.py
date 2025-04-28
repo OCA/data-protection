@@ -37,14 +37,6 @@ class PartnerAnonymizeWizard(models.TransientModel):
         ):
             raise AccessError(_("You don't have permission to anonymize partners."))
 
-        # Check if partner is a company
-        company_partners = self.partner_ids.filtered("is_company")
-        if company_partners:
-            company_names = ", ".join(company_partners.mapped("name"))
-            raise UserError(
-                _("Cannot anonymize the following company records: %s") % company_names
-            )
-
         # Check if partner is already anonymized
         anonymized_partners = self.partner_ids.filtered(
             lambda p: p.email and "@anonymized.oca" in p.email

@@ -2,6 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 
 import re
+from unittest.mock import patch
 
 from odoo import fields
 from odoo.exceptions import AccessError
@@ -623,3 +624,86 @@ class TestPartnerAnonymize(TransactionCase):
                     sensitive_data,
                     message.body,
                 )
+
+    def test_09_anonymize_partner_attachments(self):
+        """Test that _anonymize_partner_attachments correctly removes attachments"""
+        # Create a new attachment for testing
+        attachment = self.env["ir.attachment"].create(
+            {
+                "name": "Test Attachment for Removal",
+                "res_model": "res.partner",
+                "res_id": self.partner_kenny.id,
+                "datas": (
+                    "R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="  # Minimal GIF
+                ),
+            }
+        )
+
+        # Verify attachment exists
+        attachments_before = self.env["ir.attachment"].search(
+            [
+                ("res_model", "=", "res.partner"),
+                ("res_id", "=", self.partner_kenny.id),
+            ]
+        )
+        self.assertEqual(len(attachments_before), 1)
+        self.assertEqual(attachments_before[0].id, attachment.id)
+
+        self.partner_kenny._anonymize_partner_attachments()
+
+        # Verify attachment was removed
+        attachments_after = self.env["ir.attachment"].search(
+            [
+                ("res_model", "=", "res.partner"),
+                ("res_id", "=", self.partner_kenny.id),
+            ]
+        )
+        self.assertEqual(len(attachments_after), 0)
+
+    def test_10_log_anonymization(self):
+        """Test that _log_anonymization correctly creates a log message"""
+        # Get initial message ('Contact created') count
+        initial_messages = self.env["mail.message"].search(
+            [
+                ("model", "=", "res.partner"),
+                ("res_id", "=", self.partner_kenny.id),
+            ]
+        )
+        initial_count = len(initial_messages)
+
+        # Mock the bus.bus._sendone method to check if it's called
+        original_sendone = self.env["bus.bus"]._sendone
+
+        call_args = []
+
+        def mock_sendone(self, partner, notification_type, message_content):
+            call_args.append((partner, notification_type, message_content))
+            return original_sendone(partner, notification_type, message_content)
+
+        with patch.object(type(self.env["bus.bus"]), "_sendone", mock_sendone):
+            timestamp = fields.Datetime.now()
+            self.partner_kenny._log_anonymization(timestamp)
+
+            # Verify a new message was created
+            messages_after = self.env["mail.message"].search(
+                [
+                    ("model", "=", "res.partner"),
+                    ("res_id", "=", self.partner_kenny.id),
+                ]
+            )
+            self.assertEqual(len(messages_after), initial_count + 1)
+
+            # Verify message content
+            latest_message = messages_after.sorted(lambda m: m.id, reverse=True)[0]
+            self.assertIn("This contact has been anonymized", latest_message.body)
+            self.assertIn(self.env.user.name, latest_message.body)
+            self.assertIn(
+                fields.Datetime.to_string(timestamp)[:10], latest_message.body
+            )
+
+            # Verify notification was sent to the current user
+            self.assertTrue(call_args)
+            partner, notification_type, message_content = call_args[0]
+            self.assertEqual(partner, self.env.user.partner_id)
+            self.assertEqual(notification_type, "mail.record/insert")
+            self.assertEqual(message_content["Message"]["id"], latest_message.id)

@@ -37,16 +37,9 @@ class PartnerAnonymizeWizard(models.TransientModel):
         ):
             raise AccessError(_("You don't have permission to anonymize partners."))
 
-        # Check if partner is already anonymized
-        anonymized_partners = self.partner_ids.filtered(
-            lambda p: p.email and "@anonymized.oca" in p.email
-        )
-        if anonymized_partners:
-            anonymized_names = ", ".join(anonymized_partners.mapped("name"))
-            raise UserError(
-                _("The following partners are already anonymized: %s")
-                % anonymized_names
-            )
+        # Check if there are partners to anonymize
+        if not self.partner_ids:
+            raise UserError(_("No partners selected for anonymization."))
 
     def action_confirm(self):
         """Confirm and process partner anonymization for multiple partners"""
@@ -61,8 +54,10 @@ class PartnerAnonymizeWizard(models.TransientModel):
             "tag": "display_notification",
             "params": {
                 "title": _("Anonymization Result"),
-                "message": _("%d partner(s) have been anonymized successfully.")
-                % len(self.partner_ids),
+                "message": _(
+                    "%(partner_count)d partner(s) have been anonymized successfully."
+                )
+                % {"partner_count": len(self.partner_ids)},
                 "sticky": False,
                 "type": "success",
                 "next": {"type": "ir.actions.act_window_close"},

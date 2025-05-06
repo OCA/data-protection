@@ -172,6 +172,14 @@ class ResPartner(models.Model):
             self.id,
             len(messages),
         )
+        if not messages:
+            return
+
+        self.env["bus.bus"]._sendone(
+            self.env.user.partner_id,
+            "mail.message/delete",
+            {"message_ids": messages.ids},
+        )
         messages.unlink()
 
     def _get_attachments_domain(self):
@@ -195,17 +203,36 @@ class ResPartner(models.Model):
             self.id,
             len(attachments),
         )
+        if not attachments:
+            return
+
+        updates = [
+            (self.env.user.partner_id, "ir.attachment/delete", {"id": attachment.id})
+            for attachment in attachments
+        ]
+        self.env["bus.bus"]._sendmany(updates)
         attachments.unlink()
 
     def _log_anonymization(self, timestamp):
         """Log anonymization action in chatter."""
-        self.message_post(
+        message = self.message_post(
             body=_(
                 "This contact has been anonymized on %(date)s by %(user)s",
                 date=fields.Datetime.to_string(timestamp),
                 user=self.env.user.name,
             ),
             subtype_id=self.env.ref("mail.mt_note").id,
+        )
+
+        self.env["bus.bus"]._sendone(
+            self.env.user.partner_id,
+            "mail.record/insert",
+            {
+                "Message": {
+                    "id": message.id,
+                    "body": message.body,
+                }
+            },
         )
 
     def anonymize_partner_data(self):

@@ -4,6 +4,7 @@
 import logging
 
 from odoo import _, fields, models
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 _logger = logging.getLogger(__name__)
 
@@ -25,9 +26,9 @@ class ResPartner(models.Model):
 
         Returns:
             str: Anonymized email address in format
-                "initials_dd.mm.yy_id@anonymized.oca"
+                "initials_yyyy-mm-dd_id@anonymized.oca"
         """
-        date_stamp = fields.Date.today().strftime("%d.%m.%y")
+        date_stamp = fields.Date.today().strftime(DEFAULT_SERVER_DATE_FORMAT)
         return f"{initials.lower()}_{date_stamp}_{self.id}@anonymized.oca"
 
     def _prepare_company_anonymized_vals(self, anonymized_name):
@@ -112,17 +113,10 @@ class ResPartner(models.Model):
         """
         if self.user_ids:
             if self.is_company:
-                # For companies, just deactivate portal users
-                self.user_ids.with_context(tracking_disable=True).write(
-                    {
-                        "active": False,
-                    }
-                )
+                vals = {"active": False}
             else:
-                # For individuals, anonymize and deactivate
-                self.user_ids.with_context(tracking_disable=True).write(
-                    self._prepare_user_anonymized_vals(anonymized_email)
-                )
+                vals = self._prepare_user_anonymized_vals(anonymized_email)
+            self.user_ids.with_context(tracking_disable=True).write(vals)
 
     def _anonymize_partner(self, anonymized_name, anonymized_email):
         """Anonymize partner record."""
@@ -221,7 +215,7 @@ class ResPartner(models.Model):
                 date=fields.Datetime.to_string(timestamp),
                 user=self.env.user.name,
             ),
-            subtype_id=self.env.ref("mail.mt_note").id,
+            subtype_xmlid="mail.mt_note",
         )
 
         self.env["bus.bus"]._sendone(

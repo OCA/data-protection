@@ -227,7 +227,9 @@ class TestPartnerAnonymize(TransactionCase):
         self.assertEqual(partner.name, f"{initials} Anonymized")
 
         # Check email format
-        email_pattern = rf"^{initials.lower()}_[\d\.]{{8}}_\d+@anonymized\.oca$"
+        email_pattern = (
+            rf"^{initials.lower()}_\d{{4}}-\d{{2}}-\d{{2}}_\d+@anonymized\.oca$"
+        )
         self.assertTrue(re.match(email_pattern, partner.email))
 
         self.assertFalse(partner.phone)

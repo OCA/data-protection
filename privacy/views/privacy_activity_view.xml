@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
+     Copyright 2025 Juan Jose Bautista - Aulora AG.
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <data>
     <record model="ir.ui.view" id="activity_form">
@@ -50,11 +51,11 @@
                     <separator name="processors" string="Processors" />
                     <group name="processors">
                         <field name="processor_ids" widget="many2many">
-                            <tree string="processors">
+                            <list string="processors">
                                 <field name="name" />
                                 <field name="email" />
                                 <field name="country_id" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <notebook string="Details" name="advanced">
@@ -63,22 +64,19 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
     <record model="ir.ui.view" id="activity_tree">
-        <field name="name">Privacy Activity Tree</field>
+        <field name="name">Privacy Activity List</field>
         <field name="model">privacy.activity</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="controller_id" />
                 <field name="processor_ids" />
-            </tree>
+            </list>
         </field>
     </record>
     <record model="ir.ui.view" id="activity_search">
@@ -109,7 +107,7 @@
     <record id="activity_action" model="ir.actions.act_window">
         <field name="name">Activities</field>
         <field name="res_model">privacy.activity</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click to add a data processing activity.

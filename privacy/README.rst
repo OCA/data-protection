@@ -72,6 +72,7 @@ Contributors
 - Daniel Reis <dreis.pt@hotmail.com>
 - Nicolas JEUDY
   <`https://github.com/njeudy\\> <https://github.com/njeudy\>>`__
+- Juan Jose Bautista Gallego <juanjo.bautista@aulora.io>
 
 Maintainers
 -----------

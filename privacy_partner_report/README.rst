@@ -17,19 +17,20 @@ Privacy Partner Report
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fdata--protection-lightgray.png?logo=github
-    :target: https://github.com/OCA/data-protection/tree/12.0/privacy_partner_report
+    :target: https://github.com/OCA/data-protection/tree/18.0/privacy_partner_report
     :alt: OCA/data-protection
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/data-protection-12-0/data-protection-12-0-privacy_partner_report
+    :target: https://translation.odoo-community.org/projects/data-protection-18-0/data-protection-18-0-privacy_partner_report
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/data-protection&target_branch=12.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/data-protection&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module helps a company to identify all the transactions that a specific
-partner is involved in, with the possibility to export the associated data.
+This module helps a company to identify all the transactions that a
+specific partner is involved in, with the possibility to export the
+associated data.
 
 **Table of contents**
 
@@ -41,9 +42,10 @@ Usage
 
 To use this module, you need to:
 
-#. Go to menu of ``Privacy > Reports > Partner Report``.
-#. Select a partner, and then wait some seconds until a list of models appear.
-#. Click on ``Export XLSX``.
+1. Go to menu of ``Privacy > Reports > Partner Report``.
+2. Select a partner, and then wait some seconds until a list of models
+   appear.
+3. Click on ``Export XLSX``.
 
 Bug Tracker
 ===========
@@ -51,7 +53,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/data-protection/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/data-protection/issues/new?body=module:%20privacy_partner_report%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/data-protection/issues/new?body=module:%20privacy_partner_report%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -59,18 +61,18 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Eficent
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Miquel Raïch <miquel.raich@eficent.com>
-* Katja Matthes <katja.matthes@initos.com>
+- Miquel Raïch <miquel.raich@eficent.com>
+- Katja Matthes <katja.matthes@initos.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -90,6 +92,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-mreficent| 
 
-This module is part of the `OCA/data-protection <https://github.com/OCA/data-protection/tree/12.0/privacy_partner_report>`_ project on GitHub.
+This module is part of the `OCA/data-protection <https://github.com/OCA/data-protection/tree/18.0/privacy_partner_report>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

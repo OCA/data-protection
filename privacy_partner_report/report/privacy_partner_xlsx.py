@@ -1,5 +1,6 @@
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Copyright 2025 Juan Jose Bautista - Aulora AG.
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import logging
 
@@ -12,8 +13,11 @@ _logger = logging.getLogger(__name__)
 class ReportPartnerXlsx(models.AbstractModel):
     _name = "report.privacy_partner_report.report_partner_xlsx"
     _inherit = "report.report_xlsx.abstract"
+    _description = "Partner Privacy Report in XLSX format"
 
     def _search_longest_row(self, tables):
+        """find the longest row and then returns
+        the length of the longest row"""
         res = 0
         for table in tables:
             for model in tables[table]:
@@ -23,6 +27,7 @@ class ReportPartnerXlsx(models.AbstractModel):
         return res
 
     def generate_xlsx_report(self, workbook, data, objects):
+        """generate the xlsx report"""
         for o in objects:
             report_data = o.compute_data_for_report(data)
             partner = report_data["form"].get("partner_id", False)

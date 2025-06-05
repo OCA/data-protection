@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_privacy_partner_report,Permission to privacy partner report,model_privacy_partner_report,privacy.group_data_protection_manager,1,1,1,1
+access_report_privacy_partner_report_report_partner_xlsx,Permission to write activities,model_report_privacy_partner_report_report_partner_xlsx,privacy.group_data_protection_manager,1,1,1,1
+acess_privacy_partner_data,Permission to write activities,model_privacy_partner_data,privacy.group_data_protection_manager,1,1,1,1

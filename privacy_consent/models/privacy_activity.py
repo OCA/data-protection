@@ -1,7 +1,7 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.tools.safe_eval import safe_eval
 
@@ -88,7 +88,7 @@ class PrivacyActivity(models.Model):
         for one in self:
             if one.consent_required == "auto" and not one.consent_template_id:
                 raise ValidationError(
-                    _("Specify a mail template to ask automated consent.")
+                    self.env._("Specify a mail template to ask automated consent.")
                 )
 
     @api.constrains("consent_required", "subject_find")
@@ -96,7 +96,7 @@ class PrivacyActivity(models.Model):
         for one in self:
             if one.consent_required and not one.subject_find:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Require consent is available only for subjects "
                         "in current database."
                     )
@@ -138,8 +138,8 @@ class PrivacyActivity(models.Model):
         # Redirect user to new consent requests generated
         return {
             "domain": [("id", "in", consents.ids)],
-            "name": _("Generated consents"),
+            "name": self.env._("Generated consents"),
             "res_model": consents._name,
             "type": "ir.actions.act_window",
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
         }

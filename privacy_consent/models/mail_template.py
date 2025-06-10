@@ -3,7 +3,7 @@
 
 from lxml import html
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.exceptions import ValidationError
 
 
@@ -24,7 +24,7 @@ class MailTemplate(models.Model):
             for link in links:
                 if not doc.xpath(link):
                     raise ValidationError(
-                        _(
+                        self.env._(
                             "Missing privacy consent link placeholders. "
                             "You need at least these two links:\n"
                             '<a href="%(consent_url)s">Accept</a>\n'

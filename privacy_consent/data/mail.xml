@@ -47,11 +47,11 @@
                                 <p>
                                     We contacted you to ask you to give us your explicit consent to include your data in a data processing activity called
                                     <b
-                                        t-out="object.activity_id.display_name"
-                                    />, property of
+                                    t-out="object.activity_id.display_name"
+                                />, property of
                                     <i
-                                        t-out="object.activity_id.controller_id.display_name"
-                                    />
+                                    t-out="object.activity_id.controller_id.display_name"
+                                />
                                 </p>
                                 <t t-out="object.activity_id.description" />
                                 <p>
@@ -63,11 +63,11 @@
                                     </t>
 
                                     <t t-if="object.accepted">
-                                        <b>accepted</b>
-                                    </t>
+                                    <b>accepted</b>
+                                </t>
                                     <t t-else="">
-                                        <b>rejected</b>
-                                    </t>
+                                    <b>rejected</b>
+                                </t>
                                     such data processing.
                                 </p>
                                 <p>
@@ -119,10 +119,10 @@
                                 <p>
                                     Sent by
                                     <a href="/" style="color:#717188;">
-                                        <t
-                                            t-out="object.activity_id.controller_id.display_name"
-                                        />
-                                    </a>.
+                                    <t
+                                        t-out="object.activity_id.controller_id.display_name"
+                                    />
+                                </a>.
                                 </p>
                             </td>
                         </tr>

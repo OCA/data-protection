@@ -47,6 +47,6 @@ class ConsentController(Controller):
             "User agent: {}\n" "Remote IP: {}\n" "Date and time: {:%Y-%m-%d %H:%M:%S}"
         ).format(
             request.httprequest.environ.get("HTTP_USER_AGENT"),
-            request.httprequest.environ.get("REMOTE_ADDRESS"),
+            request.httprequest.environ.get("REMOTE_ADDR"),
             datetime.now(),
         )

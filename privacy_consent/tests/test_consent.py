@@ -9,30 +9,30 @@ import requests
 import odoo.tests
 from odoo import http
 from odoo.exceptions import AccessError, ValidationError
-from odoo.tests import users
-from odoo.tests.common import Form
+from odoo.tests import Form, users
 
 from odoo.addons.base.models.ir_mail_server import IrMailServer
 from odoo.addons.mail.tests.common import mail_new_test_user
 
 
 class ActivityCase(odoo.tests.HttpCase):
-    def setUp(self):
-        super().setUp()
-        self.cron = self.env.ref("privacy_consent.cron_auto_consent")
-        self.cron_mail_queue = self.env.ref("mail.ir_cron_mail_scheduler_action")
-        self.sync_blacklist = self.env.ref("privacy_consent.sync_blacklist")
-        self.mt_consent_consent_new = self.env.ref(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.cron = cls.env.ref("privacy_consent.cron_auto_consent")
+        cls.cron_mail_queue = cls.env.ref("mail.ir_cron_mail_scheduler_action")
+        cls.sync_blacklist = cls.env.ref("privacy_consent.sync_blacklist")
+        cls.mt_consent_consent_new = cls.env.ref(
             "privacy_consent.mt_consent_consent_new"
         )
-        self.mt_consent_acceptance_changed = self.env.ref(
+        cls.mt_consent_acceptance_changed = cls.env.ref(
             "privacy_consent.mt_consent_acceptance_changed"
         )
-        self.mt_consent_state_changed = self.env.ref(
+        cls.mt_consent_state_changed = cls.env.ref(
             "privacy_consent.mt_consent_state_changed"
         )
         # Some partners to ask for consent
-        self.partners = self.env["res.partner"].create(
+        cls.partners = cls.env["res.partner"].create(
             [
                 {"name": "consent-partner-0", "email": "partner0@example.com"},
                 {"name": "consent-partner-1", "email": "partner1@example.com"},
@@ -44,34 +44,34 @@ class ActivityCase(odoo.tests.HttpCase):
             ]
         )
         # Blacklist some partners
-        self.blacklists = self.env["mail.blacklist"]
-        self.blacklists += self.blacklists._add("partner1@example.com")
+        cls.blacklists = cls.env["mail.blacklist"]
+        cls.blacklists += cls.blacklists._add("partner1@example.com")
         # Activity without consent
-        self.activity_noconsent = self.env["privacy.activity"].create(
+        cls.activity_noconsent = cls.env["privacy.activity"].create(
             {"name": "activity_noconsent", "description": "I'm activity 1"}
         )
         # Activity with auto consent, for all partners
-        self.activity_auto = self.env["privacy.activity"].create(
+        cls.activity_auto = cls.env["privacy.activity"].create(
             {
                 "name": "activity_auto",
                 "description": "I'm activity auto",
                 "subject_find": True,
-                "subject_domain": repr([("id", "in", self.partners.ids)]),
+                "subject_domain": repr([("id", "in", cls.partners.ids)]),
                 "consent_required": "auto",
                 "default_consent": True,
-                "server_action_id": self.sync_blacklist.id,
+                "server_action_id": cls.sync_blacklist.id,
             }
         )
         # Activity with manual consent, skipping partner 0
-        self.activity_manual = self.env["privacy.activity"].create(
+        cls.activity_manual = cls.env["privacy.activity"].create(
             {
                 "name": "activity_manual",
                 "description": "I'm activity 3",
                 "subject_find": True,
-                "subject_domain": repr([("id", "in", self.partners[1:].ids)]),
+                "subject_domain": repr([("id", "in", cls.partners[1:].ids)]),
                 "consent_required": "manual",
                 "default_consent": False,
-                "server_action_id": self.sync_blacklist.id,
+                "server_action_id": cls.sync_blacklist.id,
             }
         )
 
@@ -361,10 +361,10 @@ class ActivityFlow(ActivityCase):
             }
         )
         suggested_recipients = consent._message_get_suggested_recipients()
-        recipient_data = suggested_recipients.get(consent.id)
-        self.assertEqual(consent.partner_id.id, recipient_data[0][0])
-        self.assertIn(consent.partner_id.name, recipient_data[0][1])
-        self.assertIn(consent.partner_id.email, recipient_data[0][1])
+        recipient = suggested_recipients[0]
+        self.assertEqual(consent.partner_id.id, recipient["partner_id"])
+        self.assertIn(consent.partner_id.name, recipient["name"])
+        self.assertIn(consent.partner_id.email, recipient["email"])
 
     def test_compute_consent_count(self):
         """Test that consent_count is correctly updated."""
@@ -420,23 +420,13 @@ class ActivitySecurity(ActivityCase):
         cls.user_admin = cls.env.ref("base.user_admin")
         cls.user_privacy_user = mail_new_test_user(
             cls.env,
-            company_id=cls.user_admin.company_id.id,
-            country_id=cls.env.ref("base.be").id,
             groups="base.group_user,privacy.group_data_protection_user",
             login="user_privacy_user",
-            name="Patrick Privacy User",
-            notification_type="inbox",
-            signature="--\nPatrick",
         )
         cls.user_privacy_manager = mail_new_test_user(
             cls.env,
-            company_id=cls.user_admin.company_id.id,
-            country_id=cls.env.ref("base.be").id,
             groups="base.group_user,privacy.group_data_protection_manager",
             login="user_privacy_manager",
-            name="Patricia Privacy Manager",
-            notification_type="inbox",
-            signature="--\nPatricia",
         )
 
     @classmethod

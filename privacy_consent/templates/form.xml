@@ -31,21 +31,21 @@
                     <p>
                         If it was a mistake, you can undo it here:
                         <div class="text-center">
-                            <a
-                                t-if="consent.accepted"
-                                t-att-href="consent._url(False)"
-                                class="btn btn-danger btn-lg"
-                            >
+                        <a
+                            t-if="consent.accepted"
+                            t-att-href="consent._url(False)"
+                            class="btn btn-danger btn-lg"
+                        >
                                 I <b>reject</b> this processing of my data
                             </a>
-                            <a
-                                t-else=""
-                                t-att-href="consent._url(True)"
-                                class="btn btn-success btn-lg"
-                            >
+                        <a
+                            t-else=""
+                            t-att-href="consent._url(True)"
+                            class="btn btn-success btn-lg"
+                        >
                                 I <b>accept</b> this processing of my data
                             </a>
-                        </div>
+                    </div>
                     </p>
                     <p>
                         Thanks for your response.

@@ -3,7 +3,7 @@
 
 {
     "name": "Privacy Partner's Right to be Forgotten",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "Data Protection",
     "summary": "Anonymize partner data for GDPR compliance",

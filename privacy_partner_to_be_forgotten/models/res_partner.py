@@ -204,7 +204,8 @@ class ResPartner(models.Model):
             (self.env.user.partner_id, "ir.attachment/delete", {"id": attachment.id})
             for attachment in attachments
         ]
-        self.env["bus.bus"]._sendmany(updates)
+        for update in updates:
+            self.env["bus.bus"]._sendone(*update)
         attachments.unlink()
 
     def _log_anonymization(self, timestamp):

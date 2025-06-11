@@ -10,21 +10,23 @@
                     <p
                     >Once you confirm, Odoo will anonymize the selected partner(s) and all related records, including:
                         <ul>
-                            <li>Personal information (name, email, phone, address)</li>
-                            <li
-                            >User account information (if the contact has system access)</li>
-                            <li>Messages and attachments in chat history</li>
-                            <li>Contact's activity history</li>
-                        </ul>
+                        <li>Personal information (name, email, phone, address)</li>
+                        <li
+                        >User account information (if the contact has system access)</li>
+                        <li>Messages and attachments in chat history</li>
+                        <li>Contact's activity history</li>
+                    </ul>
                     </p>
-                    <p><strong>Important:</strong></p>
+                    <p>
+                        <strong>Important:</strong>
+                    </p>
                     <ul>
                         <li>The anonymization operation <strong
-                            >cannot be undone</strong>.</li>
+                        >cannot be undone</strong>.</li>
                         <li>Once the data is anonymized, it <strong
-                            >cannot be restored</strong>. Please proceed carefully.</li>
+                        >cannot be restored</strong>. Please proceed carefully.</li>
                         <li>You <strong
-                            >carry full responsibility</strong> for using the module's features in compliance with GDPR regulations.</li>
+                        >carry full responsibility</strong> for using the module's features in compliance with GDPR regulations.</li>
                     </ul>
                 </div>
                 <field name="partner_ids">

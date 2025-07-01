@@ -17,7 +17,11 @@ data-protection
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[privacy](privacy/) | 18.0.1.0.0 |  | Provides data privacy and protection features to comply to regulations, such as GDPR.
 
 [//]: # (end addons)
 

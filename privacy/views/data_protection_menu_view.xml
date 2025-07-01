@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2018 Eficent Business and IT Consulting Services S.L.
+     Copyright 2025 Juan Jose Bautista - Aulora AG.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<data>
+    <record id="action_data_protection_partner_form" model="ir.actions.act_window">
+        <field name="name">Partners</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+    <menuitem
+        id="parent_menu_data_protection"
+        name="Privacy"
+        groups="group_data_protection_user"
+        web_icon="privacy,static/description/icon.png"
+    />
+    <menuitem
+        id="menu_data_protection_master_data"
+        name="Master Data"
+        parent="parent_menu_data_protection"
+        groups="group_data_protection_user"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_data_protection_partner"
+        name="Partners"
+        parent="menu_data_protection_master_data"
+        action="action_data_protection_partner_form"
+        sequence="1010"
+    />
+    <!--
+        These menu items ('Transactions' and 'Reports') are intentionally kept
+        as placeholders (skeleton menus) so that other modules can hook into them
+        in the future without needing to redefine the parent menu.
+
+        This avoids duplicate menu definitions and helps maintain a clean structure.
+    -->
+    <menuitem
+        id="menu_data_protection_transaction"
+        name="Transactions"
+        parent="parent_menu_data_protection"
+        groups="group_data_protection_user"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_data_protection_report"
+        name="Reports"
+        parent="parent_menu_data_protection"
+        groups="group_data_protection_user"
+        sequence="30"
+    />
+    <!--
+        This menu and its associated action are intentionally kept
+        to provide a placeholder for future settings related to data protection.
+
+        Although currently unused by other modules, defining this early helps avoid
+        duplication or inconsistent menu definitions in the future.
+        This follows a common pattern in Odoo where a "Settings" menu is available
+        under main sections, even if initially empty.
+    -->
+
+    <record id="action_data_protection_config" model="ir.actions.act_window">
+        <field name="name">Data Protection Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'data_protection'}</field>
+    </record>
+    <menuitem
+        id="menu_data_protection_setting"
+        name="Settings"
+        parent="parent_menu_data_protection"
+        action="action_data_protection_config"
+        groups="group_data_protection_manager"
+        sequence="90"
+    />
+</data>

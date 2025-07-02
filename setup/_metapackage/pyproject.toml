@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-data-protection"
-version = "18.0.20250701.0"
+version = "18.0.20250702.0"
 dependencies = [
     "odoo-addon-privacy==18.0.*",
+    "odoo-addon-privacy_consent==18.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",

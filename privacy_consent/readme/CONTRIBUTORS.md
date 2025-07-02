@@ -1,0 +1,4 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Jairo Llopis
+- [initOS GmbH](https://www.initos.com):
+  - Florian Kantelberg

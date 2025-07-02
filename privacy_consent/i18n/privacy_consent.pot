@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,7 +22,7 @@ msgid ""
 "                        <tr>\n"
 "                            <td>\n"
 "                                <a href=\"/\">\n"
-"                                    <img src=\"/logo\" t-att-alt=\"object.activity_id.controller_id.display_name\" style=\"vertical-align:baseline;max-width:100px;\">\n"
+"                                    <img src=\"/logo\" t-att-alt=\"object.activity_id.controller_id.display_name\" style=\"vertical-align:baseline;max-width:100px;\"/>\n"
 "                                </a>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -33,14 +33,14 @@ msgid ""
 "                        <tr>\n"
 "                            <td colspan=\"2\" style=\"padding:15px 20px 0px 20px; font-size:16px;\">\n"
 "                                <p>\n"
-"                                    Hello, <t t-out=\"object.partner_id.name\"></t>\n"
+"                                    Hello, <t t-out=\"object.partner_id.name\"/>\n"
 "                                </p>\n"
 "                                <p>\n"
 "                                    We contacted you to ask you to give us your explicit consent to include your data in a data processing activity called\n"
-"                                    <b t-out=\"object.activity_id.display_name\"></b>, property of\n"
-"                                    <i t-out=\"object.activity_id.controller_id.display_name\"></i>\n"
+"                                    <b t-out=\"object.activity_id.display_name\"/>, property of\n"
+"                                    <i t-out=\"object.activity_id.controller_id.display_name\"/>\n"
 "                                </p>\n"
-"                                <t t-out=\"object.activity_id.description\"></t>\n"
+"                                <t t-out=\"object.activity_id.description\"/>\n"
 "                                <p>\n"
 "                                    <t t-if=\"object.state == 'answered'\">\n"
 "                                        The last time you answered, you\n"
@@ -50,11 +50,11 @@ msgid ""
 "                                    </t>\n"
 "\n"
 "                                    <t t-if=\"object.accepted\">\n"
-"                                        <b>accepted</b>\n"
-"                                    </t>\n"
+"                                    <b>accepted</b>\n"
+"                                </t>\n"
 "                                    <t t-else=\"\">\n"
-"                                        <b>rejected</b>\n"
-"                                    </t>\n"
+"                                    <b>rejected</b>\n"
+"                                </t>\n"
 "                                    such data processing.\n"
 "                                </p>\n"
 "                                <p>\n"
@@ -93,8 +93,8 @@ msgid ""
 "                                <p>\n"
 "                                    Sent by\n"
 "                                    <a href=\"/\" style=\"color:#717188;\">\n"
-"                                        <t t-out=\"object.activity_id.controller_id.display_name\"></t>\n"
-"                                    </a>.\n"
+"                                    <t t-out=\"object.activity_id.controller_id.display_name\"/>\n"
+"                                </a>.\n"
 "                                </p>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -304,7 +304,6 @@ msgstr ""
 #. module: privacy_consent
 #. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
-#, python-format
 msgid "Generated consents"
 msgstr ""
 
@@ -404,7 +403,6 @@ msgstr ""
 #. module: privacy_consent
 #. odoo-python
 #: code:addons/privacy_consent/models/mail_template.py:0
-#, python-format
 msgid ""
 "Missing privacy consent link placeholders. You need at least these two links:\n"
 "<a href=\"%(consent_url)s\">Accept</a>\n"
@@ -484,7 +482,6 @@ msgstr ""
 #. module: privacy_consent
 #. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
-#, python-format
 msgid "Require consent is available only for subjects in current database."
 msgstr ""
 
@@ -513,7 +510,6 @@ msgstr ""
 #. module: privacy_consent
 #. odoo-python
 #: code:addons/privacy_consent/models/privacy_activity.py:0
-#, python-format
 msgid "Specify a mail template to ask automated consent."
 msgstr ""
 

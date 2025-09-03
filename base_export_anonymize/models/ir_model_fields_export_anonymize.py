@@ -9,5 +9,9 @@ class IrModelFieldsExportAnonymize(models.Model):
     _description = "Ir Model Fields Export Anonymize"
 
     field_id = fields.Many2one(
-        comodel_name="ir.model.fields", string="Field", required=True, index=True
+        comodel_name="ir.model.fields",
+        string="Field",
+        required=True,
+        index=True,
+        ondelete="cascade",
     )

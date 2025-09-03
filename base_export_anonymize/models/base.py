@@ -17,14 +17,13 @@ class Base(models.AbstractModel):
         for row in rows:
             row[index] = anonymize_key
 
-    @api.multi
-    def _export_rows(self, *args, **kwargs):
-        rows = super()._export_rows(*args, **kwargs)
+    def _export_rows(self, **kwargs):
+        rows = super()._export_rows(**kwargs)
         if self.env.user.has_group(
             "base_export_anonymize.group_anonymize_data_in_export"
         ):
-            fields = args[0]
-            field_model = self.env["ir.model.fields"]
+            fields = kwargs.get("fields", [])
+            field_model = self.env["ir.model.fields"].sudo()
             for index, path in enumerate(fields):
                 if len(path) == 1:
                     field_name = path[0]

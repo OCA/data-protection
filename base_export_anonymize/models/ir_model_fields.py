@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class IrModelFields(models.Model):
-
     _inherit = "ir.model.fields"
 
     anonymize_in_export = fields.Boolean(

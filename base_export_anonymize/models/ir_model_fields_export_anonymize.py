@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class IrModelFieldsExportAnonymize(models.Model):
-
     _name = "ir.model.fields.export.anonymize"
     _description = "Ir Model Fields Export Anonymize"
 

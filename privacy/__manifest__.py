@@ -1,4 +1,4 @@
-# Copyright 2018 Eficent Business and IT Consulting Services S.L.
+# Copyright 2018 ForgeFlow, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Data Privacy and Protection",
@@ -7,7 +7,7 @@
     "category": "Data Protection",
     "summary": "Provides data privacy and protection features "
     "to comply to regulations, such as GDPR.",
-    "author": "Eficent, Tecnativa, Odoo Community Association (OCA)",
+    "author": "ForgeFlow, Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/data-protection",
     "license": "AGPL-3",
     "data": [

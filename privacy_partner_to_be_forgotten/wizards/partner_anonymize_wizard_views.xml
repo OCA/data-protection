@@ -30,13 +30,13 @@
                     </ul>
                 </div>
                 <field name="partner_ids">
-                    <tree>
+                    <list>
                         <field name="name" />
                         <field name="email" />
                         <field name="phone" />
                         <field name="parent_id" />
                         <field name="company_type" />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button

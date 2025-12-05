@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,21 +16,18 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
-#, python-format
 msgid "%(company)s Anonymized"
 msgstr ""
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
-#, python-format
 msgid "%(initials)s Anonymized"
 msgstr ""
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
-#, python-format
 msgid "%(partner_count)d partner(s) have been anonymized successfully."
 msgstr ""
 
@@ -47,7 +44,6 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
-#, python-format
 msgid "Anonymization Result"
 msgstr ""
 
@@ -129,7 +125,6 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
-#, python-format
 msgid "No partners selected for anonymization."
 msgstr ""
 
@@ -170,7 +165,6 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
-#, python-format
 msgid "This contact has been anonymized on %(date)s by %(user)s"
 msgstr ""
 
@@ -195,6 +189,5 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
-#, python-format
 msgid "You don't have permission to anonymize partners."
 msgstr ""

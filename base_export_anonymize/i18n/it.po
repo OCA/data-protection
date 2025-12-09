@@ -6,76 +6,78 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-12-09 13:43+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields__anonymize_in_export
 msgid "Anonymize In Export"
-msgstr ""
+msgstr "Rendi anonimo all'esportazione"
 
 #. module: base_export_anonymize
 #: model:res.groups,name:base_export_anonymize.group_anonymize_data_in_export
 msgid "Anonymize data in export"
-msgstr ""
+msgstr "Rendi dati anonimi all'esportazione"
 
 #. module: base_export_anonymize
 #: model:ir.model,name:base_export_anonymize.model_base
 msgid "Base"
-msgstr ""
+msgstr "Base"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__field_id
 msgid "Field"
-msgstr ""
+msgstr "Campo"
 
 #. module: base_export_anonymize
 #: model:ir.model,name:base_export_anonymize.model_ir_model_fields
 msgid "Fields"
-msgstr ""
+msgstr "Campi"
 
 #. module: base_export_anonymize
 #: model:ir.actions.act_window,name:base_export_anonymize.ir_model_fields_export_anonymize_act_window
 #: model:ir.ui.menu,name:base_export_anonymize.ir_model_fields_export_anonymize_menu
 msgid "Fields Export Anonymize"
-msgstr ""
+msgstr "Rendi anonima l'esportazione campi"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: base_export_anonymize
 #: model:ir.model,name:base_export_anonymize.model_ir_model_fields_export_anonymize
 msgid "Ir Model Fields Export Anonymize"
-msgstr ""
+msgstr "Rendi anonima l'esportazione campi modello Ir"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"

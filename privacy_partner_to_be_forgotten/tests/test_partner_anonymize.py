@@ -7,11 +7,11 @@ from unittest.mock import patch
 from odoo import fields
 from odoo.exceptions import AccessError
 from odoo.tests import Form
-from odoo.tests.common import TransactionCase, tagged
+from odoo.tests.common import SavepointCase, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestPartnerAnonymize(TransactionCase):
+class TestPartnerAnonymize(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -214,7 +214,7 @@ class TestPartnerAnonymize(TransactionCase):
         """Helper method to create and return an anonymization wizard"""
         with Form(
             self.env["partner.anonymize.wizard"]
-            .with_user(user)
+            .sudo(user)
             .with_context(default_partner_ids=partner_ids, active_ids=partner_ids)
         ) as wizard:
             wizard_id = wizard.save()
@@ -225,7 +225,7 @@ class TestPartnerAnonymize(TransactionCase):
         """Helper method to check if a partner is properly anonymized"""
         # Check name format (initials + "Anonymized")
         initials = "".join(part[0].upper() for part in original_name.split() if part)
-        self.assertEqual(partner.name, f"{initials} Anonymized")
+        self.assertEqual(partner.name, "%s Anonymized" % initials)
 
         # Check email format
         email_pattern = (
@@ -247,7 +247,7 @@ class TestPartnerAnonymize(TransactionCase):
         self.assertFalse(partner.ref)
         self.assertFalse(partner.comment)
         self.assertFalse(partner.website)
-        self.assertFalse(partner.image_1920)
+        self.assertFalse(partner.image)
         self.assertFalse(partner.active)
 
         return True
@@ -257,7 +257,7 @@ class TestPartnerAnonymize(TransactionCase):
         self.assertEqual(user.login, partner.email)
         self.assertEqual(user.email, partner.email)
         self.assertFalse(user.active)
-        self.assertIn("Anonymized", user.signature)
+        self.assertFalse(user.signature)
 
         return True
 
@@ -266,7 +266,7 @@ class TestPartnerAnonymize(TransactionCase):
         # Check name format ("Company Name Anonymized")
         self.assertEqual(
             company.name,
-            f"{original_name} Anonymized",
+            "%s Anonymized" % original_name,
         )
 
         # Check that business-critical fields are preserved
@@ -570,7 +570,7 @@ class TestPartnerAnonymize(TransactionCase):
         )
 
         # Try to execute action_confirm with user that doesn't have rights
-        wizard = wizard.with_user(self.test_user_no_rights)
+        wizard = wizard.sudo(self.test_user_no_rights)
 
         # This should raise an AccessError
         with self.assertRaises(AccessError) as context:
@@ -674,39 +674,22 @@ class TestPartnerAnonymize(TransactionCase):
         )
         initial_count = len(initial_messages)
 
-        # Mock the bus.bus._sendone method to check if it's called
-        original_sendone = self.env["bus.bus"]._sendone
+        timestamp = fields.Datetime.now()
+        self.partner_kenny._log_anonymization(timestamp)
 
-        call_args = []
+        # Verify a new message was created
+        messages_after = self.env["mail.message"].search(
+            [
+                ("model", "=", "res.partner"),
+                ("res_id", "=", self.partner_kenny.id),
+            ]
+        )
+        self.assertEqual(len(messages_after), initial_count + 1)
 
-        def mock_sendone(self, partner, notification_type, message_content):
-            call_args.append((partner, notification_type, message_content))
-            return original_sendone(partner, notification_type, message_content)
-
-        with patch.object(type(self.env["bus.bus"]), "_sendone", mock_sendone):
-            timestamp = fields.Datetime.now()
-            self.partner_kenny._log_anonymization(timestamp)
-
-            # Verify a new message was created
-            messages_after = self.env["mail.message"].search(
-                [
-                    ("model", "=", "res.partner"),
-                    ("res_id", "=", self.partner_kenny.id),
-                ]
-            )
-            self.assertEqual(len(messages_after), initial_count + 1)
-
-            # Verify message content
-            latest_message = messages_after.sorted(lambda m: m.id, reverse=True)[0]
-            self.assertIn("This contact has been anonymized", latest_message.body)
-            self.assertIn(self.env.user.name, latest_message.body)
-            self.assertIn(
-                fields.Datetime.to_string(timestamp)[:10], latest_message.body
-            )
-
-            # Verify notification was sent to the current user
-            self.assertTrue(call_args)
-            partner, notification_type, message_content = call_args[0]
-            self.assertEqual(partner, self.env.user.partner_id)
-            self.assertEqual(notification_type, "mail.record/insert")
-            self.assertEqual(message_content["Message"]["id"], latest_message.id)
+        # Verify message content
+        latest_message = messages_after.sorted(lambda m: m.id, reverse=True)[0]
+        self.assertIn("This contact has been anonymized", latest_message.body)
+        self.assertIn(self.env.user.name, latest_message.body)
+        self.assertIn(
+            fields.Datetime.to_string(timestamp)[:10], latest_message.body
+        )

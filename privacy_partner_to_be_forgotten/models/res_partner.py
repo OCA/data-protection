@@ -78,11 +78,9 @@ class ResPartner(models.Model):
             "ref": False,
             "comment": False,
             "website": False,
-            "image_1920": False,
-            "image_1024": False,
-            "image_512": False,
-            "image_256": False,
-            "image_128": False,
+            "image": False,
+            "image_medium": False,
+            "image_small": False,
             "active": False,
         }
 
@@ -147,12 +145,12 @@ class ResPartner(models.Model):
             ("partner_ids", "in", [self.id]),
             # Messages in channels where this partner is a member
             "&",
-            ("model", "=", "discuss.channel"),
+            ("model", "=", "mail.channel"),
             (
                 "res_id",
                 "in",
-                self.env["discuss.channel"]
-                .search([("channel_member_ids.partner_id", "=", self.id)])
+                self.env["mail.channel"]
+                .search([("channel_partner_ids", "in", [self.id])])
                 .ids,
             ),
         ]
@@ -169,11 +167,6 @@ class ResPartner(models.Model):
         if not messages:
             return
 
-        self.env["bus.bus"]._sendone(
-            self.env.user.partner_id,
-            "mail.message/delete",
-            {"message_ids": messages.ids},
-        )
         messages.unlink()
 
     def _get_attachments_domain(self):
@@ -200,34 +193,18 @@ class ResPartner(models.Model):
         if not attachments:
             return
 
-        updates = [
-            (self.env.user.partner_id, "ir.attachment/delete", {"id": attachment.id})
-            for attachment in attachments
-        ]
-        for update in updates:
-            self.env["bus.bus"]._sendone(*update)
         attachments.unlink()
 
     def _log_anonymization(self, timestamp):
         """Log anonymization action in chatter."""
-        message = self.message_post(
+        self.message_post(
             body=_(
-                "This contact has been anonymized on %(date)s by %(user)s",
-                date=fields.Datetime.to_string(timestamp),
-                user=self.env.user.name,
-            ),
-            subtype_xmlid="mail.mt_note",
-        )
-
-        self.env["bus.bus"]._sendone(
-            self.env.user.partner_id,
-            "mail.record/insert",
-            {
-                "Message": {
-                    "id": message.id,
-                    "body": message.body,
+                "This contact has been anonymized on %(date)s by %(user)s" % {
+                    "date": fields.Datetime.to_string(timestamp),
+                    "user": self.env.user.name,
                 }
-            },
+            ),
+            subtype="mail.mt_note",
         )
 
     def anonymize_partner_data(self):
@@ -248,7 +225,7 @@ class ResPartner(models.Model):
 
         if self.is_company:
             # Company anonymization
-            anonymized_name = _("%(company)s Anonymized", company=self.name)
+            anonymized_name = _("%(company)s Anonymized" % {"company": self.name})
             self._anonymize_user()
             self.with_context(active_test=True, tracking_disable=True).write(
                 self._prepare_company_anonymized_vals(anonymized_name)
@@ -256,7 +233,7 @@ class ResPartner(models.Model):
         else:
             # Individual contact anonymization
             initials = self._get_partner_initials()
-            anonymized_name = _("%(initials)s Anonymized", initials=initials)
+            anonymized_name = _("%(initials)s Anonymized" % {"initials": initials})
             anonymized_email = self._generate_anonymized_email(initials)
 
             self._anonymize_user(anonymized_email)

@@ -49,17 +49,4 @@ class PartnerAnonymizeWizard(models.TransientModel):
         for partner in self.partner_ids:
             partner.anonymize_partner_data()
 
-        return {
-            "type": "ir.actions.client",
-            "tag": "display_notification",
-            "params": {
-                "title": _("Anonymization Result"),
-                "message": _(
-                    "%(partner_count)d partner(s) have been anonymized successfully."
-                )
-                % {"partner_count": len(self.partner_ids)},
-                "sticky": False,
-                "type": "success",
-                "next": {"type": "ir.actions.act_window_close"},
-            },
-        }
+        return {"type": "ir.actions.client", "tag": "reload"}

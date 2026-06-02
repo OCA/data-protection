@@ -8,8 +8,8 @@
         <field name="binding_model_id" ref="base.model_res_partner" />
         <field name="binding_view_types">form,list</field>
         <field
-            name="groups_id"
-            eval="[(4, ref('privacy_partner_to_be_forgotten.group_partner_anonymize'))]"
+            name="group_ids"
+            eval="[Command.link(ref('privacy_partner_to_be_forgotten.group_partner_anonymize'))]"
         />
         <field
             name="context"

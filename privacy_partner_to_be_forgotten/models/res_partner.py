@@ -3,7 +3,7 @@
 
 import logging
 
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 _logger = logging.getLogger(__name__)
@@ -65,7 +65,6 @@ class ResPartner(models.Model):
             "name": anonymized_name,
             "email": anonymized_email,
             "phone": False,
-            "mobile": False,
             "street": False,
             "street2": False,
             "city": False,
@@ -73,7 +72,6 @@ class ResPartner(models.Model):
             "zip": False,
             "country_id": False,
             "function": False,
-            "title": False,
             "vat": False,
             "ref": False,
             "comment": False,
@@ -151,9 +149,9 @@ class ResPartner(models.Model):
             (
                 "res_id",
                 "in",
-                self.env["discuss.channel"]
-                .search([("channel_member_ids.partner_id", "=", self.id)])
-                .ids,
+                self.env["discuss.channel"]._search(
+                    [("channel_member_ids.partner_id", "=", self.id)]
+                ),
             ),
         ]
 
@@ -211,7 +209,7 @@ class ResPartner(models.Model):
     def _log_anonymization(self, timestamp):
         """Log anonymization action in chatter."""
         message = self.message_post(
-            body=_(
+            body=self.env._(
                 "This contact has been anonymized on %(date)s by %(user)s",
                 date=fields.Datetime.to_string(timestamp),
                 user=self.env.user.name,
@@ -248,7 +246,7 @@ class ResPartner(models.Model):
 
         if self.is_company:
             # Company anonymization
-            anonymized_name = _("%(company)s Anonymized", company=self.name)
+            anonymized_name = self.env._("%(company)s Anonymized", company=self.name)
             self._anonymize_user()
             self.with_context(active_test=True, tracking_disable=True).write(
                 self._prepare_company_anonymized_vals(anonymized_name)
@@ -256,7 +254,7 @@ class ResPartner(models.Model):
         else:
             # Individual contact anonymization
             initials = self._get_partner_initials()
-            anonymized_name = _("%(initials)s Anonymized", initials=initials)
+            anonymized_name = self.env._("%(initials)s Anonymized", initials=initials)
             anonymized_email = self._generate_anonymized_email(initials)
 
             self._anonymize_user(anonymized_email)

@@ -7,11 +7,18 @@
         <field name="sequence">101</field>
     </record>
 
+    <!-- Create a privilege for Anonymize Contacts -->
+    <record model="res.groups.privilege" id="group_privilege_partner_anonymize">
+        <field name="name">Anonymize Contacts</field>
+        <field name="category_id" ref="module_category_anonymize_contacts" />
+        <field name="sequence">101</field>
+    </record>
+
     <!-- Define the group for Anonymize Contacts -->
     <record id="group_partner_anonymize" model="res.groups">
         <field name="name">Administrator</field>
-        <field name="category_id" ref="module_category_anonymize_contacts" />
-        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+        <field name="privilege_id" ref="group_privilege_partner_anonymize" />
+        <field name="user_ids" eval="[Command.link(ref('base.user_admin'))]" />
         <field
             name="comment"
         >Users in this group can anonymize contact information for GDPR compliance.</field>

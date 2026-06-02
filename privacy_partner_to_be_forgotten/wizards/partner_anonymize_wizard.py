@@ -1,7 +1,7 @@
 # Copyright (C) 2025 Cetmix OÜ
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 
-from odoo import _, api, fields, models
+from odoo import Command, api, fields, models
 from odoo.exceptions import AccessError, UserError
 
 
@@ -18,7 +18,7 @@ class PartnerAnonymizeWizard(models.TransientModel):
     @api.model
     def default_get(self, fields_list):
         res = super().default_get(fields_list)
-        active_ids = self._context.get("active_ids")
+        active_ids = self.env.context.get("active_ids")
         if "partner_ids" in fields_list and active_ids:
             domain = [
                 ("id", "child_of", active_ids),
@@ -27,7 +27,7 @@ class PartnerAnonymizeWizard(models.TransientModel):
                 ("email", "not like", "%@anonymized.oca"),
             ]
             all_partners = self.env["res.partner"].search(domain)
-            res["partner_ids"] = [(6, 0, all_partners.ids)]
+            res["partner_ids"] = [Command.set(all_partners.ids)]
         return res
 
     def _validate_partners_for_anonymization(self):
@@ -35,11 +35,13 @@ class PartnerAnonymizeWizard(models.TransientModel):
         if not self.env.user.has_group(
             "privacy_partner_to_be_forgotten.group_partner_anonymize"
         ):
-            raise AccessError(_("You don't have permission to anonymize partners."))
+            raise AccessError(
+                self.env._("You don't have permission to anonymize partners.")
+            )
 
         # Check if there are partners to anonymize
         if not self.partner_ids:
-            raise UserError(_("No partners selected for anonymization."))
+            raise UserError(self.env._("No partners selected for anonymization."))
 
     def action_confirm(self):
         """Confirm and process partner anonymization for multiple partners"""
@@ -53,11 +55,11 @@ class PartnerAnonymizeWizard(models.TransientModel):
             "type": "ir.actions.client",
             "tag": "display_notification",
             "params": {
-                "title": _("Anonymization Result"),
-                "message": _(
-                    "%(partner_count)d partner(s) have been anonymized successfully."
-                )
-                % {"partner_count": len(self.partner_ids)},
+                "title": self.env._("Anonymization Result"),
+                "message": self.env._(
+                    "%(partner_count)d partner(s) have been anonymized successfully.",
+                    partner_count=len(self.partner_ids),
+                ),
                 "sticky": False,
                 "type": "success",
                 "next": {"type": "ir.actions.act_window_close"},

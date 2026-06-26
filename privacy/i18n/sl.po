@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-26 14:54+0000\n"
+"PO-Revision-Date: 2026-06-26 15:02+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -68,13 +68,13 @@ msgstr "Št. priponk"
 #. module: privacy
 #: model_terms:ir.actions.act_window,help:privacy.activity_action
 msgid "Click to add a data processing activity."
-msgstr ""
+msgstr "Kliknite za dodajanje dejavnosti obdelave podatkov."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__controller_id
 #: model_terms:ir.ui.view,arch_db:privacy.activity_search
 msgid "Controller"
-msgstr ""
+msgstr "Upravljavec"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_uid
@@ -89,27 +89,27 @@ msgstr "Ustvarjeno"
 #. module: privacy
 #: model:ir.module.category,name:privacy.module_category_data_protection
 msgid "Data Protection"
-msgstr ""
+msgstr "Varstvo podatkov"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_manager
 msgid "Data Protection Manager"
-msgstr ""
+msgstr "Upravitelj varstva podatkov"
 
 #. module: privacy
 #: model:ir.actions.act_window,name:privacy.action_data_protection_config
 msgid "Data Protection Settings"
-msgstr ""
+msgstr "Nastavitve varstva podatkov"
 
 #. module: privacy
 #: model:res.groups,name:privacy.group_data_protection_user
 msgid "Data Protection User"
-msgstr ""
+msgstr "Uporabnik varstva podatkov"
 
 #. module: privacy
 #: model:ir.model,name:privacy.model_privacy_activity
 msgid "Data processing activities"
-msgstr ""
+msgstr "Dejavnosti obdelave podatkov"
 
 #. module: privacy
 #: model_terms:ir.actions.act_window,help:privacy.activity_action
@@ -117,11 +117,13 @@ msgid ""
 "Data processing activities define why, how and what you do\n"
 "                with subjects' personal data."
 msgstr ""
+"Dejavnosti obdelave podatkov določajo, zakaj, kako in kaj počnete\n"
+"                z osebnimi podatki posameznikov."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_find
 msgid "Define subjects"
-msgstr ""
+msgstr "Določi posameznike"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__description
@@ -167,7 +169,7 @@ msgstr "Vsebuje sporočilo"
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__description
 msgid "How is personal data used here? Why? Etc."
-msgstr ""
+msgstr "Kako se tukaj uporabljajo osebni podatki? Zakaj? Itd."
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__id
@@ -214,7 +216,7 @@ msgstr "Zadnjič posodobljeno"
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
 msgid "Master Data"
-msgstr ""
+msgstr "Matični podatki"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error
@@ -280,13 +282,13 @@ msgstr "Partnerji"
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.parent_menu_data_protection
 msgid "Privacy"
-msgstr ""
+msgstr "Zasebnost"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__processor_ids
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "Processors"
-msgstr ""
+msgstr "Obdelovalci"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_report
@@ -301,7 +303,7 @@ msgstr "Odgovorni uporabnik"
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__subject_domain
 msgid "Selection filter to find specific subjects included."
-msgstr ""
+msgstr "Izbirni filter za iskanje vključenih posameznikov."
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_setting
@@ -324,12 +326,12 @@ msgstr ""
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "Subjects details"
-msgstr ""
+msgstr "Podrobnosti posameznikov"
 
 #. module: privacy
 #: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_domain
 msgid "Subjects filter"
-msgstr ""
+msgstr "Filter posameznikov"
 
 #. module: privacy
 #: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
@@ -346,14 +348,14 @@ msgstr "Tip izjeme pri aktivnosti na zapisu."
 msgid ""
 "Whoever determines the purposes and means of the processing of personal "
 "data."
-msgstr ""
+msgstr "Kdor določa namene in sredstva obdelave osebnih podatkov."
 
 #. module: privacy
 #: model:ir.model.fields,help:privacy.field_privacy_activity__processor_ids
 msgid "Whoever processes personal data on behalf of the controller."
-msgstr ""
+msgstr "Kdor obdeluje osebne podatke v imenu upravljavca."
 
 #. module: privacy
 #: model_terms:ir.ui.view,arch_db:privacy.activity_form
 msgid "processors"
-msgstr ""
+msgstr "obdelovalci"

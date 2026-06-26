@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-26 15:02+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: privacy_consent
 #: model:mail.template,body_html:privacy_consent.template_consent
@@ -125,7 +127,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__accepted
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "Accepted"
-msgstr ""
+msgstr "Sprejeto"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__default_consent
@@ -135,18 +137,18 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Potrebno ukrepanje"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__activity_id
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "Activity"
-msgstr ""
+msgstr "Aktivnost"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__answered
@@ -157,7 +159,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_form
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_form
@@ -172,12 +174,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Št. priponk"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__auto
 msgid "Automatically"
-msgstr ""
+msgstr "Samodejno"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__sent
@@ -221,22 +223,22 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Stik"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_privacy_activity
 msgid "Data processing activities"
-msgstr ""
+msgstr "Dejavnosti obdelave podatkov"
 
 #. module: privacy_consent
 #: model:mail.template,subject:privacy_consent.template_consent
@@ -247,12 +249,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Osnutek"
 
 #. module: privacy_consent
 #: model:ir.model.constraint,message:privacy_consent.constraint_privacy_consent_unique_partner_activity
@@ -262,12 +264,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_template
 msgid "Email Templates"
-msgstr ""
+msgstr "Predloge e-pošte"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_id
 msgid "Email template"
-msgstr ""
+msgstr "Predloga e-pošte"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__consent_template_id
@@ -286,12 +288,12 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Sledilci"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Sledilci (partnerji)"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
@@ -312,17 +314,17 @@ msgstr ""
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
 msgid "Group By"
-msgstr ""
+msgstr "Združi po"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Vsebuje sporočilo"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Hello,"
-msgstr ""
+msgstr "Pozdravljeni."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -337,17 +339,19 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Če je označeno, nova sporočila zahtevajo vašo pozornost."
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
+"Kadar je označeno, pomeni, da je pri nekaterih sporočilih prišlo do napake "
+"pri dostavi."
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
@@ -365,7 +369,7 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Je sledilec"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__last_metadata
@@ -375,27 +379,27 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: privacy_consent
 #: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__manual
 msgid "Manually"
-msgstr ""
+msgstr "Ročno"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Napaka ob dostavi sporočila"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Sporočila"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__last_metadata
@@ -420,27 +424,27 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Število ukrepov"
 
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Število napak"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Število sporočil, ki zahtevajo ukrepanje"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Število sporočil, ki niso bila pravilno dostavljena"
 
 #. module: privacy_consent
 #: model:ir.model,name:privacy_consent.model_mail_mail
 msgid "Outgoing Mails"
-msgstr ""
+msgstr "Izhodna pošta"
 
 #. module: privacy_consent
 #: model:mail.template,name:privacy_consent.template_consent
@@ -497,7 +501,7 @@ msgstr ""
 #. module: privacy_consent
 #: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
 msgid "Server action"
-msgstr ""
+msgstr "Strežniško dejanje"
 
 #. module: privacy_consent
 #: model:ir.model.fields,help:privacy_consent.field_privacy_activity__default_consent
@@ -545,7 +549,7 @@ msgstr ""
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form
 msgid "Thank you!"
-msgstr ""
+msgstr "Hvala!"
 
 #. module: privacy_consent
 #: model_terms:ir.ui.view,arch_db:privacy_consent.form

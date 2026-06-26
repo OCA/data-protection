@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-26 15:08+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,18 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
 msgid "%(company)s Anonymized"
-msgstr ""
+msgstr "%(company)s anonimizirana"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
 msgid "%(initials)s Anonymized"
-msgstr ""
+msgstr "%(initials)s anonimizirano"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
@@ -36,12 +38,12 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "<strong>Important:</strong>"
-msgstr ""
+msgstr "<strong>Pomembno:</strong>"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:res.groups,name:privacy_partner_to_be_forgotten.group_partner_anonymize
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
@@ -67,7 +69,7 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Cancel"
-msgstr ""
+msgstr "Prekliči"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
@@ -82,7 +84,7 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model,name:privacy_partner_to_be_forgotten.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Stik"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
@@ -92,32 +94,32 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
@@ -147,7 +149,7 @@ msgstr ""
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__partner_ids
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model,name:privacy_partner_to_be_forgotten.model_partner_anonymize_wizard

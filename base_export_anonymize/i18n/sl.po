@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-26 15:11+0000\n"
+"PO-Revision-Date: 2026-06-26 17:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields__anonymize_in_export
 msgid "Anonymize In Export"
-msgstr ""
+msgstr "Anonimiziraj pri izvozu"
 
 #. module: base_export_anonymize
 #: model:res.groups,name:base_export_anonymize.group_anonymize_data_in_export
 msgid "Anonymize data in export"
-msgstr ""
+msgstr "Anonimiziraj podatke pri izvozu"
 
 #. module: base_export_anonymize
 #: model:ir.model,name:base_export_anonymize.model_base
@@ -61,7 +61,7 @@ msgstr "Polja"
 #: model:ir.actions.act_window,name:base_export_anonymize.ir_model_fields_export_anonymize_act_window
 #: model:ir.ui.menu,name:base_export_anonymize.ir_model_fields_export_anonymize_menu
 msgid "Fields Export Anonymize"
-msgstr ""
+msgstr "Anonimizacija polj pri izvozu"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__id
@@ -71,7 +71,7 @@ msgstr "ID"
 #. module: base_export_anonymize
 #: model:ir.model,name:base_export_anonymize.model_ir_model_fields_export_anonymize
 msgid "Ir Model Fields Export Anonymize"
-msgstr ""
+msgstr "Anonimizacija izvoza polj modela IR"
 
 #. module: base_export_anonymize
 #: model:ir.model.fields,field_description:base_export_anonymize.field_ir_model_fields_export_anonymize__write_uid

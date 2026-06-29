@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="report_partner_xlsx" model="ir.actions.report">
+        <field name="name">Privacy Partner Data</field>
+        <field name="model">privacy.partner.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">privacy_partner_report.report_partner_xlsx</field>
+        <field name="report_file">privacy_partner_report.privacy_partner_report</field>
+    </record>
+</odoo>

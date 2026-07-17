@@ -59,3 +59,14 @@ New options for consent requests:
     *Ask for consent*.
 4.  All consent requests and responses are recorded in the mail thread
     below.
+
+How subjects answer:
+
+1.  The request e-mail contains an *Accept* and a *Reject* link. Opening
+    either link shows a confirmation page first.
+2.  The answer is recorded only after the subject presses the
+    confirmation button on that page. This protects against mail
+    gateways and antivirus link scanners that prefetch every link in an
+    e-mail, which would otherwise record false answers.
+3.  Subjects can change their answer at any time by opening one of the
+    links again.

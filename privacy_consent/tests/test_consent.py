@@ -1,4 +1,5 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
+# Copyright 2026 fidpa
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from contextlib import contextmanager
@@ -264,10 +265,25 @@ class ActivityFlow(ActivityCase):
         reject_url = consents[0]._url(False)
         self.assertNotIn(accept_url, messages.body)
         self.assertNotIn(reject_url, messages.body)
-        # Visit tokenized accept URL
+        # Visit tokenized accept URL: a GET only asks for confirmation
         self.authenticate("portal", "portal")
         http.root.session_store.save(self.session)
         result = self.url_open(accept_url).text
+        self.assertIn(self.activity_manual.name, result)
+        self.assertIn(self.activity_manual.description, result)
+        # The confirmation page must render a POST form back to the same URL,
+        # so that a real browser (not just this test helper) records the answer
+        # only through an explicit submit.
+        self.assertIn('method="post"', result)
+        self.assertIn(accept_url, result)
+        consents.invalidate_recordset()
+        self.assertEqual(consents.mapped("accepted"), [False, False, False])
+        self.assertEqual(consents.mapped("state"), ["sent", "draft", "draft"])
+        self.assertFalse(consents[0].last_metadata)
+        # Confirm acceptance with an explicit POST. A non-empty body only
+        # forces url_open into POST mode; the controller keys on the HTTP
+        # method alone and never reads a "confirm" field.
+        result = self.url_open(accept_url, data={"confirm": "1"}).text
         self.assertIn("accepted", result)
         self.assertIn(reject_url, result)
         self.assertIn(self.activity_manual.name, result)
@@ -281,8 +297,8 @@ class ActivityFlow(ActivityCase):
             consents[0].message_ids[0].subtype_id,
             self.mt_consent_acceptance_changed,
         )
-        # Visit tokenized reject URL
-        result = self.url_open(reject_url).text
+        # Confirm rejection with an explicit POST
+        result = self.url_open(reject_url, data={"confirm": "1"}).text
         self.assertIn("rejected", result)
         self.assertIn(accept_url, result)
         self.assertIn(self.activity_manual.name, result)
@@ -297,6 +313,40 @@ class ActivityFlow(ActivityCase):
             self.mt_consent_acceptance_changed,
         )
         self.assertFalse(consents[1].last_metadata)
+
+    def test_consent_get_does_not_answer(self):
+        """Mail scanners prefetch links with GET; that must not answer."""
+        result = self.activity_manual.action_new_consents()
+        consent = self.env[result["res_model"]].search(result["domain"], limit=1)
+        accept_url = consent._url(True)
+        reject_url = consent._url(False)
+        # A scanner typically follows every link it finds, repeatedly
+        for url in (accept_url, reject_url, accept_url):
+            response = self.url_open(url)
+            self.assertEqual(response.status_code, 200)
+        # The confirmation page must forbid framing (clickjacking defense).
+        self.assertEqual(response.headers.get("X-Frame-Options"), "DENY")
+        consent.invalidate_recordset()
+        self.assertEqual(consent.state, "draft")
+        self.assertFalse(consent.accepted)
+        self.assertFalse(consent.last_metadata)
+
+    def test_consent_post_answers(self):
+        """The answer is recorded exactly on the explicit POST."""
+        result = self.activity_manual.action_new_consents()
+        consent = self.env[result["res_model"]].search(result["domain"], limit=1)
+        response = self.url_open(consent._url(True), data={"confirm": "1"})
+        self.assertEqual(response.status_code, 200)
+        # The processed-answer page is likewise frame-protected.
+        self.assertEqual(response.headers.get("X-Frame-Options"), "DENY")
+        consent.invalidate_recordset()
+        self.assertEqual(consent.state, "answered")
+        self.assertTrue(consent.accepted)
+        self.assertTrue(consent.last_metadata)
+        # Subjects may still change their mind afterwards (undo flow)
+        self.url_open(consent._url(False), data={"confirm": "1"})
+        consent.invalidate_recordset()
+        self.assertFalse(consent.accepted)
 
     def test_generate_automatically(self):
         """Automatically-generated consents work as expected."""
@@ -464,6 +514,13 @@ class ActivitySecurity(ActivityCase):
             (-1, consent._token()),
             (-1, ""),
             (consent.id, ""),
+            # Valid id but a wrong (well-formed) token: exercises the consteq
+            # comparison itself, which the empty-token cases short-circuit
+            # before reaching (empty token 404s at routing / exists()).
+            (consent.id, "0" * 128),
         ]:
-            response = self.url_open(f"/privacy/consent/accept/{res_id}/{token}")
+            url = f"/privacy/consent/accept/{res_id}/{token}"
+            response = self.url_open(url)
+            self.assertEqual(response.status_code, 404)
+            response = self.url_open(url, data={"confirm": "1"})
             self.assertEqual(response.status_code, 404)

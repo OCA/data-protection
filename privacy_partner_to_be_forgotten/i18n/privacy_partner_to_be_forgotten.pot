@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -54,6 +54,7 @@ msgstr ""
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.module.category,name:privacy_partner_to_be_forgotten.module_category_anonymize_contacts
+#: model:res.groups.privilege,name:privacy_partner_to_be_forgotten.group_privilege_partner_anonymize
 msgid "Anonymize Contacts"
 msgstr ""
 
@@ -99,11 +100,13 @@ msgstr ""
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__display_name
+#: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__id
+#: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_res_partner__id
 msgid "ID"
 msgstr ""
 

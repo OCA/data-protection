@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-data-protection"
+version = "19.0.20260728.0"
+dependencies = [
+    "odoo-addon-privacy_partner_to_be_forgotten==19.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 19.0",
+]

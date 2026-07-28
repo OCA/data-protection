@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_anonymize_wizard_form" model="ir.ui.view">
+        <field name="name">partner.anonymize.wizard.form</field>
+        <field name="model">partner.anonymize.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Anonymize Partners">
+                <div class="alert alert-warning" role="alert">
+                    <h3>Confirmation Required: Anonymization Process</h3>
+                    <p
+                    >Once you confirm, Odoo will anonymize the selected partner(s) and all related records, including:
+                        <ul>
+                        <li>Personal information (name, email, phone, address)</li>
+                        <li
+                        >User account information (if the contact has system access)</li>
+                        <li>Messages and attachments in chat history</li>
+                        <li>Contact's activity history</li>
+                    </ul>
+                    </p>
+                    <p>
+                        <strong>Important:</strong>
+                    </p>
+                    <ul>
+                        <li>The anonymization operation <strong
+                        >cannot be undone</strong>.</li>
+                        <li>Once the data is anonymized, it <strong
+                        >cannot be restored</strong>. Please proceed carefully.</li>
+                        <li>You <strong
+                        >carry full responsibility</strong> for using the module's features in compliance with GDPR regulations.</li>
+                    </ul>
+                </div>
+                <field name="partner_ids">
+                    <list>
+                        <field name="name" />
+                        <field name="email" />
+                        <field name="phone" />
+                        <field name="parent_id" />
+                        <field name="company_type" />
+                    </list>
+                </field>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        string="Confirm Anonymization"
+                        type="object"
+                        class="btn-primary"
+                        data-hotkey="q"
+                    />
+                    <button
+                        string="Cancel"
+                        class="btn-secondary"
+                        special="cancel"
+                        data-hotkey="z"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -6,133 +6,135 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-29 08:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
 #, python-format
 msgid "%(company)s Anonymized"
-msgstr ""
+msgstr "%(company)s anonimizzata"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
 #, python-format
 msgid "%(initials)s Anonymized"
-msgstr ""
+msgstr "%(initials)s anonimizzate"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
 #, python-format
 msgid "%(partner_count)d partner(s) have been anonymized successfully."
-msgstr ""
+msgstr "%(partner_count)d partner sono stati anonimizzati con successo."
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "<strong>Important:</strong>"
-msgstr ""
+msgstr "<strong>Importante:</strong>"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:res.groups,name:privacy_partner_to_be_forgotten.group_partner_anonymize
 msgid "Administrator"
-msgstr ""
+msgstr "Amministratore"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
 #, python-format
 msgid "Anonymization Result"
-msgstr ""
+msgstr "Risultato anonimizzazione"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.actions.act_window,name:privacy_partner_to_be_forgotten.action_partner_anonymize
 msgid "Anonymize (GDPR)"
-msgstr ""
+msgstr "Anonimizza (GDPR)"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.module.category,name:privacy_partner_to_be_forgotten.module_category_anonymize_contacts
 msgid "Anonymize Contacts"
-msgstr ""
+msgstr "Anonimizza contatti"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Anonymize Partners"
-msgstr ""
+msgstr "Anonimizza partner"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Confirm Anonymization"
-msgstr ""
+msgstr "Conferma anonimizzazione"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Confirmation Required: Anonymization Process"
-msgstr ""
+msgstr "Richiesta conferma: processo anonimizzazione"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model,name:privacy_partner_to_be_forgotten.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Contact's activity history"
-msgstr ""
+msgstr "Cronologia attività del contatto"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Messages and attachments in chat history"
-msgstr ""
+msgstr "Messaggi e allegati nella cronologia della discussione"
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
 #, python-format
 msgid "No partners selected for anonymization."
-msgstr ""
+msgstr "Nessun partner selezionato per l'anonimizzazione."
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
@@ -140,6 +142,8 @@ msgid ""
 "Once the data is anonymized, it <strong>cannot be restored</strong>. Please "
 "proceed carefully."
 msgstr ""
+"Una volta che i dati sono anonimizzati, <strong>non possono essere "
+"ripristinati</strong>. Procedere con cautela."
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
@@ -147,44 +151,49 @@ msgid ""
 "Once you confirm, Odoo will anonymize the selected partner(s) and all "
 "related records, including:"
 msgstr ""
+"Una volta che si conferma, Odoo anonimizzerà i partner selezionati e tutti i "
+"record relativi, incluso:"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model.fields,field_description:privacy_partner_to_be_forgotten.field_partner_anonymize_wizard__partner_ids
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:ir.model,name:privacy_partner_to_be_forgotten.model_partner_anonymize_wizard
 msgid "Partner Anonymization Wizard"
-msgstr ""
+msgstr "Procedura guidata anonimizzazione partner"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "Personal information (name, email, phone, address)"
-msgstr ""
+msgstr "Informazioni personali (nome, e-mail, telefono, indirizzo)"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "The anonymization operation <strong>cannot be undone</strong>."
 msgstr ""
+"L'operazione di anonimizzazione <strong>non può essere annullata</strong>."
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/models/res_partner.py:0
 #, python-format
 msgid "This contact has been anonymized on %(date)s by %(user)s"
-msgstr ""
+msgstr "Questo contatto è stato anonimizzato il %(date)s da %(user)s"
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
 msgid "User account information (if the contact has system access)"
-msgstr ""
+msgstr "Informazioni account utente (se il contatto ha accesso al sistema)"
 
 #. module: privacy_partner_to_be_forgotten
 #: model:res.groups,comment:privacy_partner_to_be_forgotten.group_partner_anonymize
 msgid ""
 "Users in this group can anonymize contact information for GDPR compliance."
 msgstr ""
+"Gli utenti in questo gruppo possono anonimizzare le informazioni di contatto "
+"per rispettare il GDPR."
 
 #. module: privacy_partner_to_be_forgotten
 #: model_terms:ir.ui.view,arch_db:privacy_partner_to_be_forgotten.view_partner_anonymize_wizard_form
@@ -192,10 +201,12 @@ msgid ""
 "You <strong>carry full responsibility</strong> for using the module's "
 "features in compliance with GDPR regulations."
 msgstr ""
+"<strong>Si assume la piena responsabilità</strong> nell'usare le funzioni "
+"del modulo nel rispetto del regolamento GDPR."
 
 #. module: privacy_partner_to_be_forgotten
 #. odoo-python
 #: code:addons/privacy_partner_to_be_forgotten/wizards/partner_anonymize_wizard.py:0
 #, python-format
 msgid "You don't have permission to anonymize partners."
-msgstr ""
+msgstr "Non si ha l'autorizzazione ad anonimizzare i partner."

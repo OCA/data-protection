@@ -64,7 +64,7 @@
                     domain="[('active', '=', False)]"
                 />
                 <separator />
-                <group string="Group By" name="groupby">
+                <group name="groupby">
                     <filter
                         name="activity_id_groupby"
                         string="Activity"

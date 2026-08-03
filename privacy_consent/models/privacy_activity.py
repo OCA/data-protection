@@ -43,7 +43,7 @@ class PrivacyActivity(models.Model):
     )
     default_consent = fields.Boolean(
         string="Accepted by default",
-        help="Should we assume the subject has accepted if we receive no " "response?",
+        help="Should we assume the subject has accepted if we receive no response?",
     )
 
     # Hidden helpers help user design new templates
@@ -60,16 +60,14 @@ class PrivacyActivity(models.Model):
 
     @api.depends("consent_ids")
     def _compute_consent_count(self):
-        self.consent_count = 0
-        groups = self.env["privacy.consent"].read_group(
+        groups = self.env["privacy.consent"]._read_group(
             [("activity_id", "in", self.ids)],
             ["activity_id"],
-            ["activity_id"],
+            ["__count"],
         )
-        for group in groups:
-            self.browse(group["activity_id"][0]).consent_count = group[
-                "activity_id_count"
-            ]
+        mapping = {activity.id: count for activity, count in groups}
+        for one in self:
+            one.consent_count = mapping.get(one.id, 0)
 
     def _compute_consent_template_defaults(self):
         """Used in context values, to help users design new templates."""

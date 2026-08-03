@@ -44,7 +44,7 @@ class ConsentController(Controller):
 
     def _metadata(self):
         return (
-            "User agent: {}\n" "Remote IP: {}\n" "Date and time: {:%Y-%m-%d %H:%M:%S}"
+            "User agent: {}\nRemote IP: {}\nDate and time: {:%Y-%m-%d %H:%M:%S}"
         ).format(
             request.httprequest.environ.get("HTTP_USER_AGENT"),
             request.httprequest.environ.get("REMOTE_ADDR"),

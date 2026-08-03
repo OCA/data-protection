@@ -9,7 +9,7 @@ class MailMail(models.Model):
     _inherit = "mail.mail"
 
     def _postprocess_sent_message(
-        self, success_pids, failure_reason=False, failure_type=None
+        self, success_pids, success_emails, failure_reason=False, failure_type=None
     ):
         """Write consent status after sending message."""
         # Know if mail was successfully sent to a privacy consent
@@ -34,6 +34,7 @@ class MailMail(models.Model):
             consents.write({"state": "sent"})
         return super()._postprocess_sent_message(
             success_pids=success_pids,
+            success_emails=success_emails,
             failure_reason=failure_reason,
             failure_type=failure_type,
         )

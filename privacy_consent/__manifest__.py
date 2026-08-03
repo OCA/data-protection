@@ -4,7 +4,7 @@
     "name": "Privacy - Consent",
     "summary": "Allow people to explicitly accept or reject inclusion "
     "in some activity, GDPR compliant",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Privacy",
     "website": "https://github.com/OCA/data-protection",

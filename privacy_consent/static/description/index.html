@@ -374,7 +374,7 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:a1bc87f33b1755f112f2b02a4eed8fdf8576c046d801f3a73fd085f5c9de029f
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Production/Stable" src="https://img.shields.io/badge/maturity-Production%2FStable-green.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/data-protection/tree/18.0/privacy_consent"><img alt="OCA/data-protection" src="https://img.shields.io/badge/github-OCA%2Fdata--protection-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/data-protection-18-0/data-protection-18-0-privacy_consent"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/data-protection&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Production/Stable" src="https://img.shields.io/badge/maturity-Production%2FStable-green.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/data-protection/tree/19.0/privacy_consent"><img alt="OCA/data-protection" src="https://img.shields.io/badge/github-OCA%2Fdata--protection-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/data-protection-19-0/data-protection-19-0-privacy_consent"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/data-protection&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module allows the user to define a set of subjects (partners)
 affected by any data processing activity, and establish a process to ask
 them for consent to include them in that activity.</p>
@@ -437,26 +437,26 @@ your demand.</li>
 <li><p class="first">When you do this, all the consent-related options appear. Configure
 them:</p>
 <ul>
-<li><p class="first">A smart button tells you how many consents have been generated, and
-lets you access them.</p>
+<li><p class="first">A smart button tells you how many consents have been generated,
+and lets you access them.</p>
 </li>
 <li><p class="first">Choose one <em>Email template</em> to send to subjects. This email itself
-is what asks for consent, and it gets recorded, to serve as a proof
-that it was sent. The module provides a default template that
-should be good for most usage cases; and if you create one directly
-from that field, some good defaults are provided for your
+is what asks for consent, and it gets recorded, to serve as a
+proof that it was sent. The module provides a default template
+that should be good for most usage cases; and if you create one
+directly from that field, some good defaults are provided for your
 comfortability.</p>
 </li>
 <li><p class="first"><em>Subjects filter</em> defines what partners will be elegible for
 inclusion in this data processing activity.</p>
 </li>
-<li><p class="first">You can enable <em>Accepted by default</em> if you want to assume subjects
-accepted their data processing. You should possibly consult your
-lawyer to use this.</p>
+<li><p class="first">You can enable <em>Accepted by default</em> if you want to assume
+subjects accepted their data processing. You should possibly
+consult your lawyer to use this.</p>
 </li>
-<li><p class="first">You can choose a <em>Server action</em> (developer mode only) that will be
-executed whenever a new non-draft consent request is created, or
-when its acceptance status changes.</p>
+<li><p class="first">You can choose a <em>Server action</em> (developer mode only) that will
+be executed whenever a new non-draft consent request is created,
+or when its acceptance status changes.</p>
 <p>This module supplies a server action by default, called <em>Update
 partner’s opt out</em>, that syncs the acceptance status with the
 partner’s <em>Elegible for mass mailings</em> option.</p>
@@ -466,8 +466,8 @@ partner’s <em>Elegible for mass mailings</em> option.</p>
 <li><p class="first">Click on <em>Generate consent requests</em> link to create new consent
 requests.</p>
 <ul class="simple">
-<li>If you chose <em>Manual</em> mode, all missing consent request are created
-as drafts, and nothing else is done now.</li>
+<li>If you chose <em>Manual</em> mode, all missing consent request are
+created as drafts, and nothing else is done now.</li>
 <li>If you chose <em>Automatic</em> mode, also those request e-mails are
 enqueued and, when the mail queue is cleared, they will be set as
 <em>Sent</em>.</li>
@@ -481,7 +481,8 @@ See below.</p>
 <ol class="arabic simple">
 <li>Access the consent requests by either:<ul>
 <li>Generating new consent requests from a data processing activity.</li>
-<li>Pressing the <em>Consents</em> smart button in a data processing activity.</li>
+<li>Pressing the <em>Consents</em> smart button in a data processing
+activity.</li>
 <li>Going to <em>Privacy &gt; Privacy &gt; Consents</em>.</li>
 </ul>
 </li>
@@ -498,7 +499,7 @@ below.</li>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/data-protection/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/data-protection/issues/new?body=module:%20privacy_consent%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/data-protection/issues/new?body=module:%20privacy_consent%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -532,7 +533,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/data-protection/tree/18.0/privacy_consent">OCA/data-protection</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/data-protection/tree/19.0/privacy_consent">OCA/data-protection</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>

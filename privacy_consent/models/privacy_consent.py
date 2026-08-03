@@ -12,13 +12,10 @@ class PrivacyConsent(models.Model):
     _description = "Consent of data processing"
     _inherit = "mail.thread"
     _rec_name = "partner_id"
-    _sql_constraints = [
-        (
-            "unique_partner_activity",
-            "UNIQUE(partner_id, activity_id)",
-            "Duplicated partner in this data processing activity",
-        ),
-    ]
+    _unique_partner_activity = models.Constraint(
+        "UNIQUE(partner_id, activity_id)",
+        "Duplicated partner in this data processing activity",
+    )
 
     active = fields.Boolean(
         default=True,
@@ -130,16 +127,13 @@ class PrivacyConsent(models.Model):
         self._run_action()
         return result
 
-    def _message_get_suggested_recipients(self):
-        result = super()._message_get_suggested_recipients()
-        reason = self._fields["partner_id"].string
+    def _message_add_suggested_recipients(self, force_primary_email=False):
+        suggested = super()._message_add_suggested_recipients(
+            force_primary_email=force_primary_email
+        )
         for one in self:
-            one._message_add_suggested_recipient(
-                result,
-                partner=one.partner_id,
-                reason=reason,
-            )
-        return result
+            suggested[one.id]["partners"] += one.partner_id
+        return suggested
 
     def action_manual_ask(self):
         """Let user manually ask for consent."""

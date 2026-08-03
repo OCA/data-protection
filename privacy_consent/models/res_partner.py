@@ -21,13 +21,11 @@ class ResPartner(models.Model):
     @api.depends("privacy_consent_ids")
     def _compute_privacy_consent_count(self):
         """Count consent requests."""
-        self.privacy_consent_count = 0
-        groups = self.env["privacy.consent"].read_group(
+        groups = self.env["privacy.consent"]._read_group(
             [("partner_id", "in", self.ids)],
             ["partner_id"],
-            ["partner_id"],
+            ["__count"],
         )
-        for group in groups:
-            self.browse(group["partner_id"][0]).privacy_consent_count = group[
-                "partner_id_count"
-            ]
+        mapping = {partner.id: count for partner, count in groups}
+        for one in self:
+            one.privacy_consent_count = mapping.get(one.id, 0)

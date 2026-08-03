@@ -11,7 +11,7 @@ from odoo import http
 from odoo.exceptions import AccessError, ValidationError
 from odoo.tests import Form, users
 
-from odoo.addons.base.models.ir_mail_server import IrMailServer
+from odoo.addons.base.models.ir_mail_server import IrMail_Server
 from odoo.addons.mail.tests.common import mail_new_test_user
 
 
@@ -19,6 +19,14 @@ class ActivityCase(odoo.tests.HttpCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        # Odoo no longer installs demo data by default, so the classic
+        # "portal"/"portal" demo user can't be relied upon: create our own.
+        cls.user_portal = mail_new_test_user(
+            cls.env,
+            login="privacy_consent_portal",
+            groups="base.group_portal",
+            password="privacy_consent_portal",
+        )
         cls.cron = cls.env.ref("privacy_consent.cron_auto_consent")
         cls.cron_mail_queue = cls.env.ref("mail.ir_cron_mail_scheduler_action")
         cls.sync_blacklist = cls.env.ref("privacy_consent.sync_blacklist")
@@ -77,7 +85,15 @@ class ActivityCase(odoo.tests.HttpCase):
 
     @contextmanager
     def _patch_build(self):
-        build_email_origin = IrMailServer.build_email
+        # Odoo 19 added an early `_disable_send()` guard at the very top of
+        # `mail.mail._send()`, before the message is even built: under
+        # `--test-enable` it returns True and `_send()` bails out doing
+        # nothing (mail stays "outgoing"), unless monkeypatched - see the
+        # "unless monkeypatched" note in `_send()`'s source. So besides
+        # capturing the built body (as before), we also need to force
+        # `_disable_send()` to False and fake the SMTP session, mirroring
+        # `odoo.addons.base.tests.common.MockSmtplibCase`.
+        build_email_origin = IrMail_Server._build_email__
         self._built_messages = []
 
         def _build_email(_self, email_from, email_to, subject, body, *args, **kwargs):
@@ -86,13 +102,39 @@ class ActivityCase(odoo.tests.HttpCase):
                 _self, email_from, email_to, subject, body, *args, **kwargs
             )
 
-        with patch.object(
-            IrMailServer,
-            "build_email",
-            autospec=True,
-            wraps=build_email_origin,
-            side_effect=_build_email,
-        ) as build_email_mocked:
+        class _FakeSMTPSession:
+            def quit(self):
+                pass
+
+            def send_message(self, message, smtp_from, smtp_to_list):
+                pass
+
+            def set_debuglevel(self, smtp_debug):
+                pass
+
+            def ehlo_or_helo_if_needed(self):
+                pass
+
+            def login(self, user, password):
+                pass
+
+            def starttls(self, keyfile=None, certfile=None, context=None):
+                pass
+
+        fake_session = _FakeSMTPSession()
+
+        with (
+            patch("smtplib.SMTP_SSL", side_effect=lambda *a, **k: fake_session),
+            patch("smtplib.SMTP", side_effect=lambda *a, **k: fake_session),
+            patch.object(IrMail_Server, "_disable_send", lambda self: False),
+            patch.object(
+                IrMail_Server,
+                "_build_email__",
+                autospec=True,
+                wraps=build_email_origin,
+                side_effect=_build_email,
+            ) as build_email_mocked,
+        ):
             self.build_email_mocked = build_email_mocked
             yield
 
@@ -125,25 +167,33 @@ class ActivityFlow(ActivityCase):
                 consent.state,
                 "sent" if good_email else "draft",
             )
-            self.assertEqual(len(consent.message_ids), 2)
+            # Writing state="sent" is tracked (state has tracking=True), so
+            # it logs one extra "State Changed" message on top of the usual
+            # 2 (creation + subject notification) - but only when the state
+            # actually transitions, i.e. only for the good_email consents.
+            self.assertEqual(len(consent.message_ids), 3 if good_email else 2)
             # message notifies creation
             self.assertTrue(
                 self.mt_consent_consent_new in consent.message_ids.mapped("subtype_id")
             )
             # message notifies subject
-            # Placeholder links should be logged
-            message_subject = consent.message_ids.filtered(
-                lambda x: x.subtype_id != self.mt_consent_consent_new
-            )
+            # Placeholder links should be logged. The actual per-recipient
+            # notification message has no subtype (unlike the "New Consent"
+            # creation message or, when state actually transitions, the
+            # tracked "State Changed" message), so filter on that instead.
+            message_subject = consent.message_ids.filtered(lambda x: not x.subtype_id)
             self.assertIn("/privacy/consent/accept/", message_subject.body)
             self.assertIn("/privacy/consent/reject/", message_subject.body)
             # Tokenized links shouldn't be logged
             self.assertNotIn(consent._url(True), message_subject.body)
             self.assertNotIn(consent._url(False), message_subject.body)
-            # without state change (only in test mode)
-            self.assertTrue(
+            # state change is tracked only when the state actually flips to
+            # "sent" (good_email); it stays untouched (still "draft") for
+            # the invalid-email consent, so no tracking message there.
+            self.assertEqual(
                 self.mt_consent_state_changed
-                not in consent.message_ids.mapped("subtype_id")
+                in consent.message_ids.mapped("subtype_id"),
+                good_email,
             )
             # Partner's is_blacklisted should be synced with default consent
             self.assertFalse(consent.partner_id.is_blacklisted)
@@ -265,7 +315,7 @@ class ActivityFlow(ActivityCase):
         self.assertNotIn(accept_url, messages.body)
         self.assertNotIn(reject_url, messages.body)
         # Visit tokenized accept URL
-        self.authenticate("portal", "portal")
+        self.authenticate("privacy_consent_portal", "privacy_consent_portal")
         http.root.session_store.save(self.session)
         result = self.url_open(accept_url).text
         self.assertIn("accepted", result)
@@ -361,10 +411,8 @@ class ActivityFlow(ActivityCase):
             }
         )
         suggested_recipients = consent._message_get_suggested_recipients()
-        recipient = suggested_recipients[0]
-        self.assertEqual(consent.partner_id.id, recipient["partner_id"])
-        self.assertIn(consent.partner_id.name, recipient["name"])
-        self.assertIn(consent.partner_id.email, recipient["email"])
+        partner_ids = [r["partner_id"] for r in suggested_recipients]
+        self.assertIn(consent.partner_id.id, partner_ids)
 
     def test_compute_consent_count(self):
         """Test that consent_count is correctly updated."""

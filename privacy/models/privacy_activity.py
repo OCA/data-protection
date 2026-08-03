@@ -14,7 +14,7 @@ class PrivacyActivity(models.Model):
         index=True,
     )
     name = fields.Char(
-        index=True,
+        index="trigram",
         required=True,
         translate=True,
     )

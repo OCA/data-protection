@@ -2,3 +2,4 @@
   - Jairo Llopis
 - [initOS GmbH](https://www.initos.com):
   - Florian Kantelberg
+- [fidpa](https://github.com/fidpa)

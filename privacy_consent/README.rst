@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =================
 Privacy - Consent
 =================
@@ -17,7 +13,7 @@ Privacy - Consent
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fdata--protection-lightgray.png?logo=github
@@ -76,49 +72,49 @@ New options for data processing activities:
 3. Go to tab *Consent* and choose one option in *Ask subjects for
    consent*:
 
-   - *Manual* tells the activity that you will want to create and send
-     the consent requests manually, and only provides some helpers for
-     you to be able to batch-generate them.
-   - *Automatic* enables this module's full power: send all consent
-     requests to selected partners automatically, every day and under
-     your demand.
+   -  *Manual* tells the activity that you will want to create and send
+      the consent requests manually, and only provides some helpers for
+      you to be able to batch-generate them.
+   -  *Automatic* enables this module's full power: send all consent
+      requests to selected partners automatically, every day and under
+      your demand.
 
 4. When you do this, all the consent-related options appear. Configure
    them:
 
-   - A smart button tells you how many consents have been generated, and
-     lets you access them.
+   -  A smart button tells you how many consents have been generated,
+      and lets you access them.
 
-   - Choose one *Email template* to send to subjects. This email itself
-     is what asks for consent, and it gets recorded, to serve as a proof
-     that it was sent. The module provides a default template that
-     should be good for most usage cases; and if you create one directly
-     from that field, some good defaults are provided for your
-     comfortability.
+   -  Choose one *Email template* to send to subjects. This email itself
+      is what asks for consent, and it gets recorded, to serve as a
+      proof that it was sent. The module provides a default template
+      that should be good for most usage cases; and if you create one
+      directly from that field, some good defaults are provided for your
+      comfortability.
 
-   - *Subjects filter* defines what partners will be elegible for
-     inclusion in this data processing activity.
+   -  *Subjects filter* defines what partners will be elegible for
+      inclusion in this data processing activity.
 
-   - You can enable *Accepted by default* if you want to assume subjects
-     accepted their data processing. You should possibly consult your
-     lawyer to use this.
+   -  You can enable *Accepted by default* if you want to assume
+      subjects accepted their data processing. You should possibly
+      consult your lawyer to use this.
 
-   - You can choose a *Server action* (developer mode only) that will be
-     executed whenever a new non-draft consent request is created, or
-     when its acceptance status changes.
+   -  You can choose a *Server action* (developer mode only) that will
+      be executed whenever a new non-draft consent request is created,
+      or when its acceptance status changes.
 
-     This module supplies a server action by default, called *Update
-     partner's opt out*, that syncs the acceptance status with the
-     partner's *Elegible for mass mailings* option.
+      This module supplies a server action by default, called *Update
+      partner's opt out*, that syncs the acceptance status with the
+      partner's *Elegible for mass mailings* option.
 
 5. Click on *Generate consent requests* link to create new consent
    requests.
 
-   - If you chose *Manual* mode, all missing consent request are created
-     as drafts, and nothing else is done now.
-   - If you chose *Automatic* mode, also those request e-mails are
-     enqueued and, when the mail queue is cleared, they will be set as
-     *Sent*.
+   -  If you chose *Manual* mode, all missing consent request are
+      created as drafts, and nothing else is done now.
+   -  If you chose *Automatic* mode, also those request e-mails are
+      enqueued and, when the mail queue is cleared, they will be set as
+      *Sent*.
 
 6. You will be presented with the list of just-created consent requests.
    See below.
@@ -127,9 +123,10 @@ New options for consent requests:
 
 1. Access the consent requests by either:
 
-   - Generating new consent requests from a data processing activity.
-   - Pressing the *Consents* smart button in a data processing activity.
-   - Going to *Privacy > Privacy > Consents*.
+   -  Generating new consent requests from a data processing activity.
+   -  Pressing the *Consents* smart button in a data processing
+      activity.
+   -  Going to *Privacy > Privacy > Consents*.
 
 2. A consent will include the partner, the activity, the acceptance
    status, and the request state.
@@ -137,6 +134,17 @@ New options for consent requests:
    *Ask for consent*.
 4. All consent requests and responses are recorded in the mail thread
    below.
+
+How subjects answer:
+
+1. The request e-mail contains an *Accept* and a *Reject* link. Opening
+   either link shows a confirmation page first.
+2. The answer is recorded only after the subject presses the
+   confirmation button on that page. This protects against mail gateways
+   and antivirus link scanners that prefetch every link in an e-mail,
+   which would otherwise record false answers.
+3. Subjects can change their answer at any time by opening one of the
+   links again.
 
 Bug Tracker
 ===========
@@ -160,13 +168,15 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Jairo Llopis
+   -  Jairo Llopis
 
-- `initOS GmbH <https://www.initos.com>`__:
+-  `initOS GmbH <https://www.initos.com>`__:
 
-  - Florian Kantelberg
+   -  Florian Kantelberg
+
+-  `fidpa <https://github.com/fidpa>`__
 
 Maintainers
 -----------

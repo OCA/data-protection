@@ -1,4 +1,5 @@
 # Copyright 2018 Eficent Business and IT Consulting Services S.L.
+# Copyright 2025 Juan Jose Bautista - Aulora AG.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Data Privacy and Protection",

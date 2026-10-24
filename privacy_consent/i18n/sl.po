@@ -1,0 +1,716 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* privacy_consent
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-26 15:08+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: privacy_consent
+#: model:mail.template,body_html:privacy_consent.template_consent
+msgid ""
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"                <table style=\"width:600px;margin:5px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <a href=\"/\">\n"
+"                                    <img src=\"/logo\" t-att-alt=\"object.activity_id.controller_id.display_name\" style=\"vertical-align:baseline;max-width:100px;\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;background:white;border:1px solid #e1e1e1;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 0px 20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Hello, <t t-out=\"object.partner_id.name\"/>\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    We contacted you to ask you to give us your explicit consent to include your data in a data processing activity called\n"
+"                                    <b t-out=\"object.activity_id.display_name\"/>, property of\n"
+"                                    <i t-out=\"object.activity_id.controller_id.display_name\"/>\n"
+"                                </p>\n"
+"                                <t t-out=\"object.activity_id.description\"/>\n"
+"                                <p>\n"
+"                                    <t t-if=\"object.state == 'answered'\">\n"
+"                                        The last time you answered, you\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        If you do nothing, we will assume you have\n"
+"                                    </t>\n"
+"\n"
+"                                    <t t-if=\"object.accepted\">\n"
+"                                    <b>accepted</b>\n"
+"                                </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                    <b>rejected</b>\n"
+"                                </t>\n"
+"                                    such data processing.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    You can update your preferences below:\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-size:16px; text-align:right;\">\n"
+"                                <a href=\"/privacy/consent/accept/\" style=\"background-color: #449d44; padding: 12px; font-weight: 12px; text-decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Accept\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-size:16px; text-align:left;\">\n"
+"                                <a href=\"/privacy/consent/reject/\" style=\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Reject\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 15px 20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    If you need further information, please respond to this email and we will attend your request as soon as possible.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Thank you!\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;text-align:center;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;font-size: 12px;\">\n"
+"                                <p>\n"
+"                                    Sent by\n"
+"                                    <a href=\"/\" style=\"color:#717188;\">\n"
+"                                    <t t-out=\"object.activity_id.controller_id.display_name\"/>\n"
+"                                </a>.\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-"
+"family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"                <table style=\"width:600px;margin:5px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <a href=\"/\">\n"
+"                                    <img src=\"/logo\" t-att-"
+"alt=\"object.activity_id.controller_id.display_name\" style=\"vertical-"
+"align:baseline;max-width:100px;\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px "
+"auto;background:white;border:1px solid #e1e1e1;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 0px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Pozdravljeni, <t t-"
+"out=\"object.partner_id.name\"/>\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Obračamo se na vas, da nam podate "
+"izrecno privolitev za vključitev svojih podatkov v dejavnost obdelave "
+"podatkov z nazivom\n"
+"                                    <b t-"
+"out=\"object.activity_id.display_name\"/>, upravljavca\n"
+"                                    <i t-"
+"out=\"object.activity_id.controller_id.display_name\"/>\n"
+"                                </p>\n"
+"                                <t t-out=\"object.activity_id.description\"/>"
+"\n"
+"                                <p>\n"
+"                                    <t t-if=\"object.state == 'answered'\">\n"
+"                                        Ob zadnjem odgovoru ste\n"
+"                                    </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                        Če ne storite ničesar, bomo šteli, "
+"da ste\n"
+"                                    </t>\n"
+"\n"
+"                                    <t t-if=\"object.accepted\">\n"
+"                                    <b>sprejeli</b>\n"
+"                                </t>\n"
+"                                    <t t-else=\"\">\n"
+"                                    <b>zavrnili</b>\n"
+"                                </t>\n"
+"                                    takšno obdelavo podatkov.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Svoje nastavitve lahko posodobite "
+"spodaj:\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:right;\">\n"
+"                                <a href=\"/privacy/consent/accept/\" "
+"style=\"background-color: #449d44; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Sprejmi\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td style=\"padding:15px 20px 0px 20px; font-"
+"size:16px; text-align:left;\">\n"
+"                                <a href=\"/privacy/consent/reject/\" "
+"style=\"background-color: #d9534f; padding: 12px; font-weight: 12px; text-"
+"decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">\n"
+"                                    Zavrni\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"padding:15px 20px 15px "
+"20px; font-size:16px;\">\n"
+"                                <p>\n"
+"                                    Če potrebujete dodatne informacije, "
+"odgovorite na to e-pošto in vašo zahtevo bomo obravnavali čim prej.\n"
+"                                </p>\n"
+"                                <p>\n"
+"                                    Hvala!\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:0px auto;text-"
+"align:center;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;font-size: 12px;\">"
+"\n"
+"                                <p>\n"
+"                                    Poslal\n"
+"                                    <a href=\"/\" style=\"color:#717188;\">\n"
+"                                    <t t-"
+"out=\"object.activity_id.controller_id.display_name\"/>\n"
+"                                </a>.\n"
+"                                </p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_activity_acceptance_changed
+msgid "Acceptance Changed"
+msgstr "Sprejem spremenjen"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_consent_acceptance_changed
+msgid "Acceptance Changed by Subject"
+msgstr "Sprejem spremenil posameznik"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_consent_acceptance_changed
+msgid "Acceptance status updated by subject"
+msgstr "Status sprejema je posodobil posameznik"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__accepted
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Accepted"
+msgstr "Sprejeto"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__default_consent
+msgid "Accepted by default"
+msgstr "Privzeto sprejeto"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction
+msgid "Action Needed"
+msgstr "Potrebno ukrepanje"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__active
+msgid "Active"
+msgstr "Aktivno"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__activity_id
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Activity"
+msgstr "Aktivnost"
+
+#. module: privacy_consent
+#: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__answered
+msgid "Answered"
+msgstr "Odgovorjeno"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_form
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Archived"
+msgstr "Arhivirano"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_form
+msgid "Ask for consent"
+msgstr "Zaprosi za privolitev"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_required
+msgid "Ask subjects for consent"
+msgstr "Zaprosi posameznike za privolitev"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_attachment_count
+msgid "Attachment Count"
+msgstr "Št. priponk"
+
+#. module: privacy_consent
+#: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__auto
+msgid "Automatically"
+msgstr "Samodejno"
+
+#. module: privacy_consent
+#: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__sent
+msgid "Awaiting response"
+msgstr "Čakanje na odgovor"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "Consent"
+msgstr "Privolitev"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_body_html
+msgid "Consent Template Default Body Html"
+msgstr "Privzeta vsebina HTML predloge privolitve"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_default_subject
+msgid "Consent Template Default Subject"
+msgstr "Privzeta zadeva predloge privolitve"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_privacy_consent
+msgid "Consent of data processing"
+msgstr "Privolitev v obdelavo podatkov"
+
+#. module: privacy_consent
+#: model:ir.actions.act_window,name:privacy_consent.consent_action
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_ids
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__privacy_consent_count
+#: model:ir.model.fields,field_description:privacy_consent.field_res_users__privacy_consent_count
+#: model:ir.ui.menu,name:privacy_consent.menu_privacy_consent
+msgid "Consents"
+msgstr "Privolitve"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_count
+msgid "Consents count"
+msgstr "Število privolitev"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_res_partner
+msgid "Contact"
+msgstr "Stik"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_privacy_activity
+msgid "Data processing activities"
+msgstr "Dejavnosti obdelave podatkov"
+
+#. module: privacy_consent
+#: model:mail.template,subject:privacy_consent.template_consent
+msgid ""
+"Data processing consent request for {{ object.activity_id.display_name }}"
+msgstr ""
+"Zahtevek za privolitev v obdelavo podatkov za {{ "
+"object.activity_id.display_name }}"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__display_name
+msgid "Display Name"
+msgstr "Prikazani naziv"
+
+#. module: privacy_consent
+#: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_consent__state__draft
+msgid "Draft"
+msgstr "Osnutek"
+
+#. module: privacy_consent
+#: model:ir.model.constraint,message:privacy_consent.constraint_privacy_consent_unique_partner_activity
+msgid "Duplicated partner in this data processing activity"
+msgstr "Podvojen partner v tej dejavnosti obdelave podatkov"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_template
+msgid "Email Templates"
+msgstr "Predloge e-pošte"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__consent_template_id
+msgid "Email template"
+msgstr "Predloga e-pošte"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity__consent_template_id
+msgid ""
+"Email to be sent to subjects to ask for consent. A good template should "
+"include details about the current consent request status, how to change it, "
+"and where to get more information."
+msgstr ""
+"E-pošta, poslana posameznikom za pridobitev privolitve. Dobra predloga mora "
+"vsebovati podrobnosti o trenutnem statusu zahtevka za privolitev, kako ga "
+"spremeniti in kje dobiti več informacij."
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity__consent_required
+msgid ""
+"Enable if you need to track any kind of consent from the affected subjects"
+msgstr ""
+"Omogočite, če morate spremljati katero koli vrsto privolitve prizadetih "
+"posameznikov"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_follower_ids
+msgid "Followers"
+msgstr "Sledilci"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Sledilci (partnerji)"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "Generate and enqueue missing consent requests"
+msgstr "Ustvari in uvrsti manjkajoče zahtevke za privolitev v čakalno vrsto"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "Generate missing draft consent requests"
+msgstr "Ustvari manjkajoče osnutke zahtevkov za privolitev"
+
+#. module: privacy_consent
+#. odoo-python
+#: code:addons/privacy_consent/models/privacy_activity.py:0
+msgid "Generated consents"
+msgstr "Ustvarjene privolitve"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__has_message
+msgid "Has Message"
+msgstr "Vsebuje sporočilo"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "Hello,"
+msgstr "Pozdravljeni."
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "I <b>accept</b> this processing of my data"
+msgstr "<b>Sprejemam</b> to obdelavo svojih podatkov"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "I <b>reject</b> this processing of my data"
+msgstr "<b>Zavračam</b> to obdelavo svojih podatkov"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__id
+msgid "ID"
+msgstr "ID"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Če je označeno, nova sporočila zahtevajo vašo pozornost."
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"Kadar je označeno, pomeni, da je pri nekaterih sporočilih prišlo do napake "
+"pri dostavi."
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "If it was a mistake, you can undo it here:"
+msgstr "Če je šlo za napako, jo lahko razveljavite tukaj:"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__accepted
+msgid ""
+"Indicates current acceptance status, which can come from subject's last "
+"answer, or from the default specified in the related data processing "
+"activity."
+msgstr ""
+"Označuje trenutni status sprejema, ki lahko izhaja iz zadnjega odgovora "
+"posameznika ali iz privzete vrednosti, določene v povezani dejavnosti "
+"obdelave podatkov."
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_is_follower
+msgid "Is Follower"
+msgstr "Je sledilec"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__last_metadata
+msgid "Last Metadata"
+msgstr "Zadnji metapodatki"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__write_uid
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: privacy_consent
+#: model:ir.model.fields.selection,name:privacy_consent.selection__privacy_activity__consent_required__manual
+msgid "Manually"
+msgstr "Ročno"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error
+msgid "Message Delivery error"
+msgstr "Napaka ob dostavi sporočila"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_ids
+msgid "Messages"
+msgstr "Sporočila"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__last_metadata
+msgid "Metadata from the last acceptance or rejection by the subject"
+msgstr "Metapodatki zadnjega sprejema ali zavrnitve s strani posameznika"
+
+#. module: privacy_consent
+#. odoo-python
+#: code:addons/privacy_consent/models/mail_template.py:0
+msgid ""
+"Missing privacy consent link placeholders. You need at least these two links:\n"
+"<a href=\"%(consent_url)s\">Accept</a>\n"
+"<a href=\"%(reject_url)s\">Reject</a>"
+msgstr ""
+"Manjkajo ograde povezav za privolitev glede zasebnosti. Potrebujete vsaj ti "
+"dve povezavi:\n"
+"<a href=\"%(consent_url)s\">Sprejmi</a>\n"
+"<a href=\"%(reject_url)s\">Zavrni</a>"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_activity_consent_new
+#: model:mail.message.subtype,name:privacy_consent.mt_consent_consent_new
+msgid "New Consent"
+msgstr "Nova privolitev"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Število ukrepov"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__message_has_error_counter
+msgid "Number of errors"
+msgstr "Število napak"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Število sporočil, ki zahtevajo ukrepanje"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Število sporočil, ki niso bila pravilno dostavljena"
+
+#. module: privacy_consent
+#: model:ir.model,name:privacy_consent.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "Izhodna pošta"
+
+#. module: privacy_consent
+#: model:mail.template,name:privacy_consent.template_consent
+msgid "Personal data processing consent request"
+msgstr "Zahtevek za privolitev v obdelavo osebnih podatkov"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_activity_acceptance_changed
+msgid "Privacy consent request acceptance status changed"
+msgstr "Status sprejema zahtevka za privolitev glede zasebnosti se je spremenil"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_activity_consent_new
+#: model:mail.message.subtype,description:privacy_consent.mt_consent_consent_new
+msgid "Privacy consent request created"
+msgstr "Zahtevek za privolitev glede zasebnosti je bil ustvarjen"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,description:privacy_consent.mt_activity_state_changed
+#: model:mail.message.subtype,description:privacy_consent.mt_consent_state_changed
+msgid "Privacy consent request state changed"
+msgstr "Stanje zahtevka za privolitev glede zasebnosti se je spremenilo"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_res_partner__privacy_consent_count
+#: model:ir.model.fields,help:privacy_consent.field_res_users__privacy_consent_count
+msgid "Privacy consent requests amount"
+msgstr "Število zahtevkov za privolitev glede zasebnosti"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_res_partner__privacy_consent_ids
+#: model:ir.model.fields,field_description:privacy_consent.field_res_users__privacy_consent_ids
+msgid "Privacy consents"
+msgstr "Privolitve glede zasebnosti"
+
+#. module: privacy_consent
+#: model:ir.actions.server,name:privacy_consent.cron_auto_consent_ir_actions_server
+msgid "Request automatic data processing consents"
+msgstr "Zahtevaj samodejne privolitve v obdelavo podatkov"
+
+#. module: privacy_consent
+#. odoo-python
+#: code:addons/privacy_consent/models/privacy_activity.py:0
+msgid "Require consent is available only for subjects in current database."
+msgstr ""
+"Zahteva za privolitev je na voljo samo za posameznike v trenutni bazi "
+"podatkov."
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity__server_action_id
+msgid ""
+"Run this action when a new consent request is created or its acceptance "
+"status is updated."
+msgstr ""
+"Zaženi to dejanje, ko je ustvarjen nov zahtevek za privolitev ali ko je "
+"posodobljen njegov status sprejema."
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_activity__server_action_id
+msgid "Server action"
+msgstr "Strežniško dejanje"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_activity__default_consent
+msgid "Should we assume the subject has accepted if we receive no response?"
+msgstr "Ali naj štejemo, da je posameznik sprejel, če ne prejmemo odgovora?"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "Sincerely,<br/>"
+msgstr "Lep pozdrav,<br/>"
+
+#. module: privacy_consent
+#. odoo-python
+#: code:addons/privacy_consent/models/privacy_activity.py:0
+msgid "Specify a mail template to ask automated consent."
+msgstr "Določite poštno predlogo za samodejno pridobivanje privolitve."
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__state
+#: model_terms:ir.ui.view,arch_db:privacy_consent.consent_search
+msgid "State"
+msgstr "Stanje"
+
+#. module: privacy_consent
+#: model:mail.message.subtype,name:privacy_consent.mt_activity_state_changed
+#: model:mail.message.subtype,name:privacy_consent.mt_consent_state_changed
+msgid "State Changed"
+msgstr "Stanje spremenjeno"
+
+#. module: privacy_consent
+#: model:ir.model.fields,field_description:privacy_consent.field_privacy_consent__partner_id
+msgid "Subject"
+msgstr "Posameznik"
+
+#. module: privacy_consent
+#: model:ir.model.fields,help:privacy_consent.field_privacy_consent__partner_id
+msgid "Subject asked for consent."
+msgstr "Posameznik, zaprošen za privolitev."
+
+#. module: privacy_consent
+#: model:ir.actions.server,name:privacy_consent.sync_blacklist
+msgid "Sync partner's email blacklist status"
+msgstr "Sinhroniziraj status partnerjevega e-poštnega črnega seznama"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "Thank you!"
+msgstr "Hvala!"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "Thanks for your response."
+msgstr "Hvala za vaš odgovor."
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.activity_form
+msgid "This could enqueue many consent emails, are you sure to proceed?"
+msgstr ""
+"To lahko v čakalno vrsto uvrsti veliko e-poštnih sporočil za privolitev. Ali "
+"res želite nadaljevati?"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid ""
+"We asked you to authorize us to process your data in this data processing "
+"activity:"
+msgstr ""
+"Prosili smo vas, da nam dovolite obdelavo svojih podatkov v tej dejavnosti "
+"obdelave podatkov:"
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "We have recorded this action on your side."
+msgstr "To vaše dejanje smo zabeležili."
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "You have <b class=\"text-danger\">rejected</b> such processing."
+msgstr "Takšno obdelavo ste <b class=\"text-danger\">zavrnili</b>."
+
+#. module: privacy_consent
+#: model_terms:ir.ui.view,arch_db:privacy_consent.form
+msgid "You have <b class=\"text-success\">accepted</b> such processing."
+msgstr "Takšno obdelavo ste <b class=\"text-success\">sprejeli</b>."

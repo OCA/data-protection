@@ -1,0 +1,392 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* privacy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-10-03 11:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction
+msgid "Action Needed"
+msgstr "Azione richiesta"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.activity_action
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_ids
+#: model:ir.ui.menu,name:privacy.menu_privacy_activity
+msgid "Activities"
+msgstr "Attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decorazione eccezione attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_state
+msgid "Activity State"
+msgstr "Stato attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icona tipo attività"
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+#: model_terms:ir.ui.view,arch_db:privacy.activity_search
+msgid "Archived"
+msgstr "In archivio"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__subject_find
+msgid "Are affected subjects present in this database?"
+msgstr "I soggetti interessati sono presenti nel database?"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_attachment_count
+msgid "Attachment Count"
+msgstr "Numero allegati"
+
+#. module: privacy
+#: model_terms:ir.actions.act_window,help:privacy.activity_action
+msgid "Click to add a data processing activity."
+msgstr "Fare clic per aggiungere un'attività di elaborazione dei dati."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__controller_id
+#: model_terms:ir.ui.view,arch_db:privacy.activity_search
+msgid "Controller"
+msgstr "Titolare trattamento"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: privacy
+#: model:ir.module.category,name:privacy.module_category_data_protection
+msgid "Data Protection"
+msgstr "Protezione dati"
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_manager
+msgid "Data Protection Manager"
+msgstr "Responsabile protezione dati (DPO)"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_config
+msgid "Data Protection Settings"
+msgstr "Impostazioni protezione dati"
+
+#. module: privacy
+#: model:res.groups,name:privacy.group_data_protection_user
+msgid "Data Protection User"
+msgstr "Utente protezione dati"
+
+#. module: privacy
+#: model:ir.model,name:privacy.model_privacy_activity
+msgid "Data processing activities"
+msgstr "Attività di elaborazione dei dati"
+
+#. module: privacy
+#: model_terms:ir.actions.act_window,help:privacy.activity_action
+msgid ""
+"Data processing activities define why, how and what you do\n"
+"                with subjects' personal data."
+msgstr ""
+"Le attività di elaborazione dei dati definiscono perché, come e cosa viene "
+"fatto\n"
+"                dei dati personali dei soggetti interessati."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_find
+msgid "Define subjects"
+msgstr "Indicare soggetti"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__description
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Details"
+msgstr "Dettagli"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_follower_ids
+msgid "Followers"
+msgstr "Seguito da"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguito da (partner)"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icona Font Awesome es. fa-tasks"
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_search
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__has_message
+msgid "Has Message"
+msgstr "Ha un messaggio"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__description
+msgid "How is personal data used here? Why? Etc."
+msgstr "Come vengono usati i dati personali? Perché? Ecc."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__id
+msgid "ID"
+msgstr "ID"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_exception_icon
+msgid "Icon"
+msgstr "Icona"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icona per indicare un'attività eccezione."
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_is_follower
+msgid "Is Follower"
+msgstr "Segue"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Allegato principale"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_master_data
+msgid "Master Data"
+msgstr "Dati principali"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error
+msgid "Message Delivery error"
+msgstr "Errore di consegna messaggio"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_ids
+msgid "Messages"
+msgstr "Messaggi"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Scadenza mia attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Scadenza prossima attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_summary
+msgid "Next Activity Summary"
+msgstr "Riepilogo prossima attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo prossima attività"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero di azioni"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero di errori"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Numero di messaggi che richiedono un'azione"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero di messaggi con errore di consegna"
+
+#. module: privacy
+#: model:ir.actions.act_window,name:privacy.action_data_protection_partner_form
+#: model:ir.ui.menu,name:privacy.menu_data_protection_partner
+msgid "Partners"
+msgstr "Partner"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.parent_menu_data_protection
+msgid "Privacy"
+msgstr "Privacy"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__processor_ids
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Processors"
+msgstr "Responsabile trattamento"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_report
+msgid "Reports"
+msgstr "Informative"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__activity_user_id
+msgid "Responsible User"
+msgstr "Utente responsabile"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__subject_domain
+msgid "Selection filter to find specific subjects included."
+msgstr ""
+"Filtro di selezione per trovare specifici soggetti interessati inclusi."
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_setting
+msgid "Settings"
+msgstr "Impostazioni"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Stato in base alle attività\n"
+"Scaduto: la data richiesta è trascorsa\n"
+"Oggi: la data attività è oggi\n"
+"Pianificato: attività future."
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "Subjects details"
+msgstr "Dettagli soggetti interessati"
+
+#. module: privacy
+#: model:ir.model.fields,field_description:privacy.field_privacy_activity__subject_domain
+msgid "Subjects filter"
+msgstr "Filtro soggetti interessati"
+
+#. module: privacy
+#: model:ir.ui.menu,name:privacy.menu_data_protection_transaction
+msgid "Transactions"
+msgstr "Transazioni"
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo di attività eccezione sul record."
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__controller_id
+msgid ""
+"Whoever determines the purposes and means of the processing of personal data."
+msgstr ""
+"Chiunque determini i fini e i mezzi di elaborazione dei dati personali."
+
+#. module: privacy
+#: model:ir.model.fields,help:privacy.field_privacy_activity__processor_ids
+msgid "Whoever processes personal data on behalf of the controller."
+msgstr ""
+"Chiunque elabori dati personali per conto del titolare del trattamento."
+
+#. module: privacy
+#: model_terms:ir.ui.view,arch_db:privacy.activity_form
+msgid "processors"
+msgstr "responsabili trattamento"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Numero di messaggi che richiedono un'azione"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Follower (canali)"
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Se selezionato, nuovi messaggi richiedono attenzione."
+
+#~ msgid "Number of error"
+#~ msgstr "Numero di errori"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Numero di messaggi non letti"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Messaggi non letti"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Numero messaggi non letti"
